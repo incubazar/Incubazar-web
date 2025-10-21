@@ -109,22 +109,28 @@ export default function InvestorVerificationPage() {
 
     setProcessing(true)
     try {
-      const { error } = await supabase
+      const { data, error } = await supabase
         .from('investor_profiles')
         .update({ kyc_status: 'verified' })
         .eq('id', selectedProfile.id)
+        .select()
 
-      if (error) throw error
+      if (error) {
+        console.error('Supabase update error:', error)
+        throw error
+      }
 
+      console.log('Update successful:', data)
       toast.success(`${selectedProfile.users?.full_name || 'User'} verified!`)
       setSelectedProfile(null)
       fetchProfiles()
     } catch (error) {
+      console.error('Full error details:', error)
       logger.error('Failed to verify profile', error as Error, {
         component: 'ADMIN_USERS',
         action: 'VERIFY'
       })
-      toast.error('Failed to verify profile')
+      toast.error(`Failed to verify profile: ${error instanceof Error ? error.message : 'Unknown error'}`)
     } finally {
       setProcessing(false)
     }
