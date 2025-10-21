@@ -109,9 +109,14 @@ export default function InvestorVerificationPage() {
 
     setProcessing(true)
     try {
+      const { data: { session } } = await supabase.auth.getSession()
+      
       const { data, error } = await supabase
         .from('investor_profiles')
-        .update({ kyc_status: 'verified' })
+        .update({ 
+          kyc_status: 'verified',
+          verified_by: session?.user?.id
+        })
         .eq('id', selectedProfile.id)
         .select()
 
@@ -144,10 +149,14 @@ export default function InvestorVerificationPage() {
 
     setProcessing(true)
     try {
+      const { data: { session } } = await supabase.auth.getSession()
+      
       const { error } = await supabase
         .from('investor_profiles')
         .update({ 
-          kyc_status: 'rejected'
+          kyc_status: 'rejected',
+          rejection_reason: rejectionReason,
+          verified_by: session?.user?.id
         })
         .eq('id', selectedProfile.id)
 
