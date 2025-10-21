@@ -39,7 +39,7 @@ interface InvestorProfile {
     full_name: string
     email: string
     phone: string
-  }
+  } | null
 }
 
 export default function InvestorVerificationPage() {
@@ -116,7 +116,7 @@ export default function InvestorVerificationPage() {
 
       if (error) throw error
 
-      toast.success(`${selectedProfile.users.full_name} verified!`)
+      toast.success(`${selectedProfile.users?.full_name || 'User'} verified!`)
       setSelectedProfile(null)
       fetchProfiles()
     } catch (error) {
@@ -246,8 +246,8 @@ export default function InvestorVerificationPage() {
                 <CardContent className="pt-6">
                   <div className="flex items-start justify-between mb-3">
                     <div className="flex-1">
-                      <h3 className="font-bold text-lg">{profile.users.full_name}</h3>
-                      <p className="text-sm text-gray-600">{profile.users.email}</p>
+                      <h3 className="font-bold text-lg">{profile.users?.full_name || 'Unknown User'}</h3>
+                      <p className="text-sm text-gray-600">{profile.users?.email || 'No email'}</p>
                     </div>
                     <Badge variant={profile.kyc_status === 'verified' ? 'default' : 'secondary'}>
                       {profile.kyc_status}
@@ -292,7 +292,7 @@ export default function InvestorVerificationPage() {
               <Card>
                 <CardHeader>
                   <div className="flex items-center justify-between">
-                    <CardTitle className="text-2xl">{selectedProfile.users.full_name}</CardTitle>
+                    <CardTitle className="text-2xl">{selectedProfile.users?.full_name || 'Unknown User'}</CardTitle>
                     <Badge variant="outline" className="text-base">
                       {selectedProfile.profile_completion_percentage}% Complete
                     </Badge>
@@ -302,11 +302,11 @@ export default function InvestorVerificationPage() {
                   <div className="grid grid-cols-2 gap-4">
                     <div>
                       <p className="text-sm text-gray-600">Email</p>
-                      <p className="font-semibold">{selectedProfile.users.email}</p>
+                      <p className="font-semibold">{selectedProfile.users?.email || 'No email'}</p>
                     </div>
                     <div>
                       <p className="text-sm text-gray-600">Phone</p>
-                      <p className="font-semibold">{selectedProfile.users.phone || 'Not provided'}</p>
+                      <p className="font-semibold">{selectedProfile.users?.phone || 'Not provided'}</p>
                     </div>
                     <div>
                       <p className="text-sm text-gray-600">KYC Status</p>
@@ -459,7 +459,7 @@ export default function InvestorVerificationPage() {
                   </div>
 
                   <div className="flex items-start gap-3">
-                    {selectedProfile.users.email && selectedProfile.users.email.includes('@') ? (
+                    {selectedProfile.users?.email && selectedProfile.users.email.includes('@') ? (
                       <CheckCircle className="h-5 w-5 text-green-500 mt-0.5" />
                     ) : (
                       <XCircle className="h-5 w-5 text-red-500 mt-0.5" />
