@@ -61,11 +61,20 @@ export default function AdminDashboard() {
         }
 
         // Check if user is admin
-        const { data: user } = await supabase
+        const { data: user, error: userError } = await supabase
           .from('users')
           .select('role')
           .eq('id', session.user.id)
-          .single()
+          .maybeSingle()
+
+        if (userError) {
+          logger.error('Failed to fetch user role', userError, {
+            component: 'ADMIN_DASHBOARD',
+            action: 'CHECK_ADMIN'
+          })
+          setError('Failed to verify admin access')
+          return
+        }
 
         if (!user || user.role !== 'admin') {
           setError('Unauthorized: Admin access only')

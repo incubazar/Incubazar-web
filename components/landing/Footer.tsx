@@ -85,7 +85,7 @@ export default function Footer() {
               </span>
             </Link>
             <p className="text-white/70 leading-relaxed">
-              India's trusted digital incubator connecting founders with investors, mentors, and opportunities.
+              We connect visionaries and help them turn ideas into investments. India's trusted platform connecting founders with investors, mentors, and opportunities.
             </p>
             <div className="space-y-2 text-sm text-white/60">
               <div className="flex items-center space-x-2">

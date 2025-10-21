@@ -1,6 +1,8 @@
-# Incubazar - Trust-First Digital Incubator
+# Incubazar - We Connect Visionaries
 
-A comprehensive digital investment and incubation platform connecting early-stage startup founders with angel investors in India. Built with regulatory compliance in mind, operating under Section 42 of the Companies Act 2013.
+**We connect visionaries — and help them turn ideas into investments.**
+
+A comprehensive platform connecting early-stage startup founders with angel investors in India. Built with regulatory compliance in mind, operating under Section 42 of the Companies Act 2013.
 
 ## 🚀 Features
 

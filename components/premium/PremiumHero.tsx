@@ -21,14 +21,14 @@ export default function PremiumHero() {
           {/* Main Headline */}
           <div className="space-y-6 animate-fade-in">
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight">
-              India's Trust-First
+              We Connect
               <br />
-              <span className="text-gradient">Digital Incubator</span>
+              <span className="text-gradient">Visionaries</span>
             </h1>
 
             {/* Subheadline */}
             <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Connecting early-stage founders with angel investors through a compliant, transparent platform designed for India's startup ecosystem.
+              And help them turn ideas into investments. Connecting early-stage founders with angel investors through a compliant, transparent platform designed for India's startup ecosystem.
             </p>
           </div>
 

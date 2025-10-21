@@ -65,13 +65,13 @@ export default function InvestorVerificationPage() {
       }
 
       // Check if user is admin
-      const { data: user } = await supabase
+      const { data: user, error: userError } = await supabase
         .from('users')
         .select('role')
         .eq('id', session.user.id)
-        .single()
+        .maybeSingle()
 
-      if (!user || user.role !== 'admin') {
+      if (userError || !user || user.role !== 'admin') {
         router.push('/')
         return
       }

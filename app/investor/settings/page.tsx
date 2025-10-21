@@ -40,9 +40,9 @@ export default function InvestorSettingsPage() {
         .from('users')
         .select('*')
         .eq('id', session.user.id)
-        .single()
+        .maybeSingle()
 
-      if (error) throw error
+      if (error || !userData) throw error
 
       setUser(userData)
       setProfile({

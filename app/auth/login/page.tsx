@@ -42,9 +42,9 @@ export default function LoginPage() {
           .from('users')
           .select('role')
           .eq('id', data.user.id)
-          .single()
+          .maybeSingle()
 
-        if (userError) {
+        if (userError || !userData) {
           setError('Failed to fetch user data')
           return
         }
