@@ -8,20 +8,6 @@
       "maxDuration": 30
     }
   },
-  "env": {
-    "NEXT_PUBLIC_SUPABASE_URL": "@supabase-url",
-    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "@supabase-anon-key",
-    "SUPABASE_SERVICE_ROLE_KEY": "@supabase-service-role-key",
-    "DOCUSIGN_CLIENT_ID": "@docusign-client-id",
-    "DOCUSIGN_CLIENT_SECRET": "@docusign-client-secret",
-    "DOCUSIGN_ACCOUNT_ID": "@docusign-account-id",
-    "RAZORPAY_KEY_ID": "@razorpay-key-id",
-    "RAZORPAY_KEY_SECRET": "@razorpay-key-secret",
-    "RAZORPAY_WEBHOOK_SECRET": "@razorpay-webhook-secret",
-    "AI_SERVICE_URL": "@ai-service-url",
-    "AI_SERVICE_API_KEY": "@ai-service-api-key",
-    "NEXTAUTH_SECRET": "@nextauth-secret"
-  },
   "headers": [
     {
       "source": "/(.*)",
