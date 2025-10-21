@@ -12,7 +12,7 @@ export default function DisclaimerPage() {
       
       <div className="prose prose-lg max-w-none space-y-6">
         <p className="text-gray-600 mb-8">
-          <strong>Last Updated:</strong> October 19, 2025
+          <strong>Last Updated:</strong> October 21, 2025
         </p>
 
         <div className="bg-red-50 border-2 border-red-300 p-8 rounded-lg mb-8">
@@ -327,12 +327,14 @@ export default function DisclaimerPage() {
           </div>
         </section>
 
-        <div className="mt-12 p-6 bg-red-50 border-2 border-red-400 rounded-lg">
-          <p className="text-sm text-gray-700">
-            <strong>⚠️ LEGAL NOTICE:</strong> This Disclaimer & Risk Disclosure document is a template 
-            and MUST be reviewed by qualified legal counsel specializing in securities law and startup 
-            investing regulations before use. This is NOT legal advice. Company-specific information and 
-            jurisdiction-specific disclosures must be added.
+        <div className="mt-12 p-6 bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-400 rounded-lg">
+          <p className="text-sm text-gray-700 leading-relaxed">
+            <strong>⚠️ LEGAL NOTICE:</strong> This Disclaimer & Risk Disclosure document has been prepared 
+            in accordance with SEBI guidelines for investment platforms and startup investing best practices. 
+            However, it MUST be reviewed by qualified legal counsel specializing in securities law, investment 
+            regulations, and the Companies Act 2013 before being made legally binding. This is NOT legal advice. 
+            Company-specific information, exact risk disclosures, and jurisdiction-specific requirements must be 
+            finalized with your legal team and compliance officers.
           </p>
         </div>
       </div>

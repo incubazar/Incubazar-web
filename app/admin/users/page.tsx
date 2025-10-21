@@ -121,16 +121,22 @@ export default function InvestorVerificationPage() {
         .select()
 
       if (error) {
-        console.error('Supabase update error:', error)
+        logger.error('Supabase update error during investor verification', error as Error, {
+          component: 'ADMIN_USERS',
+          action: 'UPDATE_VERIFY'
+        })
         throw error
       }
 
-      console.log('Update successful:', data)
+      logger.info('Investor verified successfully', {
+        component: 'ADMIN_USERS',
+        action: 'VERIFY',
+        profileId: selectedProfile.id
+      })
       toast.success(`${selectedProfile.users?.full_name || 'User'} verified!`)
       setSelectedProfile(null)
       fetchProfiles()
     } catch (error) {
-      console.error('Full error details:', error)
       logger.error('Failed to verify profile', error as Error, {
         component: 'ADMIN_USERS',
         action: 'VERIFY'

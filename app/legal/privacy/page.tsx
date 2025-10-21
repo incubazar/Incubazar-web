@@ -12,7 +12,7 @@ export default function PrivacyPolicyPage() {
       
       <div className="prose prose-lg max-w-none space-y-6">
         <p className="text-gray-600 mb-8">
-          <strong>Last Updated:</strong> October 19, 2025
+          <strong>Last Updated:</strong> October 21, 2025
         </p>
 
         <section className="mb-8">
@@ -230,11 +230,12 @@ export default function PrivacyPolicyPage() {
           </ul>
         </section>
 
-        <div className="mt-12 p-6 bg-blue-50 border border-blue-200 rounded-lg">
-          <p className="text-sm text-gray-700">
-            <strong>Note:</strong> This Privacy Policy is a template and should be reviewed by legal counsel 
-            before publication. Specific company details, contact information, and local jurisdiction requirements 
-            must be added.
+        <div className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-300 rounded-lg">
+          <p className="text-sm text-gray-700 leading-relaxed">
+            <strong>⚖️ Legal Review Required:</strong> This Privacy Policy has been prepared based on industry 
+            best practices and applicable Indian laws. However, we strongly recommend having it reviewed by 
+            qualified legal counsel before making it legally binding. Company-specific details, exact contact 
+            information, and jurisdiction-specific requirements should be verified with your legal team.
           </p>
         </div>
       </div>

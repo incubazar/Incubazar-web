@@ -6,8 +6,10 @@ export default function PremiumFooter() {
 
   const footerLinks = {
     product: [
-      { label: 'For Founders', href: '/solutions/founders' },
-      { label: 'For Investors', href: '/solutions/investors' },
+      { label: 'Founder Dashboard', href: '/founder' },
+      { label: 'Investor Dashboard', href: '/investor' },
+      { label: 'Login', href: '/auth/login' },
+      { label: 'Register', href: '/auth/register' },
     ],
     legal: [
       { label: 'Privacy Policy', href: '/legal/privacy' },

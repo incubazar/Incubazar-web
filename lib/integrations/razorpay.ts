@@ -1,4 +1,5 @@
 import Razorpay from 'razorpay'
+import { logger } from '@/lib/logger'
 
 export interface RazorpayConfig {
   keyId: string
@@ -69,7 +70,12 @@ export class RazorpayService {
         created_at: Date.now(),
       }
     } catch (error) {
-      console.error('Razorpay order creation error:', error)
+      logger.error('Razorpay order creation failed', error as Error, {
+        component: 'RAZORPAY',
+        action: 'CREATE_ORDER',
+        amount: paymentRequest.amount,
+        receipt: paymentRequest.receipt
+      })
       throw new Error('Failed to create payment order')
     }
   }
@@ -111,7 +117,11 @@ export class RazorpayService {
     try {
       return await this.razorpay.payments.fetch(paymentId)
     } catch (error) {
-      console.error('Razorpay payment fetch error:', error)
+      logger.error('Razorpay payment fetch failed', error as Error, {
+        component: 'RAZORPAY',
+        action: 'GET_PAYMENT',
+        paymentId
+      })
       throw new Error('Failed to fetch payment details')
     }
   }
@@ -131,7 +141,12 @@ export class RazorpayService {
 
       return await this.razorpay.payments.refund(paymentId, refundData)
     } catch (error) {
-      console.error('Razorpay refund error:', error)
+      logger.error('Razorpay refund failed', error as Error, {
+        component: 'RAZORPAY',
+        action: 'REFUND_PAYMENT',
+        paymentId,
+        amount
+      })
       throw new Error('Failed to process refund')
     }
   }

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { createClient } from '@/lib/supabase/client'
+import { logger } from '@/lib/logger'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
@@ -92,7 +93,10 @@ export default function ComplianceMonitor() {
         setDeals(dealCompliance.sort((a, b) => b.percentage - a.percentage))
 
       } catch (error) {
-        console.error('Error fetching compliance data:', error)
+        logger.error('Error fetching compliance data', error as Error, {
+          component: 'COMPLIANCE_MONITOR',
+          action: 'FETCH'
+        })
       } finally {
         setLoading(false)
       }

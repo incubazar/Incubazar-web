@@ -12,7 +12,7 @@ export default function TermsOfServicePage() {
       
       <div className="prose prose-lg max-w-none space-y-6">
         <p className="text-gray-600 mb-8">
-          <strong>Last Updated:</strong> October 19, 2025
+          <strong>Last Updated:</strong> October 21, 2025
         </p>
 
         <section className="mb-8">
@@ -329,12 +329,13 @@ export default function TermsOfServicePage() {
           </div>
         </section>
 
-        <div className="mt-12 p-6 bg-red-50 border border-red-200 rounded-lg">
-          <p className="text-sm text-gray-700">
-            <strong>⚠️ LEGAL NOTICE:</strong> This Terms of Service document is a template and MUST be 
-            reviewed and approved by qualified legal counsel before use. Company-specific details, contact 
-            information, arbitration venue, and jurisdiction must be specified. Consult with a lawyer 
-            specializing in securities law, fintech regulations, and the Companies Act, 2013.
+        <div className="mt-12 p-6 bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-300 rounded-lg">
+          <p className="text-sm text-gray-700 leading-relaxed">
+            <strong>⚠️ LEGAL NOTICE:</strong> This Terms of Service document has been drafted to comply with 
+            Indian regulations including the Companies Act 2013, IT Act 2000, and SEBI guidelines. However, 
+            it MUST be reviewed and approved by qualified legal counsel specializing in securities law, fintech 
+            regulations, and startup investments before being made legally binding. Company-specific details, 
+            contact information, arbitration venue, and exact jurisdiction must be finalized with your legal team.
           </p>
         </div>
       </div>

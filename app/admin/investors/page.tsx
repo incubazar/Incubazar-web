@@ -111,7 +111,10 @@ export default function AdminInvestorsPage() {
         .order('created_at', { ascending: false })
 
       if (profileError) {
-        console.error('Profile fetch error:', profileError)
+        logger.error('Profile fetch error', profileError as Error, {
+          component: 'ADMIN_INVESTORS',
+          action: 'FETCH_PROFILES'
+        })
         throw profileError
       }
 
@@ -132,7 +135,12 @@ export default function AdminInvestorsPage() {
               .order('created_at', { ascending: false })
 
             if (interestsError) {
-              console.warn(`Failed to fetch interests for investor ${profile.id}:`, interestsError)
+              logger.warn(`Failed to fetch interests for investor ${profile.id}`, {
+                component: 'ADMIN_INVESTORS',
+                action: 'FETCH_INTERESTS',
+                profileId: profile.id,
+                error: interestsError
+              })
             }
 
             // Fetch startup names for each interest (with error handling)
@@ -164,7 +172,11 @@ export default function AdminInvestorsPage() {
                     }
                   }
                 } catch (err) {
-                  console.warn(`Failed to fetch startup for interest ${interest.id}:`, err)
+                  logger.warn(`Failed to fetch startup for interest ${interest.id}`, {
+                    component: 'ADMIN_INVESTORS',
+                    action: 'FETCH_STARTUP',
+                    interestId: interest.id
+                  })
                 }
 
                 return interest
@@ -176,7 +188,11 @@ export default function AdminInvestorsPage() {
               investor_interests: interestsWithStartups
             }
           } catch (err) {
-            console.warn(`Failed to process profile ${profile.id}:`, err)
+            logger.warn(`Failed to process profile ${profile.id}`, {
+              component: 'ADMIN_INVESTORS',
+              action: 'PROCESS_PROFILE',
+              profileId: profile.id
+            })
             return {
               ...profile,
               investor_interests: []
@@ -191,8 +207,7 @@ export default function AdminInvestorsPage() {
         component: 'ADMIN_INVESTORS',
         action: 'FETCH'
       })
-      console.error('Investors fetch error:', error)
-      toast.error('Failed to load investors. Check console for details.')
+      toast.error('Failed to load investors')
     } finally {
       setLoading(false)
     }
