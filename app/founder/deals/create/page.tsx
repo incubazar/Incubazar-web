@@ -142,12 +142,14 @@ export default function CreateDealPage() {
           instrument_type: formData.instrument_type,
           investor_count: 0,
           investor_limit: 200,
-          is_active: true
+          is_active: true,
+          admin_approval_status: 'pending',
+          is_featured: false
         })
 
       if (error) throw error
 
-      toast.success('Deal created successfully! It will be reviewed by our team.')
+      toast.success('Deal created successfully! It is pending admin review and will go live once approved.')
       router.push('/founder/deals')
     } catch (error: any) {
       setError(error.message || 'Failed to create deal')

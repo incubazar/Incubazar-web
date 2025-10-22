@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { LabelWithTooltip } from '@/components/ui/tooltip-info'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
@@ -48,6 +49,7 @@ interface InvestorOnboardingData {
   // Investment Criteria
   investment_philosophy: string
   risk_appetite: string
+  risk_acknowledgment: boolean
   expected_return: string
   investment_horizon: string
   value_add: string
@@ -95,6 +97,7 @@ export default function InvestorOnboarding() {
     typical_check_size: '',
     investment_philosophy: '',
     risk_appetite: '',
+    risk_acknowledgment: false,
     expected_return: '',
     investment_horizon: '',
     value_add: '',
@@ -199,6 +202,12 @@ export default function InvestorOnboarding() {
       // Validate required fields
       if (!data.investor_type || data.preferred_sectors.length === 0) {
         setError('Please complete all required fields')
+        return
+      }
+
+      // Validate risk acknowledgment
+      if (!data.risk_acknowledgment) {
+        setError('You must acknowledge the investment risks to continue')
         return
       }
 
@@ -779,6 +788,32 @@ export default function InvestorOnboarding() {
                   onChange={(e) => updateField('investment_goals', e.target.value)}
                   rows={4}
                 />
+              </div>
+
+              {/* Risk Acknowledgment */}
+              <div className="mt-6 p-4 border-2 border-red-200 bg-red-50 rounded-lg">
+                <div className="flex items-start space-x-3">
+                  <Checkbox
+                    id="risk_acknowledgment"
+                    checked={data.risk_acknowledgment}
+                    onCheckedChange={(checked) => updateField('risk_acknowledgment', checked as boolean)}
+                    className="mt-1"
+                  />
+                  <div className="flex-1">
+                    <label
+                      htmlFor="risk_acknowledgment"
+                      className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
+                    >
+                      <div className="flex items-center space-x-2 mb-2">
+                        <AlertCircle className="h-5 w-5 text-red-600" />
+                        <span className="text-red-900 font-semibold">Risk Acknowledgment (Required)</span>
+                      </div>
+                      <p className="text-red-800 leading-relaxed">
+                        I understand and acknowledge that startup investments carry substantial risk, including the potential loss of my entire investment. Past performance is not indicative of future results. I confirm that I will conduct my own due diligence and consult with financial, legal, and tax advisors before making any investment decisions.
+                      </p>
+                    </label>
+                  </div>
+                </div>
               </div>
             </CardContent>
           </Card>

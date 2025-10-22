@@ -1,456 +1,608 @@
-"use client"
+'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
-import { logger } from '@/lib/logger'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
-import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
+import { ExpressInterestButton } from '@/components/investor/ExpressInterestButton'
+import { DataRoomAccess } from '@/components/investor/DataRoomAccess'
+import { InvestorLimitTracker } from '@/components/compliance/InvestorLimitTracker'
+import PrivatePlacementNotice from '@/components/compliance/PrivatePlacementNotice'
 import { 
-  Building2, 
-  Users, 
-  Lightbulb,
-  TrendingUp,
-  DollarSign,
-  Target,
-  CheckCircle,
-  AlertCircle,
-  ArrowLeft,
-  Loader2,
-  Globe,
-  Calendar,
-  Briefcase,
-  Award,
-  TrendingDown
+  ArrowLeft, Building2, Users, Lightbulb, TrendingUp, 
+  Target, DollarSign, FileText, Calendar, MapPin,
+  ExternalLink, Award, Briefcase
 } from 'lucide-react'
 import { toast } from 'sonner'
-import Link from 'next/link'
+import { logger } from '@/lib/logger'
 
-interface StartupProfile {
+interface DealDetail {
   id: string
-  startup_name: string
-  incorporation_status: string
-  incorporation_number: string
-  industry_sector: string
-  stage: string
-  admin_approval_status: string
-}
-
-interface StartupDetails {
-  founded_date: string
-  website: string
-  founder_names: string
-  team_size: string
-  key_team_members: string
-  advisor_names: string
+  deal_title: string
   problem_statement: string
-  solution_description: string
-  unique_value_proposition: string
-  target_customer: string
-  product_status: string
-  market_size: string
-  target_market: string
-  competitors: string
-  competitive_advantage: string
-  current_users: string
-  monthly_revenue: string
-  revenue_growth: string
-  key_achievements: string
-  fundraising_goal: string
-  funds_use: string
-  previous_funding: string
-  equity_offered: string
-  one_year_goal: string
-  three_year_vision: string
-  exit_strategy: string
+  unique_solution: string
+  value_proposition: string
+  fundraising_goal: number
+  min_investment: number
+  max_investment: number
+  instrument_type: string
+  equity_offered: number
+  use_of_funds: string
+  created_at: string
+  founder_profile: {
+    id: string
+    startup_name: string
+    industry_sector: string
+    stage: string
+    team_size: number
+    founded_date: string
+    location: string
+    website_url: string
+    linkedin_url: string
+    twitter_url: string
+    company_description: string
+    target_market: string
+    market_size_tam: string
+    market_size_sam: string
+    market_size_som: string
+    competitive_advantage: string
+    key_competitors: string
+    current_users: number
+    current_revenue: number
+    monthly_growth_rate: number
+    key_metrics: any
+    founder_background: string
+    advisors: string
+    pitch_deck_url: string
+    demo_video_url: string
+  }
 }
 
-export default function StartupDetailPage() {
+export default function InvestorDealDetailPage() {
   const params = useParams()
   const router = useRouter()
-  const [loading, setLoading] = useState(true)
-  const [profile, setProfile] = useState<StartupProfile | null>(null)
-  const [details, setDetails] = useState<StartupDetails | null>(null)
-  const [error, setError] = useState('')
+  const dealId = params.id as string
   const supabase = createClient()
 
+  const [deal, setDeal] = useState<DealDetail | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [investorInterestCount, setInvestorInterestCount] = useState(0)
+  const [investorProfileId, setInvestorProfileId] = useState<string>('')
+  const [hasExpressedInterest, setHasExpressedInterest] = useState(false)
+
   useEffect(() => {
-    const fetchStartupData = async () => {
-      try {
-        const { data: { session } } = await supabase.auth.getSession()
-        if (!session?.user) {
-          router.push('/login')
-          return
-        }
+    fetchDealDetails()
+  }, [dealId])
 
-        // Fetch founder profile
-        const { data: profileData, error: profileError } = await supabase
-          .from('founder_profiles')
-          .select('*')
-          .eq('id', params.id)
-          .single()
-
-        if (profileError) throw profileError
-
-        setProfile(profileData)
-
-        // Fetch detailed startup information
-        const { data: detailsData, error: detailsError } = await supabase
-          .from('startup_details')
-          .select('*')
-          .eq('founder_profile_id', params.id)
-          .single()
-
-        if (detailsError && detailsError.code !== 'PGRST116') {
-          logger.error('Failed to fetch startup details', detailsError, {
-            component: 'STARTUP_DETAIL',
-            action: 'FETCH_DETAILS'
-          })
-        }
-
-        setDetails(detailsData)
-      } catch (error: any) {
-        logger.error('Failed to fetch startup data', error, {
-          component: 'STARTUP_DETAIL',
-          action: 'FETCH'
-        })
-        setError(error.message || 'Failed to load startup information')
-      } finally {
-        setLoading(false)
-      }
-    }
-
-    if (params.id) {
-      fetchStartupData()
-    }
-  }, [params.id, supabase, router])
-
-  const handleExpressInterest = async () => {
+  const fetchDealDetails = async () => {
     try {
+      setLoading(true)
+
+      // Get current user
       const { data: { session } } = await supabase.auth.getSession()
-      if (!session?.user) return
-
-      // Get investor profile
-      const { data: investorProfile } = await supabase
-        .from('investor_profiles')
-        .select('id')
-        .eq('user_id', session.user.id)
-        .single()
-
-      if (!investorProfile) {
-        toast.error('Please complete your investor profile first')
+      if (!session) {
+        router.push('/login')
         return
       }
 
-      toast.success('Interest recorded! The founder will be notified.')
-      router.push('/investor/deals')
+      // Fetch deal with founder profile
+      const { data: dealData, error: dealError } = await supabase
+        .from('startup_deals')
+        .select(`
+          *,
+          founder_profile:founder_profiles(*)
+        `)
+        .eq('id', dealId)
+        .eq('is_active', true)
+        .eq('admin_approval_status', 'approved')
+        .single()
+
+      if (dealError) throw dealError
+
+      if (!dealData) {
+        toast.error('Deal not found or not available')
+        router.push('/investor')
+        return
+      }
+
+      setDeal(dealData as any)
+
+      // Get investor interest count
+      const { data: interests, error: interestsError } = await supabase
+        .from('investor_interests')
+        .select('id, investor_profile_id')
+        .eq('deal_id', dealId)
+        .eq('status', 'pending')
+
+      if (!interestsError) {
+        setInvestorInterestCount(interests?.length || 0)
+
+        // Get investor profile
+        const { data: investorProfile } = await supabase
+          .from('investor_profiles')
+          .select('id')
+          .eq('user_id', session.user.id)
+          .single()
+
+        if (investorProfile) {
+          setInvestorProfileId(investorProfile.id)
+          
+          // Check if this investor has expressed interest
+          const hasInterest = interests?.some(
+            (i) => i.investor_profile_id === investorProfile.id
+          )
+          setHasExpressedInterest(hasInterest || false)
+        }
+      }
     } catch (error: any) {
-      toast.error('Failed to express interest')
+      logger.error('Failed to fetch deal details', error, {
+        component: 'INVESTOR_DEAL_DETAIL',
+        action: 'FETCH_DEAL'
+      })
+      toast.error('Failed to load deal details')
+    } finally {
+      setLoading(false)
     }
+  }
+
+  const formatCurrency = (amount: number) => {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: 'INR',
+      minimumFractionDigits: 0
+    }).format(amount)
+  }
+
+  const formatDate = (dateString: string) => {
+    return new Date(dateString).toLocaleDateString('en-IN', {
+      year: 'numeric',
+      month: 'long'
+    })
   }
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-white flex items-center justify-center">
-        <Loader2 className="h-8 w-8 animate-spin text-primary" />
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
       </div>
     )
   }
 
-  if (error || !profile) {
-    return (
-      <div className="space-y-6">
-        <Alert variant="destructive">
-          <AlertCircle className="h-4 w-4" />
-          <AlertDescription>{error || 'Startup not found'}</AlertDescription>
-        </Alert>
-        <Link href="/investor/deals">
-          <Button variant="outline">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Deals
-          </Button>
-        </Link>
-      </div>
-    )
+  if (!deal) {
+    return null
   }
+
+  const profile = deal.founder_profile
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <div className="flex items-start justify-between">
-        <div>
-      <Link href="/investor/deals">
-            <Button variant="ghost" className="mb-4 -ml-2">
-          <ArrowLeft className="mr-2 h-4 w-4" />
-              Back to Deals
+    <div className="min-h-screen bg-gray-50 py-8">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Back Button */}
+        <Button
+          variant="ghost"
+          onClick={() => router.back()}
+          className="mb-6"
+        >
+          <ArrowLeft className="h-4 w-4 mr-2" />
+          Back to Deals
         </Button>
-      </Link>
-          <div className="flex items-center gap-4 mb-2">
-            <h1 className="text-4xl font-bold text-gray-900">{profile.startup_name}</h1>
-            <Badge variant="secondary">{profile.industry_sector}</Badge>
-            <Badge variant={profile.stage === 'early_revenue' ? 'default' : 'outline'}>
-              {profile.stage === 'idea' ? 'Idea Stage' : profile.stage === 'mvp' ? 'MVP' : 'Early Revenue'}
-            </Badge>
+
+        {/* Compliance Notice */}
+        <div className="mb-6">
+          <PrivatePlacementNotice variant="compact" />
+        </div>
+
+        {/* Header Section */}
+        <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+          <div className="flex items-start justify-between">
+            <div className="flex-1">
+              <div className="flex items-center space-x-3 mb-2">
+                <Building2 className="h-8 w-8 text-blue-600" />
+                <h1 className="text-3xl font-bold text-gray-900">
+                  {profile.startup_name}
+                </h1>
+              </div>
+              <p className="text-lg text-gray-600 mb-4">{deal.deal_title}</p>
+              
+              <div className="flex flex-wrap gap-2 mb-4">
+                <Badge variant="outline">{profile.industry_sector}</Badge>
+                <Badge variant="outline">{profile.stage}</Badge>
+                <Badge variant="outline">
+                  <MapPin className="h-3 w-3 mr-1" />
+                  {profile.location}
+                </Badge>
+                <Badge variant="outline">
+                  <Calendar className="h-3 w-3 mr-1" />
+                  Founded {formatDate(profile.founded_date)}
+                </Badge>
+              </div>
+
+              <div className="flex space-x-4">
+                {profile.website_url && (
+                  <a
+                    href={profile.website_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline flex items-center text-sm"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-1" />
+                    Website
+                  </a>
+                )}
+                {profile.linkedin_url && (
+                  <a
+                    href={profile.linkedin_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline flex items-center text-sm"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-1" />
+                    LinkedIn
+                  </a>
+                )}
+                {profile.twitter_url && (
+                  <a
+                    href={profile.twitter_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline flex items-center text-sm"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-1" />
+                    Twitter
+                  </a>
+                )}
+              </div>
+            </div>
+
+            <div className="text-right">
+              {investorProfileId && (
+                <ExpressInterestButton
+                  dealId={deal.id}
+                  investorProfileId={investorProfileId}
+                  onSuccess={() => {
+                    setHasExpressedInterest(true)
+                    setInvestorInterestCount(prev => prev + 1)
+                  }}
+                />
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Investor Limit Tracker */}
+        <div className="mb-6">
+          <InvestorLimitTracker
+            currentCount={investorInterestCount}
+          />
+        </div>
+
+        {/* Section 1: Company Overview */}
+        <Card className="mb-6">
+          <CardHeader>
+            <div className="flex items-center space-x-2">
+              <Building2 className="h-5 w-5 text-blue-600" />
+              <CardTitle>Company Overview</CardTitle>
+            </div>
+            <CardDescription>About the company and industry</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">Description</h3>
+              <p className="text-gray-700">{profile.company_description}</p>
+            </div>
+            
+            <Separator />
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div>
+                <p className="text-sm text-gray-500">Industry</p>
+                <p className="font-semibold text-gray-900">{profile.industry_sector}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Stage</p>
+                <p className="font-semibold text-gray-900">{profile.stage}</p>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500">Team Size</p>
+                <p className="font-semibold text-gray-900">{profile.team_size} members</p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Section 2: Team */}
+        <Card className="mb-6">
+          <CardHeader>
+            <div className="flex items-center space-x-2">
+              <Users className="h-5 w-5 text-blue-600" />
+              <CardTitle>Team & Leadership</CardTitle>
+            </div>
+            <CardDescription>Founders, team members, and advisors</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2 flex items-center">
+                <Briefcase className="h-4 w-4 mr-2" />
+                Founder Background
+              </h3>
+              <p className="text-gray-700">{profile.founder_background}</p>
+            </div>
+
+            {profile.advisors && (
+              <>
+                <Separator />
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2 flex items-center">
+                    <Award className="h-4 w-4 mr-2" />
+                    Advisors
+                  </h3>
+                  <p className="text-gray-700">{profile.advisors}</p>
                 </div>
-          {details?.website && (
-            <div className="flex items-center gap-2 text-gray-600">
-              <Globe className="h-4 w-4" />
-              <a href={details.website} target="_blank" rel="noopener noreferrer" className="hover:underline">
-                {details.website}
-              </a>
+              </>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Section 3: Product & Solution */}
+        <Card className="mb-6">
+          <CardHeader>
+            <div className="flex items-center space-x-2">
+              <Lightbulb className="h-5 w-5 text-blue-600" />
+              <CardTitle>Product & Solution</CardTitle>
+            </div>
+            <CardDescription>Problem being solved and the solution offered</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">Problem Statement</h3>
+              <p className="text-gray-700">{deal.problem_statement}</p>
+            </div>
+
+            <Separator />
+
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">Unique Solution</h3>
+              <p className="text-gray-700">{deal.unique_solution}</p>
+            </div>
+
+            <Separator />
+
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">Value Proposition</h3>
+              <p className="text-gray-700">{deal.value_proposition}</p>
+            </div>
+
+            {profile.demo_video_url && (
+              <>
+                <Separator />
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Product Demo</h3>
+                  <a
+                    href={profile.demo_video_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline flex items-center"
+                  >
+                    <ExternalLink className="h-4 w-4 mr-2" />
+                    Watch Demo Video
+                  </a>
+                </div>
+              </>
+            )}
+
+            {profile.pitch_deck_url && (
+              <>
+                <Separator />
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Pitch Deck</h3>
+                  <a
+                    href={profile.pitch_deck_url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:underline flex items-center"
+                  >
+                    <FileText className="h-4 w-4 mr-2" />
+                    View Pitch Deck
+                  </a>
+                </div>
+              </>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Section 4: Market Opportunity */}
+        <Card className="mb-6">
+          <CardHeader>
+            <div className="flex items-center space-x-2">
+              <Target className="h-5 w-5 text-blue-600" />
+              <CardTitle>Market Opportunity</CardTitle>
+            </div>
+            <CardDescription>Market size, competitors, and competitive advantage</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">Target Market</h3>
+              <p className="text-gray-700">{profile.target_market}</p>
+            </div>
+
+            <Separator />
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-blue-50 p-4 rounded-lg">
+                <p className="text-sm text-gray-600 mb-1">TAM (Total Addressable)</p>
+                <p className="text-xl font-bold text-blue-600">{profile.market_size_tam}</p>
+              </div>
+              <div className="bg-purple-50 p-4 rounded-lg">
+                <p className="text-sm text-gray-600 mb-1">SAM (Serviceable Addressable)</p>
+                <p className="text-xl font-bold text-purple-600">{profile.market_size_sam}</p>
+              </div>
+              <div className="bg-green-50 p-4 rounded-lg">
+                <p className="text-sm text-gray-600 mb-1">SOM (Serviceable Obtainable)</p>
+                <p className="text-xl font-bold text-green-600">{profile.market_size_som}</p>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">Competitive Advantage</h3>
+              <p className="text-gray-700">{profile.competitive_advantage}</p>
+            </div>
+
+            {profile.key_competitors && (
+              <>
+                <Separator />
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Key Competitors</h3>
+                  <p className="text-gray-700">{profile.key_competitors}</p>
+                </div>
+              </>
+            )}
+          </CardContent>
+        </Card>
+
+        {/* Section 5: Traction & Metrics */}
+        <Card className="mb-6">
+          <CardHeader>
+            <div className="flex items-center space-x-2">
+              <TrendingUp className="h-5 w-5 text-blue-600" />
+              <CardTitle>Traction & Growth</CardTitle>
+            </div>
+            <CardDescription>Current performance and growth metrics</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
+                <p className="text-sm text-gray-600 mb-1">Current Users</p>
+                <p className="text-2xl font-bold text-blue-700">
+                  {profile.current_users?.toLocaleString('en-IN') || 'N/A'}
+                </p>
+              </div>
+              <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg">
+                <p className="text-sm text-gray-600 mb-1">Monthly Revenue</p>
+                <p className="text-2xl font-bold text-green-700">
+                  {profile.current_revenue ? formatCurrency(profile.current_revenue) : 'N/A'}
+                </p>
+              </div>
+              <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-4 rounded-lg">
+                <p className="text-sm text-gray-600 mb-1">Growth Rate (MoM)</p>
+                <p className="text-2xl font-bold text-purple-700">
+                  {profile.monthly_growth_rate ? `${profile.monthly_growth_rate}%` : 'N/A'}
+                </p>
+              </div>
+            </div>
+
+            {profile.key_metrics && (
+              <>
+                <Separator />
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Key Metrics</h3>
+                  <div className="bg-gray-50 p-4 rounded-lg">
+                    <pre className="text-sm text-gray-700 whitespace-pre-wrap">
+                      {typeof profile.key_metrics === 'string' 
+                        ? profile.key_metrics 
+                        : JSON.stringify(profile.key_metrics, null, 2)}
+                    </pre>
                   </div>
-          )}
                 </div>
-        <Button className="gradient-primary" size="lg" onClick={handleExpressInterest}>
-          <CheckCircle className="mr-2 h-5 w-5" />
-          Express Interest
-        </Button>
-              </div>
-
-      <Separator />
-
-      {/* Basic Info Summary */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card>
-          <CardContent className="pt-6">
-            <div className="text-center">
-              <Calendar className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-              <p className="text-sm text-gray-600">Founded</p>
-              <p className="text-lg font-semibold">{details?.founded_date || 'N/A'}</p>
-                </div>
+              </>
+            )}
           </CardContent>
         </Card>
-        <Card>
-          <CardContent className="pt-6">
-            <div className="text-center">
-              <Users className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-              <p className="text-sm text-gray-600">Team Size</p>
-              <p className="text-lg font-semibold">{details?.team_size || 'N/A'}</p>
-                </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="pt-6">
-            <div className="text-center">
-              <TrendingUp className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-              <p className="text-sm text-gray-600">Current Users</p>
-              <p className="text-lg font-semibold">{details?.current_users || 'N/A'}</p>
-                </div>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="pt-6">
-            <div className="text-center">
-              <DollarSign className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-              <p className="text-sm text-gray-600">Monthly Revenue</p>
-              <p className="text-lg font-semibold">{details?.monthly_revenue || 'N/A'}</p>
-                </div>
-          </CardContent>
-        </Card>
-              </div>
 
-      {/* Team */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Users className="h-6 w-6" />
-            Team
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <h4 className="font-semibold mb-2">Founders</h4>
-            <p className="text-gray-700">{details?.founder_names || 'Not specified'}</p>
-          </div>
-          {details?.key_team_members && (
-            <div>
-              <h4 className="font-semibold mb-2">Key Team Members</h4>
-              <p className="text-gray-700 whitespace-pre-line">{details.key_team_members}</p>
+        {/* Section 6: Fundraising Details */}
+        <Card className="mb-6">
+          <CardHeader>
+            <div className="flex items-center space-x-2">
+              <DollarSign className="h-5 w-5 text-blue-600" />
+              <CardTitle>Fundraising Details</CardTitle>
             </div>
-          )}
-          {details?.advisor_names && (
-            <div>
-              <h4 className="font-semibold mb-2">Advisors</h4>
-              <p className="text-gray-700 whitespace-pre-line">{details.advisor_names}</p>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-
-      {/* Product & Solution */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Lightbulb className="h-6 w-6" />
-            Product & Solution
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <h4 className="font-semibold mb-2">Problem Statement</h4>
-            <p className="text-gray-700 whitespace-pre-line">{details?.problem_statement || 'Not specified'}</p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Solution</h4>
-            <p className="text-gray-700 whitespace-pre-line">{details?.solution_description || 'Not specified'}</p>
-          </div>
-          <div>
-            <h4 className="font-semibold mb-2">Unique Value Proposition</h4>
-            <p className="text-gray-700 whitespace-pre-line">{details?.unique_value_proposition || 'Not specified'}</p>
-              </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <h4 className="font-semibold mb-2">Target Customer</h4>
-              <p className="text-gray-700">{details?.target_customer || 'Not specified'}</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">Product Status</h4>
-              <Badge>{details?.product_status || 'Not specified'}</Badge>
-            </div>
-          </div>
-        </CardContent>
-      </Card>
-
-      {/* Market & Competition */}
-      <Card>
-            <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Target className="h-6 w-6" />
-            Market & Competition
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div>
-            <h4 className="font-semibold mb-2">Target Market</h4>
-            <p className="text-gray-700 whitespace-pre-line">{details?.target_market || 'Not specified'}</p>
+            <CardDescription>Investment terms and use of funds</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm text-gray-500">Fundraising Goal</p>
+                  <p className="text-2xl font-bold text-gray-900">
+                    {formatCurrency(deal.fundraising_goal)}
+                  </p>
                 </div>
-          <div>
-            <h4 className="font-semibold mb-2">Market Size</h4>
-            <p className="text-gray-700 whitespace-pre-line">{details?.market_size || 'Not specified'}</p>
-              </div>
-          <div>
-            <h4 className="font-semibold mb-2">Competitors</h4>
-            <p className="text-gray-700 whitespace-pre-line">{details?.competitors || 'Not specified'}</p>
+                <div>
+                  <p className="text-sm text-gray-500">Instrument Type</p>
+                  <Badge className="mt-1">{deal.instrument_type}</Badge>
                 </div>
-          <div>
-            <h4 className="font-semibold mb-2">Competitive Advantage</h4>
-            <p className="text-gray-700 whitespace-pre-line">{details?.competitive_advantage || 'Not specified'}</p>
-              </div>
-            </CardContent>
-          </Card>
-
-      {/* Traction */}
-      <Card>
-            <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <TrendingUp className="h-6 w-6" />
-            Traction & Metrics
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div>
-              <h4 className="font-semibold mb-2">Users/Customers</h4>
-              <p className="text-gray-700">{details?.current_users || 'Not specified'}</p>
-            </div>
-            <div>
-              <h4 className="font-semibold mb-2">Monthly Revenue</h4>
-              <p className="text-gray-700">{details?.monthly_revenue || 'Not specified'}</p>
-                </div>
-            <div>
-              <h4 className="font-semibold mb-2">Growth Rate</h4>
-              <p className="text-gray-700">{details?.revenue_growth || 'Not specified'}</p>
-              </div>
-                </div>
-          {details?.key_achievements && (
-            <div>
-              <h4 className="font-semibold mb-2">Key Achievements</h4>
-              <p className="text-gray-700 whitespace-pre-line">{details.key_achievements}</p>
-              </div>
-          )}
-            </CardContent>
-          </Card>
-
-      {/* Fundraising */}
-      <Card className="border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
-              <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <DollarSign className="h-6 w-6" />
-            Fundraising Details
-          </CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <h4 className="font-semibold mb-2">Fundraising Goal</h4>
-              <p className="text-2xl font-bold text-primary">{details?.fundraising_goal || 'Not specified'}</p>
-                  </div>
-            <div>
-              <h4 className="font-semibold mb-2">Equity Offered</h4>
-              <p className="text-2xl font-bold text-primary">{details?.equity_offered || 'Not specified'}</p>
-                </div>
-                    </div>
-          {details?.funds_use && (
-            <div>
-              <h4 className="font-semibold mb-2">Use of Funds</h4>
-              <p className="text-gray-700 whitespace-pre-line">{details.funds_use}</p>
-                </div>
-          )}
-          {details?.previous_funding && (
-            <div>
-              <h4 className="font-semibold mb-2">Previous Funding</h4>
-              <p className="text-gray-700 whitespace-pre-line">{details.previous_funding}</p>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-
-      {/* Vision */}
-      <Card>
-              <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Award className="h-6 w-6" />
-            Vision & Goals
-          </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-          {details?.one_year_goal && (
-            <div>
-              <h4 className="font-semibold mb-2">1-Year Goal</h4>
-              <p className="text-gray-700 whitespace-pre-line">{details.one_year_goal}</p>
+                {deal.equity_offered && (
+                  <div>
+                    <p className="text-sm text-gray-500">Equity Offered</p>
+                    <p className="text-xl font-semibold text-gray-900">
+                      {deal.equity_offered}%
+                    </p>
                   </div>
                 )}
-          {details?.three_year_vision && (
-            <div>
-              <h4 className="font-semibold mb-2">3-Year Vision</h4>
-              <p className="text-gray-700 whitespace-pre-line">{details.three_year_vision}</p>
-                  </div>
-                )}
-          {details?.exit_strategy && (
-            <div>
-              <h4 className="font-semibold mb-2">Exit Strategy</h4>
-              <p className="text-gray-700 whitespace-pre-line">{details.exit_strategy}</p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
-      {/* CTA */}
-      <Card className="border-primary">
-        <CardContent className="pt-6">
-          <div className="text-center space-y-4">
-            <h3 className="text-2xl font-bold">Interested in this opportunity?</h3>
-            <p className="text-gray-600">Express your interest to connect with the founders</p>
-            <Button className="gradient-primary" size="lg" onClick={handleExpressInterest}>
-              <CheckCircle className="mr-2 h-5 w-5" />
-              Express Interest
-            </Button>
               </div>
-            </CardContent>
-          </Card>
+
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm text-gray-500">Minimum Investment</p>
+                  <p className="text-xl font-semibold text-gray-900">
+                    {formatCurrency(deal.min_investment)}
+                  </p>
+                </div>
+                <div>
+                  <p className="text-sm text-gray-500">Maximum Investment</p>
+                  <p className="text-xl font-semibold text-gray-900">
+                    {deal.max_investment ? formatCurrency(deal.max_investment) : 'No limit'}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <Separator />
+
+            <div>
+              <h3 className="font-semibold text-gray-900 mb-2">Use of Funds</h3>
+              <p className="text-gray-700">{deal.use_of_funds}</p>
+            </div>
+          </CardContent>
+        </Card>
+
+        {/* Data Room Access */}
+        <DataRoomAccess
+          dealId={deal.id}
+          founderId={profile.id}
+          hasExpressedInterest={hasExpressedInterest}
+        />
+
+        {/* CTA Section */}
+        <Card className="bg-gradient-to-r from-blue-50 to-purple-50 border-blue-200 mt-6">
+          <CardContent className="p-6">
+            <div className="flex items-center justify-between">
+              <div>
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  Interested in this opportunity?
+                </h3>
+                <p className="text-gray-600 text-sm">
+                  Express your interest to connect with the founder and get access to more details.
+                </p>
+              </div>
+              {investorProfileId && (
+                <ExpressInterestButton
+                  dealId={deal.id}
+                  investorProfileId={investorProfileId}
+                  onSuccess={() => {
+                    setHasExpressedInterest(true)
+                    setInvestorInterestCount(prev => prev + 1)
+                  }}
+                />
+              )}
+            </div>
+          </CardContent>
+        </Card>
+      </div>
     </div>
   )
 }

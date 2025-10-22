@@ -26,6 +26,9 @@ import Link from 'next/link'
 import PrivatePlacementBanner from '@/components/compliance/PrivatePlacementBanner'
 import { PendingApproval } from '@/components/approval/PendingApproval'
 import { RejectedProfile } from '@/components/approval/RejectedProfile'
+import { FeaturedDeals } from '@/components/investor/FeaturedDeals'
+import { RecommendedDeals } from '@/components/investor/RecommendedDeals'
+import { matchStartupsForInvestor } from '@/lib/matching/algorithm'
 
 interface DashboardStats {
   totalDeals: number
@@ -47,6 +50,8 @@ export default function InvestorDashboard() {
   })
   const [loading, setLoading] = useState(true)
   const [profile, setProfile] = useState<any>(null)
+  const [featuredDeals, setFeaturedDeals] = useState<any[]>([])
+  const [recommendedDeals, setRecommendedDeals] = useState<any[]>([])
   const router = useRouter()
   const supabase = createClient()
 
@@ -133,6 +138,80 @@ export default function InvestorDashboard() {
             kycStatus: investorProfile.kyc_status,
             subscriptionTier: investorProfile.subscription_tier
           })
+
+          // Fetch featured deals
+          const { data: featured } = await supabase
+            .from('startup_deals')
+            .select(`
+              *,
+              founder_profile:founder_profiles(
+                startup_name,
+                industry_sector,
+                stage
+              )
+            `)
+            .eq('is_active', true)
+            .eq('admin_approval_status', 'approved')
+            .eq('is_featured', true)
+            .order('created_at', { ascending: false })
+            .limit(4)
+
+          setFeaturedDeals(featured || [])
+
+          // Generate AI recommendations
+          if (investorProfile.investment_preferences) {
+            const { data: allDeals } = await supabase
+              .from('startup_deals')
+              .select(`
+                id,
+                deal_title,
+                problem_statement,
+                fundraising_goal,
+                min_investment,
+                max_investment,
+                instrument_type,
+                founder_profile:founder_profiles(
+                  id,
+                  startup_name,
+                  industry_sector,
+                  stage
+                )
+              `)
+              .eq('is_active', true)
+              .eq('admin_approval_status', 'approved')
+
+            if (allDeals && allDeals.length > 0) {
+              // Transform data for matching algorithm
+              const startupsForMatching = allDeals.map((deal: any) => ({
+                id: deal.founder_profile.id,
+                startup_name: deal.founder_profile.startup_name,
+                industry_sector: deal.founder_profile.industry_sector,
+                stage: deal.founder_profile.stage,
+                admin_approval_status: 'approved',
+                fundraising_goal: deal.fundraising_goal?.toString(),
+                location: 'India'
+              }))
+
+              const matches = matchStartupsForInvestor(
+                startupsForMatching,
+                investorProfile.investment_preferences
+              )
+
+              // Enrich matches with full deal data
+              const enrichedMatches = matches
+                .filter(match => match.total_score >= 40) // Only show fair matches and above
+                .map(match => {
+                  const deal = allDeals.find((d: any) => d.founder_profile.id === match.startup_id)
+                  return {
+                    ...match,
+                    deal: deal
+                  }
+                })
+                .filter(m => m.deal) // Remove any without deal data
+
+              setRecommendedDeals(enrichedMatches)
+            }
+          }
         }
       } catch (error) {
         logger.error('Failed to fetch investor dashboard data', error as Error, {
@@ -275,6 +354,16 @@ export default function InvestorDashboard() {
           variant="gradient-purple"
         />
       </div>
+
+      {/* Featured Deals */}
+      {featuredDeals.length > 0 && (
+        <FeaturedDeals deals={featuredDeals} />
+      )}
+
+      {/* AI Recommendations */}
+      {recommendedDeals.length > 0 && (
+        <RecommendedDeals matches={recommendedDeals} />
+      )}
 
       {/* Quick actions */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">

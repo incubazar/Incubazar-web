@@ -10,17 +10,20 @@ import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { createClient } from '@/lib/supabase/client'
-import { Eye, EyeOff, Loader2, CheckCircle } from 'lucide-react'
+import { Eye, EyeOff, Loader2, CheckCircle, X } from 'lucide-react'
 
 function RegisterForm() {
+  const [step, setStep] = useState<'email' | 'otp' | 'register'>('email')
   const [formData, setFormData] = useState({
     email: '',
     password: '',
     confirmPassword: '',
     fullName: '',
     phone: '',
-    role: 'founder' as 'founder' | 'investor'
+    role: 'founder' as 'founder' | 'investor',
+    otp: ''
   })
+  const [waitlistData, setWaitlistData] = useState<any>(null)
   const [showPassword, setShowPassword] = useState(false)
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [loading, setLoading] = useState(false)
@@ -36,6 +39,117 @@ function RegisterForm() {
       setFormData(prev => ({ ...prev, role }))
     }
   }, [searchParams])
+
+  // Check email in waitlist
+  const checkWaitlistStatus = async (email: string) => {
+    setLoading(true)
+    setError('')
+    
+    try {
+      const response = await fetch(`/api/waitlist?email=${encodeURIComponent(email)}`)
+      const data = await response.json()
+
+      if (!response.ok) {
+        setError('This email is not on the waitlist. Please join the waitlist first.')
+        setLoading(false)
+        return false
+      }
+
+      if (data.data.status !== 'approved') {
+        setError('Your application is still pending admin approval. Please wait for approval.')
+        setLoading(false)
+        return false
+      }
+
+      if (data.data.otp_verified) {
+        setError('This email has already been verified. Please proceed to login.')
+        setLoading(false)
+        return false
+      }
+
+      setWaitlistData(data.data)
+      setFormData(prev => ({
+        ...prev,
+        fullName: data.data.full_name,
+        phone: data.data.phone_number || '',
+        role: data.data.user_type
+      }))
+      setStep('otp')
+      setLoading(false)
+      return true
+    } catch (err) {
+      setError('Failed to check waitlist status. Please try again.')
+      setLoading(false)
+      return false
+    }
+  }
+
+  // Verify OTP
+  const verifyOTP = async () => {
+    setLoading(true)
+    setError('')
+
+    try {
+      const response = await fetch('/api/waitlist/verify-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: formData.email,
+          otp: formData.otp
+        })
+      })
+
+      const data = await response.json()
+
+      if (!response.ok || !data.verified) {
+        setError(data.error || 'Invalid OTP. Please try again.')
+        setLoading(false)
+        return
+      }
+
+      setStep('register')
+      setError('')
+      setLoading(false)
+    } catch (err) {
+      setError('Failed to verify OTP. Please try again.')
+      setLoading(false)
+    }
+  }
+
+  // Resend OTP
+  const resendOTP = async () => {
+    setLoading(true)
+    try {
+      const response = await fetch('/api/waitlist/resend-otp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: formData.email })
+      })
+
+      const data = await response.json()
+
+      if (response.ok) {
+        setError('')
+        alert('OTP has been resent to your email!')
+      } else {
+        setError(data.error || 'Failed to resend OTP')
+      }
+    } catch (err) {
+      setError('Failed to resend OTP')
+    } finally {
+      setLoading(false)
+    }
+  }
+
+  const handleEmailSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    await checkWaitlistStatus(formData.email)
+  }
+
+  const handleOTPSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    await verifyOTP()
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -83,17 +197,20 @@ function RegisterForm() {
             role: formData.role,
             full_name: formData.fullName,
             phone: formData.phone,
-            verification_status: 'pending'
+            verification_status: 'verified' // Auto-verify since they're from waitlist
           })
 
         if (userError) {
-          setError('Failed to create user record')
+          console.error('User insert error:', userError)
+          setError('Failed to create user record: ' + userError.message)
           return
         }
 
         setSuccess(true)
-        // Redirect to verification page
-        router.push('/auth/verify?email=' + encodeURIComponent(formData.email))
+        // Redirect to appropriate dashboard
+        setTimeout(() => {
+          router.push(formData.role === 'founder' ? '/founder' : '/investor')
+        }, 2000)
       }
     } catch (err) {
       setError('An unexpected error occurred')
@@ -111,16 +228,11 @@ function RegisterForm() {
               <div className="text-center">
                 <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
                 <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                  Check Your Email
+                  Account Created Successfully!
                 </h2>
                 <p className="text-gray-600 dark:text-gray-400 mb-6">
-                  We've sent a verification link to {formData.email}
+                  Redirecting you to your dashboard...
                 </p>
-                <Link href="/auth/login">
-                  <Button className="w-full">
-                    Continue to Login
-                  </Button>
-                </Link>
               </div>
             </CardContent>
           </Card>
@@ -129,6 +241,8 @@ function RegisterForm() {
     )
   }
 
+  // Email verification step
+  if (step === 'email') {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 px-4">
       <div className="w-full max-w-md">
@@ -146,7 +260,167 @@ function RegisterForm() {
           <CardHeader>
             <CardTitle>Create Account</CardTitle>
             <CardDescription>
-              Choose your role and create your account
+                Enter your email to get started
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleEmailSubmit} className="space-y-4">
+                {error && (
+                  <Alert variant="destructive">
+                    <AlertDescription>{error}</AlertDescription>
+                  </Alert>
+                )}
+
+                <div className="space-y-2">
+                  <Label htmlFor="email">Email Address</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={formData.email}
+                    onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
+                    required
+                  />
+                  <p className="text-xs text-gray-500">
+                    This email must be approved on the waitlist
+                  </p>
+                </div>
+
+                <Button type="submit" className="w-full" disabled={loading}>
+                  {loading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Checking...
+                    </>
+                  ) : (
+                    'Continue'
+                  )}
+                </Button>
+              </form>
+
+              <div className="mt-6 text-center">
+                <p className="text-sm text-gray-600">
+                  Not on the waitlist?{' '}
+                  <Link href="/waitlist" className="text-blue-600 hover:underline">
+                    Join waitlist
+                  </Link>
+                </p>
+                <p className="text-sm text-gray-600 mt-2">
+                  Already have an account?{' '}
+                  <Link href="/auth/login" className="text-blue-600 hover:underline">
+                    Sign in
+                  </Link>
+                </p>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    )
+  }
+
+  // OTP verification step
+  if (step === 'otp') {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 px-4">
+        <div className="w-full max-w-md">
+          <div className="text-center mb-8">
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <div className="w-8 h-8 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center">
+                <span className="text-white dark:text-gray-900 font-bold text-sm">IB</span>
+              </div>
+              <span className="text-2xl font-bold text-gray-900 dark:text-white">Incubazar</span>
+            </div>
+          </div>
+
+          <Card>
+            <CardHeader>
+              <CardTitle>Verify OTP</CardTitle>
+              <CardDescription>
+                Enter the OTP sent to {formData.email}
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <form onSubmit={handleOTPSubmit} className="space-y-4">
+                {error && (
+                  <Alert variant="destructive">
+                    <AlertDescription>{error}</AlertDescription>
+                  </Alert>
+                )}
+
+                <div className="space-y-2">
+                  <Label htmlFor="otp">One-Time Password (OTP)</Label>
+                  <Input
+                    id="otp"
+                    type="text"
+                    placeholder="Enter 6-digit OTP"
+                    value={formData.otp}
+                    onChange={(e) => setFormData(prev => ({ ...prev, otp: e.target.value }))}
+                    maxLength={6}
+                    required
+                    className="text-center text-2xl tracking-widest"
+                  />
+                </div>
+
+                <Button type="submit" className="w-full" disabled={loading || formData.otp.length !== 6}>
+                  {loading ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Verifying...
+                    </>
+                  ) : (
+                    'Verify OTP'
+                  )}
+                </Button>
+
+                <div className="text-center">
+                  <Button
+                    type="button"
+                    variant="link"
+                    onClick={resendOTP}
+                    disabled={loading}
+                    className="text-sm"
+                  >
+                    Resend OTP
+                  </Button>
+                </div>
+              </form>
+
+              <div className="mt-6 text-center">
+                <Button
+                  variant="ghost"
+                  onClick={() => setStep('email')}
+                  className="text-sm"
+                >
+                  ← Back to email
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
+    )
+  }
+
+  // Registration step (after OTP verification)
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 px-4">
+      <div className="w-full max-w-md">
+        <div className="text-center mb-8">
+          <div className="flex items-center justify-center space-x-2 mb-4">
+            <div className="w-8 h-8 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center">
+              <span className="text-white dark:text-gray-900 font-bold text-sm">IB</span>
+            </div>
+            <span className="text-2xl font-bold text-gray-900 dark:text-white">Incubazar</span>
+          </div>
+          <p className="text-gray-600 dark:text-gray-400">Complete your registration</p>
+        </div>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Create Your Password</CardTitle>
+            <CardDescription>
+              Set up your password to complete registration
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -157,58 +431,26 @@ function RegisterForm() {
                 </Alert>
               )}
 
-              <div className="space-y-2">
-                <Label>I am a:</Label>
-                <RadioGroup
-                  value={formData.role}
-                  onValueChange={(value) => setFormData(prev => ({ ...prev, role: value as 'founder' | 'investor' }))}
-                  className="flex space-x-6"
-                >
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="founder" id="founder" />
-                    <Label htmlFor="founder">Founder</Label>
+              {/* Display pre-filled info */}
+              <div className="bg-gray-50 dark:bg-gray-900 p-4 rounded-lg space-y-2">
+                <div className="text-sm">
+                  <span className="text-gray-500">Email:</span>{' '}
+                  <span className="font-medium">{formData.email}</span>
                   </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="investor" id="investor" />
-                    <Label htmlFor="investor">Investor</Label>
+                <div className="text-sm">
+                  <span className="text-gray-500">Name:</span>{' '}
+                  <span className="font-medium">{formData.fullName}</span>
                   </div>
-                </RadioGroup>
+                <div className="text-sm">
+                  <span className="text-gray-500">Role:</span>{' '}
+                  <span className="font-medium capitalize">{formData.role}</span>
+                </div>
+                {formData.phone && (
+                  <div className="text-sm">
+                    <span className="text-gray-500">Phone:</span>{' '}
+                    <span className="font-medium">{formData.phone}</span>
               </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="fullName">Full Name</Label>
-                <Input
-                  id="fullName"
-                  type="text"
-                  placeholder="Enter your full name"
-                  value={formData.fullName}
-                  onChange={(e) => setFormData(prev => ({ ...prev, fullName: e.target.value }))}
-                  required
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  placeholder="Enter your email"
-                  value={formData.email}
-                  onChange={(e) => setFormData(prev => ({ ...prev, email: e.target.value }))}
-                  required
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number</Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  placeholder="Enter your phone number"
-                  value={formData.phone}
-                  onChange={(e) => setFormData(prev => ({ ...prev, phone: e.target.value }))}
-                  required
-                />
+                )}
               </div>
 
               <div className="space-y-2">
@@ -221,6 +463,7 @@ function RegisterForm() {
                     value={formData.password}
                     onChange={(e) => setFormData(prev => ({ ...prev, password: e.target.value }))}
                     required
+                    minLength={6}
                   />
                   <Button
                     type="button"
@@ -236,6 +479,9 @@ function RegisterForm() {
                     )}
                   </Button>
                 </div>
+                <p className="text-xs text-gray-500">
+                  Must be at least 6 characters
+                </p>
               </div>
 
               <div className="space-y-2">
@@ -276,15 +522,6 @@ function RegisterForm() {
                 )}
               </Button>
             </form>
-
-            <div className="mt-6 text-center">
-              <p className="text-sm text-gray-600">
-                Already have an account?{' '}
-                <Link href="/auth/login" className="text-blue-600 hover:underline">
-                  Sign in
-                </Link>
-              </p>
-            </div>
           </CardContent>
         </Card>
       </div>

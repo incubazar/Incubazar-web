@@ -27,6 +27,7 @@ import Link from 'next/link'
 import PrivatePlacementBanner from '@/components/compliance/PrivatePlacementBanner'
 import { PendingApproval } from '@/components/approval/PendingApproval'
 import { RejectedProfile } from '@/components/approval/RejectedProfile'
+import { ReadinessChecklist } from '@/components/founder/ReadinessChecklist'
 
 interface DashboardStats {
   profileCompletion: number
@@ -34,6 +35,7 @@ interface DashboardStats {
   totalInvestors: number
   totalRaised: number
   pendingApprovals: number
+  dataRoomFiles: number
 }
 
 export default function FounderDashboard() {
@@ -42,8 +44,10 @@ export default function FounderDashboard() {
     activeDeals: 0,
     totalInvestors: 0,
     totalRaised: 0,
-    pendingApprovals: 0
+    pendingApprovals: 0,
+    dataRoomFiles: 0
   })
+  const [deals, setDeals] = useState<any[]>([])
   const [loading, setLoading] = useState(true)
   const [profile, setProfile] = useState<any>(null)
   const router = useRouter()
@@ -96,7 +100,7 @@ export default function FounderDashboard() {
 
         if (founderProfile) {
           // Get active deals
-          const { data: deals, error: dealsError } = await supabase
+          const { data: dealsData, error: dealsError } = await supabase
             .from('startup_deals')
             .select('*')
             .eq('founder_profile_id', founderProfile.id)
@@ -109,11 +113,13 @@ export default function FounderDashboard() {
             })
           }
 
+          setDeals(dealsData || [])
+
           // Get investor interests
           const { data: interests, error: interestsError } = await supabase
             .from('investor_interests')
             .select('*')
-            .in('startup_deal_id', deals?.map(d => d.id) || [])
+            .in('startup_deal_id', dealsData?.map(d => d.id) || [])
 
           if (interestsError) {
             logger.error('Failed to fetch interests', interestsError, {
@@ -122,12 +128,26 @@ export default function FounderDashboard() {
             })
           }
 
+          // Get data room files count
+          const { data: dataRoomFiles, error: filesError } = await supabase
+            .from('data_room_files')
+            .select('id')
+            .eq('founder_profile_id', founderProfile.id)
+
+          if (filesError) {
+            logger.error('Failed to fetch data room files', filesError, {
+              component: 'FOUNDER_DASHBOARD',
+              action: 'FETCH_FILES'
+            })
+          }
+
           setStats({
             profileCompletion: founderProfile.profile_completion_percentage || 0,
-            activeDeals: deals?.length || 0,
+            activeDeals: dealsData?.length || 0,
             totalInvestors: interests?.filter(i => i.interest_status === 'invested').length || 0,
             totalRaised: interests?.reduce((sum, i) => sum + (i.investment_amount || 0), 0) || 0,
-            pendingApprovals: founderProfile.admin_approval_status === 'pending' ? 1 : 0
+            pendingApprovals: founderProfile.admin_approval_status === 'pending' ? 1 : 0,
+            dataRoomFiles: dataRoomFiles?.length || 0
           })
         }
       } catch (error) {
@@ -235,6 +255,15 @@ export default function FounderDashboard() {
             </div>
           </CardContent>
         </Card>
+      )}
+
+      {/* Investor Readiness Checklist */}
+      {profile?.admin_approval_status !== 'approved' && (
+        <ReadinessChecklist
+          profile={profile}
+          deals={deals}
+          dataRoomFiles={stats.dataRoomFiles}
+        />
       )}
 
       {/* Stats grid */}

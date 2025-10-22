@@ -47,9 +47,9 @@ export default function PremiumNavbar() {
                 Sign In
               </Button>
             </Link>
-            <Link href="/auth/register">
+            <Link href="/waitlist">
               <Button className="gradient-primary font-semibold">
-                Join Now
+                Join Waitlist
               </Button>
             </Link>
           </div>
@@ -79,11 +79,11 @@ export default function PremiumNavbar() {
                 Sign In
               </Button>
             </Link>
-            <Link href="/auth/register" onClick={() => setIsMobileMenuOpen(false)}>
+            <Link href="/waitlist" onClick={() => setIsMobileMenuOpen(false)}>
               <Button 
                 className="w-full gradient-primary font-semibold"
               >
-                Join Now
+                Join Waitlist
               </Button>
             </Link>
           </div>

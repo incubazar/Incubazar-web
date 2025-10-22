@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
+import { LabelWithTooltip } from '@/components/ui/tooltip-info'
 import { Textarea } from '@/components/ui/textarea'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
@@ -630,7 +631,18 @@ export default function FounderOnboarding() {
               </div>
 
               <div className="space-y-2">
-                <Label htmlFor="market_size">Market Size (TAM/SAM/SOM)</Label>
+                <LabelWithTooltip 
+                  label="Market Size (TAM/SAM/SOM)"
+                  htmlFor="market_size"
+                  tooltip={
+                    <div>
+                      <p className="font-semibold mb-1">Market Size Definitions:</p>
+                      <p><strong>TAM (Total Addressable Market):</strong> The total revenue opportunity if you achieved 100% market share</p>
+                      <p className="mt-1"><strong>SAM (Serviceable Addressable Market):</strong> The portion of TAM you can realistically reach</p>
+                      <p className="mt-1"><strong>SOM (Serviceable Obtainable Market):</strong> The realistic market share you can capture in the near term</p>
+                    </div>
+                  }
+                />
                 <Textarea
                   id="market_size"
                   placeholder="e.g., TAM: $10B, SAM: $1B, SOM: $100M in Year 1"

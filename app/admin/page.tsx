@@ -36,6 +36,9 @@ interface DashboardStats {
   approved_investors: number
   active_deals: number
   total_raised: number
+  pending_waitlist: number
+  approved_waitlist: number
+  rejected_waitlist: number
   platform_growth: any[]
   sector_distribution: any[]
   stage_distribution: any[]
@@ -87,13 +90,15 @@ export default function AdminDashboard() {
           foundersResult,
           investorsResult,
           dealsResult,
-          interestsResult
+          interestsResult,
+          waitlistResult
         ] = await Promise.all([
           supabase.from('users').select('id, role, created_at'),
           supabase.from('founder_profiles').select('id, admin_approval_status, industry_sector, stage, created_at'),
           supabase.from('investor_profiles').select('id, kyc_status, created_at'),
           supabase.from('startup_deals').select('id, is_active, fundraising_goal'),
-          supabase.from('investor_interests').select('investment_amount, interest_status')
+          supabase.from('investor_interests').select('investment_amount, interest_status'),
+          supabase.from('waitlist').select('id, status, created_at')
         ])
 
         // Calculate stats
@@ -102,12 +107,17 @@ export default function AdminDashboard() {
         const investors = investorsResult.data || []
         const deals = dealsResult.data || []
         const interests = interestsResult.data || []
+        const waitlist = waitlistResult.data || []
 
         const pendingFounders = founders.filter(f => f.admin_approval_status === 'pending').length
         const approvedFounders = founders.filter(f => f.admin_approval_status === 'approved').length
         const pendingInvestors = investors.filter(i => i.kyc_status === 'pending').length
         const approvedInvestors = investors.filter(i => i.kyc_status === 'verified').length
         const activeDeals = deals.filter(d => d.is_active).length
+        
+        const pendingWaitlist = waitlist.filter(w => w.status === 'pending').length
+        const approvedWaitlist = waitlist.filter(w => w.status === 'approved').length
+        const rejectedWaitlist = waitlist.filter(w => w.status === 'rejected').length
         
         const totalRaised = interests
           .filter(i => i.interest_status === 'invested')
@@ -176,6 +186,9 @@ export default function AdminDashboard() {
           approved_investors: approvedInvestors,
           active_deals: activeDeals,
           total_raised: totalRaised,
+          pending_waitlist: pendingWaitlist,
+          approved_waitlist: approvedWaitlist,
+          rejected_waitlist: rejectedWaitlist,
           platform_growth: monthlyGrowth,
           sector_distribution: sectorDistribution,
           stage_distribution: stageDistribution,
@@ -245,7 +258,7 @@ export default function AdminDashboard() {
         />
         <StatCard
           title="Pending Approvals"
-          value={(stats?.pending_founder_approvals || 0) + (stats?.pending_investor_verifications || 0)}
+          value={(stats?.pending_waitlist || 0) + (stats?.pending_founder_approvals || 0) + (stats?.pending_investor_verifications || 0)}
           description="Requires your action"
           icon={Clock}
           variant="gradient-orange"
@@ -268,6 +281,35 @@ export default function AdminDashboard() {
 
       {/* Quick Access Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Link href="/admin/waitlist">
+          <Card className="hover-lift cursor-pointer border-orange-200 bg-gradient-to-br from-orange-50 to-white">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="text-xl">Waitlist</CardTitle>
+                  <CardDescription className="text-sm">
+                    Review applications
+                  </CardDescription>
+                </div>
+                <div className="relative">
+                  <Users className="h-10 w-10 text-orange-500" />
+                  {(stats?.pending_waitlist || 0) > 0 && (
+                    <Badge className="absolute -top-2 -right-2 bg-orange-500">
+                      {stats?.pending_waitlist}
+                    </Badge>
+                  )}
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-gray-600">Pending:</span>
+                <span className="font-bold text-orange-600">{stats?.pending_waitlist || 0}</span>
+              </div>
+            </CardContent>
+          </Card>
+        </Link>
+        
         <Link href="/admin/review">
           <Card className="hover-lift cursor-pointer border-orange-200 bg-gradient-to-br from-orange-50 to-white">
             <CardHeader>

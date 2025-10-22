@@ -34,22 +34,22 @@ export default function PremiumHero() {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4 animate-fade-in">
-            <Link href="/auth/register?role=founder">
+            <Link href="/waitlist">
               <Button 
                 size="lg" 
                 className="px-10 py-7 text-lg font-semibold gradient-primary hover:opacity-90 transition-opacity"
               >
-                Start Fundraising
+                Join Waitlist
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
-            <Link href="/auth/register?role=investor">
+            <Link href="/auth/login">
               <Button 
                 size="lg" 
                 variant="outline"
                 className="px-10 py-7 text-lg font-semibold border-2 hover:bg-primary/5"
               >
-                Explore Startups
+                Sign In
                 <TrendingUp className="ml-2 h-5 w-5" />
               </Button>
             </Link>
