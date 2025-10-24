@@ -2,8 +2,9 @@
 
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
+import { PremiumButton } from '@/components/ui/premium-button'
 import { useState, useEffect } from 'react'
-import { Menu, X } from 'lucide-react'
+import { Menu, X, Sparkles } from 'lucide-react'
 
 export default function PremiumNavbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -19,20 +20,21 @@ export default function PremiumNavbar() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? 'bg-background/95 border-b border-border backdrop-blur-lg py-3'
-          : 'bg-background/60 backdrop-blur-md py-4'
+          ? 'bg-background/80 border-b border-border/50 backdrop-blur-xl shadow-lg shadow-black/5 py-3'
+          : 'bg-background/40 backdrop-blur-md py-5'
       }`}
     >
       <div className="container-premium">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="w-8 h-8 gradient-primary rounded-lg flex items-center justify-center transition-transform group-hover:scale-110">
-              <span className="text-white font-bold text-sm">IB</span>
+          <Link href="/" className="flex items-center space-x-2.5 group">
+            <div className="relative w-10 h-10 bg-gradient-to-br from-primary via-accent to-primary rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-primary/25">
+              <span className="text-white font-display font-bold text-lg">IB</span>
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <span className="text-xl font-bold tracking-tight">
+            <span className="text-xl font-display font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
               Incubazar
             </span>
           </Link>
@@ -42,21 +44,22 @@ export default function PremiumNavbar() {
             <Link href="/auth/login">
               <Button 
                 variant="ghost"
-                className="font-medium"
+                className="font-semibold hover:bg-primary/10 transition-all duration-300"
               >
                 Sign In
               </Button>
             </Link>
             <Link href="/waitlist">
-              <Button className="gradient-primary font-semibold">
+              <PremiumButton variant="premium" className="font-semibold">
+                <Sparkles className="w-4 h-4 mr-2" />
                 Join Waitlist
-              </Button>
+              </PremiumButton>
             </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-foreground hover:text-primary transition-colors"
+            className="md:hidden p-2 text-foreground hover:text-primary transition-all duration-300 hover:bg-primary/10 rounded-lg"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -70,21 +73,23 @@ export default function PremiumNavbar() {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden mt-6 pb-6 space-y-3 border-t border-border pt-4 animate-fade-in">
+          <div className="md:hidden mt-6 pb-6 space-y-3 border-t border-border/50 pt-4 animate-fade-in-down">
             <Link href="/auth/login" onClick={() => setIsMobileMenuOpen(false)}>
               <Button 
                 variant="outline" 
-                className="w-full font-medium"
+                className="w-full font-semibold"
               >
                 Sign In
               </Button>
             </Link>
             <Link href="/waitlist" onClick={() => setIsMobileMenuOpen(false)}>
-              <Button 
-                className="w-full gradient-primary font-semibold"
+              <PremiumButton 
+                variant="premium"
+                className="w-full font-semibold"
               >
+                <Sparkles className="w-4 h-4 mr-2" />
                 Join Waitlist
-              </Button>
+              </PremiumButton>
             </Link>
           </div>
         )}

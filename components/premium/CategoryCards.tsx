@@ -1,5 +1,5 @@
 import { Card } from '@/components/ui/card'
-import { Rocket, Users, GraduationCap, Building2, BookOpen, ArrowRight } from 'lucide-react'
+import { Rocket, Users, Network, TrendingUp, BookOpen, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 export default function CategoryCards() {
@@ -7,7 +7,7 @@ export default function CategoryCards() {
     {
       icon: Rocket,
       title: 'Startups',
-      description: 'Showcase your innovation and connect with investors who believe in your vision.',
+      description: 'Showcase your innovation and connect with investors who align with your vision and goals.',
       stats: '500+ Active',
       color: 'lavender',
       href: '/startups',
@@ -15,34 +15,34 @@ export default function CategoryCards() {
     {
       icon: Users,
       title: 'Investors',
-      description: 'Discover pre-vetted startups and invest in India\'s next generation of innovators.',
+      description: 'Discover pre-vetted startups matched to your investment preferences and expertise.',
       stats: '200+ Active',
       color: 'mint',
       href: '/investors',
     },
     {
-      icon: GraduationCap,
-      title: 'Mentorship',
-      description: 'Connect with experienced founders and industry experts for strategic guidance.',
-      stats: '100+ Mentors',
+      icon: Network,
+      title: 'Matching Network',
+      description: 'AI-powered matching connects founders with the most compatible investors for their needs.',
+      stats: '100+ Matches/Month',
       color: 'lavender',
-      href: '/mentorship',
+      href: '/matching',
     },
     {
-      icon: Building2,
-      title: 'Incubation',
-      description: 'Access resources, workspace, and support to accelerate your startup journey.',
-      stats: '50+ Programs',
+      icon: TrendingUp,
+      title: 'Deal Flow',
+      description: 'Access curated deal opportunities and track connections through our transparent platform.',
+      stats: '50+ Active Deals',
       color: 'mint',
-      href: '/incubation',
+      href: '/deals',
     },
     {
       icon: BookOpen,
-      title: 'Learning',
-      description: 'Master fundraising, growth strategies, and startup essentials with expert courses.',
-      stats: '30+ Courses',
+      title: 'Resources',
+      description: 'Master fundraising, investor relations, and private placement compliance with expert guides.',
+      stats: '30+ Guides',
       color: 'lavender',
-      href: '/learning',
+      href: '/resources',
     },
   ]
 
@@ -52,11 +52,11 @@ export default function CategoryCards() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
           <h2 className="text-4xl md:text-5xl font-display font-bold text-navy-900 dark:text-white">
-            Everything You Need{' '}
-            <span className="text-gradient-premium">in One Place</span>
+            Your Connection Hub{' '}
+            <span className="text-gradient-premium">for Growth</span>
           </h2>
           <p className="text-lg md:text-xl text-navy-600 dark:text-cream-200 font-light">
-            Comprehensive tools and resources for founders, investors, and entrepreneurs
+            Intelligent matching platform connecting founders with the right investors
           </p>
         </div>
 

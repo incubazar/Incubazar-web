@@ -1,30 +1,53 @@
-# Incubazar - We Connect Visionaries
+# Incubazar - Matching Platform for Founders & Investors
 
 **We connect visionaries — and help them turn ideas into investments.**
 
-A comprehensive platform connecting early-stage startup founders with angel investors in India. Built with regulatory compliance in mind, operating under Section 42 of the Companies Act 2013.
+An intelligent matching platform connecting early-stage startup founders with angel investors in India. We facilitate compliant private placements under Section 42 of the Companies Act 2013, providing the technology infrastructure for founders and investors to discover and connect with each other.
+
+## 🎯 What We Are
+
+**A Matching Platform** - We use AI-powered algorithms to connect founders with compatible investors based on:
+- Sector alignment and expertise
+- Investment stage preferences  
+- Ticket size compatibility
+- Geographic preferences
+- Investment thesis matching
+
+**What We're NOT:**
+- ❌ Not an incubator or accelerator
+- ❌ Not a venture capital firm
+- ❌ Not an investment advisor
+- ❌ We don't pool funds or manage investments
+- ❌ We don't provide direct mentorship programs
+
+**What We DO:**
+- ✅ Facilitate connections between verified founders and investors
+- ✅ Provide technology infrastructure for deal flow
+- ✅ Enable compliant private placements (Section 42)
+- ✅ Automate legal documentation and compliance
+- ✅ Offer transparent deal tracking and analytics
 
 ## 🚀 Features
 
 ### For Founders
-- **Startup Profile Management**: Complete startup profile with industry sector, stage, and traction metrics
-- **Deal Creation**: Create fundraising deals with customizable terms and investment ranges
-- **Document Automation**: Automated generation of term sheets, PAS-4 forms, and e-signature workflows
-- **Investor Tracking**: Track investor interest and manage the 200-investor limit compliance
-- **RegTech Compliance**: Built-in compliance checks and automated document generation
+- **Smart Matching**: Get matched with investors who align with your sector, stage, and funding needs
+- **Profile Showcase**: Create compelling startup profiles visible to compatible investors
+- **Deal Facilitation**: List funding opportunities and manage investor connections
+- **Document Automation**: Auto-generate term sheets, PAS-4 forms, and compliance documents
+- **Network Access**: Connect with 200+ verified angel investors
 
 ### For Investors
-- **KYC Verification**: Secure identity verification process
-- **Deal Discovery**: AI-powered deal recommendations based on investment preferences
-- **Portfolio Management**: Track investments and receive quarterly updates
-- **Due Diligence Tools**: Platform scorecards and standardized reporting
-- **Investment Preferences**: Set sector, stage, and ticket size preferences
+- **Intelligent Recommendations**: AI-powered deal flow matched to your investment preferences
+- **Founder Discovery**: Browse and filter curated startups by sector, stage, and metrics
+- **Portfolio Tracking**: Monitor your connections and investment pipeline
+- **Due Diligence Tools**: Access standardized reports and platform scorecards
+- **Compliance Support**: Section 42 compliant deal structures built-in
 
 ### For Admins
-- **Startup Curation**: Review and approve startup applications
-- **User Management**: Manage founder and investor accounts
-- **Analytics Dashboard**: Platform metrics and compliance monitoring
-- **Scorecard Generation**: Create platform scorecards for deals
+- **Quality Curation**: Review and approve profiles to maintain network quality
+- **Matching Oversight**: Monitor and optimize matching algorithms
+- **Analytics Dashboard**: Track platform connections, deal flow, and success metrics
+- **Compliance Monitoring**: Ensure all activities meet regulatory requirements
 
 ## 🛠 Technology Stack
 

@@ -26,10 +26,10 @@ export default function DisclaimerPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">1. Platform Purpose and Limitations</h2>
           
-          <h3 className="text-xl font-semibold mb-3 mt-6">1.1 Facilitator Only</h3>
+          <h3 className="text-xl font-semibold mb-3 mt-6">1.1 Matching Platform Only</h3>
           <p>
-            Incubazar is a <strong>facilitator and technology platform</strong> that connects startups 
-            seeking funding with potential investors. We:
+            Incubazar is a <strong>matching and facilitation platform</strong> that connects startups 
+            seeking funding with potential investors. We are a technology-enabled marketplace, NOT an investment firm. We:
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li><strong>DO NOT</strong> provide investment advice or recommendations</li>
@@ -38,7 +38,13 @@ export default function DisclaimerPage() {
             <li><strong>DO NOT</strong> guarantee returns or success of any startup</li>
             <li><strong>DO NOT</strong> conduct due diligence on behalf of investors</li>
             <li><strong>DO NOT</strong> hold custody of investor funds</li>
+            <li><strong>DO NOT</strong> operate as an incubator, accelerator, or venture capital firm</li>
           </ul>
+          <p className="mt-4 text-gray-700">
+            <strong>What We Do:</strong> We provide the technology infrastructure and tools to facilitate connections 
+            between founders and investors. All investment decisions, negotiations, and transactions occur directly 
+            between the parties.
+          </p>
 
           <h3 className="text-xl font-semibold mb-3 mt-6">1.2 Private Placement Structure</h3>
           <p>

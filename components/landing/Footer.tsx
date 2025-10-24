@@ -94,8 +94,8 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="w-4 h-4" />
-                <a href="mailto:hello@incubazar.com" className="hover:text-electric transition-smooth">
-                  hello@incubazar.com
+                <a href="mailto:founder@incubazar.com" className="hover:text-electric transition-smooth">
+                  founder@incubazar.com
                 </a>
               </div>
               <div className="flex items-center space-x-2">

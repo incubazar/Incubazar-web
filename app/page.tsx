@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import PremiumNavbar from '@/components/premium/PremiumNavbar'
 import PremiumHero from '@/components/premium/PremiumHero'
+import PremiumFeatures from '@/components/premium/PremiumFeatures'
 import GradientCTA from '@/components/premium/GradientCTA'
 import PremiumFooter from '@/components/premium/PremiumFooter'
 import { OrganizationSchema, WebsiteSchema } from '@/components/seo/StructuredData'
@@ -19,10 +20,11 @@ export default function HomePage() {
     <>
       <OrganizationSchema />
       <WebsiteSchema />
-      <div className="min-h-screen bg-white dark:bg-gray-950">
+      <div className="min-h-screen bg-background page-transition">
         <PremiumNavbar />
-        <main>
+        <main className="relative">
           <PremiumHero />
+          <PremiumFeatures />
           <GradientCTA />
         </main>
         <PremiumFooter />
