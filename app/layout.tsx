@@ -4,6 +4,7 @@ import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import { QueryProvider } from '@/components/query-provider'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -95,6 +96,7 @@ export default function RootLayout({
           <QueryProvider>
             {children}
             <Toaster />
+            <SpeedInsights />
           </QueryProvider>
         </ThemeProvider>
       </body>
