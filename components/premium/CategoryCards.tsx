@@ -47,21 +47,21 @@ export default function CategoryCards() {
   ]
 
   return (
-    <section className="py-24 lg:py-32 bg-white dark:bg-navy-900">
-      <div className="container-premium">
+    <section className="py-16 md:py-24 lg:py-32 bg-white dark:bg-navy-900">
+      <div className="container-premium px-4 md:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-display font-bold text-navy-900 dark:text-white">
+        <div className="text-center max-w-3xl mx-auto mb-12 md:mb-16 space-y-3 md:space-y-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-navy-900 dark:text-white">
             Your Connection Hub{' '}
             <span className="text-gradient-premium">for Growth</span>
           </h2>
-          <p className="text-lg md:text-xl text-navy-600 dark:text-cream-200 font-light">
+          <p className="text-base md:text-lg lg:text-xl text-navy-600 dark:text-cream-200 font-light px-4">
             Intelligent matching platform connecting founders with the right investors
           </p>
         </div>
 
         {/* Cards Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8">
           {categories.map((category, index) => (
             <Link
               key={category.title}
@@ -70,7 +70,7 @@ export default function CategoryCards() {
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <Card 
-                className={`relative p-8 bg-white dark:bg-navy-800 border border-navy-200 dark:border-navy-700 rounded-3xl shadow-soft hover:shadow-xl transition-premium transform hover:-translate-y-2 overflow-hidden h-full ${
+                className={`relative p-6 md:p-8 bg-white dark:bg-navy-800 border border-navy-200 dark:border-navy-700 rounded-2xl md:rounded-3xl shadow-soft hover:shadow-xl transition-premium transform hover:-translate-y-2 overflow-hidden h-full ${
                   index === 4 ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
               >
@@ -80,22 +80,22 @@ export default function CategoryCards() {
                 }`} />
                 
                 {/* Content */}
-                <div className="relative space-y-4">
+                <div className="relative space-y-3 md:space-y-4">
                   {/* Icon */}
-                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center shadow-medium group-hover:shadow-lg transition-premium ${
+                  <div className={`w-12 h-12 md:w-14 md:h-14 rounded-xl md:rounded-2xl flex items-center justify-center shadow-medium group-hover:shadow-lg transition-premium ${
                     category.color === 'lavender' 
                       ? 'bg-gradient-to-br from-lavender-400 to-lavender-600' 
                       : 'bg-gradient-to-br from-mint-400 to-mint-600'
                   }`}>
-                    <category.icon className="w-7 h-7 text-white" strokeWidth={2} />
+                    <category.icon className="w-6 h-6 md:w-7 md:h-7 text-white" strokeWidth={2} />
                   </div>
 
                   {/* Title & Description */}
                   <div>
-                    <h3 className="text-xl font-display font-semibold text-navy-900 dark:text-white mb-2 group-hover:text-lavender-600 dark:group-hover:text-lavender-400 transition-premium">
+                    <h3 className="text-lg md:text-xl font-display font-semibold text-navy-900 dark:text-white mb-2 group-hover:text-lavender-600 dark:group-hover:text-lavender-400 transition-premium">
                       {category.title}
                     </h3>
-                    <p className="text-navy-600 dark:text-cream-200 leading-relaxed text-sm">
+                    <p className="text-navy-600 dark:text-cream-200 leading-relaxed text-sm md:text-base">
                       {category.description}
                     </p>
                   </div>
@@ -114,8 +114,8 @@ export default function CategoryCards() {
         </div>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <p className="text-navy-500 dark:text-cream-300 text-sm mb-4">
+        <div className="text-center mt-12 md:mt-16 px-4">
+          <p className="text-navy-500 dark:text-cream-300 text-xs md:text-sm mb-3 md:mb-4">
             Join a thriving ecosystem of innovators and investors
           </p>
           <Link href="/auth/register">
