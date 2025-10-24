@@ -151,16 +151,16 @@ export default function Testimonials() {
         {/* Stats */}
         <div className="grid grid-cols-3 gap-8 max-w-3xl mx-auto mt-20 text-center">
           <div>
-            <p className="text-4xl font-poppins font-bold text-electric mb-2">500+</p>
-            <p className="text-sm text-graphite-600 dark:text-gray-300">Active Founders</p>
+            <p className="text-4xl font-poppins font-bold text-electric mb-2">Sec 42</p>
+            <p className="text-sm text-graphite-600 dark:text-gray-300">Compliant</p>
           </div>
           <div>
-            <p className="text-4xl font-poppins font-bold text-golden mb-2">₹50Cr+</p>
-            <p className="text-sm text-graphite-600 dark:text-gray-300">Funds Raised</p>
+            <p className="text-4xl font-poppins font-bold text-golden mb-2">AI Driven</p>
+            <p className="text-sm text-graphite-600 dark:text-gray-300">Smart Matching</p>
           </div>
           <div>
-            <p className="text-4xl font-poppins font-bold text-green-600 mb-2">200+</p>
-            <p className="text-sm text-graphite-600 dark:text-gray-300">Active Investors</p>
+            <p className="text-4xl font-poppins font-bold text-green-600 mb-2">100%</p>
+            <p className="text-sm text-graphite-600 dark:text-gray-300">Digital Platform</p>
           </div>
         </div>
       </div>

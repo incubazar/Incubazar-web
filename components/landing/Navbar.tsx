@@ -19,6 +19,7 @@ export default function Navbar() {
   }, [])
 
   const navLinks = [
+    { href: '/about', label: 'About' },
     { href: '#how-it-works', label: 'How It Works' },
     { href: '#for-founders', label: 'For Founders' },
     { href: '#for-investors', label: 'For Investors' },

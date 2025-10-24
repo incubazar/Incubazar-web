@@ -80,7 +80,7 @@ export default function HowItWorks() {
         {/* Bottom CTA */}
         <div className="text-center mt-16">
           <p className="text-graphite-500 dark:text-gray-400 text-sm">
-            Join <span className="font-bold text-electric">500+</span> founders already building their dreams
+            Join India's <span className="font-bold text-electric">most trusted</span> startup-investor platform
           </p>
         </div>
       </div>

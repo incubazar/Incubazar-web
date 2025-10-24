@@ -30,8 +30,14 @@ export const metadata: Metadata = {
   creator: 'Incubazar',
   publisher: 'Incubazar',
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-icon.png',
+    icon: [
+      { url: '/icon', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+    ],
+    apple: [
+      { url: '/apple-icon', sizes: '180x180', type: 'image/png' },
+    ],
+    shortcut: '/favicon.svg',
   },
   manifest: '/manifest.json',
   openGraph: {

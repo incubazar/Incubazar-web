@@ -103,22 +103,22 @@ export default function PremiumHero() {
           {/* Stats */}
           <div className="pt-12 md:pt-20 grid grid-cols-1 sm:grid-cols-3 gap-8 md:gap-12 max-w-4xl mx-auto animate-fade-in px-4" style={{ animationDelay: '0.6s' }}>
             <div className="text-center space-y-2 md:space-y-3 group cursor-default">
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
-                500<span className="text-primary">+</span>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+                Section <span className="text-primary">42</span>
               </div>
-              <p className="text-sm md:text-base lg:text-lg text-muted-foreground font-medium">Active Founders</p>
+              <p className="text-sm md:text-base lg:text-lg text-muted-foreground font-medium">Compliant Platform</p>
             </div>
             <div className="text-center space-y-2 md:space-y-3 sm:border-x border-border/50 group cursor-default">
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
-                ₹50<span className="text-primary">Cr+</span>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+                AI <span className="text-primary">Driven</span>
               </div>
-              <p className="text-sm md:text-base lg:text-lg text-muted-foreground font-medium">Funds Raised</p>
+              <p className="text-sm md:text-base lg:text-lg text-muted-foreground font-medium">Smart Matching</p>
             </div>
             <div className="text-center space-y-2 md:space-y-3 group cursor-default">
-              <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-extrabold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
-                200<span className="text-primary">+</span>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-extrabold tracking-tight bg-gradient-to-br from-foreground to-foreground/70 bg-clip-text text-transparent group-hover:scale-105 transition-transform duration-300">
+                100<span className="text-primary">%</span>
               </div>
-              <p className="text-sm md:text-base lg:text-lg text-muted-foreground font-medium">Angel Investors</p>
+              <p className="text-sm md:text-base lg:text-lg text-muted-foreground font-medium">Digital & Secure</p>
             </div>
           </div>
         </div>

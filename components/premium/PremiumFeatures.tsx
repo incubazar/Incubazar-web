@@ -19,7 +19,7 @@ const features = [
   {
     icon: Users,
     title: 'Curated Network',
-    description: 'Access a vetted community of 200+ angel investors and 500+ validated startup founders ready to connect.',
+    description: 'Access a verified community of angel investors and validated startup founders ready to connect through our trust-first platform.',
     color: 'from-violet-500 to-purple-500',
   },
   {
