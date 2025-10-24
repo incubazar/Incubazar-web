@@ -8,37 +8,31 @@ const features = [
     icon: Rocket,
     title: 'Smart Matchmaking',
     description: 'Our platform intelligently connects founders with compatible investors based on sector alignment, stage, and investment thesis.',
-    color: 'from-blue-500 to-cyan-500',
   },
   {
     icon: Shield,
     title: 'Regulatory Compliance',
     description: 'Facilitate Section 42 compliant private placements with complete transparency and adherence to Indian regulations.',
-    color: 'from-emerald-500 to-teal-500',
   },
   {
     icon: Users,
     title: 'Curated Network',
     description: 'Access a verified community of angel investors and validated startup founders ready to connect through our trust-first platform.',
-    color: 'from-violet-500 to-purple-500',
   },
   {
     icon: TrendingUp,
     title: 'Deal Flow Matching',
     description: 'AI-powered matching connects startups with investors who have the right expertise, interests, and capacity.',
-    color: 'from-orange-500 to-red-500',
   },
   {
     icon: FileCheck,
     title: 'Document Facilitation',
     description: 'Streamlined document generation for term sheets, agreements, and compliance paperwork to accelerate connections.',
-    color: 'from-pink-500 to-rose-500',
   },
   {
     icon: Sparkles,
     title: 'Connection Platform',
     description: 'Enterprise-grade matching platform with analytics, transparent communication, and deal tracking tools.',
-    color: 'from-amber-500 to-yellow-500',
   },
 ]
 
@@ -75,8 +69,8 @@ export default function PremiumFeatures() {
               >
                 <PremiumCard hover glow className="h-full group">
                   <PremiumCardHeader>
-                    <div className={`inline-flex p-2.5 md:p-3 rounded-xl md:rounded-2xl bg-gradient-to-br ${feature.color} mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                      <Icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                    <div className="inline-flex p-2.5 md:p-3 rounded-xl md:rounded-2xl bg-primary/10 border border-primary/20 mb-3 md:mb-4 group-hover:scale-110 group-hover:bg-primary/20 transition-all duration-300">
+                      <Icon className="w-5 h-5 md:w-6 md:h-6 text-primary" />
                     </div>
                     <PremiumCardTitle className="text-lg md:text-xl">{feature.title}</PremiumCardTitle>
                   </PremiumCardHeader>
