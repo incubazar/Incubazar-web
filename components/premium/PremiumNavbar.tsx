@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button'
 import { PremiumButton } from '@/components/ui/premium-button'
 import { useState, useEffect } from 'react'
 import { Menu, X, Sparkles } from 'lucide-react'
+import Image from 'next/image'
 
 export default function PremiumNavbar() {
   const [isScrolled, setIsScrolled] = useState(false)
@@ -30,9 +31,14 @@ export default function PremiumNavbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2.5 group">
-            <div className="relative w-10 h-10 bg-gradient-to-br from-primary via-accent to-primary rounded-xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:rotate-3 shadow-lg shadow-primary/25">
-              <span className="text-white font-display font-bold text-lg">IB</span>
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            <div className="relative w-12 h-12 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+              <Image 
+                src="/logo.svg" 
+                alt="Incubazar" 
+                width={48} 
+                height={48}
+                className="transition-all duration-300"
+              />
             </div>
             <span className="text-xl font-display font-bold tracking-tight bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text">
               Incubazar

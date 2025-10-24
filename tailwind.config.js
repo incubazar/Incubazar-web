@@ -75,6 +75,7 @@ module.exports = {
         sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
         display: ['Sora', 'Inter', 'sans-serif'],
         mono: ['Space Grotesk', 'Consolas', 'monospace'],
+        logo: ['Ashing', 'Sora', 'sans-serif'],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Mail } from 'lucide-react'
+import Image from 'next/image'
 
 export default function PremiumFooter() {
   const currentYear = new Date().getFullYear()
@@ -25,8 +26,14 @@ export default function PremiumFooter() {
           {/* Brand Section */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center">
-                <span className="text-white dark:text-gray-900 font-bold text-sm">IB</span>
+              <div className="w-10 h-10 flex items-center justify-center">
+                <Image 
+                  src="/logo.svg" 
+                  alt="Incubazar" 
+                  width={40} 
+                  height={40}
+                  className="transition-all duration-300"
+                />
               </div>
               <span className="text-xl font-semibold text-gray-900 dark:text-white">
                 Incubazar

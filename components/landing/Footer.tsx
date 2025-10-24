@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { Button } from '@/components/ui/button'
-import { Rocket, Mail, Phone, MapPin, Twitter, Linkedin, Instagram, Github } from 'lucide-react'
+import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram, Github } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -74,11 +75,14 @@ export default function Footer() {
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-6">
             <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative">
-                <div className="absolute inset-0 bg-electric rounded-xl blur-sm opacity-50 group-hover:opacity-75 transition-opacity" />
-                <div className="relative w-10 h-10 gradient-electric rounded-xl flex items-center justify-center shadow-glow-blue">
-                  <Rocket className="w-5 h-5 text-white" />
-                </div>
+              <div className="relative w-12 h-12 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+                <Image 
+                  src="/logo.svg" 
+                  alt="Incubazar" 
+                  width={48} 
+                  height={48}
+                  className="transition-all duration-300"
+                />
               </div>
               <span className="text-2xl font-poppins font-bold text-white">
                 Incubazar
