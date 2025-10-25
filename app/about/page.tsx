@@ -20,23 +20,23 @@ export default function AboutPage() {
       <EditorialNavbar />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 border-b border-border">
+      <section className="relative pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8 border-b border-border">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center space-y-6 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 border border-ink/10 bg-paper">
+          <div className="text-center space-y-4 sm:space-y-6 animate-fade-in-up">
+            <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 border border-ink/10 bg-paper">
               <Sparkles className="w-4 h-4 text-ink" />
-              <span className="text-sm font-medium text-ink uppercase tracking-wide">
+              <span className="text-xs sm:text-sm font-medium text-ink uppercase tracking-wide">
                 About Incubazar
               </span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight text-ink">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold tracking-tight text-ink px-4">
               Empowering India&apos;s
               <br />
               <span className="italic">Startup Revolution</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-ink/70 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-ink/70 max-w-4xl mx-auto leading-relaxed px-4">
               A trust-first digital platform designed to simplify fundraising for early-stage founders and investors in India
             </p>
           </div>
@@ -44,67 +44,67 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-paper">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-paper">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6 animate-fade-in-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 border border-ink/10 bg-white">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12 items-center">
+            <div className="space-y-4 sm:space-y-6 animate-fade-in-left">
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 border border-ink/10 bg-white">
                 <Rocket className="w-4 h-4 text-ink" />
-                <span className="text-sm font-medium text-ink uppercase tracking-wide">Our Mission</span>
+                <span className="text-xs sm:text-sm font-medium text-ink uppercase tracking-wide">Our Mission</span>
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-ink">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold text-ink">
                 Making Startup–Investor Connections{' '}
                 <span className="italic">Transparent & Accessible</span>
               </h2>
               
-              <p className="text-lg text-ink/70 leading-relaxed">
+              <p className="text-base sm:text-lg text-ink/70 leading-relaxed">
                 In India's rapidly growing startup ecosystem, where fundraising often feels complex and unstructured, 
                 Incubazar bridges the gap by offering a digital platform powered by AI-driven startup discovery, 
                 automated due diligence, and built-in legal compliance.
               </p>
               
-              <p className="text-lg text-ink/70 leading-relaxed">
+              <p className="text-base sm:text-lg text-ink/70 leading-relaxed">
                 We're here for everyone — from student entrepreneurs taking their first steps to emerging founders 
                 scaling their ventures. Our mission is to democratize access to capital and make quality investments 
                 accessible to verified investors.
               </p>
             </div>
             
-            <div className="grid grid-cols-2 gap-6 animate-fade-in-right">
-              <div className="space-y-6">
-                <div className="p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
-                  <div className="w-12 h-12 border-2 border-ink flex items-center justify-center mb-4 group-hover:border-white transition-colors">
-                    <Shield className="w-6 h-6" />
+            <div className="grid grid-cols-2 gap-4 sm:gap-6 animate-fade-in-right">
+              <div className="space-y-4 sm:space-y-6">
+                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors">
+                    <Shield className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2 font-display">Trust First</h3>
-                  <p className="text-sm opacity-70">Built-in compliance and verification</p>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display">Trust First</h3>
+                  <p className="text-xs sm:text-sm opacity-70">Built-in compliance and verification</p>
                 </div>
                 
-                <div className="p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
-                  <div className="w-12 h-12 border-2 border-ink flex items-center justify-center mb-4 group-hover:border-white transition-colors">
-                    <Zap className="w-6 h-6" />
+                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors">
+                    <Zap className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2 font-display">AI-Powered</h3>
-                  <p className="text-sm opacity-70">Smart matching and insights</p>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display">AI-Powered</h3>
+                  <p className="text-xs sm:text-sm opacity-70">Smart matching and insights</p>
                 </div>
               </div>
               
-              <div className="space-y-6 pt-12">
-                <div className="p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
-                  <div className="w-12 h-12 border-2 border-ink flex items-center justify-center mb-4 group-hover:border-white transition-colors">
-                    <Users className="w-6 h-6" />
+              <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
+                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors">
+                    <Users className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2 font-display">Community</h3>
-                  <p className="text-sm opacity-70">Connect with verified ecosystem</p>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display">Community</h3>
+                  <p className="text-xs sm:text-sm opacity-70">Connect with verified ecosystem</p>
                 </div>
                 
-                <div className="p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
-                  <div className="w-12 h-12 border-2 border-ink flex items-center justify-center mb-4 group-hover:border-white transition-colors">
-                    <TrendingUp className="w-6 h-6" />
+                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors">
+                    <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2 font-display">Growth</h3>
-                  <p className="text-sm opacity-70">Scale with expert support</p>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display">Growth</h3>
+                  <p className="text-xs sm:text-sm opacity-70">Scale with expert support</p>
                 </div>
               </div>
             </div>
@@ -113,18 +113,18 @@ export default function AboutPage() {
       </section>
 
       {/* For Founders Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 border-t border-b border-border">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-t border-b border-border">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-ink">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-6 text-ink">
               Built for <span className="italic">Founders</span>
             </h2>
-            <p className="text-xl text-ink/70 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-ink/70 max-w-3xl mx-auto">
               Everything you need to raise capital and grow your startup — all in one place
             </p>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {[
               {
                 icon: CheckCircle2,
@@ -159,14 +159,14 @@ export default function AboutPage() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="p-6 border-2 border-ink/10 bg-white hover:border-ink hover:bg-paper transition-all duration-300 group animate-fade-in-up"
+                className="p-4 sm:p-6 border-2 border-ink/10 bg-white hover:border-ink hover:bg-paper transition-all duration-300 group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-14 h-14 border-2 border-ink flex items-center justify-center mb-4 group-hover:bg-ink group-hover:text-white transition-all duration-300">
-                  <feature.icon className="w-7 h-7" />
+                <div className="w-12 h-12 sm:w-14 sm:h-14 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-ink group-hover:text-white transition-all duration-300">
+                  <feature.icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 font-display text-ink">{feature.title}</h3>
-                <p className="text-ink/70 leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 font-display text-ink">{feature.title}</h3>
+                <p className="text-sm sm:text-base text-ink/70 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -174,18 +174,18 @@ export default function AboutPage() {
       </section>
 
       {/* For Investors Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-paper">
+      <section className="relative py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-paper">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-ink">
+          <div className="text-center mb-12 sm:mb-16 animate-fade-in-up">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-bold mb-4 sm:mb-6 text-ink">
               Designed for <span className="italic">Investors</span>
             </h2>
-            <p className="text-xl text-ink/70 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl text-ink/70 max-w-3xl mx-auto">
               Discover vetted startups, track your portfolio, and make informed investment decisions
             </p>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {[
               {
                 title: 'Curated Deal Flow',
@@ -206,14 +206,14 @@ export default function AboutPage() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="p-8 border-2 border-ink/10 bg-white hover:border-ink hover:bg-ink hover:text-white transition-all duration-300 group animate-fade-in-up"
+                className="p-6 sm:p-8 border-2 border-ink/10 bg-white hover:border-ink hover:bg-ink hover:text-white transition-all duration-300 group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-16 h-16 border-2 border-ink flex items-center justify-center mb-6 group-hover:border-white transition-colors">
-                  <Target className="w-8 h-8" />
+                <div className="w-12 h-12 sm:w-16 sm:h-16 border-2 border-ink flex items-center justify-center mb-4 sm:mb-6 group-hover:border-white transition-colors">
+                  <Target className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
-                <h3 className="text-xl font-bold mb-3 font-display">{feature.title}</h3>
-                <p className="text-sm opacity-70 leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 font-display">{feature.title}</h3>
+                <p className="text-xs sm:text-sm opacity-70 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>

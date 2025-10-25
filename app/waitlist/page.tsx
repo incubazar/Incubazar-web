@@ -98,40 +98,40 @@ export default function WaitlistPageEditorial() {
   return (
     <>
       <EditorialNavbar />
-      <div className="min-h-screen bg-background pt-24 pb-16">
+      <div className="min-h-screen bg-background pt-20 sm:pt-24 pb-12 sm:pb-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <RevealText>
-            <div className="mb-16">
-              <p className="overline mb-4">Application</p>
-              <h1 className="font-serif font-bold text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight mb-6">
+            <div className="mb-12 sm:mb-16">
+              <p className="overline mb-3 sm:mb-4">Application</p>
+              <h1 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tight mb-4 sm:mb-6">
                 Join the Waitlist
               </h1>
-              <p className="lead max-w-2xl">
+              <p className="text-base sm:text-lg md:text-xl leading-relaxed text-foreground/80 max-w-2xl">
                 Become part of an exclusive community where innovation meets capital. 
                 Limited access, curated connections.
               </p>
             </div>
           </RevealText>
 
-          <EditorialDivider className="mb-16" />
+          <EditorialDivider className="mb-12 sm:mb-16" />
 
           {/* User Type Selection */}
           <RevealText>
-            <div className="mb-16">
-              <p className="text-sm font-semibold uppercase tracking-wide mb-6">I am a</p>
-              <div className="grid md:grid-cols-2 gap-6">
+            <div className="mb-12 sm:mb-16">
+              <p className="text-xs sm:text-sm font-semibold uppercase tracking-wide mb-4 sm:mb-6">I am a</p>
+              <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
                 <button
                   type="button"
                   onClick={() => setUserType('founder')}
-                  className={`p-8 border-2 transition-all text-left ${
+                  className={`p-6 sm:p-8 border-2 transition-all text-left ${
                     userType === 'founder'
                       ? 'border-foreground bg-foreground text-background'
                       : 'border-border hover:border-foreground'
                   }`}
                 >
-                  <h3 className="font-serif text-2xl font-semibold mb-2">Founder</h3>
-                  <p className={userType === 'founder' ? 'text-background/80' : 'text-foreground/70'}>
+                  <h3 className="font-serif text-xl sm:text-2xl font-semibold mb-2">Founder</h3>
+                  <p className={`text-sm sm:text-base ${userType === 'founder' ? 'text-background/80' : 'text-foreground/70'}`}>
                     Looking to raise capital and connect with investors
                   </p>
                 </button>
@@ -139,14 +139,14 @@ export default function WaitlistPageEditorial() {
                 <button
                   type="button"
                   onClick={() => setUserType('investor')}
-                  className={`p-8 border-2 transition-all text-left ${
+                  className={`p-6 sm:p-8 border-2 transition-all text-left ${
                     userType === 'investor'
                       ? 'border-foreground bg-foreground text-background'
                       : 'border-border hover:border-foreground'
                   }`}
                 >
-                  <h3 className="font-serif text-2xl font-semibold mb-2">Investor</h3>
-                  <p className={userType === 'investor' ? 'text-background/80' : 'text-foreground/70'}>
+                  <h3 className="font-serif text-xl sm:text-2xl font-semibold mb-2">Investor</h3>
+                  <p className={`text-sm sm:text-base ${userType === 'investor' ? 'text-background/80' : 'text-foreground/70'}`}>
                     Seeking curated startup investment opportunities
                   </p>
                 </button>

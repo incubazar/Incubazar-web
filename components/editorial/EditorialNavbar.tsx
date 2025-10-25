@@ -16,12 +16,12 @@ export default function EditorialNavbar() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
+              <div className="relative w-10 h-10 transition-transform group-hover:scale-110">
                 <Image 
                   src="/logo.svg" 
                   alt="Incubazar" 
-                  width={32} 
-                  height={32}
+                  width={40} 
+                  height={40}
                   className="transition-all duration-300"
                 />
               </div>

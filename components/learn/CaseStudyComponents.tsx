@@ -749,27 +749,29 @@ export function BrandShowcase({
       )}
 
       {/* Logo Grid with Layered Effect */}
-      <div className={`grid ${gridCols[gridLayout]} gap-8`}>
+      <div className={`grid ${gridCols[gridLayout]} gap-12`}>
         {logos.map((logo, idx) => (
-          <div key={idx} className="relative group">
-            {/* Layered Shadow Effect */}
-            <div className="absolute inset-0 bg-graphite-200 translate-x-3 translate-y-3 transition-transform group-hover:translate-x-4 group-hover:translate-y-4" />
-            <div className="absolute inset-0 bg-graphite-300 translate-x-1.5 translate-y-1.5 transition-transform group-hover:translate-x-2 group-hover:translate-y-2" />
-            
-            {/* Logo Container */}
-            <div className="relative bg-paper border-2 border-ink p-8 aspect-square flex flex-col items-center justify-center">
-              <Image 
-                src={logo.src} 
-                alt={logo.alt}
-                width={200}
-                height={200}
-                className="max-w-full max-h-full object-contain transition-transform group-hover:scale-105"
-              />
+          <div key={idx} className="relative">
+            <div className="relative group mb-6">
+              {/* Layered Shadow Effect */}
+              <div className="absolute inset-0 bg-graphite-200 translate-x-3 translate-y-3 transition-transform group-hover:translate-x-4 group-hover:translate-y-4" />
+              <div className="absolute inset-0 bg-graphite-300 translate-x-1.5 translate-y-1.5 transition-transform group-hover:translate-x-2 group-hover:translate-y-2" />
+              
+              {/* Logo Container */}
+              <div className="relative bg-paper border-2 border-ink p-8 aspect-square flex flex-col items-center justify-center z-10">
+                <Image 
+                  src={logo.src} 
+                  alt={logo.alt}
+                  width={200}
+                  height={200}
+                  className="max-w-full max-h-full object-contain transition-transform group-hover:scale-105"
+                />
+              </div>
             </div>
 
-            {/* Caption */}
+            {/* Caption - Outside the layered container */}
             {(logo.caption || logo.year) && (
-              <div className="mt-4">
+              <div className="relative z-20">
                 {logo.year && (
                   <div className="text-xs uppercase tracking-widest text-graphite-500 mb-1">
                     {logo.year}

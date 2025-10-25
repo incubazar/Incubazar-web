@@ -11,33 +11,33 @@ export default function EditorialCTA() {
       <section className="editorial-section bg-graphite-50 dark:bg-ink-lighter">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <RevealText>
-            <p className="overline mb-8">Join Us</p>
+            <p className="overline mb-6 sm:mb-8">Join Us</p>
           </RevealText>
 
           <RevealText>
-            <h2 className="font-serif font-bold text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight mb-12">
+            <h2 className="font-serif font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight tracking-tight mb-8 sm:mb-10 lg:mb-12">
               Shape the future of India&apos;s startup ecosystem
             </h2>
           </RevealText>
 
           <RevealText>
-            <p className="lead mb-16 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg md:text-xl leading-relaxed mb-12 sm:mb-14 lg:mb-16 max-w-2xl mx-auto text-foreground/80">
               Join our curated community of visionaries and investors. 
               Limited access, unlimited potential.
             </p>
           </RevealText>
 
           <RevealText>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-24">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-16 sm:mb-20 lg:mb-24">
               <Link 
                 href="/register" 
-                className="px-10 py-5 bg-foreground text-background text-center font-medium text-lg transition-all hover:bg-foreground/90"
+                className="px-8 sm:px-10 py-4 sm:py-5 bg-foreground text-background text-center font-medium text-base sm:text-lg transition-all hover:bg-foreground/90"
               >
                 For Founders
               </Link>
               <Link 
                 href="/register" 
-                className="px-10 py-5 border-2 border-foreground text-foreground text-center font-medium text-lg transition-all hover:bg-foreground hover:text-background"
+                className="px-8 sm:px-10 py-4 sm:py-5 border-2 border-foreground text-foreground text-center font-medium text-base sm:text-lg transition-all hover:bg-foreground hover:text-background"
               >
                 For Investors
               </Link>
