@@ -5,6 +5,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import { QueryProvider } from '@/components/query-provider'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/next'
 import SmoothScrollProvider from '@/components/spotlight/SmoothScrollProvider'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -105,6 +106,7 @@ export default function RootLayout({
               {children}
               <Toaster />
               <SpeedInsights />
+              <Analytics />
             </QueryProvider>
           </SmoothScrollProvider>
         </ThemeProvider>
