@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function EditorialFooter() {
   const currentYear = new Date().getFullYear();
@@ -12,7 +13,18 @@ export default function EditorialFooter() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           {/* Brand */}
           <div className="md:col-span-5">
-            <h3 className="font-serif text-3xl font-bold mb-4">Incubazar</h3>
+            <Link href="/" className="flex items-center space-x-3 mb-4 group w-fit">
+              <div className="relative w-10 h-10 transition-transform group-hover:scale-110">
+                <Image 
+                  src="/logo.svg" 
+                  alt="Incubazar" 
+                  width={40} 
+                  height={40}
+                  className="transition-all duration-300"
+                />
+              </div>
+              <h3 className="font-serif text-3xl font-bold">Incubazar</h3>
+            </Link>
             <p className="text-foreground/70 leading-relaxed mb-6">
               Where visionaries meet investors. A carefully curated platform for meaningful connections 
               in India's startup ecosystem.

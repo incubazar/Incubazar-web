@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState } from 'react';
 import ScrollProgress from './ScrollProgress';
 
@@ -14,8 +15,19 @@ export default function EditorialNavbar() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
-            <Link href="/" className="font-serif text-2xl font-bold tracking-tight">
-              Incubazar
+            <Link href="/" className="flex items-center space-x-3 group">
+              <div className="relative w-8 h-8 transition-transform group-hover:scale-110">
+                <Image 
+                  src="/logo.svg" 
+                  alt="Incubazar" 
+                  width={32} 
+                  height={32}
+                  className="transition-all duration-300"
+                />
+              </div>
+              <span className="font-serif text-2xl font-bold tracking-tight">
+                Incubazar
+              </span>
             </Link>
 
             {/* Desktop Navigation */}

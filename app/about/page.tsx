@@ -277,29 +277,15 @@ export default function AboutPage() {
               startup funding works in the digital age.
             </p>
           </div>
-        </div>
-      </section>
-
-      {/* Founder Quote Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-ink">
-        <div className="max-w-5xl mx-auto text-center">
-          <div className="space-y-8 animate-fade-in-up">
-            <div className="relative">
-              <div className="absolute inset-0 flex items-center justify-center opacity-10">
-                <span className="text-[200px] font-serif text-paper">"</span>
-              </div>
-              <blockquote className="relative text-3xl md:text-5xl font-display font-bold text-paper leading-tight tracking-tight">
+          
+          {/* Subtle Founder Insight */}
+          <div className="mt-16 max-w-4xl mx-auto">
+            <div className="relative border-l-4 border-ink/20 pl-8 py-6">
+              <p className="text-2xl md:text-3xl font-display italic text-ink/90 leading-relaxed mb-4">
                 "The assumption that you have infinite time is your greatest obstacle."
-              </blockquote>
-            </div>
-            
-            <div className="flex flex-col items-center space-y-2 pt-6">
-              <div className="h-px w-24 bg-paper/30"></div>
-              <p className="text-xl font-serif text-paper/90">
-                Deepak
               </p>
-              <p className="text-sm uppercase tracking-widest text-paper/60 font-body">
-                Founder & CEO, Incubazar
+              <p className="text-sm text-ink/60 font-body">
+                — Deepak, Founder & CEO
               </p>
             </div>
           </div>
