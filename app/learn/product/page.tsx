@@ -76,7 +76,7 @@ export default function ProductPage() {
         {/* Introduction */}
         <ArticleSection>
           <ArticleText>
-            Most startups don't fail because they build the wrong product. They fail because 
+            Most startups don&apos;t fail because they build the wrong product. They fail because 
             they build a product nobody wants, launch it to the wrong audience, or scale before 
             achieving product-market fit. The graveyard of failed startups is filled with 
             &quot;great ideas&quot; that never found their market.
@@ -84,12 +84,12 @@ export default function ProductPage() {
 
           <ArticleText>
             This guide covers everything from MVP strategy to pricing models, activation metrics 
-            to conversion funnels, and B2B vs B2C go-to-market playbooks. By the end, you'll 
+            to conversion funnels, and B2B vs B2C go-to-market playbooks. By the end, you&apos;ll 
             know exactly how to validate, build, launch, and scale a product that matters.
           </ArticleText>
 
           <PullQuote
-            quote="You can have a great team, great technology, and great execution—but if you don't have product-market fit, none of it matters. PMF is the moment when a startup finally finds a widespread set of customers that resonate with what they're building."
+            quote="You can have a great team, great technology, and great execution—but if you don&apos;t have product-market fit, none of it matters. PMF is the moment when a startup finally finds a widespread set of customers that resonate with what they&apos;re building."
             citation="Marc Andreessen, Andreessen Horowitz"
           />
         </ArticleSection>
@@ -97,7 +97,7 @@ export default function ProductPage() {
         {/* MVP Strategy */}
         <ArticleSection heading="1. MVP Strategy: Build Less, Learn More">
           <ArticleText>
-            The Minimum Viable Product (MVP) isn't about building a &quot;bad&quot; version of your 
+            The Minimum Viable Product (MVP) isn&apos;t about building a &quot;bad&quot; version of your 
             product—it&apos;s about building the <em>smallest</em> version that lets you learn 
             whether you&apos;re solving a real problem<InlineCitation number={1} id="ries-lean-startup" />.
           </ArticleText>
@@ -153,12 +153,12 @@ export default function ProductPage() {
           <CalloutBox type="warning" title="The MVP Trap: Building vs Learning">
             <p className="mb-3">
               <strong>Most founders build too much.</strong> If your MVP takes more than 3 months 
-              to launch, you're not building an MVP—you're building a full product without 
+              to launch, you&apos;re not building an MVP—you&apos;re building a full product without 
               validation.
             </p>
             <p className="text-sm text-graphite-600">
               Rule of thumb: Your MVP should make you slightly embarrassed when you launch it. 
-              If you're proud of V1, you waited too long.
+              If you&apos;re proud of V1, you waited too long.
             </p>
           </CalloutBox>
 
@@ -337,9 +337,9 @@ export default function ProductPage() {
         {/* SaaS Metrics */}
         <ArticleSection heading="3. SaaS Metrics: The Numbers That Matter">
           <ArticleText>
-            If you're building a SaaS product, these 10 metrics tell the complete story of 
+            If you&apos;re building a SaaS product, these 10 metrics tell the complete story of 
             your business health<InlineCitation number={5} id="saastr-metrics" />. Master them, 
-            and you'll know exactly where to focus.
+            and you&apos;ll know exactly where to focus.
           </ArticleText>
 
           <div className="my-8">
@@ -430,7 +430,7 @@ export default function ProductPage() {
                 </h5>
                 <p className="text-graphite-200 mb-3">
                   Revenue from existing customers after accounting for churn + expansion. 
-                  <strong> If &gt;100%, you're growing even without new customers.</strong>
+                  <strong> If &gt;100%, you&apos;re growing even without new customers.</strong>
                 </p>
                 <div className="font-mono text-sm bg-graphite-900 p-3 border border-graphite-700 mb-3">
                   NRR = ((Starting MRR + Expansion - Churn) / Starting MRR) × 100

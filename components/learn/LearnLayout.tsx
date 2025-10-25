@@ -58,7 +58,7 @@ export default function LearnLayout({ children }: LearnLayoutProps) {
           {/* Logo/Header */}
           <Link href="/learn" className="block mb-12">
             <h1 className="font-serif text-2xl font-bold text-ink tracking-tight">
-              Founder's Circle
+              Founder&apos;s Circle
             </h1>
             <p className="text-sm text-graphite-600 mt-1">
               Learn. Build. Grow.

@@ -127,7 +127,7 @@ export function PendingApproval({ type, submittedAt, profileId }: PendingApprova
               <strong>Expected Review Time:</strong> 2-3 business days
             </p>
             <p className="text-center text-xs text-blue-600 mt-1">
-              You'll receive an email notification once the review is complete
+              You&apos;ll receive an email notification once the review is complete
             </p>
           </div>
 

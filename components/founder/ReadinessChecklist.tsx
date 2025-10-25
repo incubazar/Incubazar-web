@@ -68,7 +68,7 @@ export function ReadinessChecklist({
         id: 'compliance',
         title: 'Review Compliance Guidelines',
         description: 'Understand Section 42 requirements and investor limits',
-        completed: true, // Assuming they've read it by accessing the platform
+        completed: true, // Assuming they&apos;ve read it by accessing the platform
         link: '/legal/compliance',
         icon: Shield
       },

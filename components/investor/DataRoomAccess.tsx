@@ -35,7 +35,7 @@ export function DataRoomAccess({ dealId, founderId, hasExpressedInterest }: Data
 
       if (!investorProfile) return
 
-      // Check if there's an existing access request
+      // Check if there&apos;s an existing access request
       const { data: accessRequest } = await supabase
         .from('data_room_access_requests')
         .select('status')

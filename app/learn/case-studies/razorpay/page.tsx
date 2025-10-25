@@ -127,7 +127,7 @@ export default function RazorpayCaseStudy() {
               <h4 className="font-semibold text-ink mb-2">3. Compliance Bureaucracy</h4>
               <p className="text-graphite-800">
                 Getting a merchant account required physical paperwork, bank visits, and 
-                2-3 month approval cycles. Startups couldn't afford to wait.
+                2-3 month approval cycles. Startups couldn&apos;t afford to wait.
               </p>
             </div>
 

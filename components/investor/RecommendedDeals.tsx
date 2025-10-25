@@ -143,7 +143,7 @@ export function RecommendedDeals({ matches }: RecommendedDealsProps) {
                       {match.match_reasons.length > 0 && (
                         <div className="mb-3 p-3 bg-white/50 rounded-lg border">
                           <p className="text-xs font-semibold text-gray-700 mb-2">
-                            Why it's a match:
+                            Why it&apos;s a match:
                           </p>
                           <div className="space-y-1">
                             {match.match_reasons.slice(0, 3).map((reason, idx) => (

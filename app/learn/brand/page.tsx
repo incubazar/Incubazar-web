@@ -139,7 +139,7 @@ export default function BrandPage() {
               <div className="border-l-4 border-graphite-600 pl-6">
                 <h5 className="font-semibold text-ink text-lg mb-2">Value Proposition</h5>
                 <p className="text-graphite-800">
-                  What unique benefit do you deliver that competitors don't?
+                  What unique benefit do you deliver that competitors don&apos;t?
                 </p>
                 <p className="text-sm text-graphite-600 mt-2 italic">
                   Example (Slack): "Be more productive at work with less effort."
@@ -504,7 +504,7 @@ export default function BrandPage() {
           <CalloutBox type="tip" title="The Grid Test">
             <p>
               Professional logos are built on geometric grids. Try overlaying circles, squares, and 
-              golden ratio guides on famous logos — you'll see mathematical precision underneath.
+              golden ratio guides on famous logos — you&apos;ll see mathematical precision underneath.
             </p>
             <p className="mt-3 text-sm text-graphite-600">
               Tools: <strong>LogoLounge</strong>, <strong>Golden Ratio Calculator</strong>, <strong>Grid by Spec</strong>
@@ -732,7 +732,7 @@ export default function BrandPage() {
                 <p className="text-graphite-200 mb-3">
                   In 1971, Portland State University student Carolyn Davidson designed the Swoosh 
                   for $35 (about $250 today)<InlineCitation number={2} id="nike-logo-evolution" />. 
-                  Nike founder Phil Knight's first reaction: &quot;I don't love it, but it'll grow on me.&quot;
+                  Nike founder Phil Knight's first reaction: &quot;I don&apos;t love it, but it'll grow on me.&quot;
                 </p>
                 <p className="text-graphite-200">
                   He was right. Today, it&apos;s one of the world&apos;s most valuable logos, worth an estimated 
@@ -834,7 +834,7 @@ export default function BrandPage() {
                 <ul className="space-y-2 text-graphite-800">
                   <li className="flex items-start gap-2">
                     <span className="text-ink font-semibold">•</span>
-                    <span><strong>Subliminal messaging:</strong> The arrow works subconsciously — you feel speed even if you don't consciously see it</span>
+                    <span><strong>Subliminal messaging:</strong> The arrow works subconsciously — you feel speed even if you don&apos;t consciously see it</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-ink font-semibold">•</span>
@@ -858,7 +858,7 @@ export default function BrandPage() {
               <CalloutBox type="info" title="Lesson for Founders">
                 <p>
                   <strong>Hidden details create brand magic.</strong> The FedEx arrow proves that 
-                  thoughtful design has layers. Your logo doesn't need Easter eggs, but intentional 
+                  thoughtful design has layers. Your logo doesn&apos;t need Easter eggs, but intentional 
                   details (perfect spacing, optical balance, meaningful geometry) separate amateur 
                   from professional work.
                 </p>

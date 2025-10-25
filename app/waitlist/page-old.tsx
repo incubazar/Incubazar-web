@@ -114,7 +114,7 @@ export default function WaitlistPage() {
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold mb-4">Join Incubazar Waitlist</h1>
           <p className="text-lg text-gray-600">
-            Be part of India's premier private placement platform for startups and investors
+            Be part of India&apos;s premier private placement platform for startups and investors
           </p>
         </div>
 
@@ -154,7 +154,7 @@ export default function WaitlistPage() {
           <CardHeader>
             <CardTitle>Application Form</CardTitle>
             <CardDescription>
-              Fill out the form below and we'll review your application
+              Fill out the form below and we&apos;ll review your application
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -246,7 +246,7 @@ export default function WaitlistPage() {
                       value={formData.business_idea}
                       onChange={handleInputChange}
                       required={userType === 'founder'}
-                      placeholder="Describe your startup and what problem you're solving..."
+                      placeholder="Describe your startup and what problem you&apos;re solving..."
                       rows={4}
                     />
                   </div>

@@ -704,7 +704,7 @@ export default function InvestorOnboarding() {
                 <Label htmlFor="portfolio_companies">Notable Portfolio Companies</Label>
                 <Textarea
                   id="portfolio_companies"
-                  placeholder="Companies you're proud to be associated with"
+                  placeholder="Companies you&apos;re proud to be associated with"
                   value={data.portfolio_companies}
                   onChange={(e) => updateField('portfolio_companies', e.target.value)}
                   rows={3}

@@ -99,7 +99,7 @@ export default function TrendsPage() {
 
           <ArticleText>
             This module provides snapshots of 9 high-growth industries in India and USA. For each, 
-            you'll get market sizing, growth rates, key players, opportunities for founders, and 
+            you&apos;ll get market sizing, growth rates, key players, opportunities for founders, and 
             strategic considerations. Use this as a reference when choosing your industry or 
             positioning against competitors.
           </ArticleText>
@@ -411,7 +411,7 @@ export default function TrendsPage() {
                 Key Players (India)
               </h4>
               <ul className="text-sm text-graphite-800 space-y-2">
-                <li>• <strong>BYJU'S</strong> (K-12, peak $22B valuation, now struggling)</li>
+                <li>• <strong>BYJU&apos;S</strong> (K-12, peak $22B valuation, now struggling)</li>
                 <li>• <strong>Unacademy, Vedantu</strong> (test prep, live classes)</li>
                 <li>• <strong>upGrad</strong> (upskilling, higher ed, $1.2B valuation)</li>
                 <li>• <strong>Physics Wallah</strong> (affordable test prep, profitable)</li>
@@ -545,7 +545,7 @@ export default function TrendsPage() {
           </div>
 
           <ArticleText>
-            <strong>Go-to-Market Challenges:</strong> Farmers don't have smartphones (only 30% penetration 
+            <strong>Go-to-Market Challenges:</strong> Farmers don&apos;t have smartphones (only 30% penetration 
             in rural India), prefer cash over digital, and are risk-averse. Winning GTM: Offline-first 
             (village entrepreneurs, retail touchpoints), vernacular languages, trust-building through 
             demos. CAC is high ($50-100 per farmer) but LTV can be $500+ over 3-5 years.
@@ -619,7 +619,7 @@ export default function TrendsPage() {
               <h4 className="font-semibold text-ink mb-2">1. Is the market growing?</h4>
               <p className="text-sm text-graphite-800">
                 Target industries with 15%+ annual growth. Avoid declining markets (no matter how 
-                innovative your solution—you're swimming upstream).
+                innovative your solution—you&apos;re swimming upstream).
               </p>
             </div>
 

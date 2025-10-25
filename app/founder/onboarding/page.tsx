@@ -299,7 +299,7 @@ export default function FounderOnboarding() {
         {/* Header */}
         <div className="text-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">Welcome to Incubazar! 🚀</h1>
-          <p className="text-lg text-gray-600">Let's set up your startup profile to connect with investors</p>
+          <p className="text-lg text-gray-600">Let&apos;s set up your startup profile to connect with investors</p>
         </div>
 
         {/* Progress bar */}

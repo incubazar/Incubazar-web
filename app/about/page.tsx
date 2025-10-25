@@ -29,7 +29,7 @@ export default function AboutPage() {
             
             <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight">
               <span className="text-foreground">
-                Empowering India's
+                Empowering India&apos;s
               </span>
               <br />
               <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
@@ -239,7 +239,7 @@ export default function AboutPage() {
           <div className="text-center mb-16 animate-fade-in-up">
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm mb-6">
               <Globe className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-accent">India's Startup Ecosystem</span>
+              <span className="text-sm font-medium text-accent">India&apos;s Startup Ecosystem</span>
             </div>
             
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
@@ -288,7 +288,7 @@ export default function AboutPage() {
           
           <div className="text-center">
             <p className="text-lg text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
-              Through technology, trust, and transparency, we're building the infrastructure that will power 
+              Through technology, trust, and transparency, we&apos;re building the infrastructure that will power 
               the next generation of Indian startups. Join us as we empower entrepreneurs and redefine how 
               startup funding works in the digital age.
             </p>

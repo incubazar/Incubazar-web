@@ -115,7 +115,7 @@ export default function GatedContent({
         {/* Additional Info */}
         <div className="mt-16 pt-8 border-t-2 border-graphite-200">
           <h3 className="font-serif text-xl font-bold text-ink mb-4 text-center">
-            What You'll Get with Full Access
+            What You&apos;ll Get with Full Access
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="p-6 border-2 border-graphite-300">
@@ -144,7 +144,7 @@ export default function GatedContent({
           <div className="mt-12 p-6 bg-ink text-paper">
             <p className="text-center">
               <strong>Note:</strong> As an investor, you already have access to all learning content. 
-              If you're seeing this page, please contact support.
+              If you&apos;re seeing this page, please contact support.
             </p>
           </div>
         )}

@@ -120,7 +120,7 @@ export default function LearnIndexPage() {
               of building a startup — from incorporation to exit.
             </p>
             <p className="text-xl text-graphite-600 leading-relaxed">
-              While you're on the waitlist, immerse yourself in editorial-quality lessons, 
+              While you&apos;re on the waitlist, immerse yourself in editorial-quality lessons, 
               data-backed case studies, and actionable templates. Every claim is cited. 
               Every insight is verified. Every tool is production-ready.
             </p>
@@ -165,7 +165,7 @@ export default function LearnIndexPage() {
       <section className="px-4 sm:px-8 lg:px-12 py-20">
         <div className="max-w-3xl mx-auto">
           <h2 className="font-serif text-4xl sm:text-5xl font-bold text-ink mb-8 text-center">
-            The Founder's Manifesto
+            The Founder&apos;s Manifesto
           </h2>
           
           <div className="space-y-6 text-lg text-graphite-800 leading-relaxed">

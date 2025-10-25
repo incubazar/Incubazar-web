@@ -272,7 +272,7 @@ export default function InvestorDashboard() {
         <div className="space-y-1">
           <h1 className="text-4xl font-bold tracking-tight">Investment Dashboard</h1>
           <p className="text-lg text-muted-foreground">
-            Discover and invest in India's next generation of startups
+            Discover and invest in India&apos;s next generation of startups
           </p>
         </div>
         <div className="flex items-center gap-3">
@@ -332,7 +332,7 @@ export default function InvestorDashboard() {
         <StatCard
           title="Interested"
           value={stats.interestedDeals}
-          description="Deals you're interested in"
+          description="Deals you&apos;re interested in"
           icon={FileText}
           variant="gradient-orange"
         />

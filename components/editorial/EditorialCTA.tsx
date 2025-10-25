@@ -16,7 +16,7 @@ export default function EditorialCTA() {
 
           <RevealText>
             <h2 className="font-serif font-bold text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight mb-12">
-              Shape the future of India's startup ecosystem
+              Shape the future of India&apos;s startup ecosystem
             </h2>
           </RevealText>
 

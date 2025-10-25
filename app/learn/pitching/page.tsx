@@ -93,7 +93,7 @@ export default function PitchingPage() {
           <ArticleText>
             The average investor sees 200+ pitch decks per year and says &quot;yes&quot; to fewer than 5. 
             Your pitch has ~3 minutes to capture attention before they mentally check out.<InlineCitation number={5} id="5" /> 
-            The difference between funded and ignored isn't always the idea—it's how you tell the story.
+            The difference between funded and ignored isn&apos;t always the idea—it&apos;s how you tell the story.
           </ArticleText>
 
           <ArticleText>
@@ -103,7 +103,7 @@ export default function PitchingPage() {
           </ArticleText>
 
           <PullQuote
-            quote="You're not pitching a product. You're pitching a future where the problem no longer exists—and you're the team that makes it happen."
+            quote="You're not pitching a product. You're pitching a future where the problem no longer exists—and you&apos;re the team that makes it happen."
             author="First Round Capital"
           />
         </ArticleSection>
@@ -170,13 +170,13 @@ export default function PitchingPage() {
             <strong>Slide 5: Market Size</strong><br />
             Investors need $1B+ TAM (total addressable market) to justify venture returns. Calculate 
             bottoms-up: "10M businesses × $100/month = $12B TAM." Then show SAM (serviceable addressable 
-            market, your realistic target) and SOM (serviceable obtainable market, what you'll capture in 3-5 years).
+            market, your realistic target) and SOM (serviceable obtainable market, what you&apos;ll capture in 3-5 years).
           </ArticleText>
 
           <CalloutBox type="tip">
             <strong>Bottoms-Up vs Top-Down:</strong> Saying &quot;We'll capture 1% of the $500B payments market&quot; 
             is lazy. Instead: &quot;There are 2M e-commerce stores in India. If 10% adopt our checkout solution 
-            at $50/month, that's $120M ARR potential.&quot;
+            at $50/month, that&apos;s $120M ARR potential.&quot;
           </CalloutBox>
 
           <ArticleText>
@@ -195,7 +195,7 @@ export default function PitchingPage() {
 
           <ArticleText>
             <strong>Slide 8: Competition</strong><br />
-            Never say &quot;we have no competitors&quot; (means you don't understand the market). Use a 2×2 matrix 
+            Never say &quot;we have no competitors&quot; (means you don&apos;t understand the market). Use a 2×2 matrix 
             with your product in the top-right corner. Example axes: "Ease of Use" vs &quot;Customization.&quot; 
             Show why alternatives (incumbents, substitutes, DIY solutions) fall short.
           </ArticleText>
@@ -296,7 +296,7 @@ export default function PitchingPage() {
                   &quot;My co-founder and I were sales managers at [Company]. We spent 4 hours a day manually 
                   writing follow-up emails—and still lost deals because we forgot to follow up. We talked 
                   to 50 other sales leaders, and they all had the same problem: follow-up is critical, 
-                  but it's manual, repetitive, and easy to forget.&quot;
+                  but it&apos;s manual, repetitive, and easy to forget.&quot;
                 </p>
               </div>
 
@@ -315,7 +315,7 @@ export default function PitchingPage() {
                 <p className="mb-2">
                   &quot;We launched 8 months ago. We're at $500K ARR, growing 20% month-over-month, with 200 
                   customers including Salesforce and HubSpot. We're targeting the 2 million B2B sales teams 
-                  globally—a $12B market. If we capture just 1% at $200/month, that's $240M ARR potential.&quot;
+                  globally—a $12B market. If we capture just 1% at $200/month, that&apos;s $240M ARR potential.&quot;
                 </p>
               </div>
 
@@ -323,7 +323,7 @@ export default function PitchingPage() {
                 <div className="font-semibold text-paper mb-2">[1:30-2:00] Business Model + Unit Economics</div>
                 <p className="mb-2">
                   &quot;We charge $200 per user per month. Our CAC is $600, LTV is $4,800, so we have an 8:1 
-                  LTV:CAC ratio and a 3-month payback period. Gross margin is 80% because we're SaaS.&quot;
+                  LTV:CAC ratio and a 3-month payback period. Gross margin is 80% because we&apos;re SaaS.&quot;
                 </p>
               </div>
 
@@ -331,7 +331,7 @@ export default function PitchingPage() {
                 <div className="font-semibold text-paper mb-2">[2:00-2:30] Competition + Why You Win</div>
                 <p className="mb-2">
                   &quot;The alternatives are manual follow-ups (slow, error-prone), generic email automation 
-                  tools (not personalized), or hiring more SDRs (expensive, doesn't scale). We're the only 
+                  tools (not personalized), or hiring more SDRs (expensive, doesn&apos;t scale). We're the only 
                   AI-powered solution built specifically for follow-ups, and our NPS is 72.&quot;
                 </p>
               </div>
@@ -349,7 +349,7 @@ export default function PitchingPage() {
 
           <ArticleText>
             <strong>Key Principles:</strong> Start with the problem (not &quot;We're an AI company&quot;). Use 
-            specific numbers (not &quot;we're growing fast&quot;). End with an ask. Practice until you can deliver 
+            specific numbers (not &quot;we&apos;re growing fast&quot;). End with an ask. Practice until you can deliver 
             this in exactly 3 minutes without looking at notes.
           </ArticleText>
         </ArticleSection>
@@ -423,7 +423,7 @@ export default function PitchingPage() {
               ['What could go wrong?', 'What keeps you up at night?', 'Acknowledge 1-2 risks, then explain mitigation strategy'],
               ['How do you make money?', 'Can this generate $100M+ revenue?', 'Clear pricing model with proven unit economics']
             ]}
-            caption="Address these questions proactively in your pitch—don't wait for them to ask"
+            caption="Address these questions proactively in your pitch—don&apos;t wait for them to ask"
           />
 
           <CalloutBox type="warning">
@@ -471,7 +471,7 @@ export default function PitchingPage() {
             <div className="p-6 border-l-4 border-graphite-600 bg-graphite-50">
               <h4 className="font-semibold text-ink mb-2">1. Starting with &quot;We're an AI company&quot;</h4>
               <p className="text-sm text-graphite-800">
-                Investors don't invest in technology—they invest in solutions to real problems. 
+                Investors don&apos;t invest in technology—they invest in solutions to real problems. 
                 Start with the customer pain point, not your tech stack.
               </p>
             </div>
@@ -487,7 +487,7 @@ export default function PitchingPage() {
             <div className="p-6 border-l-4 border-graphite-600 bg-graphite-50">
               <h4 className="font-semibold text-ink mb-2">3. Saying &quot;we have no competitors&quot;</h4>
               <p className="text-sm text-graphite-800">
-                Every problem has a solution today (even if it's manual). Acknowledge alternatives, 
+                Every problem has a solution today (even if it&apos;s manual). Acknowledge alternatives, 
                 then explain why yours is 10x better.
               </p>
             </div>

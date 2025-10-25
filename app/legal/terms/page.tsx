@@ -87,8 +87,8 @@ export default function TermsOfServicePage() {
           <h3 className="text-xl font-semibold mb-3 mt-6">5.1 Permitted Use</h3>
           <p>You may use the Platform to:</p>
           <ul className="list-disc pl-6 space-y-2">
-            <li>Browse investment opportunities (if you're an Investor)</li>
-            <li>List fundraising deals (if you're a Founder)</li>
+            <li>Browse investment opportunities (if you&apos;re an Investor)</li>
+            <li>List fundraising deals (if you&apos;re a Founder)</li>
             <li>Communicate with other Users through the Platform</li>
             <li>Access educational and informational content</li>
           </ul>

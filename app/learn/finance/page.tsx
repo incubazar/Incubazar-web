@@ -86,7 +86,7 @@ export default function FinancePage() {
             Raising capital is one of the most critical—and misunderstood—aspects of building a 
             startup. Most founders obsess over valuations and funding amounts, but the real game 
             is understanding dilution, unit economics, and building a sustainable business model 
-            that investors can't resist.
+            that investors can&apos;t resist.
           </ArticleText>
 
           <ArticleText>
@@ -203,7 +203,7 @@ export default function FinancePage() {
                 <h5 className="font-semibold text-ink text-lg mb-2">Seed: Prove the Market</h5>
                 <p className="text-graphite-800 mb-2">
                   <strong>Raise when:</strong> You have strong product-market fit signals — users 
-                  love your product, retention is strong (40%+ Month 1), and you're seeing organic 
+                  love your product, retention is strong (40%+ Month 1), and you&apos;re seeing organic 
                   growth.
                 </p>
                 <p className="text-sm text-graphite-600">
@@ -761,7 +761,7 @@ export default function FinancePage() {
 
           <CalloutBox type="warning" title="The 6-Month Rule">
             <p>
-              <strong>If your runway drops below 6 months without a term sheet signed, you're in danger zone.</strong> 
+              <strong>If your runway drops below 6 months without a term sheet signed, you&apos;re in danger zone.</strong> 
               Options: (1) Cut burn by 30-50%, (2) Raise emergency bridge round, (3) Explore acquisition. 
               Don't wait until Month 3 to panic.
             </p>

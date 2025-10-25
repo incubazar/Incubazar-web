@@ -659,7 +659,7 @@ export default function AdminInvestorsPage() {
                       <AlertCircle className="h-5 w-5 text-yellow-600 mt-0.5" />
                       <div>
                         <p className="font-semibold text-yellow-800">No Investment Preferences</p>
-                        <p className="text-sm text-yellow-700">This investor hasn't set up their investment preferences yet.</p>
+                        <p className="text-sm text-yellow-700">This investor hasn&apos;t set up their investment preferences yet.</p>
                       </div>
                     </div>
                   </CardContent>

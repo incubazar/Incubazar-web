@@ -69,7 +69,7 @@ export default function IncorporationPage() {
         {/* Introduction */}
         <ArticleSection>
           <ArticleText>
-            Choosing the right legal structure is one of the most critical decisions you'll make as 
+            Choosing the right legal structure is one of the most critical decisions you&apos;ll make as 
             a founder. Your incorporation choice affects taxation, liability, fundraising potential, 
             compliance burden, and even your ability to scale internationally.
           </ArticleText>
@@ -82,7 +82,7 @@ export default function IncorporationPage() {
           <CalloutBox type="tip" title="Key Principle">
             <p>
               <strong>Start simple, but start right.</strong> Most tech startups begin as Private 
-              Limited Companies (India) or Delaware C-Corps (USA) because they're optimized for 
+              Limited Companies (India) or Delaware C-Corps (USA) because they&apos;re optimized for 
               venture capital investment and equity distribution. However, your specific needs may vary.
             </p>
           </CalloutBox>
@@ -213,7 +213,7 @@ export default function IncorporationPage() {
           <ArticleText>
             An LLP combines the flexibility of a partnership with the limited liability of a company. 
             It's governed by the Limited Liability Partnership Act, 2008<InlineCitation number={2} id="companies-act-2013" />, 
-            and is popular among professional service firms and businesses that don't plan to raise 
+            and is popular among professional service firms and businesses that don&apos;t plan to raise 
             external equity.
           </ArticleText>
 
@@ -325,7 +325,7 @@ export default function IncorporationPage() {
           </CalloutBox>
 
           <PullQuote
-            quote="An OPC is perfect for solo founders testing an idea. But plan your exit strategy — you'll need to convert to Pvt Ltd before raising VC money."
+            quote="An OPC is perfect for solo founders testing an idea. But plan your exit strategy — you&apos;ll need to convert to Pvt Ltd before raising VC money."
             citation="Common practice in Indian startup ecosystem"
           />
 
@@ -348,7 +348,7 @@ export default function IncorporationPage() {
               </li>
               <li className="flex items-start gap-2">
                 <span className="text-ink font-semibold">✓</span>
-                <span>You're bootstrapping and not seeking VC funding immediately</span>
+                <span>You&apos;re bootstrapping and not seeking VC funding immediately</span>
               </li>
             </ul>
           </div>
@@ -442,7 +442,7 @@ export default function IncorporationPage() {
         {/* US Comparison */}
         <ArticleSection heading="US Structures: Quick Overview">
           <ArticleText>
-            For founders considering US incorporation or international expansion, here's how Indian 
+            For founders considering US incorporation or international expansion, here&apos;s how Indian 
             structures map to US equivalents<InlineCitation number={4} id="us-sba-structures" />:
           </ArticleText>
 
@@ -477,7 +477,7 @@ export default function IncorporationPage() {
 
           <CalloutBox type="tip" title="Delaware C-Corp for Global Startups">
             <p>
-              If you're building a global SaaS product or plan to raise from US VCs, consider a 
+              If you&apos;re building a global SaaS product or plan to raise from US VCs, consider a 
               <strong> Delaware C-Corporation </strong> with an Indian subsidiary. This &quot;flip&quot; 
               structure is used by companies like Flipkart, Ola, Zomato, and most US-backed Indian 
               unicorns.

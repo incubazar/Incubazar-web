@@ -304,7 +304,7 @@ export default function InvestorPortfolioPage() {
                 </h3>
                 <p className="text-gray-600 mb-6">
                   {activeTab === 'all' 
-                    ? "You haven't expressed interest in any deals yet."
+                    ? "You haven&apos;t expressed interest in any deals yet."
                     : `No ${activeTab} investments at the moment.`}
                 </p>
                 <Button onClick={() => router.push('/investor')}>

@@ -197,7 +197,7 @@ function RegisterForm() {
             role: formData.role,
             full_name: formData.fullName,
             phone: formData.phone,
-            verification_status: 'verified' // Auto-verify since they're from waitlist
+            verification_status: 'verified' // Auto-verify since they&apos;re from waitlist
           })
 
         if (userError) {
@@ -253,7 +253,7 @@ function RegisterForm() {
             </div>
             <span className="text-2xl font-bold text-gray-900 dark:text-white">Incubazar</span>
           </div>
-          <p className="text-gray-600 dark:text-gray-400">Join India's trusted startup investment platform</p>
+          <p className="text-gray-600 dark:text-gray-400">Join India&apos;s trusted startup investment platform</p>
         </div>
 
         <Card>

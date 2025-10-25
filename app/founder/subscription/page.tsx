@@ -208,7 +208,7 @@ export default function SubscriptionPage() {
       <div className="text-center">
         <h1 className="text-3xl font-bold text-gray-900">Choose Your Plan</h1>
         <p className="text-gray-600 mt-2">
-          Select the perfect plan for your startup's fundraising journey
+          Select the perfect plan for your startup&apos;s fundraising journey
         </p>
       </div>
 
