@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { logger } from '@/lib/logger'
@@ -56,11 +56,26 @@ export default function InviteCodesPage() {
   const [customCode, setCustomCode] = useState<string>('')
   const [batchSize, setBatchSize] = useState<number>(1)
 
-  useEffect(() => {
-    checkAdminAndFetchCodes()
+  const fetchCodes = useCallback(async () => {
+    try {
+      const response = await fetch('/api/admin/invite-codes')
+      const data = await response.json()
+
+      if (!response.ok) throw new Error(data.error)
+
+      setCodes(data.codes || [])
+    } catch (error) {
+      logger.error('Failed to fetch codes', error as Error, {
+        component: 'INVITE_CODES_PAGE',
+        action: 'FETCH'
+      })
+      toast.error('Failed to load invite codes')
+    } finally {
+      setLoading(false)
+    }
   }, [])
 
-  const checkAdminAndFetchCodes = async () => {
+  const checkAdminAndFetchCodes = useCallback(async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) {
@@ -88,26 +103,11 @@ export default function InviteCodesPage() {
       })
       setLoading(false)
     }
-  }
+  }, [fetchCodes, router, supabase])
 
-  const fetchCodes = async () => {
-    try {
-      const response = await fetch('/api/admin/invite-codes')
-      const data = await response.json()
-
-      if (!response.ok) throw new Error(data.error)
-
-      setCodes(data.codes || [])
-    } catch (error) {
-      logger.error('Failed to fetch invite codes', error as Error, {
-        component: 'INVITE_CODES_PAGE',
-        action: 'FETCH'
-      })
-      toast.error('Failed to load invite codes')
-    } finally {
-      setLoading(false)
-    }
-  }
+  useEffect(() => {
+    checkAdminAndFetchCodes()
+  }, [checkAdminAndFetchCodes])
 
   const handleCreateCode = async () => {
     setCreating(true)

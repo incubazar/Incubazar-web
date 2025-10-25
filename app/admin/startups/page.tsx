@@ -2,7 +2,7 @@
 
 export const dynamic = 'force-dynamic'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { logger } from '@/lib/logger'
@@ -82,15 +82,7 @@ export default function AdminStartupsPage() {
   const router = useRouter()
   const supabase = createClient()
 
-  useEffect(() => {
-    fetchStartups()
-  }, [])
-
-  useEffect(() => {
-    filterStartups()
-  }, [searchTerm, statusFilter, stageFilter, sectorFilter, startups])
-
-  const fetchStartups = async () => {
+  const fetchStartups = useCallback(async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) {
@@ -142,9 +134,9 @@ export default function AdminStartupsPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [router, supabase])
 
-  const filterStartups = () => {
+  const filterStartups = useCallback(() => {
     let filtered = [...startups]
 
     // Search filter
@@ -173,7 +165,15 @@ export default function AdminStartupsPage() {
     }
 
     setFilteredStartups(filtered)
-  }
+  }, [startups, searchTerm, statusFilter, stageFilter, sectorFilter])
+
+  useEffect(() => {
+    fetchStartups()
+  }, [fetchStartups])
+
+  useEffect(() => {
+    filterStartups()
+  }, [filterStartups])
 
   const getUniqueSecrors = () => {
     const sectors = new Set(startups.map(s => s.industry_sector))

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -73,11 +73,7 @@ export default function InvestorDealDetailPage() {
   const [investorProfileId, setInvestorProfileId] = useState<string>('')
   const [hasExpressedInterest, setHasExpressedInterest] = useState(false)
 
-  useEffect(() => {
-    fetchDealDetails()
-  }, [dealId])
-
-  const fetchDealDetails = async () => {
+  const fetchDealDetails = useCallback(async () => {
     try {
       setLoading(true)
 
@@ -146,7 +142,11 @@ export default function InvestorDealDetailPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [dealId, router, supabase])
+
+  useEffect(() => {
+    fetchDealDetails()
+  }, [fetchDealDetails])
 
   const formatCurrency = (amount: number) => {
     return new Intl.NumberFormat('en-IN', {

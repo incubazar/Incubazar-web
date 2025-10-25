@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, useCallback } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -47,6 +47,63 @@ export function MessageThread({
   const [loading, setLoading] = useState(true)
   const [sending, setSending] = useState(false)
 
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  const fetchMessages = useCallback(async () => {
+    try {
+      setLoading(true)
+
+      const { data, error } = await supabase
+        .from('messages')
+        .select('*')
+        .eq('conversation_id', conversationId)
+        .order('created_at', { ascending: true })
+
+      if (error) throw error
+
+      const messagesData = (data || []).map(msg => ({
+        id: msg.id,
+        content: msg.content,
+        sender_id: msg.sender_id,
+        is_sender: msg.sender_id === currentUserId,
+        created_at: msg.created_at,
+        is_read: msg.is_read
+      }))
+
+      setMessages(messagesData)
+    } catch (error: any) {
+      logger.error('Failed to fetch messages', error, {
+        component: 'MESSAGE_THREAD',
+        action: 'FETCH'
+      })
+      toast.error('Failed to load messages')
+    } finally {
+      setLoading(false)
+    }
+  }, [conversationId, currentUserId, supabase])
+
+  const markMessagesAsRead = useCallback(async () => {
+    try {
+      const unreadMessageIds = messages
+        .filter(msg => !msg.is_sender && !msg.is_read)
+        .map(msg => msg.id)
+
+      if (unreadMessageIds.length > 0) {
+        await supabase
+          .from('messages')
+          .update({ is_read: true })
+          .in('id', unreadMessageIds)
+      }
+    } catch (error: any) {
+      logger.error('Failed to mark messages as read', error, {
+        component: 'MESSAGE_THREAD',
+        action: 'MARK_READ'
+      })
+    }
+  }, [messages, supabase])
+
   useEffect(() => {
     fetchMessages()
 
@@ -79,69 +136,12 @@ export function MessageThread({
     return () => {
       supabase.removeChannel(channel)
     }
-  }, [conversationId])
+  }, [conversationId, currentUserId, fetchMessages, supabase])
 
   useEffect(() => {
     scrollToBottom()
     markMessagesAsRead()
-  }, [messages])
-
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }
-
-  const fetchMessages = async () => {
-    try {
-      setLoading(true)
-
-      const { data, error } = await supabase
-        .from('messages')
-        .select('*')
-        .eq('conversation_id', conversationId)
-        .order('created_at', { ascending: true })
-
-      if (error) throw error
-
-      const messagesData = (data || []).map(msg => ({
-        id: msg.id,
-        content: msg.content,
-        sender_id: msg.sender_id,
-        is_sender: msg.sender_id === currentUserId,
-        created_at: msg.created_at,
-        is_read: msg.is_read
-      }))
-
-      setMessages(messagesData)
-    } catch (error: any) {
-      logger.error('Failed to fetch messages', error, {
-        component: 'MESSAGE_THREAD',
-        action: 'FETCH'
-      })
-      toast.error('Failed to load messages')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const markMessagesAsRead = async () => {
-    try {
-      const unreadMessageIds = messages
-        .filter(msg => !msg.is_sender && !msg.is_read)
-        .map(msg => msg.id)
-
-      if (unreadMessageIds.length > 0) {
-        await supabase
-          .from('messages')
-          .update({ is_read: true })
-          .in('id', unreadMessageIds)
-      }
-    } catch (error: any) {
-      logger.error('Failed to mark messages as read', error, {
-        component: 'MESSAGE_THREAD',
-        action: 'MARK_READ'
-      })
-    }
-  }
+  }, [markMessagesAsRead, messages])
 
   const sendMessage = async () => {
     if (!newMessage.trim()) return

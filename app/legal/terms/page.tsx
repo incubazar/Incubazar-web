@@ -19,7 +19,7 @@ export default function TermsOfServicePage() {
           <h2 className="text-2xl font-semibold mb-4">1. Acceptance of Terms</h2>
           <p>
             Welcome to Incubazar. These Terms of Service ("Terms") govern your use of the Incubazar platform 
-            ("Platform") operated by [Company Name] ("we," "our," or "us"). By accessing or using the Platform, 
+            ("Platform") operated by [Company Name] (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). By accessing or using the Platform, 
             you agree to be bound by these Terms.
           </p>
           <p>
@@ -30,12 +30,12 @@ export default function TermsOfServicePage() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">2. Definitions</h2>
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>"Platform"</strong> means the Incubazar website, mobile application, and related services</li>
-            <li><strong>"User"</strong> means any person who accesses or uses the Platform</li>
-            <li><strong>"Founder"</strong> means a User seeking investment for their startup</li>
-            <li><strong>"Investor"</strong> means a User looking to invest in startups</li>
-            <li><strong>"Deal"</strong> means an investment opportunity listed on the Platform</li>
-            <li><strong>"Content"</strong> means text, images, documents, and other materials uploaded to the Platform</li>
+            <li><strong>&quot;Platform&quot;</strong> means the Incubazar website, mobile application, and related services</li>
+            <li><strong>&quot;User&quot;</strong> means any person who accesses or uses the Platform</li>
+            <li><strong>&quot;Founder&quot;</strong> means a User seeking investment for their startup</li>
+            <li><strong>&quot;Investor&quot;</strong> means a User looking to invest in startups</li>
+            <li><strong>&quot;Deal&quot;</strong> means an investment opportunity listed on the Platform</li>
+            <li><strong>&quot;Content&quot;</strong> means text, images, documents, and other materials uploaded to the Platform</li>
           </ul>
         </section>
 
@@ -209,7 +209,7 @@ export default function TermsOfServicePage() {
           
           <h3 className="text-xl font-semibold mb-3 mt-6">9.1 No Warranty</h3>
           <p>
-            THE PLATFORM IS PROVIDED "AS IS" WITHOUT WARRANTIES OF ANY KIND. WE DISCLAIM ALL WARRANTIES, 
+            THE PLATFORM IS PROVIDED &quot;AS IS&quot; WITHOUT WARRANTIES OF ANY KIND. WE DISCLAIM ALL WARRANTIES, 
             EXPRESS OR IMPLIED, INCLUDING MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.
           </p>
 
@@ -305,7 +305,7 @@ export default function TermsOfServicePage() {
           <ul className="list-disc pl-6 space-y-2">
             <li>Email notification</li>
             <li>Platform announcement</li>
-            <li>Updated "Last Updated" date</li>
+            <li>Updated &quot;Last Updated&quot; date</li>
           </ul>
         </section>
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -53,11 +53,7 @@ export default function InvestorPortfolioPage() {
     totalInvested: 0
   })
 
-  useEffect(() => {
-    fetchPortfolio()
-  }, [])
-
-  const fetchPortfolio = async () => {
+  const fetchPortfolio = useCallback(async () => {
     try {
       setLoading(true)
 
@@ -130,7 +126,11 @@ export default function InvestorPortfolioPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [router, supabase])
+
+  useEffect(() => {
+    fetchPortfolio()
+  }, [fetchPortfolio])
 
   const getFilteredPortfolio = () => {
     if (activeTab === 'all') return portfolio

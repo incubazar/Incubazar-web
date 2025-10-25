@@ -2,7 +2,7 @@
 
 export const dynamic = 'force-dynamic'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { logger } from '@/lib/logger'
@@ -70,15 +70,7 @@ export default function AdminInvestorsPage() {
   const router = useRouter()
   const supabase = createClient()
 
-  useEffect(() => {
-    fetchInvestors()
-  }, [])
-
-  useEffect(() => {
-    filterInvestors()
-  }, [searchTerm, statusFilter, typeFilter, investors])
-
-  const fetchInvestors = async () => {
+  const fetchInvestors = useCallback(async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) {
@@ -211,9 +203,9 @@ export default function AdminInvestorsPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [router, supabase])
 
-  const filterInvestors = () => {
+  const filterInvestors = useCallback(() => {
     let filtered = [...investors]
 
     // Search filter
@@ -239,7 +231,15 @@ export default function AdminInvestorsPage() {
     }
 
     setFilteredInvestors(filtered)
-  }
+  }, [investors, searchTerm, statusFilter, typeFilter])
+
+  useEffect(() => {
+    fetchInvestors()
+  }, [fetchInvestors])
+
+  useEffect(() => {
+    filterInvestors()
+  }, [filterInvestors])
 
   const getUniqueInvestorTypes = () => {
     const types = new Set(

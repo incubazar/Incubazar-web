@@ -161,7 +161,7 @@ export default function FounderDashboard() {
     }
 
     fetchDashboardData()
-  }, [supabase])
+  }, [router, supabase])
 
   if (loading) {
     return (

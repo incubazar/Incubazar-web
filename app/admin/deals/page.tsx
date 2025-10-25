@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { logger } from '@/lib/logger'
@@ -65,41 +65,7 @@ export default function AdminDealsPage() {
   const router = useRouter()
   const supabase = createClient()
 
-  useEffect(() => {
-    checkAdminAndFetchDeals()
-  }, [filter])
-
-  const checkAdminAndFetchDeals = async () => {
-    try {
-      const { data: { session } } = await supabase.auth.getSession()
-      if (!session) {
-        router.push('/login')
-        return
-      }
-
-      // Check if user is admin
-      const { data: user } = await supabase
-        .from('users')
-        .select('role')
-        .eq('id', session.user.id)
-        .single()
-
-      if (!user || user.role !== 'admin') {
-        router.push('/')
-        return
-      }
-
-      fetchDeals()
-    } catch (error) {
-      logger.error('Failed to verify admin', error as Error, {
-        component: 'ADMIN_DEALS',
-        action: 'CHECK_ADMIN'
-      })
-      setLoading(false)
-    }
-  }
-
-  const fetchDeals = async () => {
+  const fetchDeals = useCallback(async () => {
     try {
       let query = supabase
         .from('startup_deals')
@@ -132,7 +98,41 @@ export default function AdminDealsPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [filter, supabase])
+
+  const checkAdminAndFetchDeals = useCallback(async () => {
+    try {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) {
+        router.push('/login')
+        return
+      }
+
+      // Check if user is admin
+      const { data: user } = await supabase
+        .from('users')
+        .select('role')
+        .eq('id', session.user.id)
+        .single()
+
+      if (!user || user.role !== 'admin') {
+        router.push('/')
+        return
+      }
+
+      fetchDeals()
+    } catch (error) {
+      logger.error('Failed to verify admin', error as Error, {
+        component: 'ADMIN_DEALS',
+        action: 'CHECK_ADMIN'
+      })
+      setLoading(false)
+    }
+  }, [fetchDeals, router, supabase])
+
+  useEffect(() => {
+    checkAdminAndFetchDeals()
+  }, [checkAdminAndFetchDeals])
 
   const handleApproveDeal = async () => {
     if (!selectedDeal) return

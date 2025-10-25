@@ -15,16 +15,16 @@ export function GradientBorderCard({
 }: GradientBorderCardProps) {
   return (
     <div className={cn('group relative', className)}>
-      {/* Gradient border */}
+      {/* Monochrome gradient border (grayscale only) */}
       <div
         className={cn(
-          'absolute -inset-[1px] rounded-2xl bg-gradient-to-r from-royal-blue-600 via-vibrant-violet-700 to-vibrant-violet-600 opacity-50',
-          glowOnHover && 'group-hover:opacity-100 transition-opacity duration-300'
+          'absolute -inset-[2px] bg-gradient-to-r from-graphite-600 via-graphite-800 to-ink opacity-30',
+          glowOnHover && 'group-hover:opacity-70 transition-opacity duration-300'
         )}
       />
       
-      {/* Card content */}
-      <div className="relative bg-white dark:bg-gray-900 rounded-2xl p-6">
+      {/* Card content - sharp edges, monochrome */}
+      <div className="relative bg-paper border border-graphite-200 p-6">
         {children}
       </div>
     </div>

@@ -18,9 +18,9 @@ export default function PrivacyPolicyPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">1. Introduction</h2>
           <p>
-            Welcome to Incubazar ("we," "our," or "us"). We are committed to protecting your personal information 
+            Welcome to Incubazar (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). We are committed to protecting your personal information 
             and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard 
-            your information when you use our platform at incubazar.in (the "Platform").
+            your information when you use our platform at incubazar.in (the &quot;Platform&quot;).
           </p>
           <p>
             By accessing or using the Platform, you agree to this Privacy Policy. If you do not agree with this 
@@ -196,7 +196,7 @@ export default function PrivacyPolicyPage() {
           </p>
           <ul className="list-disc pl-6 space-y-2">
             <li>Posting the updated policy on our Platform</li>
-            <li>Updating the "Last Updated" date</li>
+            <li>Updating the &quot;Last Updated&quot; date</li>
             <li>Sending email notifications for material changes</li>
           </ul>
           <p className="mt-4">

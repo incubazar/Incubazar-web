@@ -390,7 +390,7 @@ export default function SubscriptionPage() {
           <div>
             <h4 className="font-medium mb-2">What happens if I cancel my subscription?</h4>
             <p className="text-sm text-gray-600">
-              You'll retain access to paid features until your current billing period ends, then revert to the free plan.
+              You&apos;ll retain access to paid features until your current billing period ends, then revert to the free plan.
             </p>
           </div>
           <div>

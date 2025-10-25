@@ -1,14 +1,17 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Playfair_Display } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Toaster } from '@/components/ui/sonner'
 import { QueryProvider } from '@/components/query-provider'
 import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Analytics } from '@vercel/analytics/next'
-import SmoothScrollProvider from '@/components/spotlight/SmoothScrollProvider'
 
-const inter = Inter({ subsets: ['latin'] })
+const playfair = Playfair_Display({ 
+  subsets: ['latin'],
+  variable: '--font-playfair',
+  display: 'swap',
+})
 
 export const viewport = {
   width: 'device-width',
@@ -93,22 +96,20 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning className={playfair.variable}>
+      <body className="font-body antialiased">
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
-          <SmoothScrollProvider enabled={true} duration={1.2}>
-            <QueryProvider>
-              {children}
-              <Toaster />
-              <SpeedInsights />
-              <Analytics />
-            </QueryProvider>
-          </SmoothScrollProvider>
+          <QueryProvider>
+            {children}
+            <Toaster />
+            <SpeedInsights />
+            <Analytics />
+          </QueryProvider>
         </ThemeProvider>
       </body>
     </html>

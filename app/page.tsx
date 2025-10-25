@@ -1,10 +1,10 @@
 import { Metadata } from 'next'
-import PremiumNavbar from '@/components/premium/PremiumNavbar'
-import PremiumHero from '@/components/premium/PremiumHero'
-import IncubazarSpotlight from '@/components/landing/IncubazarSpotlight'
-import PremiumFeatures from '@/components/premium/PremiumFeatures'
-import GradientCTA from '@/components/premium/GradientCTA'
-import PremiumFooter from '@/components/premium/PremiumFooter'
+import EditorialNavbar from '@/components/editorial/EditorialNavbar'
+import EditorialHero from '@/components/editorial/EditorialHero'
+import EditorialFeatures from '@/components/editorial/EditorialFeatures'
+import EditorialCTA from '@/components/editorial/EditorialCTA'
+import EditorialFooter from '@/components/editorial/EditorialFooter'
+import PageIndicator from '@/components/editorial/PageIndicator'
 import { OrganizationSchema, WebsiteSchema } from '@/components/seo/StructuredData'
 
 export const metadata: Metadata = {
@@ -21,15 +21,15 @@ export default function HomePage() {
     <>
       <OrganizationSchema />
       <WebsiteSchema />
-      <div className="min-h-screen bg-background page-transition">
-        <PremiumNavbar />
+      <div className="min-h-screen bg-background page-transition overflow-x-hidden">
+        <EditorialNavbar />
         <main className="relative">
-          <PremiumHero />
-          <IncubazarSpotlight />
-          <PremiumFeatures />
-          <GradientCTA />
+          <EditorialHero />
+          <EditorialFeatures />
+          <EditorialCTA />
         </main>
-        <PremiumFooter />
+        <EditorialFooter />
+        <PageIndicator sections={3} />
       </div>
     </>
   )

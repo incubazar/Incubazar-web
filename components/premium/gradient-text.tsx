@@ -17,9 +17,9 @@ export function GradientText({
   variant = 'primary',
 }: GradientTextProps) {
   const gradients = {
-    primary: 'bg-gradient-to-r from-royal-blue-600 to-vibrant-violet-700',
-    purple: 'bg-gradient-to-r from-vibrant-violet-700 to-vibrant-violet-600',
-    cyan: 'bg-gradient-to-r from-cyan-accent-400 to-royal-blue-600',
+    primary: 'bg-gradient-to-r from-graphite-900 to-ink',
+    purple: 'bg-gradient-to-r from-graphite-800 to-graphite-900',
+    cyan: 'bg-gradient-to-r from-graphite-700 to-graphite-900',
   }
 
   const Component = animate ? motion.span : 'span'

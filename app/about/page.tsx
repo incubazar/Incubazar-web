@@ -311,7 +311,7 @@ export default function AboutPage() {
               </h2>
               
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Join thousands of founders and investors building the future of India's startup ecosystem
+                Join thousands of founders and investors building the future of India&apos;s startup ecosystem
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">

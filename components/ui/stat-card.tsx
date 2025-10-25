@@ -22,13 +22,13 @@ const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
     const getVariantClasses = () => {
       switch (variant) {
         case 'gradient-blue':
-          return 'relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-cyan-500/10 before:to-blue-500/5 before:rounded-lg'
+          return 'relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-graphite-800/10 before:to-graphite-700/5'
         case 'gradient-green':
-          return 'relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-emerald-500/10 before:to-green-500/5 before:rounded-lg'
+          return 'relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-graphite-700/10 before:to-graphite-600/5'
         case 'gradient-purple':
-          return 'relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-purple-500/10 before:to-pink-500/5 before:rounded-lg'
+          return 'relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-graphite-900/10 before:to-graphite-800/5'
         case 'gradient-orange':
-          return 'relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-orange-500/10 before:to-amber-500/5 before:rounded-lg'
+          return 'relative overflow-hidden before:absolute before:inset-0 before:bg-gradient-to-br before:from-graphite-600/10 before:to-graphite-500/5'
         default:
           return ''
       }
@@ -37,15 +37,15 @@ const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
     const getIconColor = () => {
       switch (variant) {
         case 'gradient-blue':
-          return 'text-cyan-500 bg-cyan-500/10 group-hover:bg-cyan-500/20'
+          return 'text-graphite-800 bg-graphite-800/10 group-hover:bg-graphite-800/20'
         case 'gradient-green':
-          return 'text-emerald-500 bg-emerald-500/10 group-hover:bg-emerald-500/20'
+          return 'text-graphite-700 bg-graphite-700/10 group-hover:bg-graphite-700/20'
         case 'gradient-purple':
-          return 'text-purple-500 bg-purple-500/10 group-hover:bg-purple-500/20'
+          return 'text-graphite-900 bg-graphite-900/10 group-hover:bg-graphite-900/20'
         case 'gradient-orange':
-          return 'text-orange-500 bg-orange-500/10 group-hover:bg-orange-500/20'
+          return 'text-graphite-600 bg-graphite-600/10 group-hover:bg-graphite-600/20'
         default:
-          return 'text-primary bg-primary/10 group-hover:bg-primary/20'
+          return 'text-ink bg-ink/10 group-hover:bg-ink/20'
       }
     }
 
@@ -67,10 +67,10 @@ const StatCard = React.forwardRef<HTMLDivElement, StatCardProps>(
                 <span className="text-sm font-medium text-muted-foreground tracking-wide uppercase">{title}</span>
                 {trend && (
                   <div className={cn(
-                    "flex items-center gap-1 text-xs font-semibold px-2 py-1 rounded-full",
+                    "flex items-center gap-1 text-xs font-semibold px-2 py-1",
                     trend.isPositive 
-                      ? "text-emerald-600 bg-emerald-500/10" 
-                      : "text-red-600 bg-red-500/10"
+                      ? "text-ink bg-graphite-100" 
+                      : "text-graphite-700 bg-graphite-200"
                   )}>
                     {trend.isPositive ? (
                       <TrendingUp className="h-3 w-3" />

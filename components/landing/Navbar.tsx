@@ -30,13 +30,13 @@ export default function Navbar() {
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'glass shadow-medium py-3'
+          ? 'bg-paper/90 backdrop-blur-md border-b border-graphite-200 shadow-editorial py-3'
           : 'bg-transparent py-4'
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
+          {/* Logo - Monochrome */}
           <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative w-12 h-12 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
               <Image 
@@ -47,47 +47,47 @@ export default function Navbar() {
                 className="transition-all duration-300"
               />
             </div>
-            <span className="text-xl lg:text-2xl font-poppins font-bold text-graphite-700 dark:text-white">
+            <span className="text-xl lg:text-2xl font-serif font-bold text-ink">
               Incubazar
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Navigation - Monochrome */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-graphite-600 dark:text-gray-300 hover:text-electric transition-smooth relative group"
+                className="text-sm font-medium text-graphite-600 hover:text-ink transition-all relative group"
               >
                 {link.label}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-electric group-hover:w-full transition-all duration-300" />
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-ink group-hover:w-full transition-all duration-300" />
               </a>
             ))}
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons - Monochrome */}
           <div className="hidden md:flex items-center space-x-4">
             <Link href="/auth/login">
               <Button 
                 variant="ghost" 
-                className="text-graphite-700 dark:text-white hover:text-electric transition-smooth"
+                className="text-ink hover:bg-graphite-100"
               >
                 Login
               </Button>
             </Link>
             <Link href="/auth/register">
               <Button 
-                className="gradient-electric text-white shadow-glow-blue hover:shadow-strong transition-smooth"
+                className="bg-ink text-paper hover:bg-graphite-900"
               >
                 Get Started
               </Button>
             </Link>
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button - Monochrome */}
           <button
-            className="md:hidden p-2 text-graphite-700 dark:text-white"
+            className="md:hidden p-2 text-ink"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -99,20 +99,20 @@ export default function Navbar() {
           </button>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Monochrome */}
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 pb-4 space-y-4 animate-fade-in">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="block text-base font-medium text-graphite-600 dark:text-gray-300 hover:text-electric transition-smooth py-2"
+                className="block text-base font-medium text-graphite-600 hover:text-ink transition-all py-2"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.label}
               </a>
             ))}
-            <div className="flex flex-col space-y-2 pt-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="flex flex-col space-y-2 pt-4 border-t border-graphite-300">
               <Link href="/auth/login" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button 
                   variant="outline" 
@@ -123,7 +123,7 @@ export default function Navbar() {
               </Link>
               <Link href="/auth/register" onClick={() => setIsMobileMenuOpen(false)}>
                 <Button 
-                  className="w-full gradient-electric text-white"
+                  className="w-full bg-ink text-paper hover:bg-graphite-900"
                 >
                   Get Started
                 </Button>

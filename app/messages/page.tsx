@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState, Suspense } from 'react'
+import { useEffect, useState, Suspense, useCallback } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
@@ -38,55 +38,7 @@ function MessagingContent() {
   const [currentUserId, setCurrentUserId] = useState<string>('')
   const [userRole, setUserRole] = useState<'founder' | 'investor' | null>(null)
 
-  useEffect(() => {
-    initializeMessaging()
-  }, [])
-
-  useEffect(() => {
-    const conversationId = searchParams.get('conversation')
-    if (conversationId) {
-      setActiveConversationId(conversationId)
-    }
-  }, [searchParams])
-
-  const initializeMessaging = async () => {
-    try {
-      setLoading(true)
-
-      const { data: { session } } = await supabase.auth.getSession()
-      if (!session) {
-        router.push('/login')
-        return
-      }
-
-      setCurrentUserId(session.user.id)
-
-      // Get user role
-      const { data: userData, error: userError } = await supabase
-        .from('users')
-        .select('role')
-        .eq('id', session.user.id)
-        .single()
-
-      if (userError) throw userError
-
-      setUserRole(userData.role as 'founder' | 'investor')
-
-      // Fetch conversations based on role
-      await fetchConversations(session.user.id, userData.role)
-
-    } catch (error: any) {
-      logger.error('Failed to initialize messaging', error, {
-        component: 'MESSAGES_PAGE',
-        action: 'INITIALIZE'
-      })
-      toast.error('Failed to load messages')
-    } finally {
-      setLoading(false)
-    }
-  }
-
-  const fetchConversations = async (userId: string, role: string) => {
+  const fetchConversations = useCallback(async (userId: string, role: string) => {
     try {
       // Fetch investor interests with status 'invested' to get allowed conversations
       let query = supabase
@@ -175,7 +127,55 @@ function MessagingContent() {
         action: 'FETCH_CONVERSATIONS'
       })
     }
-  }
+  }, [supabase])
+
+  const initializeMessaging = useCallback(async () => {
+    try {
+      setLoading(true)
+
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session) {
+        router.push('/login')
+        return
+      }
+
+      setCurrentUserId(session.user.id)
+
+      // Get user role
+      const { data: userData, error: userError } = await supabase
+        .from('users')
+        .select('role')
+        .eq('id', session.user.id)
+        .single()
+
+      if (userError) throw userError
+
+      setUserRole(userData.role as 'founder' | 'investor')
+
+      // Fetch conversations based on role
+      await fetchConversations(session.user.id, userData.role)
+
+    } catch (error: any) {
+      logger.error('Failed to initialize messaging', error, {
+        component: 'MESSAGES_PAGE',
+        action: 'INITIALIZE'
+      })
+      toast.error('Failed to load messages')
+    } finally {
+      setLoading(false)
+    }
+  }, [fetchConversations, router, supabase])
+
+  useEffect(() => {
+    initializeMessaging()
+  }, [initializeMessaging])
+
+  useEffect(() => {
+    const conversationId = searchParams.get('conversation')
+    if (conversationId) {
+      setActiveConversationId(conversationId)
+    }
+  }, [searchParams])
 
   const getActiveConversation = () => {
     return conversations.find(c => c.id === activeConversationId)

@@ -1,8 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  experimental: {
-    serverComponentsExternalPackages: ['pdf-lib']
-  },
+  serverExternalPackages: ['pdf-lib'],
   images: {
     domains: ['localhost', 'supabase.co'],
     remotePatterns: [

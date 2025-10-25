@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { logger } from '@/lib/logger'
@@ -24,11 +24,7 @@ export default function InvestorSettingsPage() {
   const router = useRouter()
   const supabase = createClient()
 
-  useEffect(() => {
-    fetchUserData()
-  }, [])
-
-  const fetchUserData = async () => {
+  const fetchUserData = useCallback(async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) {
@@ -59,7 +55,11 @@ export default function InvestorSettingsPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [router, supabase])
+
+  useEffect(() => {
+    fetchUserData()
+  }, [fetchUserData])
 
   const handleSaveProfile = async () => {
     setSaving(true)

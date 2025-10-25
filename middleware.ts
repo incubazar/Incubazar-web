@@ -2,10 +2,25 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { applySecurityHeaders, validateOrigin, isTrustedSource } from '@/lib/middleware/security'
 import { rateLimiter, standardRateLimit, strictRateLimit, authRateLimit } from '@/lib/middleware/rate-limiter'
+import { learnMiddleware } from '@/lib/middleware/learn-access'
 import { logger } from '@/lib/logger'
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const startTime = Date.now()
+  const pathname = request.nextUrl.pathname
+  
+  // ============================================================================
+  // 0. LEARNING PLATFORM ACCESS CONTROL (before security checks)
+  // ============================================================================
+  
+  if (pathname.startsWith('/learn')) {
+    const learnResponse = await learnMiddleware(request)
+    if (learnResponse.status !== 200 && learnResponse.headers.get('location')) {
+      // Redirect response from learning middleware
+      return learnResponse
+    }
+    // Continue with security checks if access granted
+  }
   
   // ============================================================================
   // 1. SECURITY VALIDATION
@@ -39,7 +54,6 @@ export function middleware(request: NextRequest) {
   // 2. RATE LIMITING
   // ============================================================================
   
-  const pathname = request.nextUrl.pathname
   let rateLimitConfig = standardRateLimit
   let rateLimitKey = 'api:general'
 

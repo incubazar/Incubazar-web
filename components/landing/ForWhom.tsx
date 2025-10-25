@@ -69,37 +69,37 @@ export default function ForWhom() {
   const features = activeTab === 'founders' ? founderFeatures : investorFeatures
 
   return (
-    <section id="for-founders" className="py-24 lg:py-32 bg-gradient-to-br from-gray-50 to-blue-50/30 dark:from-graphite-800 dark:to-graphite-900">
+    <section id="for-founders" className="py-24 lg:py-32 bg-paper">
       <div className="container mx-auto px-4 lg:px-8">
-        {/* Section Header */}
+        {/* Section Header - Editorial Typography */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-4">
-          <h2 className="text-4xl md:text-5xl font-poppins font-bold text-graphite-700 dark:text-white">
+          <h2 className="font-serif text-4xl md:text-6xl font-bold text-ink tracking-tight">
             Built for Your Success
           </h2>
-          <p className="text-lg md:text-xl text-graphite-600 dark:text-gray-300">
+          <p className="text-lg md:text-xl text-graphite-600 font-body">
             Tailored features for founders and investors at every stage
           </p>
         </div>
 
-        {/* Tabs */}
+        {/* Tabs - Monochrome */}
         <div className="flex justify-center mb-12">
-          <div className="glass rounded-2xl p-2 inline-flex shadow-soft">
+          <div className="bg-graphite-100 border border-graphite-300 p-2 inline-flex">
             <button
               onClick={() => setActiveTab('founders')}
-              className={`px-8 py-3 rounded-xl font-semibold transition-smooth ${
+              className={`px-8 py-3 font-semibold transition-all ${
                 activeTab === 'founders'
-                  ? 'gradient-electric text-white shadow-medium'
-                  : 'text-graphite-600 dark:text-gray-300 hover:bg-white/50 dark:hover:bg-graphite-700/50'
+                  ? 'bg-ink text-paper'
+                  : 'text-graphite-600 hover:bg-graphite-200'
               }`}
             >
               For Founders
             </button>
             <button
               onClick={() => setActiveTab('investors')}
-              className={`px-8 py-3 rounded-xl font-semibold transition-smooth ${
+              className={`px-8 py-3 font-semibold transition-all ${
                 activeTab === 'investors'
-                  ? 'gradient-electric text-white shadow-medium'
-                  : 'text-graphite-600 dark:text-gray-300 hover:bg-white/50 dark:hover:bg-graphite-700/50'
+                  ? 'bg-ink text-paper'
+                  : 'text-graphite-600 hover:bg-graphite-200'
               }`}
             >
               For Investors
@@ -107,41 +107,41 @@ export default function ForWhom() {
           </div>
         </div>
 
-        {/* Features Grid */}
+        {/* Features Grid - Monochrome Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto mb-12">
           {features.map((feature, index) => (
             <Card
               key={feature.title}
-              className="p-6 bg-white dark:bg-graphite-800 border-0 rounded-xl shadow-soft hover:shadow-strong transition-smooth transform hover:scale-105 duration-300"
+              className="p-6 bg-paper border-2 border-graphite-200 hover:border-ink transition-all hover:-translate-y-1"
               style={{ animationDelay: `${index * 100}ms` }}
             >
               <div className="mb-4">
-                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-electric-400 to-electric-600 flex items-center justify-center shadow-glow-blue">
-                  <feature.icon className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-ink flex items-center justify-center">
+                  <feature.icon className="w-6 h-6 text-paper" />
                 </div>
               </div>
-              <h3 className="text-lg font-poppins font-semibold text-graphite-700 dark:text-white mb-2">
+              <h3 className="text-lg font-serif font-semibold text-ink mb-2">
                 {feature.title}
               </h3>
-              <p className="text-sm text-graphite-600 dark:text-gray-300 leading-relaxed">
+              <p className="text-sm text-graphite-600 leading-relaxed font-body">
                 {feature.description}
               </p>
             </Card>
           ))}
         </div>
 
-        {/* CTA Section */}
+        {/* CTA Section - Monochrome Invert */}
         <div className="max-w-4xl mx-auto">
-          <Card className="bg-gradient-to-br from-electric-500 to-electric-700 border-0 rounded-2xl p-8 lg:p-12 text-center shadow-strong">
-            <Badge className="bg-white/20 text-white border-white/30 mb-4">
+          <Card className="bg-ink border-0 p-8 lg:p-12 text-center shadow-editorial-xl">
+            <Badge className="bg-graphite-800 text-paper border border-graphite-700 mb-4">
               Limited Time Offer
             </Badge>
-            <h3 className="text-2xl lg:text-3xl font-poppins font-bold text-white mb-4">
+            <h3 className="text-2xl lg:text-4xl font-serif font-bold text-paper mb-4">
               {activeTab === 'founders' 
                 ? 'Ready to Launch Your Startup?' 
                 : 'Ready to Discover Your Next Investment?'}
             </h3>
-            <p className="text-white/90 text-lg mb-8 max-w-2xl mx-auto">
+            <p className="text-graphite-300 text-lg mb-8 max-w-2xl mx-auto font-body">
               {activeTab === 'founders'
                 ? 'Join hundreds of founders who have raised funding through Incubazar'
                 : 'Get exclusive access to pre-vetted, high-potential startup deals'}
@@ -149,7 +149,7 @@ export default function ForWhom() {
             <Link href={`/auth/register?role=${activeTab === 'founders' ? 'founder' : 'investor'}`}>
               <Button 
                 size="lg"
-                className="bg-white text-electric-600 hover:bg-gray-100 px-8 py-6 text-lg font-semibold shadow-strong group"
+                className="bg-paper text-ink hover:bg-graphite-100 px-8 py-6 text-lg font-semibold group"
               >
                 Get Started Now
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

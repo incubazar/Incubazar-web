@@ -224,7 +224,7 @@ export default function InvestorDashboard() {
     }
 
     fetchDashboardData()
-  }, [supabase])
+  }, [router, supabase])
 
   if (loading) {
     return (

@@ -1,18 +1,14 @@
 'use client';
 
 import { useState } from 'react';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Textarea } from '@/components/ui/textarea';
-import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
-import { Building2, TrendingUp, Rocket, Users } from 'lucide-react';
+import EditorialNavbar from '@/components/editorial/EditorialNavbar';
+import EditorialFooter from '@/components/editorial/EditorialFooter';
+import RevealText from '@/components/editorial/RevealText';
+import EditorialDivider from '@/components/editorial/EditorialDivider';
 
-export default function WaitlistPage() {
+export default function WaitlistPageEditorial() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [userType, setUserType] = useState<'founder' | 'investor'>('founder');
@@ -21,7 +17,6 @@ export default function WaitlistPage() {
     email: '',
     full_name: '',
     phone_number: '',
-    // Founder fields
     startup_name: '',
     business_idea: '',
     startup_stage: '',
@@ -29,7 +24,6 @@ export default function WaitlistPage() {
     funding_target: '',
     team_size: '',
     website_url: '',
-    // Investor fields
     investor_type: '',
     investment_range_min: '',
     investment_range_max: '',
@@ -38,12 +32,8 @@ export default function WaitlistPage() {
     linkedin_url: ''
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value }));
-  };
-
-  const handleSelectChange = (name: string, value: string) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
@@ -74,7 +64,6 @@ export default function WaitlistPage() {
 
       toast.success('Successfully joined the waitlist! Check your email for confirmation.');
       
-      // Reset form
       setFormData({
         email: '',
         full_name: '',
@@ -94,7 +83,6 @@ export default function WaitlistPage() {
         linkedin_url: ''
       });
 
-      // Redirect to login page after 2 seconds
       setTimeout(() => {
         router.push('/auth/login');
       }, 2000);
@@ -108,332 +96,312 @@ export default function WaitlistPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 px-4">
-      <div className="max-w-4xl mx-auto">
-        {/* Header */}
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-4">Join Incubazar Waitlist</h1>
-          <p className="text-lg text-gray-600">
-            Be part of India's premier private placement platform for startups and investors
-          </p>
-        </div>
-
-        {/* Benefits */}
-        <div className="grid md:grid-cols-2 gap-4 mb-8">
-          <Card className="transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer">
-            <CardContent className="pt-6">
-              <div className="flex items-start gap-3">
-                <Rocket className="w-8 h-8 text-blue-500 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-1">For Founders</h3>
-                  <p className="text-sm text-gray-600">
-                    Raise capital from verified investors with compliant private placements
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-          
-          <Card className="transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer">
-            <CardContent className="pt-6">
-              <div className="flex items-start gap-3">
-                <TrendingUp className="w-8 h-8 text-purple-500 flex-shrink-0" />
-                <div>
-                  <h3 className="font-semibold mb-1">For Investors</h3>
-                  <p className="text-sm text-gray-600">
-                    Access curated startup deals with proper due diligence and data rooms
-                  </p>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Form */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Application Form</CardTitle>
-            <CardDescription>
-              Fill out the form below and we'll review your application
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form onSubmit={handleSubmit} className="space-y-6">
-              {/* User Type Selection */}
-              <div className="space-y-3">
-                <Label>I am a:</Label>
-                <RadioGroup
-                  value={userType}
-                  onValueChange={(value) => setUserType(value as 'founder' | 'investor')}
-                  className="flex gap-4"
-                >
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="founder" id="founder" />
-                    <Label htmlFor="founder" className="cursor-pointer">Founder</Label>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <RadioGroupItem value="investor" id="investor" />
-                    <Label htmlFor="investor" className="cursor-pointer">Investor</Label>
-                  </div>
-                </RadioGroup>
-              </div>
-
-              {/* Common Fields */}
-              <div className="space-y-4">
-                <div>
-                  <Label htmlFor="full_name">Full Name *</Label>
-                  <Input
-                    id="full_name"
-                    name="full_name"
-                    value={formData.full_name}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="Enter your full name"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    required
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="phone_number">Phone Number</Label>
-                  <Input
-                    id="phone_number"
-                    name="phone_number"
-                    type="tel"
-                    value={formData.phone_number}
-                    onChange={handleInputChange}
-                    placeholder="+91 9876543210"
-                  />
-                </div>
-              </div>
-
-              {/* Founder Specific Fields */}
-              {userType === 'founder' && (
-                <div className="space-y-4 border-t pt-4">
-                  <h3 className="font-semibold text-lg flex items-center gap-2">
-                    <Building2 className="w-5 h-5" />
-                    Startup Details
-                  </h3>
-
-                  <div>
-                    <Label htmlFor="startup_name">Startup Name *</Label>
-                    <Input
-                      id="startup_name"
-                      name="startup_name"
-                      value={formData.startup_name}
-                      onChange={handleInputChange}
-                      required={userType === 'founder'}
-                      placeholder="Your startup name"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="business_idea">Business Idea / Description *</Label>
-                    <Textarea
-                      id="business_idea"
-                      name="business_idea"
-                      value={formData.business_idea}
-                      onChange={handleInputChange}
-                      required={userType === 'founder'}
-                      placeholder="Describe your startup and what problem you're solving..."
-                      rows={4}
-                    />
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="startup_stage">Startup Stage</Label>
-                      <Select
-                        value={formData.startup_stage}
-                        onValueChange={(value) => handleSelectChange('startup_stage', value)}
-                      >
-                        <SelectTrigger>
-                          <SelectValue placeholder="Select stage" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="idea">Idea Stage</SelectItem>
-                          <SelectItem value="mvp">MVP</SelectItem>
-                          <SelectItem value="early_revenue">Early Revenue</SelectItem>
-                          <SelectItem value="growth">Growth</SelectItem>
-                          <SelectItem value="scaling">Scaling</SelectItem>
-                        </SelectContent>
-                      </Select>
-                    </div>
-
-                    <div>
-                      <Label htmlFor="industry">Industry</Label>
-                      <Input
-                        id="industry"
-                        name="industry"
-                        value={formData.industry}
-                        onChange={handleInputChange}
-                        placeholder="e.g., FinTech, HealthTech"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="funding_target">Funding Target (₹)</Label>
-                      <Input
-                        id="funding_target"
-                        name="funding_target"
-                        type="number"
-                        value={formData.funding_target}
-                        onChange={handleInputChange}
-                        placeholder="e.g., 50,00,000"
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="team_size">Team Size</Label>
-                      <Input
-                        id="team_size"
-                        name="team_size"
-                        type="number"
-                        value={formData.team_size}
-                        onChange={handleInputChange}
-                        placeholder="e.g., 5"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="website_url">Website URL</Label>
-                    <Input
-                      id="website_url"
-                      name="website_url"
-                      type="url"
-                      value={formData.website_url}
-                      onChange={handleInputChange}
-                      placeholder="https://yourstartup.com"
-                    />
-                  </div>
-                </div>
-              )}
-
-              {/* Investor Specific Fields */}
-              {userType === 'investor' && (
-                <div className="space-y-4 border-t pt-4">
-                  <h3 className="font-semibold text-lg flex items-center gap-2">
-                    <Users className="w-5 h-5" />
-                    Investor Profile
-                  </h3>
-
-                  <div>
-                    <Label htmlFor="investor_type">Investor Type</Label>
-                    <Select
-                      value={formData.investor_type}
-                      onValueChange={(value) => handleSelectChange('investor_type', value)}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="angel">Angel Investor</SelectItem>
-                        <SelectItem value="hni">High Net-Worth Individual</SelectItem>
-                        <SelectItem value="family_office">Family Office</SelectItem>
-                        <SelectItem value="vc">Venture Capital</SelectItem>
-                        <SelectItem value="other">Other</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <Label htmlFor="investment_range_min">Min Investment (₹)</Label>
-                      <Input
-                        id="investment_range_min"
-                        name="investment_range_min"
-                        type="number"
-                        value={formData.investment_range_min}
-                        onChange={handleInputChange}
-                        placeholder="e.g., 5,00,000"
-                      />
-                    </div>
-
-                    <div>
-                      <Label htmlFor="investment_range_max">Max Investment (₹)</Label>
-                      <Input
-                        id="investment_range_max"
-                        name="investment_range_max"
-                        type="number"
-                        value={formData.investment_range_max}
-                        onChange={handleInputChange}
-                        placeholder="e.g., 50,00,000"
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="investment_experience">Investment Experience</Label>
-                    <Select
-                      value={formData.investment_experience}
-                      onValueChange={(value) => handleSelectChange('investment_experience', value)}
-                    >
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select experience" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="beginner">Beginner (0-2 investments)</SelectItem>
-                        <SelectItem value="intermediate">Intermediate (3-10 investments)</SelectItem>
-                        <SelectItem value="experienced">Experienced (10+ investments)</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
-                  <div>
-                    <Label htmlFor="linkedin_url">LinkedIn Profile</Label>
-                    <Input
-                      id="linkedin_url"
-                      name="linkedin_url"
-                      type="url"
-                      value={formData.linkedin_url}
-                      onChange={handleInputChange}
-                      placeholder="https://linkedin.com/in/yourprofile"
-                    />
-                  </div>
-                </div>
-              )}
-
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={loading}
-              >
-                {loading ? 'Submitting...' : 'Join Waitlist'}
-              </Button>
-
-              <p className="text-sm text-gray-500 text-center">
-                Already have an account?{' '}
-                <a href="/auth/login" className="text-blue-600 hover:underline">
-                  Sign in
-                </a>
+    <>
+      <EditorialNavbar />
+      <div className="min-h-screen bg-background pt-24 pb-16">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <RevealText>
+            <div className="mb-16">
+              <p className="overline mb-4">Application</p>
+              <h1 className="font-serif font-bold text-5xl md:text-6xl lg:text-7xl leading-tight tracking-tight mb-6">
+                Join the Waitlist
+              </h1>
+              <p className="lead max-w-2xl">
+                Become part of an exclusive community where innovation meets capital. 
+                Limited access, curated connections.
               </p>
-            </form>
-          </CardContent>
-        </Card>
+            </div>
+          </RevealText>
 
-        {/* Footer Info */}
-        <div className="mt-8 text-center text-sm text-gray-600">
-          <p>
-            We review all applications carefully. Upon approval, you'll receive an OTP via email
-            to complete your registration.
-          </p>
+          <EditorialDivider className="mb-16" />
+
+          {/* User Type Selection */}
+          <RevealText>
+            <div className="mb-16">
+              <p className="text-sm font-semibold uppercase tracking-wide mb-6">I am a</p>
+              <div className="grid md:grid-cols-2 gap-6">
+                <button
+                  type="button"
+                  onClick={() => setUserType('founder')}
+                  className={`p-8 border-2 transition-all text-left ${
+                    userType === 'founder'
+                      ? 'border-foreground bg-foreground text-background'
+                      : 'border-border hover:border-foreground'
+                  }`}
+                >
+                  <h3 className="font-serif text-2xl font-semibold mb-2">Founder</h3>
+                  <p className={userType === 'founder' ? 'text-background/80' : 'text-foreground/70'}>
+                    Looking to raise capital and connect with investors
+                  </p>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setUserType('investor')}
+                  className={`p-8 border-2 transition-all text-left ${
+                    userType === 'investor'
+                      ? 'border-foreground bg-foreground text-background'
+                      : 'border-border hover:border-foreground'
+                  }`}
+                >
+                  <h3 className="font-serif text-2xl font-semibold mb-2">Investor</h3>
+                  <p className={userType === 'investor' ? 'text-background/80' : 'text-foreground/70'}>
+                    Seeking curated startup investment opportunities
+                  </p>
+                </button>
+              </div>
+            </div>
+          </RevealText>
+
+          {/* Form */}
+          <RevealText>
+            <form onSubmit={handleSubmit} className="space-y-12">
+              {/* Basic Information */}
+              <div>
+                <h3 className="font-serif text-2xl font-semibold mb-8">Basic Information</h3>
+                <div className="space-y-6">
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Full Name *</label>
+                    <input
+                      type="text"
+                      name="full_name"
+                      value={formData.full_name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                      placeholder="Your full name"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Email *</label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                      placeholder="your@email.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Phone Number *</label>
+                    <input
+                      type="tel"
+                      name="phone_number"
+                      value={formData.phone_number}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                      placeholder="+91 XXXXX XXXXX"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <EditorialDivider animate={false} />
+
+              {/* Founder-specific fields */}
+              {userType === 'founder' && (
+                <div>
+                  <h3 className="font-serif text-2xl font-semibold mb-8">Startup Details</h3>
+                  <div className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Startup Name *</label>
+                      <input
+                        type="text"
+                        name="startup_name"
+                        value={formData.startup_name}
+                        onChange={handleInputChange}
+                        required={userType === 'founder'}
+                        className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Business Idea *</label>
+                      <textarea
+                        name="business_idea"
+                        value={formData.business_idea}
+                        onChange={handleInputChange}
+                        required={userType === 'founder'}
+                        rows={4}
+                        className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors resize-none"
+                        placeholder="Describe your business in a few sentences"
+                      />
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Startup Stage *</label>
+                        <select
+                          name="startup_stage"
+                          value={formData.startup_stage}
+                          onChange={handleInputChange}
+                          required={userType === 'founder'}
+                          className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                        >
+                          <option value="">Select stage</option>
+                          <option value="Ideation">Ideation</option>
+                          <option value="MVP">MVP</option>
+                          <option value="Early Traction">Early Traction</option>
+                          <option value="Growth">Growth</option>
+                          <option value="Scaling">Scaling</option>
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Industry *</label>
+                        <input
+                          type="text"
+                          name="industry"
+                          value={formData.industry}
+                          onChange={handleInputChange}
+                          required={userType === 'founder'}
+                          className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Funding Target (₹)</label>
+                        <input
+                          type="number"
+                          name="funding_target"
+                          value={formData.funding_target}
+                          onChange={handleInputChange}
+                          className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Team Size</label>
+                        <input
+                          type="number"
+                          name="team_size"
+                          value={formData.team_size}
+                          onChange={handleInputChange}
+                          className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Website URL</label>
+                      <input
+                        type="url"
+                        name="website_url"
+                        value={formData.website_url}
+                        onChange={handleInputChange}
+                        className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                        placeholder="https://"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              {/* Investor-specific fields */}
+              {userType === 'investor' && (
+                <div>
+                  <h3 className="font-serif text-2xl font-semibold mb-8">Investment Profile</h3>
+                  <div className="space-y-6">
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Investor Type *</label>
+                      <select
+                        name="investor_type"
+                        value={formData.investor_type}
+                        onChange={handleInputChange}
+                        required={userType === 'investor'}
+                        className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                      >
+                        <option value="">Select type</option>
+                        <option value="Angel Investor">Angel Investor</option>
+                        <option value="Venture Capitalist">Venture Capitalist</option>
+                        <option value="Family Office">Family Office</option>
+                        <option value="Corporate Investor">Corporate Investor</option>
+                        <option value="HNI">HNI</option>
+                      </select>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Min Investment (₹)</label>
+                        <input
+                          type="number"
+                          name="investment_range_min"
+                          value={formData.investment_range_min}
+                          onChange={handleInputChange}
+                          className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-sm font-medium mb-2">Max Investment (₹)</label>
+                        <input
+                          type="number"
+                          name="investment_range_max"
+                          value={formData.investment_range_max}
+                          onChange={handleInputChange}
+                          className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                        />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium mb-2">Investment Experience *</label>
+                      <select
+                        name="investment_experience"
+                        value={formData.investment_experience}
+                        onChange={handleInputChange}
+                        required={userType === 'investor'}
+                        className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                      >
+                        <option value="">Select experience</option>
+                        <option value="First Time Investor">First Time Investor</option>
+                        <option value="1-5 Investments">1-5 Investments</option>
+                        <option value="6-10 Investments">6-10 Investments</option>
+                        <option value="10+ Investments">10+ Investments</option>
+                        <option value="Professional Investor">Professional Investor</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium mb-2">LinkedIn URL</label>
+                      <input
+                        type="url"
+                        name="linkedin_url"
+                        value={formData.linkedin_url}
+                        onChange={handleInputChange}
+                        className="w-full px-0 py-3 border-b-2 border-border focus:border-foreground bg-transparent outline-none transition-colors"
+                        placeholder="https://linkedin.com/in/..."
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <div className="pt-8">
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full py-4 bg-foreground text-background font-medium text-lg transition-all hover:bg-foreground/90 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {loading ? 'Submitting...' : 'Submit Application'}
+                </button>
+                <p className="text-sm text-foreground/60 text-center mt-4">
+                  By submitting, you agree to our terms and privacy policy
+                </p>
+              </div>
+            </form>
+          </RevealText>
         </div>
       </div>
-    </div>
+      <EditorialFooter />
+    </>
   );
 }
-

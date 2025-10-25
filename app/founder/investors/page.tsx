@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { logger } from '@/lib/logger'
@@ -59,15 +59,7 @@ export default function InvestorInterestsPage() {
   const router = useRouter()
   const supabase = createClient()
 
-  useEffect(() => {
-    fetchInterests()
-  }, [])
-
-  useEffect(() => {
-    filterInterests()
-  }, [interests, searchTerm, statusFilter])
-
-  const fetchInterests = async () => {
+  const fetchInterests = useCallback(async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session?.user) return
@@ -127,9 +119,9 @@ export default function InvestorInterestsPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [supabase])
 
-  const filterInterests = () => {
+  const filterInterests = useCallback(() => {
     let filtered = interests
 
     // Filter by status
@@ -147,7 +139,15 @@ export default function InvestorInterestsPage() {
     }
 
     setFilteredInterests(filtered)
-  }
+  }, [interests, searchTerm, statusFilter])
+
+  useEffect(() => {
+    fetchInterests()
+  }, [fetchInterests])
+
+  useEffect(() => {
+    filterInterests()
+  }, [filterInterests])
 
   const handleConnectionAction = async (interestId: string, action: 'accepted' | 'declined') => {
     setProcessing(interestId)
