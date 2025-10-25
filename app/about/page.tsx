@@ -277,6 +277,32 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Founder Quote Section */}
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-ink">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="space-y-8 animate-fade-in-up">
+            <div className="relative">
+              <div className="absolute inset-0 flex items-center justify-center opacity-10">
+                <span className="text-[200px] font-serif text-paper">"</span>
+              </div>
+              <blockquote className="relative text-3xl md:text-5xl font-display font-bold text-paper leading-tight tracking-tight">
+                "The assumption that you have infinite time is your greatest obstacle."
+              </blockquote>
+            </div>
+            
+            <div className="flex flex-col items-center space-y-2 pt-6">
+              <div className="h-px w-24 bg-paper/30"></div>
+              <p className="text-xl font-serif text-paper/90">
+                Deepak
+              </p>
+              <p className="text-sm uppercase tracking-widest text-paper/60 font-body">
+                Founder & CEO, Incubazar
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-paper">
         <div className="max-w-4xl mx-auto">
