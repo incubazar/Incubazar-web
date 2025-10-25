@@ -120,7 +120,7 @@ export default function WaitlistPage() {
 
         {/* Benefits */}
         <div className="grid md:grid-cols-2 gap-4 mb-8">
-          <Card>
+          <Card className="transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer">
             <CardContent className="pt-6">
               <div className="flex items-start gap-3">
                 <Rocket className="w-8 h-8 text-blue-500 flex-shrink-0" />
@@ -134,7 +134,7 @@ export default function WaitlistPage() {
             </CardContent>
           </Card>
           
-          <Card>
+          <Card className="transition-all duration-300 hover:-translate-y-1 hover:shadow-lg cursor-pointer">
             <CardContent className="pt-6">
               <div className="flex items-start gap-3">
                 <TrendingUp className="w-8 h-8 text-purple-500 flex-shrink-0" />
