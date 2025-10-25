@@ -42,8 +42,20 @@ const SpotlightCardFlow: React.FC<SpotlightCardFlowProps> = ({
   const cardsRef = useRef<HTMLDivElement[]>([]);
   const [activeCardIndex, setActiveCardIndex] = useState(0);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const [isImageLoaded, setIsImageLoaded] = useState<{ [key: string]: boolean }>({});
   const [userHasInteracted, setUserHasInteracted] = useState(false);
+
+  // Detect mobile devices for performance optimization
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768 || 'ontouchstart' in window);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   // Track user interaction for haptic feedback
   useEffect(() => {
@@ -83,23 +95,23 @@ const SpotlightCardFlow: React.FC<SpotlightCardFlowProps> = ({
     }
   };
 
-  // GSAP ScrollTrigger Setup
+  // GSAP ScrollTrigger Setup - Optimized
   useEffect(() => {
     if (!containerRef.current || prefersReducedMotion) return;
 
     const ctx = gsap.context(() => {
-      // Master timeline for all cards
+      // Master timeline for all cards with optimized settings
       const masterTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top top',
           end: 'bottom bottom',
-          scrub: 0.7,
+          scrub: 0.5, // Reduced from 0.7 for snappier response
           snap: {
             snapTo: 1 / cards.length,
-            duration: { min: 0.2, max: 0.4 },
+            duration: { min: 0.15, max: 0.3 }, // Faster snapping
             delay: 0,
-            ease: 'power1.inOut',
+            ease: 'power2.inOut', // Smoother easing
           },
           onUpdate: (self) => {
             const newIndex = Math.round(self.progress * (cards.length - 1));
@@ -111,25 +123,28 @@ const SpotlightCardFlow: React.FC<SpotlightCardFlowProps> = ({
         },
       });
 
-      // Animate each card
+      // Animate each card with GPU acceleration
       cardsRef.current.forEach((card, index) => {
         if (!card) return;
 
         const isLast = index === cards.length - 1;
         
-        // Entry animation
+        // Force GPU acceleration
+        gsap.set(card, { force3D: true, willChange: 'transform, opacity' });
+        
+        // Entry animation - optimized
         masterTimeline.fromTo(
           card,
           {
-            y: 40,
+            y: 30, // Reduced movement
             opacity: 0,
-            scale: 0.985,
+            scale: 0.99, // Less scaling for better performance
           },
           {
             y: 0,
             opacity: 1,
             scale: 1,
-            duration: 1,
+            duration: 0.8, // Faster animation
             ease: 'power2.out',
           },
           index
@@ -137,20 +152,22 @@ const SpotlightCardFlow: React.FC<SpotlightCardFlowProps> = ({
 
         // Spotlight hold state - internal content stagger
         const contentElements = card.querySelectorAll('[data-stagger]');
+        gsap.set(contentElements, { force3D: true });
+        
         masterTimeline.fromTo(
           contentElements,
           {
-            y: 10,
+            y: 8, // Reduced movement
             opacity: 0,
           },
           {
             y: 0,
             opacity: 1,
-            duration: 0.4,
-            stagger: 0.12,
+            duration: 0.3, // Faster
+            stagger: 0.08, // Tighter stagger
             ease: 'power2.out',
           },
-          index + 0.3
+          index + 0.2
         );
 
         // Exit animation (except for last card)
@@ -158,19 +175,27 @@ const SpotlightCardFlow: React.FC<SpotlightCardFlowProps> = ({
           masterTimeline.to(
             card,
             {
-              y: -40,
-              opacity: 0.5,
-              scale: 0.98,
-              duration: 0.8,
+              y: -30, // Reduced movement
+              opacity: 0.6, // Less fade for smoother transition
+              scale: 0.99,
+              duration: 0.6, // Faster
               ease: 'power2.in',
             },
-            index + 1.5
+            index + 1.3
           );
         }
       });
     }, containerRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+      // Cleanup willChange
+      cardsRef.current.forEach(card => {
+        if (card) {
+          card.style.willChange = 'auto';
+        }
+      });
+    };
   }, [cards.length, activeCardIndex, prefersReducedMotion]);
 
   // Keyboard navigation
@@ -223,7 +248,7 @@ const SpotlightCardFlow: React.FC<SpotlightCardFlowProps> = ({
               onClick={() => onCardClick?.(card)}
               onImageLoad={() => handleImageLoad(card.id)}
               isImageLoaded={isImageLoaded[card.id]}
-              enableParallax={enableParallax && !prefersReducedMotion}
+              enableParallax={enableParallax && !prefersReducedMotion && !isMobile}
               prefersReducedMotion={prefersReducedMotion}
             />
           ))}
@@ -280,14 +305,16 @@ const SpotlightCardItem = React.forwardRef<HTMLDivElement, SpotlightCardItemProp
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
 
-    // Smooth spring animation for parallax
-    const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [6, -6]), {
-      mass: 0.6,
-      damping: 18,
+    // Optimized smooth spring animation for parallax
+    const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [4, -4]), {
+      stiffness: 150, // Increased for snappier response
+      damping: 20,    // Increased damping for stability
+      mass: 0.5,      // Reduced mass for faster movement
     });
-    const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-6, 6]), {
-      mass: 0.6,
-      damping: 18,
+    const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-4, 4]), {
+      stiffness: 150,
+      damping: 20,
+      mass: 0.5,
     });
 
     const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -301,8 +328,9 @@ const SpotlightCardItem = React.forwardRef<HTMLDivElement, SpotlightCardItemProp
       const xPct = (mouseXPos / width - 0.5) * 2;
       const yPct = (mouseYPos / height - 0.5) * 2;
 
-      mouseX.set(xPct * 0.5);
-      mouseY.set(yPct * 0.5);
+      // Reduced intensity for smoother performance
+      mouseX.set(xPct * 0.3);
+      mouseY.set(yPct * 0.3);
     };
 
     const handleMouseLeave = () => {
@@ -340,6 +368,7 @@ const SpotlightCardItem = React.forwardRef<HTMLDivElement, SpotlightCardItemProp
                   rotateX,
                   rotateY,
                   transformStyle: 'preserve-3d',
+                  willChange: 'transform',
                 }
               : {}
           }
@@ -349,19 +378,19 @@ const SpotlightCardItem = React.forwardRef<HTMLDivElement, SpotlightCardItemProp
           whileHover={
             !prefersReducedMotion
               ? {
-                  scale: 1.02,
-                  boxShadow: '0 0 40px rgba(124, 58, 237, 0.25)',
+                  scale: 1.015, // Reduced from 1.02
+                  transition: { duration: 0.25, ease: 'easeOut' }, // Faster
                 }
               : {}
           }
-          transition={{ duration: 0.4, ease: 'easeOut' }}
+          transition={{ duration: 0.25, ease: 'easeOut' }} // Faster base transition
         >
           {/* Background Image with Parallax */}
           <div className="absolute inset-0 overflow-hidden">
             {/* LQIP Placeholder */}
             {card.imageLQIP && !isImageLoaded && (
               <div
-                className="absolute inset-0 bg-cover bg-center blur-xl scale-110"
+                className="absolute inset-0 bg-cover bg-center blur-xl scale-110 will-change-auto"
                 style={{ backgroundImage: `url(${card.imageLQIP})` }}
               />
             )}
@@ -373,7 +402,10 @@ const SpotlightCardItem = React.forwardRef<HTMLDivElement, SpotlightCardItemProp
               className="w-full h-full object-cover"
               style={
                 enableParallax && !prefersReducedMotion
-                  ? { transform: 'translateZ(-20px) scale(1.1)' }
+                  ? { 
+                      transform: 'translateZ(-10px) scale(1.05)', // Reduced parallax depth
+                      willChange: 'transform',
+                    }
                   : {}
               }
               loading={index === 0 ? 'eager' : 'lazy'}
@@ -392,7 +424,7 @@ const SpotlightCardItem = React.forwardRef<HTMLDivElement, SpotlightCardItemProp
               className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-3 md:mb-4 tracking-tight"
               style={
                 enableParallax && !prefersReducedMotion
-                  ? { transform: 'translateZ(40px)' }
+                  ? { transform: 'translateZ(20px)' } // Reduced from 40px
                   : {}
               }
             >
@@ -405,7 +437,7 @@ const SpotlightCardItem = React.forwardRef<HTMLDivElement, SpotlightCardItemProp
               className="text-lg sm:text-xl md:text-2xl font-medium mb-4 md:mb-6 text-cyan-accent-300"
               style={
                 enableParallax && !prefersReducedMotion
-                  ? { transform: 'translateZ(30px)' }
+                  ? { transform: 'translateZ(15px)' } // Reduced from 30px
                   : {}
               }
             >
@@ -418,7 +450,7 @@ const SpotlightCardItem = React.forwardRef<HTMLDivElement, SpotlightCardItemProp
               className="text-base sm:text-lg md:text-xl text-gray-200 mb-6 md:mb-8 max-w-2xl leading-relaxed"
               style={
                 enableParallax && !prefersReducedMotion
-                  ? { transform: 'translateZ(20px)' }
+                  ? { transform: 'translateZ(10px)' } // Reduced from 20px
                   : {}
               }
             >
@@ -436,10 +468,10 @@ const SpotlightCardItem = React.forwardRef<HTMLDivElement, SpotlightCardItemProp
                   focus:outline-none focus:ring-2 focus:ring-vibrant-violet-400 focus:ring-offset-2`}
                 style={
                   enableParallax && !prefersReducedMotion
-                    ? { transform: 'translateZ(50px)' }
+                    ? { transform: 'translateZ(25px)' } // Reduced from 50px
                     : {}
                 }
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.03 }} // Reduced from 1.05
                 whileTap={{ scale: 0.98 }}
               >
                 {card.ctaText}

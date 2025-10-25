@@ -1,11 +1,12 @@
-/* SpotlightCardFlow Premium Effects */
+/* SpotlightCardFlow Premium Effects - Optimized for Performance */
 
 /* Gradient Shimmer Button Effect */
 .shimmerButton {
   position: relative;
   overflow: hidden;
   background-size: 200% 100%;
-  transition: background-position 0.6s ease;
+  transition: background-position 0.4s ease; /* Faster */
+  will-change: background-position;
 }
 
 .shimmerButton::before {
@@ -21,49 +22,54 @@
     rgba(255, 255, 255, 0.3) 50%,
     rgba(255, 255, 255, 0) 100%
   );
-  transition: left 0.6s ease;
+  transition: left 0.5s ease; /* Faster */
+  will-change: left;
 }
 
 .shimmerButton:hover::before {
   left: 100%;
 }
 
-/* Card Spotlight Glow Effect */
+/* Card Spotlight Glow Effect - Optimized */
 .spotlightCard {
   position: relative;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1); /* Faster, smoother */
+  will-change: transform;
 }
 
 .cardGlow {
   background: radial-gradient(
     circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    rgba(124, 58, 237, 0.15) 0%,
-    rgba(37, 99, 235, 0.1) 30%,
+    rgba(124, 58, 237, 0.1) 0%,
+    rgba(37, 99, 235, 0.05) 30%,
     transparent 60%
   );
   mix-blend-mode: screen;
+  transition: opacity 0.3s ease; /* Smoother transition */
 }
 
 .spotlightCard:hover {
-  transform: translateY(-4px);
+  transform: translateY(-2px); /* Reduced from -4px */
 }
 
-/* Parallax Background Layer */
+/* Parallax Background Layer - Optimized */
 .parallaxBg {
-  transition: transform 0.3s ease-out;
+  transition: transform 0.2s ease-out; /* Faster */
+  will-change: transform;
 }
 
 .spotlightCard:hover .parallaxBg {
-  transform: translateY(-6px);
+  transform: translateY(-4px); /* Reduced from -6px */
 }
 
-/* Parallax Foreground Layer */
+/* Parallax Foreground Layer - Optimized */
 .parallaxFg {
-  transition: transform 0.3s ease-out;
+  transition: transform 0.2s ease-out; /* Faster */
+  will-change: transform;
 }
 
 .spotlightCard:hover .parallaxFg {
-  transform: translateY(8px);
+  transform: translateY(6px); /* Reduced from 8px */
 }
 
 /* Premium Glassmorphism */
@@ -82,8 +88,25 @@
   }
 }
 
+/* Performance optimizations for mobile */
+@media (max-width: 768px) {
+  .spotlightCard {
+    transform: none !important;
+  }
+  
+  .spotlightCard:hover {
+    transform: none !important;
+  }
+  
+  .parallaxBg,
+  .parallaxFg {
+    transform: none !important;
+  }
+}
+
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+  .shimmerButton,
   .shimmerButton::before,
   .spotlightCard,
   .parallaxBg,
@@ -92,10 +115,11 @@
     transition: none !important;
     animation: none !important;
     transform: none !important;
+    will-change: auto !important;
   }
 
   .spotlightCard:hover {
-    transform: none;
+    transform: none !important;
   }
 }
 
