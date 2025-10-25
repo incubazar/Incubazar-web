@@ -2,6 +2,7 @@
 
 import { ReactNode } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { cn } from '@/lib/utils';
 import { 
@@ -52,8 +53,28 @@ export default function LearnLayout({ children }: LearnLayoutProps) {
 
   return (
     <div className="min-h-screen bg-paper">
+      {/* Top Logo Header - Only Logo */}
+      <header className="fixed top-0 left-0 right-0 h-16 bg-paper border-b-2 border-ink z-50">
+        <div className="h-full px-4 sm:px-6 lg:px-8 flex items-center">
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="relative w-10 h-10 flex items-center justify-center transition-transform group-hover:scale-110">
+              <Image 
+                src="/logo.svg" 
+                alt="Incubazar" 
+                width={40} 
+                height={40}
+                className="transition-all duration-300"
+              />
+            </div>
+            <span className="font-serif text-2xl font-bold tracking-tight leading-none text-ink">
+              Incubazar
+            </span>
+          </Link>
+        </div>
+      </header>
+
       {/* Fixed sidebar navigation */}
-      <aside className="fixed left-0 top-0 h-screen w-64 border-r-2 border-ink bg-paper overflow-y-auto hidden lg:block">
+      <aside className="fixed left-0 top-16 h-[calc(100vh-4rem)] w-64 border-r-2 border-ink bg-paper overflow-y-auto hidden lg:block">
         <div className="p-8">
           {/* Logo/Header */}
           <Link href="/learn" className="block mb-12">
@@ -122,9 +143,9 @@ export default function LearnLayout({ children }: LearnLayoutProps) {
       </aside>
 
       {/* Main content area */}
-      <main className="lg:ml-64 min-h-screen">
+      <main className="lg:ml-64 min-h-screen pt-16">
         {/* Top navigation for mobile */}
-        <div className="lg:hidden sticky top-0 z-40 bg-paper border-b-2 border-ink">
+        <div className="lg:hidden sticky top-16 z-40 bg-paper border-b-2 border-ink">
           <div className="px-4 py-4">
             <Link href="/learn">
               <h1 className="font-serif text-xl font-bold text-ink">
