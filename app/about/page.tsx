@@ -17,27 +17,23 @@ export default function AboutPage() {
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 border-b border-border">
         <div className="max-w-7xl mx-auto">
           <div className="text-center space-y-6 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm">
-              <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-primary">
+            <div className="inline-flex items-center gap-2 px-4 py-2 border border-ink/10 bg-paper">
+              <Sparkles className="w-4 h-4 text-ink" />
+              <span className="text-sm font-medium text-ink uppercase tracking-wide">
                 About Incubazar
               </span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight">
-              <span className="text-foreground">
-                Empowering India&apos;s
-              </span>
+            <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight text-ink">
+              Empowering India&apos;s
               <br />
-              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
-                Startup Revolution
-              </span>
+              <span className="italic">Startup Revolution</span>
             </h1>
             
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-4xl mx-auto leading-relaxed font-medium">
+            <p className="text-xl md:text-2xl text-ink/70 max-w-4xl mx-auto leading-relaxed">
               A trust-first digital platform designed to simplify fundraising for early-stage founders and investors in India
             </p>
           </div>
@@ -45,29 +41,27 @@ export default function AboutPage() {
       </section>
 
       {/* Mission Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-paper">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 animate-fade-in-left">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
-                <Rocket className="w-4 h-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Our Mission</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 border border-ink/10 bg-white">
+                <Rocket className="w-4 h-4 text-ink" />
+                <span className="text-sm font-medium text-ink uppercase tracking-wide">Our Mission</span>
               </div>
               
-              <h2 className="text-4xl md:text-5xl font-display font-bold">
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-ink">
                 Making Startup–Investor Connections{' '}
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Transparent & Accessible
-                </span>
+                <span className="italic">Transparent & Accessible</span>
               </h2>
               
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-ink/70 leading-relaxed">
                 In India's rapidly growing startup ecosystem, where fundraising often feels complex and unstructured, 
                 Incubazar bridges the gap by offering a digital platform powered by AI-driven startup discovery, 
                 automated due diligence, and built-in legal compliance.
               </p>
               
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-lg text-ink/70 leading-relaxed">
                 We're here for everyone — from student entrepreneurs taking their first steps to emerging founders 
                 scaling their ventures. Our mission is to democratize access to capital and make quality investments 
                 accessible to verified investors.
@@ -76,38 +70,38 @@ export default function AboutPage() {
             
             <div className="grid grid-cols-2 gap-6 animate-fade-in-right">
               <div className="space-y-6">
-                <div className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4">
-                    <Shield className="w-6 h-6 text-white" />
+                <div className="p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
+                  <div className="w-12 h-12 border-2 border-ink flex items-center justify-center mb-4 group-hover:border-white transition-colors">
+                    <Shield className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">Trust First</h3>
-                  <p className="text-muted-foreground">Built-in compliance and verification</p>
+                  <h3 className="text-2xl font-bold mb-2 font-display">Trust First</h3>
+                  <p className="text-sm opacity-70">Built-in compliance and verification</p>
                 </div>
                 
-                <div className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-4">
-                    <Zap className="w-6 h-6 text-white" />
+                <div className="p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
+                  <div className="w-12 h-12 border-2 border-ink flex items-center justify-center mb-4 group-hover:border-white transition-colors">
+                    <Zap className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">AI-Powered</h3>
-                  <p className="text-muted-foreground">Smart matching and insights</p>
+                  <h3 className="text-2xl font-bold mb-2 font-display">AI-Powered</h3>
+                  <p className="text-sm opacity-70">Smart matching and insights</p>
                 </div>
               </div>
               
               <div className="space-y-6 pt-12">
-                <div className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-4">
-                    <Users className="w-6 h-6 text-white" />
+                <div className="p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
+                  <div className="w-12 h-12 border-2 border-ink flex items-center justify-center mb-4 group-hover:border-white transition-colors">
+                    <Users className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">Community</h3>
-                  <p className="text-muted-foreground">Connect with verified ecosystem</p>
+                  <h3 className="text-2xl font-bold mb-2 font-display">Community</h3>
+                  <p className="text-sm opacity-70">Connect with verified ecosystem</p>
                 </div>
                 
-                <div className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:scale-105">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mb-4">
-                    <TrendingUp className="w-6 h-6 text-white" />
+                <div className="p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
+                  <div className="w-12 h-12 border-2 border-ink flex items-center justify-center mb-4 group-hover:border-white transition-colors">
+                    <TrendingUp className="w-6 h-6" />
                   </div>
-                  <h3 className="text-2xl font-bold mb-2">Growth</h3>
-                  <p className="text-muted-foreground">Scale with expert support</p>
+                  <h3 className="text-2xl font-bold mb-2 font-display">Growth</h3>
+                  <p className="text-sm opacity-70">Scale with expert support</p>
                 </div>
               </div>
             </div>
@@ -116,16 +110,13 @@ export default function AboutPage() {
       </section>
 
       {/* For Founders Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 border-t border-b border-border">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Built for{' '}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Founders
-              </span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-ink">
+              Built for <span className="italic">Founders</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-ink/70 max-w-3xl mx-auto">
               Everything you need to raise capital and grow your startup — all in one place
             </p>
           </div>
@@ -165,14 +156,14 @@ export default function AboutPage() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="p-6 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:scale-105 group animate-fade-in-up"
+                className="p-6 border-2 border-ink/10 bg-white hover:border-ink hover:bg-paper transition-all duration-300 group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <feature.icon className="w-7 h-7 text-white" />
+                <div className="w-14 h-14 border-2 border-ink flex items-center justify-center mb-4 group-hover:bg-ink group-hover:text-white transition-all duration-300">
+                  <feature.icon className="w-7 h-7" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-bold mb-3 font-display text-ink">{feature.title}</h3>
+                <p className="text-ink/70 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -180,16 +171,13 @@ export default function AboutPage() {
       </section>
 
       {/* For Investors Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-paper">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Designed for{' '}
-              <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Investors
-              </span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-ink">
+              Designed for <span className="italic">Investors</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-ink/70 max-w-3xl mx-auto">
               Discover vetted startups, track your portfolio, and make informed investment decisions
             </p>
           </div>
@@ -198,35 +186,31 @@ export default function AboutPage() {
             {[
               {
                 title: 'Curated Deal Flow',
-                description: 'Access pre-vetted startups that match your investment thesis and preferences',
-                gradient: 'from-blue-500 to-cyan-500'
+                description: 'Access pre-vetted startups that match your investment thesis and preferences'
               },
               {
                 title: 'Smart Analytics',
-                description: 'Track portfolio performance with real-time metrics and AI-powered insights',
-                gradient: 'from-purple-500 to-pink-500'
+                description: 'Track portfolio performance with real-time metrics and AI-powered insights'
               },
               {
                 title: 'Due Diligence',
-                description: 'Automated background checks, financial analysis, and risk assessment tools',
-                gradient: 'from-green-500 to-emerald-500'
+                description: 'Automated background checks, financial analysis, and risk assessment tools'
               },
               {
                 title: 'Market Insights',
-                description: 'Personalized recommendations based on market trends and your risk profile',
-                gradient: 'from-orange-500 to-red-500'
+                description: 'Personalized recommendations based on market trends and your risk profile'
               }
             ].map((feature, index) => (
               <div
                 key={index}
-                className="p-8 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:scale-105 group animate-fade-in-up"
+                className="p-8 border-2 border-ink/10 bg-white hover:border-ink hover:bg-ink hover:text-white transition-all duration-300 group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.gradient} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                  <Target className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 border-2 border-ink flex items-center justify-center mb-6 group-hover:border-white transition-colors">
+                  <Target className="w-8 h-8" />
                 </div>
-                <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
-                <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-bold mb-3 font-display">{feature.title}</h3>
+                <p className="text-sm opacity-70 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -234,21 +218,18 @@ export default function AboutPage() {
       </section>
 
       {/* India's Ecosystem Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 border-t border-b border-border">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16 animate-fade-in-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent/10 border border-accent/20 backdrop-blur-sm mb-6">
-              <Globe className="w-4 h-4 text-accent" />
-              <span className="text-sm font-medium text-accent">India&apos;s Startup Ecosystem</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 border border-ink/10 bg-white mb-6">
+              <Globe className="w-4 h-4 text-ink" />
+              <span className="text-sm font-medium text-ink uppercase tracking-wide">India&apos;s Startup Ecosystem</span>
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-              Reimagining How{' '}
-              <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
-                Innovation Meets Capital
-              </span>
+            <h2 className="text-4xl md:text-5xl font-display font-bold mb-6 text-ink">
+              Reimagining How <span className="italic">Innovation Meets Capital</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-ink/70 max-w-3xl mx-auto">
               With India being the third-largest startup ecosystem in the world, Incubazar is at the forefront 
               of transforming how innovation connects with capital
             </p>
@@ -274,20 +255,20 @@ export default function AboutPage() {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="text-center p-8 rounded-2xl bg-card border border-border hover:border-primary/50 hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in-up"
+                className="text-center p-8 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-4">
+                <div className="text-5xl md:text-6xl font-bold font-display mb-4">
                   {stat.stat}
                 </div>
-                <h3 className="text-xl font-bold mb-2">{stat.label}</h3>
-                <p className="text-muted-foreground">{stat.description}</p>
+                <h3 className="text-xl font-bold mb-2 font-display">{stat.label}</h3>
+                <p className="text-sm opacity-70">{stat.description}</p>
               </div>
             ))}
           </div>
           
           <div className="text-center">
-            <p className="text-lg text-muted-foreground mb-8 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg text-ink/70 mb-8 max-w-4xl mx-auto leading-relaxed">
               Through technology, trust, and transparency, we&apos;re building the infrastructure that will power 
               the next generation of Indian startups. Join us as we empower entrepreneurs and redefine how 
               startup funding works in the digital age.
@@ -297,20 +278,16 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-muted/30">
+      <section className="relative py-20 px-4 sm:px-6 lg:px-8 bg-paper">
         <div className="max-w-4xl mx-auto">
-          <div className="relative p-12 rounded-3xl bg-gradient-to-br from-primary/10 via-accent/10 to-primary/10 border border-primary/20 backdrop-blur-xl overflow-hidden animate-fade-in-up shadow-xl">
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-accent/5 animate-pulse" />
+          <div className="relative p-12 border-4 border-ink bg-white overflow-hidden animate-fade-in-up">
             
             <div className="relative text-center space-y-6">
-              <h2 className="text-4xl md:text-5xl font-display font-bold">
-                Ready to{' '}
-                <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                  Get Started?
-                </span>
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-ink">
+                Ready to <span className="italic">Get Started?</span>
               </h2>
               
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-xl text-ink/70 max-w-2xl mx-auto">
                 Join thousands of founders and investors building the future of India&apos;s startup ecosystem
               </p>
               
