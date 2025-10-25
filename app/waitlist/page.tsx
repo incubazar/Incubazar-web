@@ -10,7 +10,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
 import { useRouter } from 'next/navigation';
-import { Building2, TrendingUp, Rocket, Users, Sparkles, CheckCircle2, ArrowRight, Shield, Zap } from 'lucide-react';
+import { Building2, TrendingUp, Rocket, Users } from 'lucide-react';
 
 export default function WaitlistPage() {
   const router = useRouter();
@@ -108,229 +108,126 @@ export default function WaitlistPage() {
   };
 
   return (
-    <div className="min-h-screen bg-background relative overflow-hidden">
-      {/* Background Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-background to-accent/5 pointer-events-none" />
-      
-      <div className="relative max-w-6xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-purple-50 py-12 px-4">
+      <div className="max-w-4xl mx-auto">
         {/* Header */}
-        <div className="text-center mb-12 animate-fade-in-up">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-sm mb-6">
-            <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Join Early Access</span>
-          </div>
-          
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold mb-6">
-            Join the{' '}
-            <span className="bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient">
-              Incubazar Waitlist
-            </span>
-          </h1>
-          
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Be among the first to access India's premier private placement platform connecting startups with verified investors
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold mb-4">Join Incubazar Waitlist</h1>
+          <p className="text-lg text-gray-600">
+            Be part of India's premier private placement platform for startups and investors
           </p>
         </div>
 
-        {/* Benefits Cards */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <Card className="border-2 hover:border-primary/50 transition-all hover:shadow-xl group">
+        {/* Benefits */}
+        <div className="grid md:grid-cols-2 gap-4 mb-8">
+          <Card>
             <CardContent className="pt-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-                <Rocket className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-3">
+                <Rocket className="w-8 h-8 text-blue-500 flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold mb-1">For Founders</h3>
+                  <p className="text-sm text-gray-600">
+                    Raise capital from verified investors with compliant private placements
+                  </p>
+                </div>
               </div>
-              <h3 className="font-bold text-lg mb-2">For Founders</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Access verified investors, raise compliant capital, and grow your startup with AI-powered matching
-              </p>
             </CardContent>
           </Card>
           
-          <Card className="border-2 hover:border-primary/50 transition-all hover:shadow-xl group">
+          <Card>
             <CardContent className="pt-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-                <TrendingUp className="w-6 h-6 text-white" />
+              <div className="flex items-start gap-3">
+                <TrendingUp className="w-8 h-8 text-purple-500 flex-shrink-0" />
+                <div>
+                  <h3 className="font-semibold mb-1">For Investors</h3>
+                  <p className="text-sm text-gray-600">
+                    Access curated startup deals with proper due diligence and data rooms
+                  </p>
+                </div>
               </div>
-              <h3 className="font-bold text-lg mb-2">For Investors</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Discover curated deals, conduct automated due diligence, and build your portfolio with confidence
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card className="border-2 hover:border-primary/50 transition-all hover:shadow-xl group">
-            <CardContent className="pt-6">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500 to-emerald-500 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform shadow-lg">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
-              <h3 className="font-bold text-lg mb-2">Secure & Compliant</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Section 42 compliant, built-in verification, legal documentation, and secure data rooms
-              </p>
             </CardContent>
           </Card>
         </div>
 
-        {/* Main Form */}
-        <div className="grid lg:grid-cols-3 gap-8">
-          {/* Left Column - Why Join */}
-          <div className="lg:col-span-1 space-y-6">
-            <Card className="border-2 bg-card/50 backdrop-blur-sm">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-2">
-                  <Zap className="w-5 h-5 text-primary" />
-                  Why Join Now?
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-medium text-sm">Early Access</p>
-                    <p className="text-xs text-muted-foreground">Be first to explore platform features</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-medium text-sm">Premium Benefits</p>
-                    <p className="text-xs text-muted-foreground">Exclusive perks for early adopters</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-medium text-sm">Priority Review</p>
-                    <p className="text-xs text-muted-foreground">Fast-track verification process</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                  <div>
-                    <p className="font-medium text-sm">Network Access</p>
-                    <p className="text-xs text-muted-foreground">Connect with verified ecosystem</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="border-2 bg-gradient-to-br from-primary/10 to-accent/10 backdrop-blur-sm">
-              <CardContent className="pt-6">
-                <div className="text-center space-y-2">
-                  <p className="text-2xl font-bold">500+</p>
-                  <p className="text-sm text-muted-foreground">Users on the Waitlist</p>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Right Column - Form */}
-          <Card className="lg:col-span-2 border-2 shadow-xl">
-            <CardHeader>
-              <CardTitle className="text-2xl">Application Form</CardTitle>
-              <CardDescription className="text-base">
-                Fill out the details below to join our exclusive waitlist
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                {/* User Type Selection */}
-                <div className="space-y-3">
-                  <Label className="text-base font-semibold">I am a:</Label>
-                  <RadioGroup
+        {/* Form */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Application Form</CardTitle>
+            <CardDescription>
+              Fill out the form below and we'll review your application
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* User Type Selection */}
+              <div className="space-y-3">
+                <Label>I am a:</Label>
+                <RadioGroup
                   value={userType}
                   onValueChange={(value) => setUserType(value as 'founder' | 'investor')}
-                  className="grid grid-cols-2 gap-4"
+                  className="flex gap-4"
                 >
-                  <Label
-                    htmlFor="founder"
-                    className={`flex flex-col items-center justify-center rounded-xl border-2 p-6 cursor-pointer transition-all hover:border-primary/50 ${
-                      userType === 'founder' ? 'border-primary bg-primary/5' : 'border-border'
-                    }`}
-                  >
-                    <RadioGroupItem value="founder" id="founder" className="sr-only" />
-                    <Building2 className={`w-8 h-8 mb-3 ${userType === 'founder' ? 'text-primary' : 'text-muted-foreground'}`} />
-                    <span className="font-semibold">Founder</span>
-                    <span className="text-xs text-muted-foreground text-center mt-1">Raise capital for your startup</span>
-                  </Label>
-                  
-                  <Label
-                    htmlFor="investor"
-                    className={`flex flex-col items-center justify-center rounded-xl border-2 p-6 cursor-pointer transition-all hover:border-primary/50 ${
-                      userType === 'investor' ? 'border-primary bg-primary/5' : 'border-border'
-                    }`}
-                  >
-                    <RadioGroupItem value="investor" id="investor" className="sr-only" />
-                    <Users className={`w-8 h-8 mb-3 ${userType === 'investor' ? 'text-primary' : 'text-muted-foreground'}`} />
-                    <span className="font-semibold">Investor</span>
-                    <span className="text-xs text-muted-foreground text-center mt-1">Invest in promising startups</span>
-                  </Label>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="founder" id="founder" />
+                    <Label htmlFor="founder" className="cursor-pointer">Founder</Label>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <RadioGroupItem value="investor" id="investor" />
+                    <Label htmlFor="investor" className="cursor-pointer">Investor</Label>
+                  </div>
                 </RadioGroup>
               </div>
 
               {/* Common Fields */}
-              <div className="space-y-4 pt-4">
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="full_name" className="text-sm font-medium">
-                      Full Name <span className="text-destructive">*</span>
-                    </Label>
-                    <Input
-                      id="full_name"
-                      name="full_name"
-                      value={formData.full_name}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="John Doe"
-                      className="mt-1.5"
-                    />
-                  </div>
-
-                  <div>
-                    <Label htmlFor="email" className="text-sm font-medium">
-                      Email Address <span className="text-destructive">*</span>
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="john@example.com"
-                      className="mt-1.5"
-                    />
-                  </div>
+              <div className="space-y-4">
+                <div>
+                  <Label htmlFor="full_name">Full Name *</Label>
+                  <Input
+                    id="full_name"
+                    name="full_name"
+                    value={formData.full_name}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="Enter your full name"
+                  />
                 </div>
 
                 <div>
-                  <Label htmlFor="phone_number" className="text-sm font-medium">Phone Number</Label>
+                  <Label htmlFor="email">Email *</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+
+                <div>
+                  <Label htmlFor="phone_number">Phone Number</Label>
                   <Input
                     id="phone_number"
                     name="phone_number"
                     type="tel"
                     value={formData.phone_number}
                     onChange={handleInputChange}
-                    placeholder="+91 98765 43210"
-                    className="mt-1.5"
+                    placeholder="+91 9876543210"
                   />
                 </div>
               </div>
 
               {/* Founder Specific Fields */}
               {userType === 'founder' && (
-                <div className="space-y-4 border-t-2 pt-6 mt-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center">
-                      <Building2 className="w-5 h-5 text-white" />
-                    </div>
-                    <h3 className="font-bold text-lg">Startup Details</h3>
-                  </div>
+                <div className="space-y-4 border-t pt-4">
+                  <h3 className="font-semibold text-lg flex items-center gap-2">
+                    <Building2 className="w-5 h-5" />
+                    Startup Details
+                  </h3>
 
                   <div>
-                    <Label htmlFor="startup_name" className="text-sm font-medium">
-                      Startup Name <span className="text-destructive">*</span>
-                    </Label>
+                    <Label htmlFor="startup_name">Startup Name *</Label>
                     <Input
                       id="startup_name"
                       name="startup_name"
@@ -338,89 +235,82 @@ export default function WaitlistPage() {
                       onChange={handleInputChange}
                       required={userType === 'founder'}
                       placeholder="Your startup name"
-                      className="mt-1.5"
                     />
                   </div>
 
                   <div>
-                    <Label htmlFor="business_idea" className="text-sm font-medium">
-                      Business Idea / Description <span className="text-destructive">*</span>
-                    </Label>
+                    <Label htmlFor="business_idea">Business Idea / Description *</Label>
                     <Textarea
                       id="business_idea"
                       name="business_idea"
                       value={formData.business_idea}
                       onChange={handleInputChange}
                       required={userType === 'founder'}
-                      placeholder="Describe your startup, the problem you're solving, and your solution..."
+                      placeholder="Describe your startup and what problem you're solving..."
                       rows={4}
-                      className="mt-1.5"
                     />
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="startup_stage" className="text-sm font-medium">Startup Stage</Label>
+                      <Label htmlFor="startup_stage">Startup Stage</Label>
                       <Select
                         value={formData.startup_stage}
                         onValueChange={(value) => handleSelectChange('startup_stage', value)}
                       >
-                        <SelectTrigger className="mt-1.5">
+                        <SelectTrigger>
                           <SelectValue placeholder="Select stage" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="idea">💡 Idea Stage</SelectItem>
-                          <SelectItem value="mvp">🚀 MVP</SelectItem>
-                          <SelectItem value="early_revenue">💰 Early Revenue</SelectItem>
-                          <SelectItem value="growth">📈 Growth</SelectItem>
-                          <SelectItem value="scaling">🌟 Scaling</SelectItem>
+                          <SelectItem value="idea">Idea Stage</SelectItem>
+                          <SelectItem value="mvp">MVP</SelectItem>
+                          <SelectItem value="early_revenue">Early Revenue</SelectItem>
+                          <SelectItem value="growth">Growth</SelectItem>
+                          <SelectItem value="scaling">Scaling</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
 
                     <div>
-                      <Label htmlFor="industry" className="text-sm font-medium">Industry</Label>
+                      <Label htmlFor="industry">Industry</Label>
                       <Input
                         id="industry"
                         name="industry"
                         value={formData.industry}
                         onChange={handleInputChange}
-                        placeholder="e.g., FinTech, HealthTech, EdTech"
-                        className="mt-1.5"
+                        placeholder="e.g., FinTech, HealthTech"
                       />
                     </div>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="funding_target" className="text-sm font-medium">Funding Target (₹)</Label>
+                      <Label htmlFor="funding_target">Funding Target (₹)</Label>
                       <Input
                         id="funding_target"
                         name="funding_target"
                         type="number"
                         value={formData.funding_target}
                         onChange={handleInputChange}
-                        placeholder="50,00,000"
-                        className="mt-1.5"
+                        placeholder="e.g., 50,00,000"
                       />
                     </div>
 
                     <div>
-                      <Label htmlFor="team_size" className="text-sm font-medium">Team Size</Label>
+                      <Label htmlFor="team_size">Team Size</Label>
                       <Input
                         id="team_size"
                         name="team_size"
                         type="number"
                         value={formData.team_size}
                         onChange={handleInputChange}
-                        placeholder="5"
-                        className="mt-1.5"
+                        placeholder="e.g., 5"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="website_url" className="text-sm font-medium">Website URL</Label>
+                    <Label htmlFor="website_url">Website URL</Label>
                     <Input
                       id="website_url"
                       name="website_url"
@@ -428,7 +318,6 @@ export default function WaitlistPage() {
                       value={formData.website_url}
                       onChange={handleInputChange}
                       placeholder="https://yourstartup.com"
-                      className="mt-1.5"
                     />
                   </div>
                 </div>
@@ -436,80 +325,76 @@ export default function WaitlistPage() {
 
               {/* Investor Specific Fields */}
               {userType === 'investor' && (
-                <div className="space-y-4 border-t-2 pt-6 mt-6">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
-                      <Users className="w-5 h-5 text-white" />
-                    </div>
-                    <h3 className="font-bold text-lg">Investor Profile</h3>
-                  </div>
+                <div className="space-y-4 border-t pt-4">
+                  <h3 className="font-semibold text-lg flex items-center gap-2">
+                    <Users className="w-5 h-5" />
+                    Investor Profile
+                  </h3>
 
                   <div>
-                    <Label htmlFor="investor_type" className="text-sm font-medium">Investor Type</Label>
+                    <Label htmlFor="investor_type">Investor Type</Label>
                     <Select
                       value={formData.investor_type}
                       onValueChange={(value) => handleSelectChange('investor_type', value)}
                     >
-                      <SelectTrigger className="mt-1.5">
+                      <SelectTrigger>
                         <SelectValue placeholder="Select type" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="angel">👼 Angel Investor</SelectItem>
-                        <SelectItem value="hni">💎 High Net-Worth Individual</SelectItem>
-                        <SelectItem value="family_office">🏛️ Family Office</SelectItem>
-                        <SelectItem value="vc">🚀 Venture Capital</SelectItem>
-                        <SelectItem value="other">🔹 Other</SelectItem>
+                        <SelectItem value="angel">Angel Investor</SelectItem>
+                        <SelectItem value="hni">High Net-Worth Individual</SelectItem>
+                        <SelectItem value="family_office">Family Office</SelectItem>
+                        <SelectItem value="vc">Venture Capital</SelectItem>
+                        <SelectItem value="other">Other</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="grid md:grid-cols-2 gap-4">
                     <div>
-                      <Label htmlFor="investment_range_min" className="text-sm font-medium">Min Investment (₹)</Label>
+                      <Label htmlFor="investment_range_min">Min Investment (₹)</Label>
                       <Input
                         id="investment_range_min"
                         name="investment_range_min"
                         type="number"
                         value={formData.investment_range_min}
                         onChange={handleInputChange}
-                        placeholder="5,00,000"
-                        className="mt-1.5"
+                        placeholder="e.g., 5,00,000"
                       />
                     </div>
 
                     <div>
-                      <Label htmlFor="investment_range_max" className="text-sm font-medium">Max Investment (₹)</Label>
+                      <Label htmlFor="investment_range_max">Max Investment (₹)</Label>
                       <Input
                         id="investment_range_max"
                         name="investment_range_max"
                         type="number"
                         value={formData.investment_range_max}
                         onChange={handleInputChange}
-                        placeholder="50,00,000"
-                        className="mt-1.5"
+                        placeholder="e.g., 50,00,000"
                       />
                     </div>
                   </div>
 
                   <div>
-                    <Label htmlFor="investment_experience" className="text-sm font-medium">Investment Experience</Label>
+                    <Label htmlFor="investment_experience">Investment Experience</Label>
                     <Select
                       value={formData.investment_experience}
                       onValueChange={(value) => handleSelectChange('investment_experience', value)}
                     >
-                      <SelectTrigger className="mt-1.5">
+                      <SelectTrigger>
                         <SelectValue placeholder="Select experience" />
                       </SelectTrigger>
                       <SelectContent>
-                        <SelectItem value="beginner">🌱 Beginner (0-2 investments)</SelectItem>
-                        <SelectItem value="intermediate">📊 Intermediate (3-10 investments)</SelectItem>
-                        <SelectItem value="experienced">🏆 Experienced (10+ investments)</SelectItem>
+                        <SelectItem value="beginner">Beginner (0-2 investments)</SelectItem>
+                        <SelectItem value="intermediate">Intermediate (3-10 investments)</SelectItem>
+                        <SelectItem value="experienced">Experienced (10+ investments)</SelectItem>
                       </SelectContent>
                     </Select>
                   </div>
 
                   <div>
-                    <Label htmlFor="linkedin_url" className="text-sm font-medium">LinkedIn Profile</Label>
+                    <Label htmlFor="linkedin_url">LinkedIn Profile</Label>
                     <Input
                       id="linkedin_url"
                       name="linkedin_url"
@@ -517,61 +402,37 @@ export default function WaitlistPage() {
                       value={formData.linkedin_url}
                       onChange={handleInputChange}
                       placeholder="https://linkedin.com/in/yourprofile"
-                      className="mt-1.5"
                     />
                   </div>
                 </div>
               )}
 
-              <div className="pt-6 space-y-4">
-                <Button
-                  type="submit"
-                  className="w-full h-12 text-base font-semibold group"
-                  disabled={loading}
-                  size="lg"
-                >
-                  {loading ? (
-                    <>
-                      <span className="animate-pulse">Submitting...</span>
-                    </>
-                  ) : (
-                    <>
-                      Join Waitlist
-                      <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
-                    </>
-                  )}
-                </Button>
+              <Button
+                type="submit"
+                className="w-full"
+                disabled={loading}
+              >
+                {loading ? 'Submitting...' : 'Join Waitlist'}
+              </Button>
 
-                <p className="text-sm text-muted-foreground text-center">
-                  Already have an account?{' '}
-                  <a href="/auth/login" className="text-primary hover:underline font-medium">
-                    Sign in here
-                  </a>
-                </p>
-              </div>
+              <p className="text-sm text-gray-500 text-center">
+                Already have an account?{' '}
+                <a href="/auth/login" className="text-blue-600 hover:underline">
+                  Sign in
+                </a>
+              </p>
             </form>
           </CardContent>
         </Card>
-      </div>
 
-      {/* Footer Info */}
-      <div className="mt-12 text-center">
-        <Card className="max-w-3xl mx-auto border-2 bg-muted/30 backdrop-blur-sm">
-          <CardContent className="pt-6">
-            <div className="flex items-start gap-3 text-left">
-              <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="text-sm text-muted-foreground">
-                  <span className="font-semibold text-foreground">What happens next?</span>
-                  <br />
-                  We'll review your application within 24-48 hours. Upon approval, you'll receive an OTP via email to complete your registration and get access to the platform.
-                </p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        {/* Footer Info */}
+        <div className="mt-8 text-center text-sm text-gray-600">
+          <p>
+            We review all applications carefully. Upon approval, you'll receive an OTP via email
+            to complete your registration.
+          </p>
+        </div>
       </div>
-    </div>
     </div>
   );
 }
