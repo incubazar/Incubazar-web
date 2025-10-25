@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Rocket, Shield, Zap, Users, TrendingUp, CheckCircle2, Sparkles, Globe, Target } from 'lucide-react'
 import { PremiumButton } from '@/components/ui/premium-button'
+import EditorialNavbar from '@/components/editorial/EditorialNavbar'
+import EditorialFooter from '@/components/editorial/EditorialFooter'
 
 export const metadata: Metadata = {
   title: 'About Us - Empowering India\'s Startup Ecosystem',
@@ -15,6 +17,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+      <EditorialNavbar />
       
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 border-b border-border">
@@ -335,6 +338,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      
+      <EditorialFooter />
     </div>
   )
 }
