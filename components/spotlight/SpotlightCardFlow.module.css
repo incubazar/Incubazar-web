@@ -1,0 +1,229 @@
+/* SpotlightCardFlow Premium Effects */
+
+/* Gradient Shimmer Button Effect */
+.shimmerButton {
+  position: relative;
+  overflow: hidden;
+  background-size: 200% 100%;
+  transition: background-position 0.6s ease;
+}
+
+.shimmerButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: left 0.6s ease;
+}
+
+.shimmerButton:hover::before {
+  left: 100%;
+}
+
+/* Card Spotlight Glow Effect */
+.spotlightCard {
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cardGlow {
+  background: radial-gradient(
+    circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(124, 58, 237, 0.15) 0%,
+    rgba(37, 99, 235, 0.1) 30%,
+    transparent 60%
+  );
+  mix-blend-mode: screen;
+}
+
+.spotlightCard:hover {
+  transform: translateY(-4px);
+}
+
+/* Parallax Background Layer */
+.parallaxBg {
+  transition: transform 0.3s ease-out;
+}
+
+.spotlightCard:hover .parallaxBg {
+  transform: translateY(-6px);
+}
+
+/* Parallax Foreground Layer */
+.parallaxFg {
+  transition: transform 0.3s ease-out;
+}
+
+.spotlightCard:hover .parallaxFg {
+  transform: translateY(8px);
+}
+
+/* Premium Glassmorphism */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dark Mode Adjustments */
+@media (prefers-color-scheme: dark) {
+  .glassmorphism {
+    background: rgba(30, 41, 59, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .shimmerButton::before,
+  .spotlightCard,
+  .parallaxBg,
+  .parallaxFg,
+  .cardGlow {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+
+  .spotlightCard:hover {
+    transform: none;
+  }
+}
+
+/* Gradient Animation for Hero Sections */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animatedGradient {
+  background-size: 400% 400%;
+  animation: gradientMove 10s ease infinite;
+}
+
+/* Neon Glow Effect */
+.neonGlow {
+  box-shadow: 
+    0 0 5px rgba(124, 58, 237, 0.5),
+    0 0 10px rgba(124, 58, 237, 0.4),
+    0 0 20px rgba(124, 58, 237, 0.3),
+    0 0 40px rgba(124, 58, 237, 0.2);
+  transition: box-shadow 0.3s ease;
+}
+
+.neonGlow:hover {
+  box-shadow: 
+    0 0 10px rgba(124, 58, 237, 0.6),
+    0 0 20px rgba(124, 58, 237, 0.5),
+    0 0 40px rgba(124, 58, 237, 0.4),
+    0 0 80px rgba(124, 58, 237, 0.3);
+}
+
+/* Text Reveal Animation */
+@keyframes textReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.textReveal {
+  animation: textReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Stagger children animation */
+.staggerContainer > * {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.staggerContainer.animate > *:nth-child(1) {
+  animation: textReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0s forwards;
+}
+
+.staggerContainer.animate > *:nth-child(2) {
+  animation: textReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.12s forwards;
+}
+
+.staggerContainer.animate > *:nth-child(3) {
+  animation: textReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.24s forwards;
+}
+
+.staggerContainer.animate > *:nth-child(4) {
+  animation: textReveal 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.36s forwards;
+}
+
+/* Focus Visible Styles for Accessibility */
+.shimmerButton:focus-visible {
+  outline: 2px solid #7C3AED;
+  outline-offset: 4px;
+}
+
+/* Loading Skeleton */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.1) 25%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Premium Card Border Gradient */
+.borderGradient {
+  position: relative;
+  background: linear-gradient(to right, #2563EB, #7C3AED);
+  padding: 2px;
+  border-radius: 1.5rem;
+}
+
+.borderGradient::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: inherit;
+  border-radius: calc(1.5rem - 2px);
+}
+
+/* Smooth Scroll Indicator */
+.scrollIndicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(to right, #2563EB, #7C3AED);
+  transform-origin: 0%;
+  z-index: 9999;
+}

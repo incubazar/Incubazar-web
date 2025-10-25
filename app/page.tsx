@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import PremiumNavbar from '@/components/premium/PremiumNavbar'
 import PremiumHero from '@/components/premium/PremiumHero'
+import IncubazarSpotlight from '@/components/landing/IncubazarSpotlight'
 import PremiumFeatures from '@/components/premium/PremiumFeatures'
 import GradientCTA from '@/components/premium/GradientCTA'
 import PremiumFooter from '@/components/premium/PremiumFooter'
@@ -24,6 +25,7 @@ export default function HomePage() {
         <PremiumNavbar />
         <main className="relative">
           <PremiumHero />
+          <IncubazarSpotlight />
           <PremiumFeatures />
           <GradientCTA />
         </main>

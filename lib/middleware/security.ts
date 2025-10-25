@@ -19,7 +19,8 @@ const CSP_DIRECTIVES = {
     "'unsafe-inline'", // Required for Next.js inline scripts
     "'unsafe-eval'", // Required for Next.js dev mode
     'https://checkout.razorpay.com',
-    'https://cdn.razorpay.com'
+    'https://cdn.razorpay.com',
+    'https://va.vercel-scripts.com' // Vercel Speed Insights
   ],
   'style-src': [
     "'self'",
@@ -29,6 +30,7 @@ const CSP_DIRECTIVES = {
   'font-src': [
     "'self'",
     'https://fonts.gstatic.com',
+    'https://fonts.cdnfonts.com',
     'data:'
   ],
   'img-src': [
@@ -41,7 +43,9 @@ const CSP_DIRECTIVES = {
     "'self'",
     'https://*.supabase.co', // Supabase API
     'wss://*.supabase.co', // Supabase realtime
-    'https://api.razorpay.com'
+    'https://api.razorpay.com',
+    'https://va.vercel-scripts.com', // Vercel Speed Insights
+    'https://vitals.vercel-insights.com' // Vercel Analytics
   ],
   'frame-src': [
     "'self'",
