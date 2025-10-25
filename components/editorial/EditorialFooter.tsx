@@ -13,8 +13,8 @@ export default function EditorialFooter() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16">
           {/* Brand */}
           <div className="md:col-span-5">
-            <Link href="/" className="flex items-center space-x-3 mb-4 group w-fit">
-              <div className="relative w-8 h-8 sm:w-10 sm:h-10 transition-transform group-hover:scale-110">
+            <Link href="/" className="flex items-center gap-2 mb-4 group w-fit">
+              <div className="relative w-10 h-10 flex items-center justify-center transition-transform group-hover:scale-110">
                 <Image 
                   src="/logo.svg" 
                   alt="Incubazar" 
@@ -23,7 +23,7 @@ export default function EditorialFooter() {
                   className="transition-all duration-300"
                 />
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold">Incubazar</h3>
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold leading-none">Incubazar</h3>
             </Link>
             <p className="text-sm sm:text-base text-foreground/70 leading-relaxed mb-4 sm:mb-6">
               Where visionaries meet investors. A carefully curated platform for meaningful connections 
