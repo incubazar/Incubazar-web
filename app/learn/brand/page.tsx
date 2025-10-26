@@ -972,6 +972,30 @@ export default function BrandPage() {
         {/* References */}
         <References citations={citations} />
 
+        {/* Subtle Brand Services Note */}
+        <section className="mt-16 pt-12 border-t border-graphite-200">
+          <div className="max-w-2xl mx-auto text-center">
+            <p className="text-xs uppercase tracking-[0.3em] text-graphite-400 mb-4">
+              Need Help Implementing?
+            </p>
+            <div className="bg-graphite-50 border border-graphite-200 p-8">
+              <p className="text-sm text-graphite-700 leading-relaxed mb-2">
+                If you found this guide valuable and want expert help bringing your brand to life, 
+                we offer select design services for startups.
+              </p>
+              <p className="text-sm text-graphite-600">
+                <a 
+                  href="mailto:founder@incubazar.com" 
+                  className="text-ink hover:underline underline-offset-4 font-medium transition-colors"
+                >
+                  Contact founder@incubazar.com
+                </a>
+                {' '}for logo design, brand identity, and web design packages.
+              </p>
+            </div>
+          </div>
+        </section>
+
         {/* Next Module */}
         <section className="mt-16 pt-12 border-t-2 border-ink bg-graphite-50 -mx-4 sm:-mx-8 lg:-mx-12 px-4 sm:px-8 lg:px-12 py-12">
           <h3 className="text-sm uppercase tracking-widest text-graphite-600 font-semibold mb-4">

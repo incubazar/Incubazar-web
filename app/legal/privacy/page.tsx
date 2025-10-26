@@ -215,6 +215,14 @@ export default function PrivacyPolicyPage() {
             <p><strong>Address:</strong> [Company Address - To Be Provided]</p>
             <p><strong>Phone:</strong> [Phone Number - To Be Provided]</p>
           </div>
+          <div className="mt-4 p-4 bg-gray-100/50 rounded-lg border border-gray-200">
+            <p className="text-xs text-gray-500">
+              <strong>Additional Services:</strong> For branding and design inquiries, contact{' '}
+              <a href="mailto:founder@incubazar.com" className="text-gray-700 hover:underline">
+                founder@incubazar.com
+              </a>
+            </p>
+          </div>
         </section>
 
         <section className="mb-8">

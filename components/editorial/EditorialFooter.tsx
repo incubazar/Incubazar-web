@@ -82,6 +82,12 @@ export default function EditorialFooter() {
               <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-foreground/70">
                 <li><a href="https://twitter.com/incubazar" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Twitter</a></li>
                 <li><a href="https://linkedin.com/company/incubazar" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">LinkedIn</a></li>
+                <li><a href="https://instagram.com/incubazar" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Instagram</a></li>
+                <li>
+                  <a href="mailto:founder@incubazar.com" className="hover:text-foreground transition-colors text-xs opacity-60">
+                    Brand Services
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

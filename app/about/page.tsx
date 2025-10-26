@@ -289,6 +289,20 @@ export default function AboutPage() {
               </p>
             </div>
           </div>
+          
+          {/* Subtle Services Note */}
+          <div className="mt-12 max-w-3xl mx-auto">
+            <div className="border border-ink/10 bg-white/50 p-6 text-center">
+              <p className="text-xs text-ink/50 uppercase tracking-widest mb-2">Beyond the Platform</p>
+              <p className="text-sm text-ink/60 leading-relaxed">
+                We also offer select branding and design services for startups.{' '}
+                <a href="mailto:founder@incubazar.com" className="text-ink hover:underline">
+                  Reach out
+                </a>{' '}
+                to learn more.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 

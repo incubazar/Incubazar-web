@@ -50,6 +50,22 @@ export default function EditorialCTA() {
               className="border-l-2 text-left max-w-2xl mx-auto"
             />
           </RevealText>
+
+          {/* Subtle Services Note */}
+          <RevealText>
+            <div className="mt-16 sm:mt-20">
+              <p className="text-xs text-foreground/40 uppercase tracking-[0.2em] mb-3">Select Services</p>
+              <p className="text-sm text-foreground/50 max-w-xl mx-auto">
+                We offer curated branding packages for select startups—logo design, brand identity, and web presence.{' '}
+                <a 
+                  href="mailto:founder@incubazar.com" 
+                  className="text-foreground/70 hover:text-foreground underline underline-offset-4 transition-colors"
+                >
+                  Inquire at founder@incubazar.com
+                </a>
+              </p>
+            </div>
+          </RevealText>
         </div>
       </section>
     </PageSpread>

@@ -192,6 +192,26 @@ export default function LearnIndexPage() {
               This curriculum is your competitive advantage. Use it.
             </p>
           </div>
+
+          {/* Subtle Services Note */}
+          <div className="mt-16 pt-8 border-t border-graphite-200">
+            <div className="text-center">
+              <p className="text-xs uppercase tracking-[0.25em] text-graphite-400 mb-3">
+                Beyond Learning
+              </p>
+              <p className="text-sm text-graphite-600 leading-relaxed">
+                For founders who value quality, we also offer select branding and design services—
+                <br className="hidden sm:block" />
+                from logo design to complete brand identity.{' '}
+                <a 
+                  href="mailto:founder@incubazar.com" 
+                  className="text-ink hover:underline underline-offset-4 font-medium transition-colors"
+                >
+                  Reach out to learn more
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
