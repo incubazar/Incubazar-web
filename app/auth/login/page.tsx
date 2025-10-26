@@ -8,6 +8,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
+import { Logo } from '@/components/ui/logo'
 import { createClient } from '@/lib/supabase/client'
 import { Eye, EyeOff, Loader2 } from 'lucide-react'
 
@@ -61,16 +62,13 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-paper px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-8 h-8 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center">
-              <span className="text-white dark:text-gray-900 font-bold text-sm">IB</span>
-            </div>
-            <span className="text-2xl font-bold text-gray-900 dark:text-white">Incubazar</span>
+          <div className="flex items-center justify-center mb-4">
+            <Logo size="lg" href="/" />
           </div>
-          <p className="text-gray-600 dark:text-gray-400">Welcome back to your dashboard</p>
+          <p className="text-graphite-600 font-body">Welcome back to your dashboard</p>
         </div>
 
         <Card>

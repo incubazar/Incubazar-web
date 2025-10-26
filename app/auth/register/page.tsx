@@ -9,6 +9,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Alert, AlertDescription } from '@/components/ui/alert'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Logo } from '@/components/ui/logo'
 import { createClient } from '@/lib/supabase/client'
 import { Eye, EyeOff, Loader2, CheckCircle, X } from 'lucide-react'
 
@@ -221,16 +222,16 @@ function RegisterForm() {
 
   if (success) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 px-4">
+      <div className="min-h-screen flex items-center justify-center bg-paper px-4">
         <div className="w-full max-w-md">
           <Card>
             <CardContent className="pt-6">
               <div className="text-center">
-                <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-                <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                <CheckCircle className="h-16 w-16 text-ink mx-auto mb-4" />
+                <h2 className="text-2xl font-bold text-ink mb-2 font-serif">
                   Account Created Successfully!
                 </h2>
-                <p className="text-gray-600 dark:text-gray-400 mb-6">
+                <p className="text-graphite-600 mb-6 font-body">
                   Redirecting you to your dashboard...
                 </p>
               </div>
@@ -244,16 +245,13 @@ function RegisterForm() {
   // Email verification step
   if (step === 'email') {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-paper px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-8 h-8 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center">
-              <span className="text-white dark:text-gray-900 font-bold text-sm">IB</span>
-            </div>
-            <span className="text-2xl font-bold text-gray-900 dark:text-white">Incubazar</span>
+          <div className="flex items-center justify-center mb-4">
+            <Logo size="lg" href="/" />
           </div>
-          <p className="text-gray-600 dark:text-gray-400">Join India&apos;s trusted startup investment platform</p>
+          <p className="text-graphite-600 font-body">Join India&apos;s trusted startup investment platform</p>
         </div>
 
         <Card>
@@ -322,14 +320,11 @@ function RegisterForm() {
   // OTP verification step
   if (step === 'otp') {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 px-4">
+      <div className="min-h-screen flex items-center justify-center bg-paper px-4">
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
-            <div className="flex items-center justify-center space-x-2 mb-4">
-              <div className="w-8 h-8 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center">
-                <span className="text-white dark:text-gray-900 font-bold text-sm">IB</span>
-              </div>
-              <span className="text-2xl font-bold text-gray-900 dark:text-white">Incubazar</span>
+            <div className="flex items-center justify-center mb-4">
+              <Logo size="lg" href="/" />
             </div>
           </div>
 
@@ -404,16 +399,13 @@ function RegisterForm() {
 
   // Registration step (after OTP verification)
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-950 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-paper px-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <div className="flex items-center justify-center space-x-2 mb-4">
-            <div className="w-8 h-8 bg-gray-900 dark:bg-white rounded-lg flex items-center justify-center">
-              <span className="text-white dark:text-gray-900 font-bold text-sm">IB</span>
-            </div>
-            <span className="text-2xl font-bold text-gray-900 dark:text-white">Incubazar</span>
+          <div className="flex items-center justify-center mb-4">
+            <Logo size="lg" href="/" />
           </div>
-          <p className="text-gray-600 dark:text-gray-400">Complete your registration</p>
+          <p className="text-graphite-600 font-body">Complete your registration</p>
         </div>
 
         <Card>

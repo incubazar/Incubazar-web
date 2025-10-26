@@ -605,41 +605,41 @@ export function ProposalCover({
     <div className="grid md:grid-cols-2 gap-0 min-h-[600px] my-16 border-2 border-ink">
       {/* Left Panel - Proposal Info */}
       <div 
-        className="p-12 text-ink flex flex-col justify-between"
+        className="p-12 text-white flex flex-col justify-between"
         style={{ backgroundColor: accentColor }}
       >
         {/* Header Section */}
         <div>
           {client && (
             <div className="mb-8">
-              <div className="text-xs uppercase tracking-widest font-semibold mb-2">CLIENT</div>
+              <div className="text-xs uppercase tracking-widest font-semibold mb-2 text-white/80">CLIENT</div>
               <div className="font-semibold text-lg">{client}</div>
             </div>
           )}
 
           {date && (
             <div className="mb-8">
-              <div className="text-xs uppercase tracking-widest font-semibold mb-2">DATE</div>
+              <div className="text-xs uppercase tracking-widest font-semibold mb-2 text-white/80">DATE</div>
               <div className="font-semibold">{date}</div>
             </div>
           )}
 
           {team && team.length > 0 && (
             <div className="mb-8">
-              <div className="text-xs uppercase tracking-widest font-semibold mb-2">TEAM</div>
+              <div className="text-xs uppercase tracking-widest font-semibold mb-2 text-white/80">TEAM</div>
               <div className="font-semibold leading-relaxed">{team.join(', ')}</div>
             </div>
           )}
 
           <div className="mb-8">
-            <div className="text-xs uppercase tracking-widest font-semibold mb-3">BRIEF</div>
-            <p className="text-sm leading-relaxed font-mono">{brief}</p>
+            <div className="text-xs uppercase tracking-widest font-semibold mb-3 text-white/80">BRIEF</div>
+            <p className="text-sm leading-relaxed text-white">{brief}</p>
           </div>
         </div>
 
         {/* Footer - Contact/Branding */}
-        <div className="mt-8 pt-8 border-t-2 border-ink">
-          <div className="text-xs uppercase tracking-widest font-semibold">INCUBAZAR LEARNING</div>
+        <div className="mt-8 pt-8 border-t-2 border-white/30">
+          <div className="text-xs uppercase tracking-widest font-semibold text-white/80">INCUBAZAR LEARNING</div>
         </div>
       </div>
 
@@ -661,17 +661,11 @@ export function ProposalCover({
         {introSection && (
           <div className="mt-8 border-t-2 border-ink pt-8">
             <div className="mb-4">
-              <div 
-                className="inline-block px-3 py-1 text-xs uppercase tracking-widest font-semibold rotate-90 origin-left"
-                style={{ 
-                  writingMode: 'vertical-rl',
-                  textOrientation: 'mixed'
-                }}
-              >
+              <div className="text-xs uppercase tracking-widest font-semibold text-ink">
                 {introSection.heading}
               </div>
             </div>
-            <p className="text-sm leading-relaxed text-graphite-800 font-mono">
+            <p className="text-sm leading-relaxed text-graphite-800">
               {introSection.content}
             </p>
           </div>

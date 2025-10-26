@@ -6,9 +6,9 @@ import { BookOpen, Users, TrendingUp, Award, CheckCircle, ArrowRight, Download, 
 export default function LearnShowcasePage() {
   const stats = [
     { label: 'Learning Modules', value: '73+', icon: <BookOpen className="h-6 w-6" /> },
-    { label: 'Case Studies', value: '6', icon: <Award className="h-6 w-6" /> },
+    { label: 'Case Studies', value: '3', icon: <Award className="h-6 w-6" /> },
     { label: 'Templates & Tools', value: '15+', icon: <Download className="h-6 w-6" /> },
-    { label: 'Total Reading Time', value: '245+ min', icon: <TrendingUp className="h-6 w-6" /> },
+    { label: 'Total Reading Time', value: '325+ min', icon: <TrendingUp className="h-6 w-6" /> },
   ];
 
   const completedModules = [
@@ -41,6 +41,18 @@ export default function LearnShowcasePage() {
       duration: '35 min',
       topics: ['Developer-first fintech strategy', '10-year timeline (2014-2024)', '$7.5B valuation journey', '6 lessons for founders', 'Unit economics breakdown'],
       path: '/learn/case-studies/razorpay'
+    },
+    {
+      title: 'Case Study: Zomato',
+      duration: '38 min',
+      topics: ['Hyperlocal execution playbook', '16-year timeline (2008-2024)', '$10B+ market cap', 'Food delivery to quick commerce pivot', 'Density as competitive moat'],
+      path: '/learn/case-studies/zomato'
+    },
+    {
+      title: 'Case Study: Flipkart',
+      duration: '40 min',
+      topics: ['How localization beat Amazon', '17-year timeline (2007-2024)', '$16B Walmart acquisition', 'Cash-on-delivery strategy', 'Tier-2/3 market dominance'],
+      path: '/learn/case-studies/flipkart'
     }
   ];
 
@@ -247,25 +259,37 @@ export default function LearnShowcasePage() {
               </Link>
             </div>
 
-            <div className="p-6 border-2 border-graphite-700 bg-graphite-900">
-              <div className="text-xs uppercase tracking-widest text-graphite-500 mb-2">
-                Coming Soon
+            <div className="p-6 border-2 border-paper">
+              <div className="text-xs uppercase tracking-widest text-graphite-400 mb-2">
+                ✅ Complete
               </div>
               <h4 className="font-serif text-xl font-bold mb-2">Zomato</h4>
-              <p className="text-sm text-graphite-400 mb-4">
+              <p className="text-sm text-graphite-300 mb-4">
                 Hyperlocal execution excellence. From restaurant discovery to food 
                 delivery empire.
               </p>
+              <Link
+                href="/learn/case-studies/zomato"
+                className="text-sm font-semibold underline hover:text-graphite-200 transition-colors"
+              >
+                Read Case Study →
+              </Link>
             </div>
 
-            <div className="p-6 border-2 border-graphite-700 bg-graphite-900">
-              <div className="text-xs uppercase tracking-widest text-graphite-500 mb-2">
-                Coming Soon
+            <div className="p-6 border-2 border-paper">
+              <div className="text-xs uppercase tracking-widest text-graphite-400 mb-2">
+                ✅ Complete
               </div>
               <h4 className="font-serif text-xl font-bold mb-2">Flipkart</h4>
-              <p className="text-sm text-graphite-400 mb-4">
+              <p className="text-sm text-graphite-300 mb-4">
                 E-commerce localization playbook. How Flipkart beat Amazon in India.
               </p>
+              <Link
+                href="/learn/case-studies/flipkart"
+                className="text-sm font-semibold underline hover:text-graphite-200 transition-colors"
+              >
+                Read Case Study →
+              </Link>
             </div>
           </div>
         </div>

@@ -272,36 +272,36 @@ export default function ProductPage() {
             />
           </div>
 
-          <div className="my-12 p-8 bg-ink text-paper">
-            <h4 className="font-serif text-3xl font-bold mb-6">
+          <div className="my-12 p-8 bg-ink text-white">
+            <h4 className="font-serif text-3xl font-bold mb-6 text-white">
               The Sean Ellis Test (40% Rule)
             </h4>
-            <p className="text-xl text-graphite-200 leading-relaxed mb-6">
+            <p className="text-xl text-white/90 leading-relaxed mb-6">
               Survey your users with one question: <strong>&quot;How would you feel if you could 
               no longer use this product?&quot;</strong>
             </p>
-            <div className="space-y-3 text-graphite-200">
+            <div className="space-y-3 text-white/90">
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 bg-paper text-ink flex items-center justify-center font-bold text-sm">
+                <div className="flex-shrink-0 w-6 h-6 bg-white text-ink flex items-center justify-center font-bold text-sm">
                   1
                 </div>
                 <p>Very disappointed</p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 bg-graphite-700 text-paper flex items-center justify-center font-bold text-sm">
+                <div className="flex-shrink-0 w-6 h-6 bg-white/30 text-white flex items-center justify-center font-bold text-sm">
                   2
                 </div>
                 <p>Somewhat disappointed</p>
               </div>
               <div className="flex items-start gap-3">
-                <div className="flex-shrink-0 w-6 h-6 bg-graphite-700 text-paper flex items-center justify-center font-bold text-sm">
+                <div className="flex-shrink-0 w-6 h-6 bg-white/30 text-white flex items-center justify-center font-bold text-sm">
                   3
                 </div>
                 <p>Not disappointed</p>
               </div>
             </div>
-            <div className="mt-6 p-4 bg-graphite-900 border-2 border-graphite-700">
-              <p className="text-sm text-graphite-300">
+            <div className="mt-6 p-4 bg-white/10 border-2 border-white/30">
+              <p className="text-sm text-white/90">
                 <strong>If 40%+ choose &quot;very disappointed,&quot; you have PMF.</strong> If 
                 not, keep iterating. This is the single best leading indicator of startup success.
               </p>
@@ -424,22 +424,22 @@ export default function ProductPage() {
               </div>
 
               {/* NRR */}
-              <div className="p-6 border-2 border-ink bg-ink text-paper">
-                <h5 className="font-serif text-xl font-bold mb-2">
+              <div className="p-6 border-2 border-ink bg-ink text-white">
+                <h5 className="font-serif text-xl font-bold mb-2 text-white">
                   4. Net Revenue Retention (NRR) — The Best SaaS Metric
                 </h5>
-                <p className="text-graphite-200 mb-3">
+                <p className="text-white/90 mb-3">
                   Revenue from existing customers after accounting for churn + expansion. 
                   <strong> If &gt;100%, you&apos;re growing even without new customers.</strong>
                 </p>
-                <div className="font-mono text-sm bg-graphite-900 p-3 border border-graphite-700 mb-3">
+                <div className="font-mono text-sm bg-white/10 p-3 border border-white/30 mb-3 text-white">
                   NRR = ((Starting MRR + Expansion - Churn) / Starting MRR) × 100
                 </div>
-                <div className="p-4 bg-graphite-900 border-2 border-graphite-700">
-                  <div className="text-xs uppercase tracking-widest text-graphite-400 mb-2">
+                <div className="p-4 bg-white/10 border-2 border-white/30">
+                  <div className="text-xs uppercase tracking-widest text-white/70 mb-2">
                     Benchmark
                   </div>
-                  <ul className="text-sm text-graphite-200 space-y-1">
+                  <ul className="text-sm text-white/90 space-y-1">
                     <li>• <strong>100%+:</strong> Good (covering churn with upsells)</li>
                     <li>• <strong>110-120%:</strong> Great (expanding revenue from existing customers)</li>
                     <li>• <strong>120%+:</strong> Best-in-class (Snowflake: 158%, Datadog: 130%)</li>
@@ -514,9 +514,9 @@ export default function ProductPage() {
                     <span className="font-semibold">4. Activation (Aha Moment)</span>
                     <span className="text-sm text-graphite-600">Benchmark: 30-60%</span>
                   </div>
-                  <div className="flex items-center justify-between p-3 bg-ink text-paper border-l-4 border-paper">
-                    <span className="font-semibold">5. Paid Conversion</span>
-                    <span className="text-sm text-graphite-300">Benchmark: 2-5% (freemium), 10-25% (free trial)</span>
+                  <div className="flex items-center justify-between p-3 bg-ink text-white border-l-4 border-white">
+                    <span className="font-semibold text-white">5. Paid Conversion</span>
+                    <span className="text-sm text-white/70">Benchmark: 2-5% (freemium), 10-25% (free trial)</span>
                   </div>
                 </div>
               </div>
@@ -741,38 +741,38 @@ export default function ProductPage() {
             </h4>
 
             <div className="space-y-6">
-              <div className="p-6 bg-ink text-paper">
-                <h5 className="font-serif text-xl font-bold mb-3">
+              <div className="p-6 bg-ink text-white">
+                <h5 className="font-serif text-xl font-bold mb-3 text-white">
                   Channel Strategy: Where to Find Your First 1,000 Users
                 </h5>
                 <div className="space-y-4">
                   <div>
-                    <div className="font-semibold mb-2">1. Organic Social (Twitter, LinkedIn, TikTok)</div>
-                    <p className="text-sm text-graphite-200">
+                    <div className="font-semibold mb-2 text-white">1. Organic Social (Twitter, LinkedIn, TikTok)</div>
+                    <p className="text-sm text-white/90">
                       <strong>Cost:</strong> Free (time investment)<br />
                       <strong>Timeline:</strong> 3-6 months to build audience<br />
                       <strong>Best for:</strong> Thought leadership, developer tools, niche communities
                     </p>
                   </div>
                   <div>
-                    <div className="font-semibold mb-2">2. Content Marketing (Blog, SEO, YouTube)</div>
-                    <p className="text-sm text-graphite-200">
+                    <div className="font-semibold mb-2 text-white">2. Content Marketing (Blog, SEO, YouTube)</div>
+                    <p className="text-sm text-white/90">
                       <strong>Cost:</strong> $2K-$10K/month (writers, SEO tools)<br />
                       <strong>Timeline:</strong> 6-12 months to rank<br />
                       <strong>Best for:</strong> Long-tail keywords, evergreen content, education
                     </p>
                   </div>
                   <div>
-                    <div className="font-semibold mb-2">3. Paid Ads (Google, Facebook, Instagram)</div>
-                    <p className="text-sm text-graphite-200">
+                    <div className="font-semibold mb-2 text-white">3. Paid Ads (Google, Facebook, Instagram)</div>
+                    <p className="text-sm text-white/90">
                       <strong>Cost:</strong> $5K-$50K/month minimum<br />
                       <strong>Timeline:</strong> Immediate (but requires optimization)<br />
                       <strong>Best for:</strong> High LTV products (&gt;$100), clear ROI, retargeting
                     </p>
                   </div>
                   <div>
-                    <div className="font-semibold mb-2">4. Community Building (Discord, Slack, Reddit)</div>
-                    <p className="text-sm text-graphite-200">
+                    <div className="font-semibold mb-2 text-white">4. Community Building (Discord, Slack, Reddit)</div>
+                    <p className="text-sm text-white/90">
                       <strong>Cost:</strong> Free (time investment)<br />
                       <strong>Timeline:</strong> 6-18 months to scale<br />
                       <strong>Best for:</strong> Passionate niches, B2B communities, retention plays

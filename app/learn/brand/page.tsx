@@ -343,10 +343,10 @@ export default function BrandPage() {
               </p>
             </div>
 
-            <div className="my-6 p-6 bg-ink text-paper border-2 border-ink">
-              <p className="text-sm text-graphite-300 mb-2">Example: This paragraph is optimal (65 characters)</p>
-              <p className="text-lg" style={{ maxWidth: '65ch' }}>
-                This paragraph uses <code>max-width: 65ch</code> (65 characters). 
+            <div className="my-6 p-6 bg-ink text-white border-2 border-ink">
+              <p className="text-sm text-white/70 mb-2">Example: This paragraph is optimal (65 characters)</p>
+              <p className="text-lg text-white" style={{ maxWidth: '65ch' }}>
+                This paragraph uses <code className="text-white">max-width: 65ch</code> (65 characters). 
                 Notice how much easier it is to read? Your eyes naturally 
                 flow from one line to the next without fatigue.
               </p>
@@ -715,56 +715,56 @@ export default function BrandPage() {
           />
 
           {/* Nike */}
-          <div className="my-12 p-8 bg-ink text-paper border-2 border-ink">
-            <h4 className="font-serif text-3xl font-bold mb-4">
+          <div className="my-12 p-8 bg-ink text-white border-2 border-ink">
+            <h4 className="font-serif text-3xl font-bold mb-4 text-white">
               Case Study #2: Nike Swoosh
             </h4>
             
             <div className="mb-6">
-              <span className="text-xs uppercase tracking-widest text-graphite-400 font-semibold">
+              <span className="text-xs uppercase tracking-widest text-white/70 font-semibold">
                 BRANDMARK • DESIGNED 1971 • COST: $35
               </span>
             </div>
 
             <div className="space-y-6">
               <div>
-                <h5 className="font-semibold text-lg mb-3">The Origin Story</h5>
-                <p className="text-graphite-200 mb-3">
+                <h5 className="font-semibold text-lg mb-3 text-white">The Origin Story</h5>
+                <p className="text-white/90 mb-3">
                   In 1971, Portland State University student Carolyn Davidson designed the Swoosh 
                   for $35 (about $250 today)<InlineCitation number={2} id="nike-logo-evolution" />. 
                   Nike founder Phil Knight's first reaction: &quot;I don&apos;t love it, but it'll grow on me.&quot;
                 </p>
-                <p className="text-graphite-200">
+                <p className="text-white/90">
                   He was right. Today, it&apos;s one of the world&apos;s most valuable logos, worth an estimated 
                   $26 billion in brand value (2024).
                 </p>
               </div>
 
               <div>
-                <h5 className="font-semibold text-lg mb-3">Design Principles</h5>
-                <ul className="space-y-2 text-graphite-200">
+                <h5 className="font-semibold text-lg mb-3 text-white">Design Principles</h5>
+                <ul className="space-y-2 text-white/90">
                   <li className="flex items-start gap-2">
-                    <span className="text-paper font-semibold">•</span>
+                    <span className="text-white font-semibold">•</span>
                     <span><strong>Motion & energy:</strong> The Swoosh implies forward movement, speed, victory</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-paper font-semibold">•</span>
+                    <span className="text-white font-semibold">•</span>
                     <span><strong>Greek mythology:</strong> Named after Nike, goddess of victory</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-paper font-semibold">•</span>
+                    <span className="text-white font-semibold">•</span>
                     <span><strong>Asymmetry works:</strong> Not a perfect arc — organic, dynamic, human</span>
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-paper font-semibold">•</span>
+                    <span className="text-white font-semibold">•</span>
                     <span><strong>Wordmark evolution:</strong> 1995 dropped &quot;Nike&quot; text — symbol alone is enough</span>
                   </li>
                 </ul>
               </div>
 
               <div>
-                <h5 className="font-semibold text-lg mb-3">The Pivot: Dropping the Wordmark</h5>
-                <p className="text-graphite-200">
+                <h5 className="font-semibold text-lg mb-3 text-white">The Pivot: Dropping the Wordmark</h5>
+                <p className="text-white/90">
                   In 1995, Nike made a bold move — removing &quot;Nike&quot; text from most applications, 
                   using only the Swoosh. This signaled ultimate brand confidence: &quot;We&apos;re so 
                   recognizable, we don&apos;t need our name.&quot;

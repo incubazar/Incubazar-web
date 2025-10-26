@@ -248,29 +248,41 @@ export default function VentureMetricCalculator() {
       </div>
 
       {/* Help Footer */}
-      <div className="border-t bg-muted/50 mt-12">
+      <div className="border-t bg-background mt-12">
         <div className="container mx-auto px-4 py-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
             <div>
-              <h4 className="font-semibold mb-2">💡 Runway Calculator</h4>
+              <h4 className="font-semibold mb-2 flex items-center gap-2">
+                <TrendingUp className="w-4 h-4" />
+                Runway Calculator
+              </h4>
               <p className="text-muted-foreground">
                 Understand how long your cash will last and model different scenarios.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-2">📊 Unit Economics</h4>
+              <h4 className="font-semibold mb-2 flex items-center gap-2">
+                <Calculator className="w-4 h-4" />
+                Unit Economics
+              </h4>
               <p className="text-muted-foreground">
                 Calculate LTV:CAC ratio and optimize customer profitability.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-2">🤝 Equity Management</h4>
+              <h4 className="font-semibold mb-2 flex items-center gap-2">
+                <Users className="w-4 h-4" />
+                Equity Management
+              </h4>
               <p className="text-muted-foreground">
                 Fair co-founder splits and fundraising dilution forecasts.
               </p>
             </div>
             <div>
-              <h4 className="font-semibold mb-2">💰 Valuation</h4>
+              <h4 className="font-semibold mb-2 flex items-center gap-2">
+                <DollarSign className="w-4 h-4" />
+                Valuation
+              </h4>
               <p className="text-muted-foreground">
                 Investor-ready valuation estimates using multiple methodologies.
               </p>

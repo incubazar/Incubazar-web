@@ -16,6 +16,7 @@ import {
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
+import { Logo } from '@/components/ui/logo'
 
 export const dynamic = 'force-dynamic'
 
@@ -96,8 +97,8 @@ function AdminLayoutContent({
           {/* Logo/Header */}
           <div className="flex items-center justify-between p-6 border-b border-gray-200">
             <div>
-              <h2 className="text-2xl font-bold text-primary">IncuBazar</h2>
-              <Badge variant="default" className="mt-1">
+              <Logo size="md" href="/" />
+              <Badge variant="default" className="mt-2">
                 Admin Panel
               </Badge>
             </div>
@@ -162,7 +163,7 @@ function AdminLayoutContent({
             <Menu className="h-6 w-6" />
           </button>
           <div className="flex items-center gap-2">
-            <h2 className="text-xl font-bold text-primary">IncuBazar</h2>
+            <Logo size="sm" href="/" showText={false} />
             <Badge variant="default" className="text-xs">Admin</Badge>
           </div>
           <div className="w-6" /> {/* Spacer for centering */}

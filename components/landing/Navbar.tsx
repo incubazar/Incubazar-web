@@ -37,14 +37,14 @@ export default function Navbar() {
       <div className="container mx-auto px-4 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo - Monochrome */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="relative w-12 h-12 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-12 h-12 flex-shrink-0 transition-all duration-300 group-hover:scale-110">
               <Image 
                 src="/logo.svg" 
                 alt="Incubazar" 
                 width={48} 
                 height={48}
-                className="transition-all duration-300"
+                className="transition-all duration-300 object-contain"
               />
             </div>
             <span className="text-xl lg:text-2xl font-serif font-bold text-ink">

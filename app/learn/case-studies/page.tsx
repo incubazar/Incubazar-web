@@ -28,10 +28,10 @@ const caseStudies = [
     tagline: 'Hyperlocal Execution Excellence',
     category: 'Food-Tech',
     founded: 2008,
-    valuation: '$8.6B',
-    keyMetric: '250M+ orders/year',
+    valuation: '$10B',
+    keyMetric: '2.5M+ orders/day',
     headquarters: 'Gurugram, India',
-    readTime: 40,
+    readTime: 38,
     excerpt: 'From restaurant discovery to food delivery empire—how Zomato conquered India\'s chaos through execution, not innovation.',
     lessons: ['Execution > innovation in hyperlocal', 'Own logistics = own destiny', 'Unit economics before growth'],
     icon: <Target className="h-12 w-12" />,
@@ -41,13 +41,13 @@ const caseStudies = [
     id: 'flipkart',
     slug: 'flipkart',
     company: 'Flipkart',
-    tagline: 'E-Commerce Adaptation Playbook',
+    tagline: 'How Localization Beat Amazon',
     category: 'E-Commerce',
     founded: 2007,
-    valuation: '$37.6B (Walmart)',
-    keyMetric: '500M+ users',
+    valuation: '$37.6B',
+    keyMetric: '48% market share',
     headquarters: 'Bangalore, India',
-    readTime: 45,
+    readTime: 40,
     excerpt: 'How Flipkart beat Amazon in India by understanding that cash-on-delivery, vernacular commerce, and hyperlocal fulfillment weren\'t features—they were the product.',
     lessons: ['Local > global playbooks', 'Trust before transactions', 'Build infrastructure others won\'t'],
     icon: <Globe className="h-12 w-12" />,
@@ -92,7 +92,7 @@ export default function CaseStudiesLanding() {
               Combined Valuation
             </div>
             <div className="font-serif text-4xl font-bold text-ink">
-              $53.7B+
+              $55.1B+
             </div>
           </div>
           <div>

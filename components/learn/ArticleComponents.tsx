@@ -267,11 +267,11 @@ export function DataTable({ headers, rows, caption }: DataTableProps) {
       )}
       <table className="w-full border-2 border-ink">
         <thead>
-          <tr className="bg-ink text-paper">
+          <tr className="bg-ink text-white">
             {headers.map((header, index) => (
               <th 
                 key={index}
-                className="px-4 py-3 text-left font-semibold text-sm uppercase tracking-wide border-r-2 border-paper last:border-r-0"
+                className="px-4 py-3 text-left font-semibold text-sm uppercase tracking-wide border-r-2 border-white/30 last:border-r-0"
               >
                 {header}
               </th>

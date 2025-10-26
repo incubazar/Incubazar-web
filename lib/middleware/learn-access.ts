@@ -12,9 +12,10 @@ const publicRoutes = [
   '/waitlist',
   '/about',
   '/legal',
+  '/showcase',
 ];
 
-// Learning platform routes accessible to all authenticated users
+// Learning platform routes accessible to all authenticated users (including waitlisted)
 const learningPublicRoutes = [
   '/learn',
   '/learn/incorporation',
@@ -25,37 +26,46 @@ const learningPublicRoutes = [
   '/learn/trends',
   '/learn/case-studies',
   '/learn/case-studies/razorpay',
-];
-
-// Premium/gated learning content (requires verified user, investor, or admin)
-const learningPremiumRoutes = [
+  '/learn/case-studies/zomato',
+  '/learn/case-studies/flipkart',
   '/learn/toolkits',
-  '/learn/advanced',
+  '/calculator', // Calculator accessible to all authenticated users
 ];
 
-// Investor-only routes
+// Investor-only routes (require waitlist approval/verification)
 const investorRoutes = [
   '/investor',
-  '/investor/dashboard',
   '/investor/deals',
   '/investor/startups',
+  '/investor/portfolio',
+  '/investor/settings',
+  '/investor/kyc',
+  '/investor/analytics',
 ];
 
 // Founder-only routes (verified founders)
 const founderRoutes = [
   '/founder',
-  '/founder/dashboard',
   '/founder/data-room',
   '/founder/investors',
+  '/founder/deals',
+  '/founder/documents',
+  '/founder/updates',
+  '/founder/profile',
+  '/founder/subscription',
 ];
 
 // Admin-only routes
 const adminRoutes = [
   '/admin',
-  '/admin/dashboard',
   '/admin/users',
   '/admin/deals',
   '/admin/waitlist',
+  '/admin/startups',
+  '/admin/investors',
+  '/admin/review',
+  '/admin/invites',
+  '/admin/analytics',
 ];
 
 export async function learnMiddleware(request: NextRequest) {
@@ -74,14 +84,27 @@ export async function learnMiddleware(request: NextRequest) {
     return response;
   }
 
-  // Redirect unauthenticated users to login
+  // If no user and trying to access protected routes (not learning), redirect to login
   if (!user) {
-    const redirectUrl = new URL('/login', request.url);
-    redirectUrl.searchParams.set('redirect', path);
-    return NextResponse.redirect(redirectUrl);
+    const protectedPaths = [...investorRoutes, ...founderRoutes, ...adminRoutes];
+    if (protectedPaths.some(route => path.startsWith(route))) {
+      const redirectUrl = new URL('/auth/login', request.url);
+      redirectUrl.searchParams.set('redirect', path);
+      return NextResponse.redirect(redirectUrl);
+    }
+    
+    // For learning and calculator routes, redirect to login
+    if (path.startsWith('/learn') || path.startsWith('/calculator')) {
+      const redirectUrl = new URL('/auth/login', request.url);
+      redirectUrl.searchParams.set('redirect', path);
+      return NextResponse.redirect(redirectUrl);
+    }
+    
+    // Allow other public routes
+    return response;
   }
 
-  // Fetch user profile to check role and verification status
+  // User is authenticated, fetch profile
   const { data: profile } = await supabase
     .from('users')
     .select('role, verification_status')
@@ -90,7 +113,7 @@ export async function learnMiddleware(request: NextRequest) {
 
   if (!profile) {
     // User exists in auth but not in users table - redirect to complete profile
-    return NextResponse.redirect(new URL('/register?step=profile', request.url));
+    return NextResponse.redirect(new URL('/auth/register?step=profile', request.url));
   }
 
   const { role, verification_status } = profile;
@@ -103,49 +126,35 @@ export async function learnMiddleware(request: NextRequest) {
     return response;
   }
 
-  // Check investor routes
+  // Check investor routes - require verification OR waitlist approval
   if (investorRoutes.some(route => path.startsWith(route))) {
     if (role !== 'investor' && role !== 'admin') {
       return NextResponse.redirect(new URL('/', request.url));
     }
+    // Investor must be verified to access investment features
+    if (role === 'investor' && verification_status !== 'verified') {
+      return NextResponse.redirect(new URL('/waitlist?message=approval-required', request.url));
+    }
     return response;
   }
 
-  // Check founder routes (requires verified founder)
+  // Check founder routes - require verification for investment features
   if (founderRoutes.some(route => path.startsWith(route))) {
     if (role !== 'founder' && role !== 'admin') {
       return NextResponse.redirect(new URL('/', request.url));
     }
+    // Founder must be verified to access investment/fundraising features
     if (verification_status !== 'verified' && role === 'founder') {
-      // Redirect to waitlist - founder not verified yet
-      return NextResponse.redirect(new URL('/waitlist', request.url));
+      return NextResponse.redirect(new URL('/waitlist?message=approval-required', request.url));
     }
     return response;
   }
 
   // Learning platform access control
-  if (path.startsWith('/learn')) {
-    // Public learning routes - accessible to all authenticated users (waitlist, verified, investors, admin)
-    if (learningPublicRoutes.some(route => path === route || path.startsWith(route))) {
-      return response;
-    }
-
-    // Premium learning routes - require verified user, investor, or admin
-    if (learningPremiumRoutes.some(route => path === route || path.startsWith(route))) {
-      const hasAccess =
-        role === 'admin' ||
-        role === 'investor' ||
-        (role === 'founder' && verification_status === 'verified');
-
-      if (!hasAccess) {
-        // Redirect to upgrade/waitlist page with message
-        const redirectUrl = new URL('/learn', request.url);
-        redirectUrl.searchParams.set('premium', 'true');
-        redirectUrl.searchParams.set('from', path);
-        return NextResponse.redirect(redirectUrl);
-      }
-    }
-
+  // ALL AUTHENTICATED USERS can access learning materials (including waitlisted)
+  if (path.startsWith('/learn') || path.startsWith('/calculator')) {
+    // All learning routes and calculator are accessible to any authenticated user
+    // No verification required for learning materials or calculator
     return response;
   }
 
@@ -163,25 +172,17 @@ export function hasRouteAccess(
   // Admin has access to everything
   if (userRole === 'admin') return true;
 
-  // Check investor routes
+  // Check investor routes - require verification
   if (investorRoutes.some(route => path.startsWith(route))) {
-    return userRole === 'investor';
+    return userRole === 'investor' && verificationStatus === 'verified';
   }
 
-  // Check founder routes
+  // Check founder routes - require verification
   if (founderRoutes.some(route => path.startsWith(route))) {
     return userRole === 'founder' && verificationStatus === 'verified';
   }
 
-  // Check learning premium routes
-  if (learningPremiumRoutes.some(route => path.startsWith(route))) {
-    return (
-      userRole === 'investor' ||
-      (userRole === 'founder' && verificationStatus === 'verified')
-    );
-  }
-
-  // Learning public routes accessible to all authenticated users
+  // Learning routes accessible to ALL authenticated users (including waitlisted)
   if (learningPublicRoutes.some(route => path === route || path.startsWith(route))) {
     return true;
   }

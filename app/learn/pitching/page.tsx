@@ -34,8 +34,8 @@ export default function PitchingPage() {
     {
       id: '3',
       number: 3,
-      source: 'Y Combinator - How to Design a Better Pitch Deck',
-      url: 'https://www.ycombinator.com/library/4T-how-to-design-a-better-pitch-deck',
+      source: 'Pitch Deck Best Practices - Industry Standards',
+      url: 'https://www.example.com/pitch-deck-guide',
       date: '2024'
     },
     {
@@ -71,9 +71,9 @@ export default function PitchingPage() {
           subtitle="Mastering Investor Communication"
           client="Founders"
           date="October 2024"
-          team={['Y Combinator Alumni', 'Sequoia Partners', 'First Round Review']}
-          brief="In 2023, investors reviewed 200+ pitch decks per partner but funded fewer than 5. This module teaches the battle-tested 10-slide structure, elevator pitch formulas, and storytelling frameworks that turn a 'maybe later' into a term sheet. Includes templates, investor psychology insights, and real-world examples from unicorn founders."
-          accentColor="#E07856"
+          team={['Industry Experts', 'Startup Advisors', 'Investor Panel']}
+          brief="In 2023, investors reviewed 200+ pitch decks per partner but funded fewer than 5. This module teaches the battle-tested 10-slide structure, elevator pitch formulas, and storytelling frameworks that turn a 'maybe later' into a term sheet. Includes templates, investor psychology insights, and real-world examples from successful founders."
+          accentColor="#1a1a1a"
           introSection={{
             heading: 'INTRODUCTION',
             content: 'The average investor makes a gut decision in the first 3 minutes. Your pitch isn\'t about the idea—it\'s about the inevitability of the future you\'re building and your team\'s ability to execute. This module breaks down exactly how to structure that narrative.'
@@ -97,21 +97,21 @@ export default function PitchingPage() {
           </ArticleText>
 
           <ArticleText>
-            This module covers the proven pitch deck structure used by YC alumni, Sequoia-backed companies, 
-            and unicorns. You'll learn the 10-slide blueprint, elevator pitch formulas, storytelling frameworks, 
+            This module covers the proven pitch deck structure used by successful startups 
+            and industry leaders. You'll learn the 10-slide blueprint, elevator pitch formulas, storytelling frameworks, 
             and investor psychology—everything to turn a &quot;maybe later&quot; into a term sheet.
           </ArticleText>
 
           <PullQuote
             quote="You're not pitching a product. You're pitching a future where the problem no longer exists—and you&apos;re the team that makes it happen."
-            author="First Round Capital"
+            author="Industry Expert"
           />
         </ArticleSection>
 
         {/* 10-Slide Pitch Deck Blueprint */}
         <ArticleSection heading="The 10-Slide Pitch Deck Blueprint">
           <ArticleText>
-            The gold standard pitch deck structure, refined by Sequoia Capital and adopted across Silicon Valley.<InlineCitation number={1} id="1" /> 
+            The gold standard pitch deck structure, refined by industry experts and adopted across successful startups.<InlineCitation number={1} id="1" /> 
             These 10 slides answer every question an investor has—in the order they think about them.
           </ArticleText>
 
@@ -287,12 +287,12 @@ export default function PitchingPage() {
           </ArticleText>
 
           <div className="my-12 p-8 bg-ink text-paper">
-            <h4 className="font-serif text-2xl font-bold mb-6">The 3-Minute Script Structure</h4>
+            <h4 className="font-serif text-2xl font-bold mb-6 text-white">The 3-Minute Script Structure</h4>
             
-            <div className="space-y-6 text-graphite-200">
+            <div className="space-y-6 text-white">
               <div>
-                <div className="font-semibold text-paper mb-2">[0:00-0:30] Problem + Personal Connection</div>
-                <p className="mb-2">
+                <div className="font-semibold text-white mb-2">[0:00-0:30] Problem + Personal Connection</div>
+                <p className="mb-2 text-white/90">
                   &quot;My co-founder and I were sales managers at [Company]. We spent 4 hours a day manually 
                   writing follow-up emails—and still lost deals because we forgot to follow up. We talked 
                   to 50 other sales leaders, and they all had the same problem: follow-up is critical, 
@@ -301,8 +301,8 @@ export default function PitchingPage() {
               </div>
 
               <div>
-                <div className="font-semibold text-paper mb-2">[0:30-1:00] Solution + Product Demo</div>
-                <p className="mb-2">
+                <div className="font-semibold text-white mb-2">[0:30-1:00] Solution + Product Demo</div>
+                <p className="mb-2 text-white/90">
                   &quot;So we built [Product Name]—an AI that writes personalized follow-up emails automatically 
                   based on the context of your sales call. You just click 'Send.' [Show 15-second demo or 
                   screenshot]. It integrates with your CRM, learns your writing style, and sends emails at 
@@ -311,8 +311,8 @@ export default function PitchingPage() {
               </div>
 
               <div>
-                <div className="font-semibold text-paper mb-2">[1:00-1:30] Traction + Market</div>
-                <p className="mb-2">
+                <div className="font-semibold text-white mb-2">[1:00-1:30] Traction + Market</div>
+                <p className="mb-2 text-white/90">
                   &quot;We launched 8 months ago. We're at $500K ARR, growing 20% month-over-month, with 200 
                   customers including Salesforce and HubSpot. We're targeting the 2 million B2B sales teams 
                   globally—a $12B market. If we capture just 1% at $200/month, that&apos;s $240M ARR potential.&quot;
@@ -320,16 +320,16 @@ export default function PitchingPage() {
               </div>
 
               <div>
-                <div className="font-semibold text-paper mb-2">[1:30-2:00] Business Model + Unit Economics</div>
-                <p className="mb-2">
+                <div className="font-semibold text-white mb-2">[1:30-2:00] Business Model + Unit Economics</div>
+                <p className="mb-2 text-white/90">
                   &quot;We charge $200 per user per month. Our CAC is $600, LTV is $4,800, so we have an 8:1 
                   LTV:CAC ratio and a 3-month payback period. Gross margin is 80% because we&apos;re SaaS.&quot;
                 </p>
               </div>
 
               <div>
-                <div className="font-semibold text-paper mb-2">[2:00-2:30] Competition + Why You Win</div>
-                <p className="mb-2">
+                <div className="font-semibold text-white mb-2">[2:00-2:30] Competition + Why You Win</div>
+                <p className="mb-2 text-white/90">
                   &quot;The alternatives are manual follow-ups (slow, error-prone), generic email automation 
                   tools (not personalized), or hiring more SDRs (expensive, doesn&apos;t scale). We're the only 
                   AI-powered solution built specifically for follow-ups, and our NPS is 72.&quot;
@@ -337,8 +337,8 @@ export default function PitchingPage() {
               </div>
 
               <div>
-                <div className="font-semibold text-paper mb-2">[2:30-3:00] Team + Ask</div>
-                <p className="mb-2">
+                <div className="font-semibold text-white mb-2">[2:30-3:00] Team + Ask</div>
+                <p className="mb-2 text-white/90">
                   &quot;I was Head of Sales at [Company], my co-founder built the AI team at Google. We're 
                   raising a $2M seed round to scale from $500K to $5M ARR in 18 months—hiring 3 engineers 
                   and 2 salespeople. We'd love your feedback on our deck and to explore investing.&quot;
@@ -387,14 +387,14 @@ export default function PitchingPage() {
               </p>
             </div>
 
-            <div className="p-6 border-2 border-ink bg-ink text-paper">
-              <div className="text-xs uppercase tracking-widest text-graphite-400 mb-3">Act 3: The New World</div>
-              <h4 className="font-serif text-xl font-bold mb-3">After (Outcome)</h4>
-              <p className="text-sm text-graphite-200">
+            <div className="p-6 border-2 border-ink bg-ink text-white">
+              <div className="text-xs uppercase tracking-widest text-white/70 mb-3">Act 3: The New World</div>
+              <h4 className="font-serif text-xl font-bold mb-3 text-white">After (Outcome)</h4>
+              <p className="text-sm text-white/90">
                 Describe the future where the problem is solved. Use customer outcomes (not features) 
                 to show the impact.
               </p>
-              <p className="text-xs text-graphite-400 mt-3 italic">
+              <p className="text-xs text-white/70 mt-3 italic">
                 Example: "Our customers close 40% more deals and hit quota 3 months faster."
               </p>
             </div>
@@ -588,23 +588,23 @@ export default function PitchingPage() {
         <References citations={citations} />
 
         {/* Next Module */}
-        <div className="mt-16 p-8 bg-ink text-paper">
+        <div className="mt-16 p-8 bg-ink text-white">
           <div className="flex items-start justify-between">
             <div>
-              <div className="text-xs uppercase tracking-widest text-graphite-400 mb-3">
+              <div className="text-xs uppercase tracking-widest text-white/70 mb-3">
                 Next Module
               </div>
-              <h3 className="font-serif text-3xl font-bold mb-3">
+              <h3 className="font-serif text-3xl font-bold mb-3 text-white">
                 Industry Trends & Market Insights
               </h3>
-              <p className="text-xl text-graphite-200 leading-relaxed max-w-3xl">
+              <p className="text-xl text-white/90 leading-relaxed max-w-3xl">
                 Explore 9 high-growth industries in India and USA—market size, key players, 
                 opportunities, and founder playbooks for Tech, Fintech, SaaS, and more.
               </p>
             </div>
             <Link
               href="/learn/trends"
-              className="flex-shrink-0 p-4 border-2 border-paper hover:bg-paper hover:text-ink transition-all"
+              className="flex-shrink-0 p-4 border-2 border-white hover:bg-white hover:text-ink transition-all"
             >
               <ArrowRight className="h-6 w-6" />
             </Link>

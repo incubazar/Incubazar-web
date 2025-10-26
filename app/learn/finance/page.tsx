@@ -327,21 +327,21 @@ export default function FinancePage() {
                 </div>
               </div>
 
-              <div className="p-6 border-2 border-ink bg-ink text-paper">
-                <h5 className="font-serif text-xl font-bold mb-4">
+              <div className="p-6 border-2 border-ink bg-ink text-white">
+                <h5 className="font-serif text-xl font-bold mb-4 text-white">
                   SAFE (Simple Agreement for Future Equity)
                 </h5>
                 <div className="space-y-3 text-sm">
                   <div>
-                    <h6 className="font-semibold mb-1">How It Works</h6>
-                    <p className="text-graphite-200">
+                    <h6 className="font-semibold mb-1 text-white">How It Works</h6>
+                    <p className="text-white/90">
                       Not debt — just a promise of future equity. No interest, no maturity 
                       date. Converts in next priced round or liquidity event<InlineCitation number={2} id="yc-safe" />.
                     </p>
                   </div>
                   <div>
-                    <h6 className="font-semibold mb-1">Key Terms</h6>
-                    <ul className="space-y-1 text-graphite-200">
+                    <h6 className="font-semibold mb-1 text-white">Key Terms</h6>
+                    <ul className="space-y-1 text-white/90">
                       <li>• <strong>Discount:</strong> 10-20% off next round (optional)</li>
                       <li>• <strong>Valuation Cap:</strong> Maximum conversion valuation</li>
                       <li>• <strong>No Interest:</strong> Cleaner for founders</li>
@@ -349,9 +349,9 @@ export default function FinancePage() {
                     </ul>
                   </div>
                   <div>
-                    <h6 className="font-semibold mb-1">Best For</h6>
-                    <p className="text-graphite-200">
-                      Y Combinator startups, Silicon Valley angels, fast fundraising when 
+                    <h6 className="font-semibold mb-1 text-white">Best For</h6>
+                    <p className="text-white/90">
+                      Early-stage startups, angel investors, fast fundraising when 
                       valuation is hard to determine.
                     </p>
                   </div>
@@ -645,9 +645,9 @@ export default function FinancePage() {
                     </div>
                   </div>
 
-                  <div className="mt-6 p-4 bg-ink text-paper">
-                    <h6 className="font-semibold mb-2">Verdict: Excellent Unit Economics ✓</h6>
-                    <p className="text-sm text-graphite-200">
+                  <div className="mt-6 p-4 bg-ink text-white">
+                    <h6 className="font-semibold mb-2 text-white">Verdict: Excellent Unit Economics ✓</h6>
+                    <p className="text-sm text-white/90">
                       LTV:CAC above 10:1 and payback under 4 months signals a highly capital-efficient 
                       growth engine. Ready for aggressive scaling.
                     </p>
@@ -722,34 +722,34 @@ export default function FinancePage() {
               Example: Startup Cash Management
             </h4>
 
-            <div className="p-8 bg-ink text-paper border-2 border-ink">
-              <h5 className="font-semibold mb-4">Scenario: Post-Seed SaaS Startup</h5>
+            <div className="p-8 bg-ink text-white border-2 border-ink">
+              <h5 className="font-semibold mb-4 text-white">Scenario: Post-Seed SaaS Startup</h5>
               <div className="space-y-3 text-sm">
-                <div className="flex justify-between border-b border-graphite-700 pb-2">
-                  <span className="text-graphite-300">Cash raised (Seed):</span>
-                  <span className="font-semibold">$1,000,000</span>
+                <div className="flex justify-between border-b border-white/30 pb-2">
+                  <span className="text-white/70">Cash raised (Seed):</span>
+                  <span className="font-semibold text-white">$1,000,000</span>
                 </div>
-                <div className="flex justify-between border-b border-graphite-700 pb-2">
-                  <span className="text-graphite-300">Monthly revenue:</span>
-                  <span className="font-semibold">$20,000 MRR</span>
+                <div className="flex justify-between border-b border-white/30 pb-2">
+                  <span className="text-white/70">Monthly revenue:</span>
+                  <span className="font-semibold text-white">$20,000 MRR</span>
                 </div>
-                <div className="flex justify-between border-b border-graphite-700 pb-2">
-                  <span className="text-graphite-300">Monthly expenses:</span>
-                  <span className="font-semibold">$80,000</span>
+                <div className="flex justify-between border-b border-white/30 pb-2">
+                  <span className="text-white/70">Monthly expenses:</span>
+                  <span className="font-semibold text-white">$80,000</span>
                 </div>
                 <div className="flex justify-between pt-2">
-                  <span className="text-graphite-300">Net monthly burn:</span>
-                  <span className="font-semibold text-graphite-100">$60,000</span>
+                  <span className="text-white/70">Net monthly burn:</span>
+                  <span className="font-semibold text-white">$60,000</span>
                 </div>
-                <div className="flex justify-between pt-2 border-t-2 border-paper">
-                  <span className="font-bold">Runway:</span>
-                  <span className="font-bold text-2xl">16.7 months</span>
+                <div className="flex justify-between pt-2 border-t-2 border-white/30">
+                  <span className="font-bold text-white">Runway:</span>
+                  <span className="font-bold text-2xl text-white">16.7 months</span>
                 </div>
               </div>
 
-              <div className="mt-6 p-4 bg-graphite-900 border-2 border-graphite-700">
-                <h6 className="font-semibold mb-2">Strategy Recommendation</h6>
-                <ul className="space-y-1 text-sm text-graphite-200">
+              <div className="mt-6 p-4 bg-white/10 border-2 border-white/30">
+                <h6 className="font-semibold mb-2 text-white">Strategy Recommendation</h6>
+                <ul className="space-y-1 text-sm text-white/90">
                   <li>• Start fundraising at 12-month runway mark (Month 5)</li>
                   <li>• Fundraising takes 3-6 months on average</li>
                   <li>• Never let runway drop below 6 months (panic territory)</li>

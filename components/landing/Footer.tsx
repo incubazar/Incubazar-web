@@ -74,14 +74,14 @@ export default function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8 lg:gap-12">
           {/* Brand Section - Monochrome */}
           <div className="lg:col-span-2 space-y-6">
-            <Link href="/" className="flex items-center space-x-3 group">
-              <div className="relative w-12 h-12 flex items-center justify-center transition-all duration-300 group-hover:scale-110">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative w-12 h-12 flex-shrink-0 transition-all duration-300 group-hover:scale-110">
                 <Image 
                   src="/logo.svg" 
                   alt="Incubazar" 
                   width={48} 
                   height={48}
-                  className="transition-all duration-300"
+                  className="transition-all duration-300 object-contain"
                 />
               </div>
               <span className="text-2xl font-serif font-bold text-paper">

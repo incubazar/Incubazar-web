@@ -2,9 +2,27 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { createClientComponentClient } from '@supabase/auth-helpers-nextjs';
 
 export default function EditorialFooter() {
   const currentYear = new Date().getFullYear();
+  const [user, setUser] = useState<any>(null);
+  const supabase = createClientComponentClient();
+
+  useEffect(() => {
+    const getUser = async () => {
+      const { data: { user } } = await supabase.auth.getUser();
+      setUser(user);
+    };
+    getUser();
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user ?? null);
+    });
+
+    return () => subscription.unsubscribe();
+  }, [supabase]);
 
   return (
     <footer className="border-t border-foreground/10 bg-background">
@@ -13,17 +31,17 @@ export default function EditorialFooter() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 sm:gap-10 lg:gap-12 mb-12 sm:mb-16">
           {/* Brand */}
           <div className="md:col-span-5">
-            <Link href="/" className="flex items-center gap-2 mb-4 group w-fit">
-              <div className="relative w-10 h-10 flex items-center justify-center transition-transform group-hover:scale-110">
+            <Link href="/" className="flex items-center gap-3 mb-4 group w-fit">
+              <div className="relative w-10 h-10 flex-shrink-0 transition-transform group-hover:scale-110">
                 <Image 
                   src="/logo.svg" 
                   alt="Incubazar" 
                   width={40} 
                   height={40}
-                  className="transition-all duration-300"
+                  className="transition-all duration-300 object-contain"
                 />
               </div>
-              <h3 className="font-serif text-2xl sm:text-3xl font-bold leading-none">Incubazar</h3>
+              <h3 className="font-serif text-2xl sm:text-3xl font-bold">Incubazar</h3>
             </Link>
             <p className="text-sm sm:text-base text-foreground/70 leading-relaxed mb-4 sm:mb-6">
               Where visionaries meet investors. A carefully curated platform for meaningful connections 
@@ -39,9 +57,17 @@ export default function EditorialFooter() {
             <div>
               <h4 className="font-semibold mb-3 sm:mb-4 uppercase text-xs sm:text-sm tracking-wide">Platform</h4>
               <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-foreground/70">
+                {user && (
+                  <>
+                    <li><Link href="/learn" className="hover:text-foreground transition-colors">Learning Hub</Link></li>
+                    <li><Link href="/calculator" className="hover:text-foreground transition-colors">Calculator</Link></li>
+                  </>
+                )}
                 <li><Link href="/waitlist" className="hover:text-foreground transition-colors">Waitlist</Link></li>
                 <li><Link href="/about" className="hover:text-foreground transition-colors">About</Link></li>
-                <li><Link href="/login" className="hover:text-foreground transition-colors">Sign In</Link></li>
+                {!user && (
+                  <li><Link href="/auth/login" className="hover:text-foreground transition-colors">Sign In</Link></li>
+                )}
               </ul>
             </div>
             <div>
