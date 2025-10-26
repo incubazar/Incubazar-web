@@ -290,10 +290,10 @@ export default function LearnIndexPage() {
       {/* CTA Section */}
       <section className="px-4 sm:px-8 lg:px-12 py-20 bg-ink text-paper">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-serif text-4xl sm:text-5xl font-bold mb-6">
+          <h2 className="font-serif text-4xl sm:text-5xl font-bold mb-6 text-paper">
             Ready to Get Verified?
           </h2>
-          <p className="text-xl text-graphite-300 mb-8">
+          <p className="text-xl text-paper/80 mb-8">
             Complete your profile, get verified, and unlock access to our investor network.
           </p>
           <Link
