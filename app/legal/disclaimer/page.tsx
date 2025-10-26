@@ -11,13 +11,13 @@ export default function DisclaimerPage() {
       <h1 className="text-4xl font-bold mb-8">Disclaimer & Risk Disclosure</h1>
       
       <div className="prose prose-lg max-w-none space-y-6">
-        <p className="text-gray-600 mb-8">
+        <p className="text-foreground/60 mb-8">
           <strong>Last Updated:</strong> October 26, 2025
         </p>
 
-        <div className="bg-red-50 border-2 border-red-300 p-8 rounded-lg mb-8">
-          <h2 className="text-2xl font-bold text-red-800 mb-4">⚠️ CRITICAL RISK WARNING</h2>
-          <p className="text-red-800 font-semibold text-lg">
+        <div className="bg-ink border-2 border-ink p-8 rounded-lg mb-8">
+          <h2 className="text-2xl font-bold text-paper mb-4">⚠️ CRITICAL RISK WARNING</h2>
+          <p className="text-paper font-semibold text-lg">
             INVESTING IN STARTUPS IS HIGHLY SPECULATIVE AND INVOLVES SUBSTANTIAL RISK OF LOSS. 
             YOU MAY LOSE YOUR ENTIRE INVESTMENT. ONLY INVEST WHAT YOU CAN AFFORD TO LOSE.
           </p>
@@ -42,7 +42,7 @@ export default function DisclaimerPage() {
             <li><strong>DO NOT</strong> verify the accuracy of information provided by founders</li>
             <li><strong>DO NOT</strong> guarantee the quality or viability of listed startups</li>
           </ul>
-          <p className="mt-4 text-gray-700">
+          <p className="mt-4 text-foreground/70">
             <strong>What We Do:</strong> We provide the technology infrastructure and tools to facilitate connections 
             between founders and investors. All investment decisions, negotiations, and transactions occur directly 
             between the parties. Our AI matching algorithm provides suggestions based on data, but does not constitute 
@@ -82,7 +82,7 @@ export default function DisclaimerPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">2. Investment Risks</h2>
 
-          <div className="bg-yellow-50 border border-yellow-300 p-6 rounded-lg mb-6">
+          <div className="bg-graphite-100 border border-ink/30 p-6 rounded-lg mb-6">
             <p className="font-semibold text-yellow-900 mb-3">
               Startup investments carry risks that are materially different from traditional investments:
             </p>
@@ -140,9 +140,9 @@ export default function DisclaimerPage() {
           <h2 className="text-2xl font-semibold mb-4">3. Investor Responsibilities</h2>
 
           <h3 className="text-xl font-semibold mb-3 mt-6">3.1 Due Diligence</h3>
-          <div className="bg-blue-50 border border-blue-200 p-6 rounded-lg mb-4">
-            <p className="font-semibold text-blue-900 mb-2">YOU MUST CONDUCT YOUR OWN DUE DILIGENCE:</p>
-            <ul className="list-disc pl-6 space-y-2 text-blue-900">
+          <div className="bg-ink border border-ink p-6 rounded-lg mb-4">
+            <p className="font-semibold text-ink mb-2">YOU MUST CONDUCT YOUR OWN DUE DILIGENCE:</p>
+            <ul className="list-disc pl-6 space-y-2 text-ink">
               <li>Review all documents provided by the startup</li>
               <li>Verify claims and financial projections</li>
               <li>Assess the management team and their capabilities</li>
@@ -263,7 +263,7 @@ export default function DisclaimerPage() {
           <h2 className="text-2xl font-semibold mb-4">7. Platform Tools and Services Disclaimers</h2>
 
           <h3 className="text-xl font-semibold mb-3 mt-6">7.1 Venture Metric Calculator</h3>
-          <div className="bg-yellow-50 border border-yellow-300 p-6 rounded-lg mb-4">
+          <div className="bg-graphite-100 border border-ink/30 p-6 rounded-lg mb-4">
             <p className="font-semibold text-yellow-900 mb-3">
               ⚠️ EDUCATIONAL TOOL ONLY - NOT FINANCIAL ADVICE
             </p>
@@ -427,7 +427,7 @@ export default function DisclaimerPage() {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">12. Acknowledgment</h2>
-          <div className="bg-gray-100 border-2 border-gray-400 p-6 rounded-lg">
+          <div className="bg-graphite-100 border-2 border-gray-400 p-6 rounded-lg">
             <p className="font-semibold mb-4">BY USING THE PLATFORM, YOU ACKNOWLEDGE THAT:</p>
             <ul className="list-disc pl-6 space-y-2">
               <li>You have read and understood this Disclaimer and Risk Disclosure</li>
@@ -451,7 +451,7 @@ export default function DisclaimerPage() {
           <p>
             For questions about risks or this disclaimer, contact:
           </p>
-          <div className="bg-gray-50 p-6 rounded-lg mt-4">
+          <div className="bg-graphite-50 p-6 rounded-lg mt-4">
             <p className="font-semibold mb-4">Incubazar (Sole Proprietorship)</p>
             <p><strong>Business Address:</strong> Mohali, Punjab, India</p>
             <p><strong>Email:</strong> support@incubazar.in</p>
@@ -461,8 +461,8 @@ export default function DisclaimerPage() {
           </div>
         </section>
 
-        <div className="mt-12 p-6 bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-400 rounded-lg">
-          <p className="text-sm text-gray-700 leading-relaxed">
+        <div className="mt-12 p-6 bg-ink text-paper border-2 border-ink rounded-lg">
+          <p className="text-sm text-foreground/70 leading-relaxed">
             <strong>⚠️ LEGAL NOTICE:</strong> This Disclaimer & Risk Disclosure document has been comprehensively 
             updated to cover all platform services including AI matching, messaging, venture calculator, learning 
             platform, subscription services, and third-party integrations. It complies with SEBI guidelines for 

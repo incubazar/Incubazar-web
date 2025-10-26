@@ -11,7 +11,7 @@ export default function TermsOfServicePage() {
       <h1 className="text-4xl font-bold mb-8">Terms of Service</h1>
       
       <div className="prose prose-lg max-w-none space-y-6">
-        <p className="text-gray-600 mb-8">
+        <p className="text-foreground/60 mb-8">
           <strong>Last Updated:</strong> October 26, 2025
         </p>
 
@@ -253,7 +253,7 @@ export default function TermsOfServicePage() {
           </p>
 
           <h3 className="text-xl font-semibold mb-3 mt-6">9.2 Investment Risks</h3>
-          <div className="bg-yellow-50 border border-yellow-200 p-6 rounded-lg">
+          <div className="bg-graphite-100 border border-ink/30 p-6 rounded-lg">
             <p className="font-semibold text-yellow-800 mb-2">⚠️ INVESTMENT RISK DISCLAIMER:</p>
             <ul className="list-disc pl-6 space-y-2 text-yellow-800">
               <li>Startup investments are highly risky</li>
@@ -381,7 +381,7 @@ export default function TermsOfServicePage() {
           <p>
             For questions or concerns about these Terms, please contact us at:
           </p>
-          <div className="bg-gray-50 p-6 rounded-lg mt-4">
+          <div className="bg-graphite-50 p-6 rounded-lg mt-4">
             <p className="font-semibold mb-4">Incubazar (Sole Proprietorship)</p>
             <p><strong>Business Address:</strong> Mohali, Punjab, India</p>
             <p><strong>Email:</strong> support@incubazar.in</p>
@@ -389,8 +389,8 @@ export default function TermsOfServicePage() {
             <p><strong>Compliance:</strong> compliance@incubazar.in</p>
             <p><strong>Website:</strong> https://incubazar.in</p>
           </div>
-        </section>        <div className="mt-12 p-6 bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-300 rounded-lg">
-          <p className="text-sm text-gray-700 leading-relaxed">
+        </section>        <div className="mt-12 p-6 bg-ink text-paper border-2 border-ink rounded-lg">
+          <p className="text-sm text-foreground/70 leading-relaxed">
             <strong>⚠️ LEGAL NOTICE:</strong> This Terms of Service document has been drafted to comply with 
             Indian regulations including the Companies Act 2013, Information Technology Act 2000, SEBI guidelines, 
             and startup investment regulations. It covers all platform services including matching, messaging, 

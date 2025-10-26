@@ -519,10 +519,10 @@ export default function BrandingServicesPage() {
 
                 <div className="border-l-4 border-ink pl-6 my-8">
                   <p className="text-2xl font-display italic text-ink leading-relaxed">
-                    "A brand is not what you say about yourself. It&apos;s what investors remember after you leave the room."
+                    "A brand isn&apos;t defined by what you say — it&apos;s defined by what people remember when you&apos;re no longer there to say it."
                   </p>
                   <p className="text-sm text-ink/60 mt-4">
-                    — Deepak, Founder
+                    — Deepak Pandey, Incubazar
                   </p>
                 </div>
 

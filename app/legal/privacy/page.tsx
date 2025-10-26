@@ -11,7 +11,7 @@ export default function PrivacyPolicyPage() {
       <h1 className="text-4xl font-bold mb-8">Privacy Policy</h1>
       
       <div className="prose prose-lg max-w-none space-y-6">
-        <p className="text-gray-600 mb-8">
+        <p className="text-foreground/60 mb-8">
           <strong>Last Updated:</strong> October 26, 2025
         </p>
 
@@ -242,7 +242,7 @@ export default function PrivacyPolicyPage() {
             may affect Platform functionality, such as staying logged in or remembering your preferences.
           </p>
           <p className="mt-4">
-            For more information, please refer to our <a href="/legal/cookies" className="text-blue-600 hover:underline">Cookie Policy</a>.
+            For more information, please refer to our <a href="/legal/cookies" className="text-foreground hover:text-ink hover:underline">Cookie Policy</a>.
           </p>
 
           <h3 className="text-xl font-semibold mb-3 mt-6">8.3 Do Not Track (DNT)</h3>
@@ -298,7 +298,7 @@ export default function PrivacyPolicyPage() {
           <p>
             For questions, concerns, or to exercise your privacy rights, contact us:
           </p>
-          <div className="bg-gray-50 p-6 rounded-lg mt-4">
+          <div className="bg-graphite-50 p-6 rounded-lg mt-4">
             <p className="font-semibold mb-4">Incubazar (Sole Proprietorship)</p>
             <p><strong>Business Address:</strong> Mohali, Punjab, India</p>
             <p><strong>Data Protection Officer:</strong> privacy@incubazar.in</p>
@@ -306,10 +306,10 @@ export default function PrivacyPolicyPage() {
             <p><strong>Compliance:</strong> compliance@incubazar.in</p>
             <p><strong>Website:</strong> https://incubazar.in</p>
           </div>
-          <div className="mt-4 p-4 bg-gray-100/50 rounded-lg border border-gray-200">
+          <div className="mt-4 p-4 bg-graphite-100/50 rounded-lg border border-gray-200">
             <p className="text-xs text-gray-500">
               <strong>Additional Services:</strong> For branding and design inquiries, contact{' '}
-              <a href="mailto:founder@incubazar.com" className="text-gray-700 hover:underline">
+              <a href="mailto:founder@incubazar.com" className="text-foreground/70 hover:underline">
                 founder@incubazar.com
               </a>
             </p>
@@ -331,8 +331,8 @@ export default function PrivacyPolicyPage() {
           </ul>
         </section>
 
-        <div className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-300 rounded-lg">
-          <p className="text-sm text-gray-700 leading-relaxed">
+        <div className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-ink rounded-lg">
+          <p className="text-sm text-foreground/70 leading-relaxed">
             <strong>⚖️ Legal Review Required:</strong> This Privacy Policy has been comprehensively updated to reflect 
             all platform services including AI matching, messaging, venture calculator, learning analytics, subscription 
             management, and third-party integrations (Razorpay, DocuSign, Supabase, Vercel). It complies with Indian 

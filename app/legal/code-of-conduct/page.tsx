@@ -11,7 +11,7 @@ export default function CodeOfConductPage() {
       <h1 className="text-4xl font-bold mb-8">Code of Conduct</h1>
       
       <div className="prose prose-lg max-w-none space-y-6">
-        <p className="text-gray-600 mb-8">
+        <p className="text-foreground/60 mb-8">
           <strong>Last Updated:</strong> October 26, 2025
         </p>
 
@@ -112,8 +112,8 @@ export default function CodeOfConductPage() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">4. Prohibited Behavior</h2>
           
-          <div className="bg-red-50 border border-red-300 p-6 rounded-lg mb-6">
-            <p className="font-semibold text-red-800 mb-3">
+          <div className="bg-ink text-paper p-6 rounded-lg mb-6">
+            <p className="font-semibold mb-3">
               ⚠️ The following behaviors are strictly prohibited and may result in immediate account suspension:
             </p>
           </div>
@@ -272,7 +272,7 @@ export default function CodeOfConductPage() {
           <p>
             For questions about this Code of Conduct or to report violations, contact:
           </p>
-          <div className="bg-gray-50 p-6 rounded-lg mt-4">
+          <div className="bg-graphite-100 border-2 border-ink p-6 rounded-lg mt-4">
             <p className="font-semibold mb-4">Incubazar (Sole Proprietorship)</p>
             <p><strong>Business Address:</strong> Mohali, Punjab, India</p>
             <p><strong>Compliance Team:</strong> compliance@incubazar.in</p>
@@ -282,8 +282,8 @@ export default function CodeOfConductPage() {
           </div>
         </section>
 
-        <div className="mt-12 p-6 bg-gradient-to-r from-blue-50 to-green-50 border-2 border-blue-300 rounded-lg">
-          <p className="text-sm text-gray-700 leading-relaxed">
+        <div className="mt-12 p-6 bg-ink text-paper border-2 border-ink rounded-lg">
+          <p className="text-sm leading-relaxed">
             <strong>✅ Building a Better Community:</strong> This Code of Conduct reflects our commitment to creating 
             a professional, ethical, and inclusive platform for India's startup ecosystem. By upholding these standards, 
             you contribute to a trustworthy environment where founders and investors can connect, collaborate, and thrive. 
