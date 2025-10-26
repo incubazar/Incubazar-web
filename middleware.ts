@@ -5,6 +5,9 @@ import { rateLimiter, standardRateLimit, strictRateLimit, authRateLimit } from '
 import { learnMiddleware } from '@/lib/middleware/learn-access'
 import { logger } from '@/lib/logger'
 
+// Use Node.js runtime for Supabase compatibility
+export const runtime = 'nodejs'
+
 export async function middleware(request: NextRequest) {
   const startTime = Date.now()
   const pathname = request.nextUrl.pathname
