@@ -54,15 +54,15 @@ export default function EditorialCTA() {
           {/* Subtle Services Note */}
           <RevealText>
             <div className="mt-16 sm:mt-20">
-              <p className="text-xs text-foreground/40 uppercase tracking-[0.2em] mb-3">Select Services</p>
+              <p className="text-xs text-foreground/40 uppercase tracking-[0.2em] mb-3">Platform Tools</p>
               <p className="text-sm text-foreground/50 max-w-xl mx-auto">
-                We offer curated branding packages for select startups—logo design, brand identity, and web presence.{' '}
-                <a 
-                  href="mailto:founder@incubazar.com" 
+                Access our venture calculator, learning resources, and due diligence tools to prepare for fundraising.{' '}
+                <Link 
+                  href="/learn" 
                   className="text-foreground/70 hover:text-foreground underline underline-offset-4 transition-colors"
                 >
-                  Inquire at founder@incubazar.com
-                </a>
+                  Explore Resources
+                </Link>
               </p>
             </div>
           </RevealText>

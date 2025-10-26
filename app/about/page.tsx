@@ -4,19 +4,27 @@ import { ArrowRight, Rocket, Shield, Zap, Users, TrendingUp, CheckCircle2, Spark
 import { PremiumButton } from '@/components/ui/premium-button'
 import EditorialNavbar from '@/components/editorial/EditorialNavbar'
 import EditorialFooter from '@/components/editorial/EditorialFooter'
+import { BreadcrumbSchema } from '@/components/seo/StructuredData'
 
 export const metadata: Metadata = {
   title: 'About Us - Empowering India\'s Startup Ecosystem',
   description: 'Incubazar is a trust-first digital platform simplifying fundraising for early-stage founders and investors in India through AI-driven discovery, automated due diligence, and built-in legal compliance.',
   openGraph: {
-    title: 'About Incubazar - We Connect Visionaries',
-    description: 'Reimagining how innovation meets capital through technology, trust, and transparency.',
+    title: 'About Incubazar - Connecting Ideas with Capital',
+    description: 'Simply and transparently. Reimagining how innovation meets capital through technology, trust, and transparency.',
+  },
+  alternates: {
+    canonical: '/about',
   },
 }
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-background text-foreground relative overflow-hidden">
+      <BreadcrumbSchema items={[
+        { name: 'Home', url: 'https://incubazar.com' },
+        { name: 'About', url: 'https://incubazar.com/about' }
+      ]} />
       <EditorialNavbar />
       
       {/* Hero Section */}
@@ -290,14 +298,14 @@ export default function AboutPage() {
             </div>
           </div>
           
-          {/* Subtle Services Note */}
+          {/* Platform Tools Note */}
           <div className="mt-16 max-w-3xl mx-auto">
             <div className="border border-ink/10 bg-white/50 p-6 text-center">
-              <p className="text-xs text-ink/50 uppercase tracking-widest mb-2">Beyond the Platform</p>
+              <p className="text-xs text-ink/50 uppercase tracking-widest mb-2">Platform Resources</p>
               <p className="text-sm text-ink/60 leading-relaxed">
-                We also offer select branding and design services for startups.{' '}
-                <Link href="/services/branding" className="text-ink hover:underline font-medium">
-                  Explore our services
+                Access our venture calculator, learning hub, and due diligence tools to prepare for fundraising.{' '}
+                <Link href="/learn" className="text-ink hover:underline font-medium">
+                  Explore resources
                 </Link>
               </p>
             </div>

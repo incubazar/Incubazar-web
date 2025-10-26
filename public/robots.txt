@@ -7,13 +7,19 @@ Allow: /
 # Disallow sensitive areas
 Disallow: /api/
 Disallow: /admin/
-Disallow: /founder/
-Disallow: /investor/
+Disallow: /founder/dashboard
+Disallow: /investor/dashboard
+Disallow: /messages/
 
 # Allow public pages
 Allow: /
+Allow: /about
 Allow: /legal/
 Allow: /auth/
+Allow: /learn/
+Allow: /services/
+Allow: /calculator
+Allow: /waitlist
 
 # Sitemap location
 Sitemap: https://incubazar.com/sitemap.xml

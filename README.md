@@ -1,6 +1,10 @@
 # Incubazar - Matching Platform for Founders & Investors
 
-**We connect visionaries — and help them turn ideas into investments.**
+# Incubazar
+
+**Connecting ideas with capital — simply and transparently.**
+
+India's premier platform connecting early-stage startups with angel investors. We provide Section 42 compliant private placements, venture calculators, due diligence tools, and comprehensive learning resources.
 
 An intelligent matching platform connecting early-stage startup founders with angel investors in India. We facilitate compliant private placements under Section 42 of the Companies Act 2013, providing the technology infrastructure for founders and investors to discover and connect with each other.
 

@@ -16,15 +16,15 @@ export default function EditorialHero() {
             
             <RevealText>
               <h1 className="font-serif font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.1] sm:leading-none tracking-tighter mb-6 sm:mb-8">
-                We Connect<br />
-                Visionaries
+                Connecting Ideas<br />
+                with Capital
               </h1>
             </RevealText>
 
             <RevealText>
               <p className="text-base sm:text-lg md:text-xl leading-relaxed text-foreground/80 max-w-2xl mb-8 sm:mb-12">
-                A platform where innovation meets investment. India's editorial approach 
-                to startup funding—thoughtfully curated, elegantly executed.
+                Simply and transparently. India's premier platform for startup 
+                funding—thoughtfully curated, elegantly executed.
               </p>
             </RevealText>
 

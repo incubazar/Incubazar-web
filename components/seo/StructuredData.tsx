@@ -15,7 +15,7 @@ export function OrganizationSchema({
   name = 'Incubazar',
   url = 'https://incubazar.com',
   logo = 'https://incubazar.com/logo.png',
-  description = "We connect visionaries and help them turn ideas into investments. India's trusted platform connecting startup founders with angel investors.",
+  description = "India's premier platform connecting early-stage startups with angel investors. Raise capital through Section 42 compliant private placements with venture calculators, due diligence tools, and fundraising resources.",
   address = { city: 'Bangalore', country: 'India' }
 }: OrganizationSchemaProps) {
   const schema = {
@@ -53,7 +53,7 @@ export function WebsiteSchema() {
     '@type': 'WebSite',
     name: 'Incubazar',
     url: 'https://incubazar.com',
-    description: "We connect visionaries and help them turn ideas into investments. India's trusted startup-investor connection platform.",
+    description: "India's premier platform connecting early-stage startups with angel investors. Features include venture calculator, due diligence tools, learning resources, and Section 42 compliant fundraising.",
     potentialAction: {
       '@type': 'SearchAction',
       target: 'https://incubazar.com/search?q={search_term_string}',

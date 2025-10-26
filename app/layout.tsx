@@ -26,11 +26,11 @@ export const viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://incubazar.com'),
   title: {
-    default: 'Incubazar - We Connect Visionaries & Turn Ideas into Investments',
+    default: 'Incubazar - Connect Startups with Angel Investors | Fundraising Platform India',
     template: '%s | Incubazar'
   },
-  description: 'We connect visionaries and help them turn ideas into investments. India\'s trusted platform connecting early-stage startup founders with angel investors. Section 42 compliant private placements.',
-  keywords: ['startup', 'investment', 'angel investors', 'India', 'private placement', 'Section 42', 'fundraising', 'venture capital', 'seed funding', 'startup ecosystem', 'entrepreneur', 'founder', 'investor network', 'startup funding'],
+  description: 'India\'s premier platform connecting early-stage startups with angel investors. Raise capital through Section 42 compliant private placements. Access venture calculators, due diligence tools, and fundraising resources.',
+  keywords: ['startup funding India', 'angel investors', 'private placement', 'Section 42', 'fundraising platform', 'venture capital', 'seed funding', 'startup ecosystem', 'entrepreneur', 'founder platform', 'investor network', 'due diligence', 'venture calculator', 'startup resources'],
   authors: [{ name: 'Incubazar', url: 'https://incubazar.com' }],
   creator: 'Incubazar',
   publisher: 'Incubazar',
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_IN',
     url: 'https://incubazar.com',
-    title: 'Incubazar - We Connect Visionaries & Turn Ideas into Investments',
-    description: 'We connect visionaries and help them turn ideas into investments. India\'s trusted platform connecting startup founders with angel investors.',
+    title: 'Incubazar - Startup Fundraising Platform | Connect with Angel Investors',
+    description: 'India\'s premier platform connecting startups with angel investors. Raise capital through Section 42 compliant placements. Access venture calculators and fundraising tools.',
     siteName: 'Incubazar',
     images: [
       {
@@ -58,8 +58,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Incubazar - We Connect Visionaries',
-    description: 'We connect visionaries and help them turn ideas into investments. Trusted platform for startup funding in India.',
+    title: 'Incubazar - Startup Fundraising Platform India',
+    description: 'Connect startups with angel investors. Raise capital through compliant private placements. Venture calculators, due diligence tools & resources.',
     creator: '@incubazar',
     images: ['/twitter-image.png'],
   },

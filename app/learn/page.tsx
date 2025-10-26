@@ -193,22 +193,28 @@ export default function LearnIndexPage() {
             </p>
           </div>
 
-          {/* Subtle Services Note */}
+          {/* Platform Tools Note */}
           <div className="mt-16 pt-8 border-t border-graphite-200">
             <div className="text-center">
               <p className="text-xs uppercase tracking-[0.25em] text-graphite-400 mb-3">
-                Beyond Learning
+                More Tools
               </p>
               <p className="text-sm text-graphite-600 leading-relaxed">
-                For founders who value quality, we also offer select branding and design services—
-                <br className="hidden sm:block" />
-                from logo design to complete brand identity.{' '}
+                Ready to calculate your startup's valuation or connect with investors?{' '}
                 <Link
-                  href="/services/branding" 
+                  href="/calculator" 
                   className="text-ink hover:underline underline-offset-4 font-medium transition-colors"
                 >
-                  Explore our services
+                  Try our Venture Calculator
                 </Link>
+                {' or '}
+                <Link
+                  href="/waitlist" 
+                  className="text-ink hover:underline underline-offset-4 font-medium transition-colors"
+                >
+                  join the platform
+                </Link>
+                .
               </p>
             </div>
           </div>

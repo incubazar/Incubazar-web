@@ -9,10 +9,10 @@ import { OrganizationSchema, WebsiteSchema } from '@/components/seo/StructuredDa
 
 export const metadata: Metadata = {
   title: 'Home',
-  description: 'We connect visionaries and help them turn ideas into investments. Join India\'s trusted platform to connect with angel investors and raise funding through Section 42 compliant private placements.',
+  description: 'India\'s premier platform connecting early-stage startups with angel investors. Raise capital through Section 42 compliant private placements. Access venture calculators, due diligence tools, and comprehensive fundraising resources.',
   openGraph: {
-    title: 'Incubazar - Connecting Visionaries with Investors',
-    description: 'We connect visionaries and help them turn ideas into investments. India\'s trust-first platform for startup funding.',
+    title: 'Incubazar - Startup Fundraising Platform | Connect with Angel Investors',
+    description: 'Connect startups with angel investors in India. Platform features: venture calculator, due diligence tools, fundraising resources & Section 42 compliant placements.',
   },
 }
 

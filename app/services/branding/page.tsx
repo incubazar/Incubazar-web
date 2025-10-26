@@ -24,6 +24,8 @@ import EditorialNavbar from '@/components/editorial/EditorialNavbar';
 import EditorialFooter from '@/components/editorial/EditorialFooter';
 import { cn } from '@/lib/utils';
 
+// SEO Metadata is in layout.tsx for this route
+
 export default function BrandingServicesPage() {
   const [activeService, setActiveService] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
