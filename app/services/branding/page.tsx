@@ -308,11 +308,10 @@ export default function BrandingServicesPage() {
             </div>
           </motion.div>
 
-          {/* Services Grid - 2x2 */}
+          {/* Services Grid - 2x2 Flip Cards */}
           <div className="grid md:grid-cols-2 gap-8">
             {services.map((service, index) => {
               const Icon = service.icon;
-              const isEven = index % 2 === 0;
               
               return (
                 <motion.div
@@ -321,59 +320,86 @@ export default function BrandingServicesPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group relative"
+                  className="h-[300px]"
+                  style={{ perspective: '1000px' }}
                 >
-                  {/* Service Card */}
-                  <div className="relative h-full p-8 sm:p-10 border-2 border-ink bg-white hover:bg-ink transition-all duration-500">
-                    {/* Number Badge */}
-                    <div className="absolute top-4 right-4 w-12 h-12 border-2 border-ink group-hover:border-white flex items-center justify-center transition-colors">
-                      <span className="text-xl font-display font-bold text-ink group-hover:text-white transition-colors">
+                  <motion.div
+                    className="relative w-full h-full cursor-pointer"
+                    whileHover={{ rotateY: 180 }}
+                    transition={{ duration: 0.5, ease: "easeInOut" }}
+                    style={{ transformStyle: 'preserve-3d' }}
+                  >
+                    {/* Front Side - Just Title */}
+                    <div 
+                      className="absolute inset-0 border-2 border-ink bg-white flex flex-col items-center justify-center p-6"
+                      style={{ backfaceVisibility: 'hidden' }}
+                    >
+                      {/* Number Badge */}
+                      <div className="absolute top-4 right-4 text-lg font-display font-bold text-ink/30">
                         {String(index + 1).padStart(2, '0')}
-                      </span>
+                      </div>
+                      
+                      {/* Icon */}
+                      <div className="w-16 h-16 border-2 border-ink flex items-center justify-center mb-5">
+                        <Icon className="w-8 h-8 text-ink" />
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="text-3xl font-display font-bold text-ink text-center">
+                        {service.title}
+                      </h3>
+
+                      {/* Hover hint */}
+                      <div className="absolute bottom-4 text-[10px] uppercase tracking-widest text-ink/40">
+                        Hover to explore
+                      </div>
                     </div>
 
-                    {/* Icon */}
-                    <motion.div
-                      whileHover={{ rotate: [0, -10, 10, -10, 0] }}
-                      transition={{ duration: 0.5 }}
-                      className="mb-8"
+                    {/* Back Side - Full Details */}
+                    <div 
+                      className="absolute inset-0 border-2 border-ink bg-ink text-white p-5 flex flex-col overflow-hidden"
+                      style={{ 
+                        backfaceVisibility: 'hidden',
+                        transform: 'rotateY(180deg)'
+                      }}
                     >
-                      <div className="w-16 h-16 border-2 border-ink group-hover:border-white flex items-center justify-center bg-white group-hover:bg-ink transition-all duration-500">
-                        <Icon className="w-8 h-8 text-ink group-hover:text-white transition-colors duration-500" />
+                      {/* Number Badge */}
+                      <div className="text-right text-lg font-display font-bold text-white/30 mb-2">
+                        {String(index + 1).padStart(2, '0')}
                       </div>
-                    </motion.div>
+                      
+                      {/* Icon */}
+                      <div className="w-10 h-10 border-2 border-white flex items-center justify-center mb-3">
+                        <Icon className="w-5 h-5 text-white" />
+                      </div>
 
-                    {/* Content */}
-                    <div className="space-y-4">
-                      <h3 className="text-3xl sm:text-4xl font-display font-bold text-ink group-hover:text-white transition-colors duration-500">
+                      {/* Title */}
+                      <h3 className="text-2xl font-display font-bold text-white mb-2">
                         {service.title}
                       </h3>
                       
-                      <p className="text-base text-ink/70 group-hover:text-white/90 leading-relaxed transition-colors duration-500">
+                      {/* Description */}
+                      <p className="text-white/90 mb-3 text-xs leading-relaxed">
                         {service.description}
                       </p>
 
                       {/* Features List */}
-                      <ul className="space-y-2 pt-4">
+                      <ul className="space-y-1.5 flex-1 overflow-y-auto">
                         {service.features.map((feature, idx) => (
-                          <motion.li
+                          <li
                             key={idx}
-                            initial={{ opacity: 0, x: -10 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: 0.1 * idx }}
-                            className="flex items-start gap-2 text-sm text-ink/60 group-hover:text-white/80 transition-colors duration-500"
+                            className="flex items-start gap-2 text-xs text-white/90"
                           >
-                            <CheckCircle2 className="w-4 h-4 mt-0.5 flex-shrink-0" />
+                            <CheckCircle2 className="w-3.5 h-3.5 mt-0.5 flex-shrink-0" />
                             <span>{feature}</span>
-                          </motion.li>
+                          </li>
                         ))}
                       </ul>
-                    </div>
 
-                    {/* Decorative Element */}
-                    <div className="absolute bottom-0 left-0 w-full h-1 bg-ink group-hover:bg-white transition-colors duration-500" />
-                  </div>
+                      {/* Decorative Bottom Line */}
+                      <div className="w-full h-0.5 bg-white mt-3" />
+                    </div>
+                  </motion.div>
                 </motion.div>
               );
             })}
