@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incorporation Checklist - Incubazar</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: #f9fafb;
+        }
+        .header {
+            background: #1a1a1a;
+            color: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        h1 { font-size: 32px; margin-bottom: 10px; }
+        .subtitle { color: #9ca3af; font-size: 16px; }
+        .tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab {
+            padding: 12px 24px;
+            background: white;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        .tab.active {
+            background: #1a1a1a;
+            color: white;
+            border-color: #1a1a1a;
+        }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        h2 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+            border-bottom: 2px solid #1a1a1a;
+            padding-bottom: 10px;
+        }
+        .doc-item {
+            padding: 15px;
+            margin-bottom: 12px;
+            background: #f9fafb;
+            border-left: 4px solid #1a1a1a;
+            border-radius: 4px;
+        }
+        .doc-title { font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
+        .doc-desc { font-size: 14px; color: #6b7280; margin-bottom: 8px; }
+        .doc-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 12px;
+            color: #9ca3af;
+        }
+        .badge {
+            background: #1a1a1a;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        .badge.optional { background: #6b7280; }
+        .print-btn {
+            background: #1a1a1a;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .print-btn:hover { background: #374151; }
+        .cost-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .cost-row:last-child { border-bottom: none; font-weight: 600; background: #f3f4f6; }
+        @media print {
+            body { background: white; }
+            .tabs, .print-btn { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Incorporation Checklist</h1>
+        <p class="subtitle">Complete document list for Private Limited Company (India) & Delaware C-Corp (USA)</p>
+    </div>
+
+    <div class="tabs">
+        <div class="tab active" onclick="switchTab('india')">🇮🇳 India (Pvt Ltd)</div>
+        <div class="tab" onclick="switchTab('usa')">🇺🇸 USA (Delaware C-Corp)</div>
+    </div>
+
+    <!-- India Tab -->
+    <div id="india" class="tab-content active">
+        <div class="section">
+            <h2>Pre-Registration Documents</h2>
+            
+            <div class="doc-item">
+                <div class="doc-title">PAN Card <span class="badge">Required</span></div>
+                <div class="doc-desc">PAN cards of all directors and shareholders (mandatory for all)</div>
+                <div class="doc-meta">
+                    <span>📄 Format: Scanned copy</span>
+                    <span>🕒 Timeline: Must have before filing</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">Aadhaar Card <span class="badge">Required</span></div>
+                <div class="doc-desc">Aadhaar of all directors for Digital Signature Certificate (DSC)</div>
+                <div class="doc-meta">
+                    <span>📄 Format: Scanned copy</span>
+                    <span>🕒 Timeline: For DSC application</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">Address Proof <span class="badge">Required</span></div>
+                <div class="doc-desc">Registered office proof: Rent agreement + NOC OR Property deed</div>
+                <div class="doc-meta">
+                    <span>📄 Format: Notarized copy</span>
+                    <span>🕒 Timeline: Within 30 days</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">Director KYC <span class="badge">Required</span></div>
+                <div class="doc-desc">Passport/Voter ID/Driver's License + Bank statement (last 2 months)</div>
+                <div class="doc-meta">
+                    <span>📄 Format: Self-attested copies</span>
+                    <span>🕒 Timeline: Before DIN application</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Company Registration Steps</h2>
+            
+            <div class="doc-item">
+                <div class="doc-title">Step 1: DSC (Digital Signature Certificate) <span class="badge">₹1,500-3,000</span></div>
+                <div class="doc-desc">Apply for Class 2/3 DSC for all directors. Valid for 2 years.</div>
+                <div class="doc-meta">
+                    <span>🕒 Timeline: 1-2 days</span>
+                    <span>📋 Provider: eMudhra, Sify, etc.</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">Step 2: DIN (Director Identification Number) <span class="badge">Free</span></div>
+                <div class="doc-desc">Apply via SPICe+ form for all directors (new or existing DIN)</div>
+                <div class="doc-meta">
+                    <span>🕒 Timeline: Same day with SPICe+</span>
+                    <span>📋 Portal: MCA portal</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">Step 3: Name Approval (RUN) <span class="badge">Free</span></div>
+                <div class="doc-desc">Reserve Unique Name - Submit 2 preferred names for approval</div>
+                <div class="doc-meta">
+                    <span>🕒 Timeline: Instant to 1 day</span>
+                    <span>💡 Tip: Use RUN service on MCA portal</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">Step 4: SPICe+ Filing <span class="badge">₹500 + ₹1,000</span></div>
+                <div class="doc-desc">File SPICe+ form (company incorporation + PAN + TAN application combined)</div>
+                <div class="doc-meta">
+                    <span>🕒 Timeline: 5-7 days</span>
+                    <span>📋 Includes: Certificate of Incorporation, PAN, TAN</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">Step 5: MoA & AoA <span class="badge">Included</span></div>
+                <div class="doc-desc">Draft Memorandum & Articles of Association (attached with SPICe+)</div>
+                <div class="doc-meta">
+                    <span>🕒 Timeline: Before SPICe+ filing</span>
+                    <span>💡 Tip: Include ESOP clauses for startups</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Post-Incorporation Compliance</h2>
+            
+            <div class="doc-item">
+                <div class="doc-title">Bank Account Opening <span class="badge">₹5,000-15,000</span></div>
+                <div class="doc-desc">Open current account. Required: COI, PAN, MoA/AoA, Board Resolution</div>
+                <div class="doc-meta">
+                    <span>🕒 Timeline: 3-7 days</span>
+                    <span>💡 Recommended: HDFC, ICICI, Axis for startups</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">GST Registration <span class="badge optional">Optional</span></div>
+                <div class="doc-desc">Mandatory if turnover > ₹20L (₹10L for services). Apply within 30 days.</div>
+                <div class="doc-meta">
+                    <span>🕒 Timeline: 7-10 days</span>
+                    <span>📋 Portal: GST portal</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">Startup India Registration <span class="badge optional">Optional</span></div>
+                <div class="doc-desc">Get DPIIT recognition for tax benefits and exemptions</div>
+                <div class="doc-meta">
+                    <span>🕒 Timeline: 1-2 weeks</span>
+                    <span>💡 Benefits: 3-year tax holiday, IPR fast-track</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Estimated Costs (India)</h2>
+            <div class="cost-row">
+                <span>Digital Signature Certificate (2 directors)</span>
+                <span>₹3,000 - ₹6,000</span>
+            </div>
+            <div class="cost-row">
+                <span>Name Reservation (RUN)</span>
+                <span>₹0</span>
+            </div>
+            <div class="cost-row">
+                <span>SPICe+ Filing Fee (ROC)</span>
+                <span>₹1,500</span>
+            </div>
+            <div class="cost-row">
+                <span>Stamp Duty (varies by state)</span>
+                <span>₹5,000 - ₹10,000</span>
+            </div>
+            <div class="cost-row">
+                <span>Professional Fees (CA/CS)</span>
+                <span>₹5,000 - ₹15,000</span>
+            </div>
+            <div class="cost-row">
+                <span>Bank Account Opening</span>
+                <span>₹5,000 - ₹15,000</span>
+            </div>
+            <div class="cost-row">
+                <strong>Total (Approximate)</strong>
+                <strong>₹20,000 - ₹55,000</strong>
+            </div>
+        </div>
+    </div>
+
+    <!-- USA Tab -->
+    <div id="usa" class="tab-content">
+        <div class="section">
+            <h2>Pre-Registration Requirements</h2>
+            
+            <div class="doc-item">
+                <div class="doc-title">Company Name Selection <span class="badge">Free</span></div>
+                <div class="doc-desc">Check availability on Delaware Division of Corporations website</div>
+                <div class="doc-meta">
+                    <span>📄 Format: Must include "Inc.", "Corp.", or "Company"</span>
+                    <span>🕒 Timeline: Instant check online</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">Registered Agent <span class="badge">Required</span></div>
+                <div class="doc-desc">Delaware requires a registered agent with physical address in DE</div>
+                <div class="doc-meta">
+                    <span>💰 Cost: $50-300/year</span>
+                    <span>💡 Options: Harvard Business Services, Incorporate.com</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">EIN (Employer ID Number) <span class="badge">Free</span></div>
+                <div class="doc-desc">Apply for EIN from IRS (required for bank account and taxes)</div>
+                <div class="doc-meta">
+                    <span>🕒 Timeline: Same day (online)</span>
+                    <span>📋 Portal: IRS.gov</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Incorporation Documents</h2>
+            
+            <div class="doc-item">
+                <div class="doc-title">Certificate of Incorporation <span class="badge">$89</span></div>
+                <div class="doc-desc">File with Delaware Division of Corporations</div>
+                <div class="doc-meta">
+                    <span>🕒 Timeline: 1-2 weeks (standard) / 24 hours (expedited +$100)</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">Bylaws <span class="badge">Included</span></div>
+                <div class="doc-desc">Internal rules for company governance (not filed with state)</div>
+                <div class="doc-meta">
+                    <span>💡 Tip: Use YC or Orrick startup templates</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">Stock Certificates <span class="badge">$50-200</span></div>
+                <div class="doc-desc">Issue shares to founders (use Carta or Clerky for cap table)</div>
+                <div class="doc-meta">
+                    <span>🕒 Timeline: After incorporation</span>
+                </div>
+            </div>
+
+            <div class="doc-item">
+                <div class="doc-title">83(b) Election <span class="badge">Critical!</span></div>
+                <div class="doc-desc">File with IRS within 30 days of stock grant (saves huge taxes)</div>
+                <div class="doc-meta">
+                    <span>🕒 Deadline: 30 days from stock grant</span>
+                    <span>⚠️ Important: Mail to IRS + keep receipt</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Estimated Costs (Delaware C-Corp)</h2>
+            <div class="cost-row">
+                <span>Delaware Filing Fee</span>
+                <span>$89</span>
+            </div>
+            <div class="cost-row">
+                <span>Registered Agent (annual)</span>
+                <span>$50 - $300</span>
+            </div>
+            <div class="cost-row">
+                <span>Franchise Tax (annual minimum)</span>
+                <span>$175 - $400</span>
+            </div>
+            <div class="cost-row">
+                <span>Legal/Formation Service</span>
+                <span>$500 - $2,000</span>
+            </div>
+            <div class="cost-row">
+                <span>Cap Table Software (Carta/Clerky)</span>
+                <span>$0 - $500</span>
+            </div>
+            <div class="cost-row">
+                <strong>Total First Year</strong>
+                <strong>$800 - $3,500</strong>
+            </div>
+        </div>
+    </div>
+
+    <button class="print-btn" onclick="window.print()">Print Checklist</button>
+
+    <script>
+        function switchTab(country) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            
+            // Show selected tab
+            document.getElementById(country).classList.add('active');
+            event.target.classList.add('active');
+        }
+    </script>
+</body>
+</html>

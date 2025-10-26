@@ -924,7 +924,7 @@ export default function BrandPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <a
-              href="/templates/brand-brief.pdf"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -935,7 +935,7 @@ export default function BrandPage() {
             </a>
 
             <a
-              href="/templates/logo-grid.svg"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -946,7 +946,7 @@ export default function BrandPage() {
             </a>
 
             <a
-              href="/templates/typography-scale.pdf"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -957,7 +957,7 @@ export default function BrandPage() {
             </a>
 
             <a
-              href="/templates/brand-guidelines.pdf"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>

@@ -816,7 +816,7 @@ export default function FinancePage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <a
-              href="/templates/cap-table-template.xlsx"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -827,7 +827,7 @@ export default function FinancePage() {
             </a>
 
             <a
-              href="/templates/unit-economics-calculator.xlsx"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -838,7 +838,7 @@ export default function FinancePage() {
             </a>
 
             <a
-              href="/templates/due-diligence-checklist.pdf"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -849,7 +849,7 @@ export default function FinancePage() {
             </a>
 
             <a
-              href="/templates/financial-model-template.xlsx"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>

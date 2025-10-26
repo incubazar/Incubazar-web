@@ -281,6 +281,30 @@ export default function AdminDashboard() {
 
       {/* Quick Access Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <Link href="/admin/analytics">
+          <Card className="hover-lift cursor-pointer border-blue-200 bg-gradient-to-br from-blue-50 to-white">
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="text-xl">Analytics</CardTitle>
+                  <CardDescription className="text-sm">
+                    DAU, WAU, MAU & Metrics
+                  </CardDescription>
+                </div>
+                <div>
+                  <BarChart3 className="h-10 w-10 text-blue-500" />
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <div className="flex items-center justify-between text-sm">
+                <span className="text-gray-600">Platform Insights</span>
+                <Badge variant="default" className="bg-blue-500">New</Badge>
+              </div>
+            </CardContent>
+          </Card>
+        </Link>
+        
         <Link href="/admin/waitlist">
           <Card className="hover-lift cursor-pointer border-orange-200 bg-gradient-to-br from-orange-50 to-white">
             <CardHeader>
@@ -340,7 +364,7 @@ export default function AdminDashboard() {
         </Link>
 
         <Link href="/admin/users">
-          <Card className="hover-lift cursor-pointer border-blue-200 bg-gradient-to-br from-blue-50 to-white">
+          <Card className="hover-lift cursor-pointer border-green-200 bg-gradient-to-br from-green-50 to-white">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
@@ -350,9 +374,9 @@ export default function AdminDashboard() {
                   </CardDescription>
                 </div>
                 <div className="relative">
-                  <Users className="h-10 w-10 text-blue-500" />
+                  <Users className="h-10 w-10 text-green-500" />
                   {(stats?.pending_investor_verifications || 0) > 0 && (
-                    <Badge className="absolute -top-2 -right-2 bg-blue-500">
+                    <Badge className="absolute -top-2 -right-2 bg-green-500">
                       {stats?.pending_investor_verifications}
                     </Badge>
                   )}
@@ -362,55 +386,7 @@ export default function AdminDashboard() {
             <CardContent>
               <div className="flex items-center justify-between text-sm">
                 <span className="text-gray-600">Pending:</span>
-                <span className="font-bold text-blue-600">{stats?.pending_investor_verifications || 0}</span>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
-
-        <Link href="/admin/startups">
-          <Card className="hover-lift cursor-pointer border-purple-200 bg-gradient-to-br from-purple-50 to-white">
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <div>
-                  <CardTitle className="text-xl">All Startups</CardTitle>
-                  <CardDescription className="text-sm">
-                    View all startups
-                  </CardDescription>
-                </div>
-                <div>
-                  <Building2 className="h-10 w-10 text-purple-500" />
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-600">Total:</span>
-                <span className="font-bold text-purple-600">{stats?.total_founders || 0}</span>
-              </div>
-            </CardContent>
-          </Card>
-        </Link>
-
-        <Link href="/admin/investors">
-          <Card className="hover-lift cursor-pointer border-emerald-200 bg-gradient-to-br from-emerald-50 to-white">
-            <CardHeader>
-              <div className="flex items-center justify-between">
-                <div>
-                  <CardTitle className="text-xl">All Investors</CardTitle>
-                  <CardDescription className="text-sm">
-                    View all investors
-                  </CardDescription>
-                </div>
-                <div>
-                  <Users className="h-10 w-10 text-emerald-500" />
-                </div>
-              </div>
-            </CardHeader>
-            <CardContent>
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-gray-600">Total:</span>
-                <span className="font-bold text-emerald-600">{stats?.total_investors || 0}</span>
+                <span className="font-bold text-green-600">{stats?.pending_investor_verifications || 0}</span>
               </div>
             </CardContent>
           </Card>

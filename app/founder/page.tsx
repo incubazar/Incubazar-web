@@ -21,7 +21,8 @@ import {
   Plus,
   ArrowRight,
   Zap,
-  Target
+  Target,
+  Calculator
 } from 'lucide-react'
 import Link from 'next/link'
 import PrivatePlacementBanner from '@/components/compliance/PrivatePlacementBanner'
@@ -402,6 +403,64 @@ export default function FounderDashboard() {
               <Button className="w-full gradient-primary group/btn" size="lg">
                 <Plus className="mr-2 h-4 w-4 group-hover/btn:rotate-90 transition-transform" />
                 Create New Deal
+              </Button>
+            </Link>
+          </CardContent>
+        </Card>
+
+        <Card className="relative card-premium hover-lift group overflow-hidden lg:col-span-2">
+          {/* Background gradient effect */}
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 via-pink-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          
+          <CardHeader className="relative z-10">
+            <div className="flex items-start justify-between">
+              <div className="space-y-2">
+                <CardTitle className="text-2xl font-bold">Venture Metric Calculator</CardTitle>
+                <CardDescription className="text-base">
+                  Strategic financial co-pilot for runway, unit economics, equity, and valuation
+                </CardDescription>
+              </div>
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 group-hover:from-purple-500/20 group-hover:to-pink-500/20 transition-all duration-300 group-hover:scale-110 group-hover:rotate-3">
+                <Calculator className="h-7 w-7 text-purple-600" />
+              </div>
+            </div>
+          </CardHeader>
+          <CardContent className="relative z-10">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-4">
+              <div className="p-3 rounded-xl bg-gradient-to-br from-muted/80 to-muted/40 backdrop-blur-sm border border-border/50">
+                <div className="flex items-center gap-2 mb-1">
+                  <TrendingUp className="h-4 w-4 text-purple-600" />
+                  <span className="text-xs font-semibold">Runway</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Cash flow & burn rate</p>
+              </div>
+              <div className="p-3 rounded-xl bg-gradient-to-br from-muted/80 to-muted/40 backdrop-blur-sm border border-border/50">
+                <div className="flex items-center gap-2 mb-1">
+                  <Target className="h-4 w-4 text-purple-600" />
+                  <span className="text-xs font-semibold">Unit Economics</span>
+                </div>
+                <p className="text-sm text-muted-foreground">LTV:CAC & retention</p>
+              </div>
+              <div className="p-3 rounded-xl bg-gradient-to-br from-muted/80 to-muted/40 backdrop-blur-sm border border-border/50">
+                <div className="flex items-center gap-2 mb-1">
+                  <Users className="h-4 w-4 text-purple-600" />
+                  <span className="text-xs font-semibold">Equity</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Splits & dilution</p>
+              </div>
+              <div className="p-3 rounded-xl bg-gradient-to-br from-muted/80 to-muted/40 backdrop-blur-sm border border-border/50">
+                <div className="flex items-center gap-2 mb-1">
+                  <DollarSign className="h-4 w-4 text-purple-600" />
+                  <span className="text-xs font-semibold">Valuation</span>
+                </div>
+                <p className="text-sm text-muted-foreground">Investor-ready estimates</p>
+              </div>
+            </div>
+            <Link href="/founder/calculator" className="block">
+              <Button className="w-full group/btn" size="lg" variant="outline">
+                <Calculator className="mr-2 h-4 w-4" />
+                Open Financial Calculator
+                <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
               </Button>
             </Link>
           </CardContent>

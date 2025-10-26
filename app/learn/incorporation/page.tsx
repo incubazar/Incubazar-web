@@ -590,7 +590,7 @@ export default function IncorporationPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <a
-              href="/templates/incorporation-checklist.pdf"
+              href="/templates/incorporation-checklist.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -601,7 +601,7 @@ export default function IncorporationPage() {
             </a>
 
             <a
-              href="/templates/compliance-calendar.pdf"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -612,7 +612,7 @@ export default function IncorporationPage() {
             </a>
 
             <a
-              href="/templates/moa-aoa-sample.pdf"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -623,7 +623,7 @@ export default function IncorporationPage() {
             </a>
 
             <a
-              href="/templates/cost-calculator.xlsx"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>

@@ -11,7 +11,8 @@ import {
   Shield,
   Menu,
   X,
-  LogOut
+  LogOut,
+  BarChart3,
 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
@@ -37,6 +38,12 @@ function AdminLayoutContent({
       href: '/admin', 
       icon: LayoutDashboard,
       description: 'Overview & Analytics'
+    },
+    { 
+      name: 'Analytics', 
+      href: '/admin/analytics', 
+      icon: BarChart3,
+      description: 'DAU, WAU, MAU & Metrics'
     },
     { 
       name: 'All Startups', 

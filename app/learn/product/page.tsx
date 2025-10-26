@@ -792,7 +792,7 @@ export default function ProductPage() {
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <a
-              href="/templates/mvp-validation-checklist.pdf"
+              href="/templates/mvp-validation-checklist.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -803,7 +803,7 @@ export default function ProductPage() {
             </a>
 
             <a
-              href="/templates/pmf-survey-template.pdf"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -814,7 +814,7 @@ export default function ProductPage() {
             </a>
 
             <a
-              href="/templates/saas-metrics-dashboard.xlsx"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
@@ -825,7 +825,7 @@ export default function ProductPage() {
             </a>
 
             <a
-              href="/templates/pricing-strategy-worksheet.pdf"
+              href="/templates/coming-soon.html"
               className="flex items-center justify-between p-6 border-2 border-ink hover:bg-graphite-50 transition-colors group"
             >
               <div>
