@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import { logger } from '@/lib/logger'
@@ -78,7 +78,7 @@ export default function AdminAnalyticsPage() {
   const router = useRouter()
   const supabase = createClient()
 
-  const fetchAnalytics = async () => {
+  const fetchAnalytics = useCallback(async () => {
     try {
       const { data: { session } } = await supabase.auth.getSession()
       if (!session) {
@@ -218,11 +218,11 @@ export default function AdminAnalyticsPage() {
       setLoading(false)
       setRefreshing(false)
     }
-  }
+  }, [timeRange, router, supabase])
 
   useEffect(() => {
     fetchAnalytics()
-  }, [timeRange])
+  }, [fetchAnalytics])
 
   const handleRefresh = () => {
     setRefreshing(true)

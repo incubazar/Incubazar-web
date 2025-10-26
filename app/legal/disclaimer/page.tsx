@@ -12,7 +12,7 @@ export default function DisclaimerPage() {
       
       <div className="prose prose-lg max-w-none space-y-6">
         <p className="text-gray-600 mb-8">
-          <strong>Last Updated:</strong> October 21, 2025
+          <strong>Last Updated:</strong> October 26, 2025
         </p>
 
         <div className="bg-red-50 border-2 border-red-300 p-8 rounded-lg mb-8">
@@ -39,14 +39,32 @@ export default function DisclaimerPage() {
             <li><strong>DO NOT</strong> conduct due diligence on behalf of investors</li>
             <li><strong>DO NOT</strong> hold custody of investor funds</li>
             <li><strong>DO NOT</strong> operate as an incubator, accelerator, or venture capital firm</li>
+            <li><strong>DO NOT</strong> verify the accuracy of information provided by founders</li>
+            <li><strong>DO NOT</strong> guarantee the quality or viability of listed startups</li>
           </ul>
           <p className="mt-4 text-gray-700">
             <strong>What We Do:</strong> We provide the technology infrastructure and tools to facilitate connections 
             between founders and investors. All investment decisions, negotiations, and transactions occur directly 
-            between the parties.
+            between the parties. Our AI matching algorithm provides suggestions based on data, but does not constitute 
+            investment advice.
           </p>
 
-          <h3 className="text-xl font-semibold mb-3 mt-6">1.2 Private Placement Structure</h3>
+          <h3 className="text-xl font-semibold mb-3 mt-6">1.2 Platform Services Overview</h3>
+          <p>
+            Incubazar provides the following services, each with specific limitations:
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Matching Service:</strong> AI-powered suggestions based on preferences - not guarantees</li>
+            <li><strong>Deal Listings:</strong> User-generated content - we do not verify claims</li>
+            <li><strong>Venture Calculator:</strong> Educational tool only - not financial advice</li>
+            <li><strong>Learning Platform:</strong> General educational content - not professional advice</li>
+            <li><strong>Messaging System:</strong> Communication tool only - not legal or binding agreements</li>
+            <li><strong>Document Templates:</strong> Starting points only - require legal review</li>
+            <li><strong>Data Room:</strong> File storage only - we do not review documents</li>
+            <li><strong>Subscriptions:</strong> Access to platform features - not investment returns</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mb-3 mt-6">1.3 Private Placement Structure</h3>
           <p>
             All investment opportunities on the Platform are conducted as <strong>private placements</strong> 
             under Section 42 of the Companies Act, 2013. This means:
@@ -54,9 +72,10 @@ export default function DisclaimerPage() {
           <ul className="list-disc pl-6 space-y-2">
             <li>Offers are made to a select group of investors only</li>
             <li>No public solicitation or advertising is permitted</li>
-            <li>Maximum of 200 investors per company</li>
+            <li>Maximum of 200 investors per company per financial year</li>
             <li>Investors must complete KYC verification</li>
             <li>Three-day cooling-off period after expression of interest</li>
+            <li>All transactions subject to proper legal documentation</li>
           </ul>
         </section>
 
@@ -241,7 +260,102 @@ export default function DisclaimerPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">7. No Guarantee or Insurance</h2>
+          <h2 className="text-2xl font-semibold mb-4">7. Platform Tools and Services Disclaimers</h2>
+
+          <h3 className="text-xl font-semibold mb-3 mt-6">7.1 Venture Metric Calculator</h3>
+          <div className="bg-yellow-50 border border-yellow-300 p-6 rounded-lg mb-4">
+            <p className="font-semibold text-yellow-900 mb-3">
+              ⚠️ EDUCATIONAL TOOL ONLY - NOT FINANCIAL ADVICE
+            </p>
+            <p className="text-yellow-800">
+              The Venture Metric Calculator (Runway, LTV:CAC, Equity Split, Valuation) is an educational tool 
+              designed to help founders understand financial modeling concepts. It is NOT:
+            </p>
+            <ul className="list-disc pl-6 space-y-2 text-yellow-800 mt-2">
+              <li>Professional financial advice or consulting</li>
+              <li>A guarantee of funding, valuation, or business success</li>
+              <li>A substitute for accountant, lawyer, or financial advisor</li>
+              <li>Verified by external auditors or financial professionals</li>
+            </ul>
+          </div>
+          <p><strong>Calculator Limitations:</strong></p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Results are estimates based on inputs you provide</li>
+            <li>Formulas use industry benchmarks (Y Combinator, Andreessen Horowitz, SaaStr) but may not reflect your specific situation</li>
+            <li>AI-generated insights are algorithmic suggestions, not expert analysis</li>
+            <li>We do not verify the accuracy of data you input</li>
+            <li>Calculator does not account for market changes, competitive factors, or unforeseen circumstances</li>
+            <li>Results should be validated with professional advisors before making business decisions</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mb-3 mt-6">7.2 Learning Platform Content</h3>
+          <p>
+            Our educational content library provides general information about startups, fundraising, legal structures, 
+            and business operations. This content:
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>IS:</strong> General educational material for reference</li>
+            <li><strong>IS NOT:</strong> Legal, financial, tax, or professional advice</li>
+            <li><strong>IS NOT:</strong> Tailored to your specific circumstances</li>
+            <li><strong>IS NOT:</strong> A substitute for consulting qualified professionals</li>
+          </ul>
+          <p className="mt-4">
+            While we cite authoritative sources (SEBI, MCA, YC, Sequoia), regulations change frequently. 
+            Always verify current laws and consult professionals before making legal or financial decisions.
+          </p>
+
+          <h3 className="text-xl font-semibold mb-3 mt-6">7.3 AI Matching Algorithm</h3>
+          <p>
+            Our AI-powered matching service suggests potential investor-founder connections based on:
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Sector alignment and expertise</li>
+            <li>Funding stage preferences</li>
+            <li>Ticket size compatibility</li>
+            <li>Geographic preferences</li>
+          </ul>
+          <p className="mt-4 font-semibold">
+            HOWEVER: Matching scores are algorithmic suggestions, NOT guarantees. We do not:
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Verify the quality or viability of matched startups</li>
+            <li>Guarantee compatibility, success, or investment closure</li>
+            <li>Conduct background checks or due diligence on our behalf</li>
+            <li>Take responsibility for match quality or outcomes</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mb-3 mt-6">7.4 Document Templates (SAFE, PAS-4)</h3>
+          <p className="font-semibold mb-2">
+            ⚠️ STARTING POINTS ONLY - REQUIRE LEGAL REVIEW
+          </p>
+          <p>
+            Document templates provided are generic starting points. They:
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Must be reviewed and customized by qualified legal counsel</li>
+            <li>May not be suitable for your specific situation</li>
+            <li>May not reflect current legal requirements or best practices</li>
+            <li>Do not constitute legal advice or create an attorney-client relationship</li>
+          </ul>
+          <p className="mt-4">
+            NEVER sign legal documents without professional review. We are not liable for consequences 
+            of using templates without proper legal consultation.
+          </p>
+
+          <h3 className="text-xl font-semibold mb-3 mt-6">7.5 Subscription Services</h3>
+          <p>
+            Premium subscriptions provide access to platform features, NOT investment returns:
+          </p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Subscription fees are for software access, not investment advice</li>
+            <li>No guarantee of funding success, investor matches, or deal closures</li>
+            <li>Fees are non-refundable except as required by law</li>
+            <li>Platform features may change or be discontinued</li>
+          </ul>
+        </section>
+
+        <section className="mb-8">
+          <h2 className="text-2xl font-semibold mb-4">8. No Guarantee or Insurance</h2>
           <ul className="list-disc pl-6 space-y-2">
             <li>Investments are NOT insured by DICGC or any government agency</li>
             <li>There is NO investor protection fund or compensation scheme</li>
@@ -251,16 +365,17 @@ export default function DisclaimerPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">8. Platform Risks</h2>
+          <h2 className="text-2xl font-semibold mb-4">9. Platform Risks</h2>
 
-          <h3 className="text-xl font-semibold mb-3 mt-6">8.1 Technology Risks</h3>
+          <h3 className="text-xl font-semibold mb-3 mt-6">9.1 Technology Risks</h3>
           <ul className="list-disc pl-6 space-y-2">
             <li><strong>System Failures:</strong> Technical issues may cause service interruptions</li>
             <li><strong>Cybersecurity:</strong> Despite security measures, breaches are possible</li>
             <li><strong>Data Loss:</strong> Information may be lost due to technical failures</li>
+            <li><strong>Third-Party Dependencies:</strong> We rely on Supabase, Razorpay, DocuSign, and Vercel - disruptions may affect services</li>
           </ul>
 
-          <h3 className="text-xl font-semibold mb-3 mt-6">8.2 Platform Discontinuation</h3>
+          <h3 className="text-xl font-semibold mb-3 mt-6">9.2 Platform Discontinuation</h3>
           <p>
             Incubazar may cease operations due to:
           </p>
@@ -275,20 +390,21 @@ export default function DisclaimerPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">9. Conflicts of Interest</h2>
+          <h2 className="text-2xl font-semibold mb-4">10. Conflicts of Interest</h2>
           <p>Potential conflicts may arise:</p>
           <ul className="list-disc pl-6 space-y-2">
-            <li>Platform may earn fees from both founders and investors</li>
-            <li>Platform operators may invest in startups on the platform</li>
+            <li>Platform earns subscription fees from both founders and investors</li>
+            <li>Platform operators may invest in startups listed on the platform</li>
             <li>Affiliated parties may have financial interests in listed companies</li>
+            <li>AI matching algorithms prioritize active subscribers</li>
           </ul>
           <p className="mt-4">
-            We will disclose material conflicts when they arise.
+            We will disclose material conflicts when they arise and maintain transparency in our operations.
           </p>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">10. Disclaimer of Liability</h2>
+          <h2 className="text-2xl font-semibold mb-4">11. Disclaimer of Liability</h2>
           <p className="font-semibold mb-4">
             TO THE MAXIMUM EXTENT PERMITTED BY LAW:
           </p>
@@ -297,8 +413,12 @@ export default function DisclaimerPage() {
             <li>Incubazar is NOT liable for startup failures or fraud</li>
             <li>Incubazar is NOT liable for inaccurate information provided by founders</li>
             <li>Incubazar is NOT liable for tax consequences of investments</li>
-            <li>Incubazar is NOT liable for platform technical issues</li>
+            <li>Incubazar is NOT liable for platform technical issues or data loss</li>
             <li>Incubazar is NOT liable for regulatory changes affecting investments</li>
+            <li>Incubazar is NOT liable for decisions made using calculator tools</li>
+            <li>Incubazar is NOT liable for reliance on learning platform content</li>
+            <li>Incubazar is NOT liable for AI matching algorithm outcomes</li>
+            <li>Incubazar is NOT liable for third-party service failures (Razorpay, DocuSign, Supabase)</li>
           </ul>
           <p className="mt-4">
             Your sole remedies are as set forth in our Terms of Service.
@@ -306,7 +426,7 @@ export default function DisclaimerPage() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">11. Acknowledgment</h2>
+          <h2 className="text-2xl font-semibold mb-4">12. Acknowledgment</h2>
           <div className="bg-gray-100 border-2 border-gray-400 p-6 rounded-lg">
             <p className="font-semibold mb-4">BY USING THE PLATFORM, YOU ACKNOWLEDGE THAT:</p>
             <ul className="list-disc pl-6 space-y-2">
@@ -317,30 +437,39 @@ export default function DisclaimerPage() {
               <li>You will seek professional advice before investing</li>
               <li>You are solely responsible for your investment decisions</li>
               <li>Incubazar is not liable for your investment outcomes</li>
+              <li>Calculator tools are educational only, not financial advice</li>
+              <li>Learning content is general information, not professional advice</li>
+              <li>AI matching suggestions are algorithmic, not guarantees</li>
+              <li>Document templates require legal review</li>
+              <li>You understand all limitations and disclaimers stated herein</li>
             </ul>
           </div>
         </section>
 
         <section className="mb-8">
-          <h2 className="text-2xl font-semibold mb-4">12. Contact Information</h2>
+          <h2 className="text-2xl font-semibold mb-4">13. Contact Information</h2>
           <p>
             For questions about risks or this disclaimer, contact:
           </p>
           <div className="bg-gray-50 p-6 rounded-lg mt-4">
+            <p className="font-semibold mb-4">Incubazar (Sole Proprietorship)</p>
+            <p><strong>Business Address:</strong> Mohali, Punjab, India</p>
             <p><strong>Email:</strong> support@incubazar.in</p>
             <p><strong>Compliance:</strong> compliance@incubazar.in</p>
-            <p><strong>Address:</strong> [Company Address - To Be Provided]</p>
+            <p><strong>Risk Disclosure:</strong> legal@incubazar.in</p>
+            <p><strong>Website:</strong> https://incubazar.in</p>
           </div>
         </section>
 
         <div className="mt-12 p-6 bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-400 rounded-lg">
           <p className="text-sm text-gray-700 leading-relaxed">
-            <strong>⚠️ LEGAL NOTICE:</strong> This Disclaimer & Risk Disclosure document has been prepared 
-            in accordance with SEBI guidelines for investment platforms and startup investing best practices. 
-            However, it MUST be reviewed by qualified legal counsel specializing in securities law, investment 
-            regulations, and the Companies Act 2013 before being made legally binding. This is NOT legal advice. 
-            Company-specific information, exact risk disclosures, and jurisdiction-specific requirements must be 
-            finalized with your legal team and compliance officers.
+            <strong>⚠️ LEGAL NOTICE:</strong> This Disclaimer & Risk Disclosure document has been comprehensively 
+            updated to cover all platform services including AI matching, messaging, venture calculator, learning 
+            platform, subscription services, and third-party integrations. It complies with SEBI guidelines for 
+            investment platforms, Companies Act 2013 (Section 42), and startup investment best practices. However, 
+            it MUST be reviewed by qualified legal counsel specializing in securities law, investment regulations, 
+            and fintech compliance before being made legally binding. This is NOT legal advice. Please update 
+            placeholder information (business address) with actual details.
           </p>
         </div>
       </div>

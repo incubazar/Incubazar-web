@@ -75,6 +75,9 @@ export default function EditorialFooter() {
               <ul className="space-y-2 sm:space-y-3 text-sm sm:text-base text-foreground/70">
                 <li><Link href="/legal/terms" className="hover:text-foreground transition-colors">Terms</Link></li>
                 <li><Link href="/legal/privacy" className="hover:text-foreground transition-colors">Privacy</Link></li>
+                <li><Link href="/legal/disclaimer" className="hover:text-foreground transition-colors">Disclaimer</Link></li>
+                <li><Link href="/legal/code-of-conduct" className="hover:text-foreground transition-colors">Code of Conduct</Link></li>
+                <li><Link href="/legal/cookies" className="hover:text-foreground transition-colors">Cookies</Link></li>
               </ul>
             </div>
             <div>

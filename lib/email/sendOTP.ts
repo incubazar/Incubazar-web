@@ -66,16 +66,28 @@ export async function sendOTPEmail({ to, otp, name, userType }: SendOTPEmailPara
                 </p>
                 
                 <!-- OTP Code -->
-                <div style="background: #f5f5f5; border: 3px solid #0a0a0a; padding: 48px 32px; text-align: center; margin: 48px 0;">
-                  <p style="margin: 0 0 16px 0; font-size: 12px; color: #666666; text-transform: uppercase; letter-spacing: 2px; font-weight: 700;">
-                    Your Verification Code
-                  </p>
-                  <div style="font-size: 64px; font-weight: 800; letter-spacing: 12px; color: #0a0a0a; font-family: 'Courier New', monospace; margin: 24px 0;">
-                    ${otp}
-                  </div>
-                  <p style="margin: 24px 0 0 0; font-size: 13px; color: #666666; font-weight: 600;">
-                    Expires in 30 minutes
-                  </p>
+                              <div style="background-color: #f5f5f5; padding: 24px; border-radius: 8px; margin-top: 40px;">
+                <p style="margin: 0 0 16px 0; font-size: 16px; color: #0a0a0a; font-weight: 600;">
+                  Need Help Getting Started?
+                </p>
+                <p style="margin: 0 0 20px 0; font-size: 14px; color: #666666;">
+                  Our team is here to help you succeed
+                </p>
+                <a href="mailto:support@incubazar.com" style="color: #0a0a0a; text-decoration: underline; font-weight: 600; font-size: 15px;">
+                  support@incubazar.com
+                </a>
+              </div>
+
+              <!-- Footer -->
+              <div style="text-align: center; padding-top: 40px; border-top: 1px solid #e5e5e5;">
+                <div style="margin: 0 0 20px 0;">
+                  <a href="https://incubazar.com" style="color: #0a0a0a; text-decoration: none; margin: 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Website</a>
+                  <span style="color: #cccccc;">•</span>
+                  <a href="https://incubazar.com/legal/privacy" style="color: #0a0a0a; text-decoration: none; margin: 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Privacy</a>
+                  <span style="color: #cccccc;">•</span>
+                  <a href="https://incubazar.com/legal/terms" style="color: #0a0a0a; text-decoration: none; margin: 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Terms</a>
+                  <span style="color: #cccccc;">•</span>
+                  <a href="https://incubazar.com/legal/cookies" style="color: #0a0a0a; text-decoration: none; margin: 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Cookies</a>
                 </div>
 
                 <!-- CTA Button -->
@@ -138,6 +150,8 @@ export async function sendOTPEmail({ to, otp, name, userType }: SendOTPEmailPara
                   <a href="https://incubazar.com/legal/privacy" style="color: #0a0a0a; text-decoration: none; margin: 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Privacy</a>
                   <span style="color: #cccccc;">•</span>
                   <a href="https://incubazar.com/legal/terms" style="color: #0a0a0a; text-decoration: none; margin: 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Terms</a>
+                  <span style="color: #cccccc;">•</span>
+                  <a href="https://incubazar.com/legal/cookies" style="color: #0a0a0a; text-decoration: none; margin: 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Cookies</a>
                 </div>
                 <p style="margin: 16px 0 0 0; font-size: 12px; color: #999999;">
                   © ${new Date().getFullYear()} Incubazar. All rights reserved.
@@ -483,6 +497,8 @@ export async function sendWaitlistConfirmationEmail({ to, name, userType }: { to
                   <a href="https://incubazar.com/legal/privacy" style="color: #0a0a0a; text-decoration: none; margin: 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Privacy</a>
                   <span style="color: #cccccc;">•</span>
                   <a href="https://incubazar.com/legal/terms" style="color: #0a0a0a; text-decoration: none; margin: 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Terms</a>
+                  <span style="color: #cccccc;">•</span>
+                  <a href="https://incubazar.com/legal/cookies" style="color: #0a0a0a; text-decoration: none; margin: 0 12px; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600;">Cookies</a>
                 </div>
                 <p style="margin: 0; font-size: 12px; color: #999999;">
                   © ${new Date().getFullYear()} Incubazar. All rights reserved.

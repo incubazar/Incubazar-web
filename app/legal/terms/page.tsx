@@ -12,14 +12,15 @@ export default function TermsOfServicePage() {
       
       <div className="prose prose-lg max-w-none space-y-6">
         <p className="text-gray-600 mb-8">
-          <strong>Last Updated:</strong> October 21, 2025
+          <strong>Last Updated:</strong> October 26, 2025
         </p>
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">1. Acceptance of Terms</h2>
           <p>
             Welcome to Incubazar. These Terms of Service ("Terms") govern your use of the Incubazar platform 
-            ("Platform") operated by [Company Name] (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). By accessing or using the Platform, 
+            ("Platform") operated by Incubazar, a sole proprietorship business in India 
+            (&quot;we,&quot; &quot;our,&quot; or &quot;us&quot;). By accessing or using the Platform, 
             you agree to be bound by these Terms.
           </p>
           <p>
@@ -84,16 +85,32 @@ export default function TermsOfServicePage() {
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">5. Platform Usage</h2>
           
-          <h3 className="text-xl font-semibold mb-3 mt-6">5.1 Permitted Use</h3>
+          <h3 className="text-xl font-semibold mb-3 mt-6">5.1 Platform Services</h3>
+          <p>Incubazar provides the following services:</p>
+          <ul className="list-disc pl-6 space-y-2">
+            <li><strong>Matching Platform:</strong> AI-powered matching between founders and investors</li>
+            <li><strong>Deal Facilitation:</strong> Tools for listing and discovering investment opportunities</li>
+            <li><strong>Venture Calculator:</strong> Financial modeling and calculation tools for founders</li>
+            <li><strong>Learning Platform:</strong> Educational content library for startup knowledge</li>
+            <li><strong>Messaging System:</strong> Secure communication post-investment</li>
+            <li><strong>Document Tools:</strong> Generation of SAFE agreements and PAS-4 forms</li>
+            <li><strong>Data Room:</strong> Secure file storage and sharing for due diligence</li>
+            <li><strong>Subscription Services:</strong> Premium features for founders and investors</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mb-3 mt-6">5.2 Permitted Use</h3>
           <p>You may use the Platform to:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>Browse investment opportunities (if you&apos;re an Investor)</li>
             <li>List fundraising deals (if you&apos;re a Founder)</li>
             <li>Communicate with other Users through the Platform</li>
             <li>Access educational and informational content</li>
+            <li>Use financial calculators and modeling tools</li>
+            <li>Generate and sign legal documents through integrated services</li>
+            <li>Subscribe to premium features and services</li>
           </ul>
 
-          <h3 className="text-xl font-semibold mb-3 mt-6">5.2 Prohibited Activities</h3>
+          <h3 className="text-xl font-semibold mb-3 mt-6">5.3 Prohibited Activities</h3>
           <p>You agree NOT to:</p>
           <ul className="list-disc pl-6 space-y-2">
             <li>Violate any applicable laws or regulations</li>
@@ -106,6 +123,9 @@ export default function TermsOfServicePage() {
             <li>Manipulate or artificially inflate deal metrics</li>
             <li>Harass, threaten, or abuse other Users</li>
             <li>Use the Platform for money laundering or illegal activities</li>
+            <li>Reverse engineer, decompile, or disassemble any Platform software</li>
+            <li>Interfere with or disrupt the Platform's operation</li>
+            <li>Circumvent any access restrictions or security measures</li>
           </ul>
         </section>
 
@@ -160,24 +180,43 @@ export default function TermsOfServicePage() {
           
           <h3 className="text-xl font-semibold mb-3 mt-6">7.1 Platform Fees</h3>
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Subscription Fees:</strong> Monthly or annual fees for premium features</li>
-            <li><strong>Success Fees:</strong> Charged upon successful deal closure (if applicable)</li>
-            <li><strong>Payment Processing:</strong> Handled by Razorpay (subject to their fees)</li>
+            <li><strong>Subscription Fees:</strong> Monthly or annual fees for premium features (Founder Basic: ₹5,000/year, Founder Pro: ₹15,000/year, Investor Pro: ₹15,000/year)</li>
+            <li><strong>Payment Processing:</strong> All payments are processed securely through Razorpay Payment Gateway</li>
+            <li><strong>Auto-Renewal:</strong> Subscriptions automatically renew unless cancelled 24 hours before renewal date</li>
           </ul>
 
           <h3 className="text-xl font-semibold mb-3 mt-6">7.2 Payment Terms</h3>
           <ul className="list-disc pl-6 space-y-2">
-            <li>All fees are in Indian Rupees (INR)</li>
-            <li>Payments are non-refundable unless otherwise stated</li>
-            <li>We reserve the right to change fees with 30 days notice</li>
-            <li>Unpaid fees may result in account suspension</li>
+            <li>All fees are in Indian Rupees (INR) and include applicable taxes</li>
+            <li>Payments are non-refundable except as required by applicable law</li>
+            <li>We reserve the right to change fees with 30 days advance notice</li>
+            <li>Unpaid fees may result in account suspension or termination</li>
+            <li>You authorize us to charge your payment method for subscription renewals</li>
+            <li>Failed payments may result in suspension of premium features</li>
           </ul>
 
-          <h3 className="text-xl font-semibold mb-3 mt-6">7.3 Investment Payments</h3>
+          <h3 className="text-xl font-semibold mb-3 mt-6">7.3 Third-Party Payment Processing</h3>
           <p>
-            Investment transactions are between Investors and Founders. We facilitate document 
-            execution but do NOT handle fund transfers directly.
+            All payment transactions are processed by Razorpay. By making a payment, you agree to Razorpay's 
+            terms of service and privacy policy. We do not store your complete credit card or bank account details. 
+            Payment information is encrypted and transmitted directly to Razorpay's secure servers.
           </p>
+
+          <h3 className="text-xl font-semibold mb-3 mt-6">7.4 Investment Payments</h3>
+          <p>
+            Investment transactions between Investors and Founders are separate from Platform subscription fees. 
+            We facilitate document execution through DocuSign but do NOT handle fund transfers directly. All 
+            investment funds must be transferred according to the terms agreed between parties outside the Platform.
+          </p>
+
+          <h3 className="text-xl font-semibold mb-3 mt-6">7.5 Refund Policy</h3>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Subscription fees are generally non-refundable</li>
+            <li>Refunds may be issued at our sole discretion for technical failures or billing errors</li>
+            <li>Refund requests must be submitted within 7 days of charge</li>
+            <li>Partial refunds may be issued for unused subscription periods in exceptional cases</li>
+            <li>All refund decisions are final and at our discretion</li>
+          </ul>
         </section>
 
         <section className="mb-8">
@@ -281,16 +320,34 @@ export default function TermsOfServicePage() {
           
           <h3 className="text-xl font-semibold mb-3 mt-6">12.1 Governing Law</h3>
           <p>
-            These Terms are governed by the laws of India. You submit to the exclusive jurisdiction of 
-            courts in [City/State - To Be Provided].
+            These Terms are governed by the laws of India, without regard to conflict of law principles. 
+            You submit to the exclusive jurisdiction of courts in Mumbai, Maharashtra, India.
           </p>
 
           <h3 className="text-xl font-semibold mb-3 mt-6">12.2 Dispute Resolution</h3>
+          <p><strong>Escalation Process:</strong></p>
           <ul className="list-disc pl-6 space-y-2">
-            <li><strong>Negotiation:</strong> First attempt to resolve disputes through good-faith negotiation</li>
-            <li><strong>Arbitration:</strong> Unresolved disputes shall be settled by arbitration under Indian Arbitration and Conciliation Act, 1996</li>
-            <li><strong>Venue:</strong> Arbitration proceedings in [City - To Be Provided]</li>
+            <li><strong>Step 1 - Negotiation:</strong> First attempt to resolve disputes through good-faith negotiation via email to legal@incubazar.in</li>
+            <li><strong>Step 2 - Mediation:</strong> If unresolved within 30 days, parties agree to mediation</li>
+            <li><strong>Step 3 - Arbitration:</strong> If mediation fails, disputes shall be settled by binding arbitration</li>
           </ul>
+
+          <h3 className="text-xl font-semibold mb-3 mt-6">12.3 Arbitration Clause</h3>
+          <ul className="list-disc pl-6 space-y-2">
+            <li>Arbitration shall be conducted under the Indian Arbitration and Conciliation Act, 1996</li>
+            <li>Venue: Mumbai, Maharashtra, India</li>
+            <li>Language: English</li>
+            <li>Number of arbitrators: One (1) mutually agreed arbitrator, or appointed by the Court</li>
+            <li>Arbitrator's decision is final and binding</li>
+            <li>Each party bears its own costs unless arbitrator decides otherwise</li>
+          </ul>
+
+          <h3 className="text-xl font-semibold mb-3 mt-6">12.4 Exceptions</h3>
+          <p>
+            Notwithstanding the above, either party may seek injunctive or equitable relief in court for 
+            intellectual property infringement, confidentiality breaches, or urgent matters requiring 
+            immediate relief.
+          </p>
         </section>
 
         <section className="mb-8">
@@ -321,21 +378,25 @@ export default function TermsOfServicePage() {
 
         <section className="mb-8">
           <h2 className="text-2xl font-semibold mb-4">15. Contact Information</h2>
+          <p>
+            For questions or concerns about these Terms, please contact us at:
+          </p>
           <div className="bg-gray-50 p-6 rounded-lg mt-4">
+            <p className="font-semibold mb-4">Incubazar (Sole Proprietorship)</p>
+            <p><strong>Business Address:</strong> Mohali, Punjab, India</p>
             <p><strong>Email:</strong> support@incubazar.in</p>
-            <p><strong>Legal:</strong> legal@incubazar.in</p>
-            <p><strong>Address:</strong> [Company Address - To Be Provided]</p>
-            <p><strong>Phone:</strong> [Phone Number - To Be Provided]</p>
+            <p><strong>Legal Inquiries:</strong> legal@incubazar.in</p>
+            <p><strong>Compliance:</strong> compliance@incubazar.in</p>
+            <p><strong>Website:</strong> https://incubazar.in</p>
           </div>
-        </section>
-
-        <div className="mt-12 p-6 bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-300 rounded-lg">
+        </section>        <div className="mt-12 p-6 bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-300 rounded-lg">
           <p className="text-sm text-gray-700 leading-relaxed">
             <strong>⚠️ LEGAL NOTICE:</strong> This Terms of Service document has been drafted to comply with 
-            Indian regulations including the Companies Act 2013, IT Act 2000, and SEBI guidelines. However, 
-            it MUST be reviewed and approved by qualified legal counsel specializing in securities law, fintech 
-            regulations, and startup investments before being made legally binding. Company-specific details, 
-            contact information, arbitration venue, and exact jurisdiction must be finalized with your legal team.
+            Indian regulations including the Companies Act 2013, Information Technology Act 2000, SEBI guidelines, 
+            and startup investment regulations. It covers all platform services including matching, messaging, 
+            calculators, learning content, subscriptions, and third-party integrations (Razorpay, DocuSign, Supabase). 
+            However, it MUST be reviewed and finalized by qualified legal counsel before being made legally binding. 
+            Please update placeholder information (registered office address, CIN, phone number) with actual company details.
           </p>
         </div>
       </div>
