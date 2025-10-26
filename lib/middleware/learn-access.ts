@@ -83,6 +83,11 @@ export async function learnMiddleware(request: NextRequest) {
   if (publicRoutes.some(route => path === route || path.startsWith(route))) {
     return response;
   }
+  
+  // Main /learn overview page is PUBLIC - accessible to everyone
+  if (path === '/learn') {
+    return response;
+  }
 
   // If no user and trying to access protected routes (not learning), redirect to login
   if (!user) {
@@ -93,8 +98,8 @@ export async function learnMiddleware(request: NextRequest) {
       return NextResponse.redirect(redirectUrl);
     }
     
-    // For learning and calculator routes, redirect to login
-    if (path.startsWith('/learn') || path.startsWith('/calculator')) {
+    // For individual learning courses and calculator routes, redirect to login
+    if (path.startsWith('/learn/') || path.startsWith('/calculator')) {
       const redirectUrl = new URL('/auth/login', request.url);
       redirectUrl.searchParams.set('redirect', path);
       return NextResponse.redirect(redirectUrl);
@@ -151,9 +156,10 @@ export async function learnMiddleware(request: NextRequest) {
   }
 
   // Learning platform access control
-  // ALL AUTHENTICATED USERS can access learning materials (including waitlisted)
-  if (path.startsWith('/learn') || path.startsWith('/calculator')) {
-    // All learning routes and calculator are accessible to any authenticated user
+  // Main /learn overview is public (already handled above)
+  // Individual course content requires authentication (user is logged in at this point)
+  if (path.startsWith('/learn/') || path.startsWith('/calculator')) {
+    // Authenticated users can access all learning content
     // No verification required for learning materials or calculator
     return response;
   }
