@@ -73,38 +73,38 @@ export default function AboutPage() {
             
             <div className="grid grid-cols-2 gap-4 sm:gap-6 animate-fade-in-right">
               <div className="space-y-4 sm:space-y-6">
-                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors">
+                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink transition-all duration-300 group">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors text-ink group-hover:text-white">
                     <Shield className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display">Trust First</h3>
-                  <p className="text-xs sm:text-sm opacity-70">Built-in compliance and verification</p>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display text-ink group-hover:text-white transition-colors">Trust First</h3>
+                  <p className="text-xs sm:text-sm text-ink/70 group-hover:text-white/90 transition-colors">Built-in compliance and verification</p>
                 </div>
                 
-                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors">
+                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink transition-all duration-300 group">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors text-ink group-hover:text-white">
                     <Zap className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display">AI-Powered</h3>
-                  <p className="text-xs sm:text-sm opacity-70">Smart matching and insights</p>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display text-ink group-hover:text-white transition-colors">AI-Powered</h3>
+                  <p className="text-xs sm:text-sm text-ink/70 group-hover:text-white/90 transition-colors">Smart matching and insights</p>
                 </div>
               </div>
               
               <div className="space-y-4 sm:space-y-6 pt-8 sm:pt-12">
-                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors">
+                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink transition-all duration-300 group">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors text-ink group-hover:text-white">
                     <Users className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display">Community</h3>
-                  <p className="text-xs sm:text-sm opacity-70">Connect with verified ecosystem</p>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display text-ink group-hover:text-white transition-colors">Community</h3>
+                  <p className="text-xs sm:text-sm text-ink/70 group-hover:text-white/90 transition-colors">Connect with verified ecosystem</p>
                 </div>
                 
-                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group">
-                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors">
+                <div className="p-4 sm:p-6 border-2 border-ink bg-white hover:bg-ink transition-all duration-300 group">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:border-white transition-colors text-ink group-hover:text-white">
                     <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display">Growth</h3>
-                  <p className="text-xs sm:text-sm opacity-70">Scale with expert support</p>
+                  <h3 className="text-lg sm:text-xl lg:text-2xl font-bold mb-1 sm:mb-2 font-display text-ink group-hover:text-white transition-colors">Growth</h3>
+                  <p className="text-xs sm:text-sm text-ink/70 group-hover:text-white/90 transition-colors">Scale with expert support</p>
                 </div>
               </div>
             </div>
@@ -162,11 +162,11 @@ export default function AboutPage() {
                 className="p-4 sm:p-6 border-2 border-ink/10 bg-white hover:border-ink hover:bg-paper transition-all duration-300 group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-12 h-12 sm:w-14 sm:h-14 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-ink group-hover:text-white transition-all duration-300">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 border-2 border-ink flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-ink text-ink group-hover:text-white transition-all duration-300">
                   <feature.icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 font-display text-ink">{feature.title}</h3>
-                <p className="text-sm sm:text-base text-ink/70 leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 font-display text-ink group-hover:text-ink transition-colors">{feature.title}</h3>
+                <p className="text-sm sm:text-base text-ink/70 group-hover:text-ink/70 leading-relaxed transition-colors">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -206,14 +206,14 @@ export default function AboutPage() {
             ].map((feature, index) => (
               <div
                 key={index}
-                className="p-6 sm:p-8 border-2 border-ink/10 bg-white hover:border-ink hover:bg-ink hover:text-white transition-all duration-300 group animate-fade-in-up"
+                className="p-6 sm:p-8 border-2 border-ink/10 bg-white hover:border-ink hover:bg-ink transition-all duration-300 group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="w-12 h-12 sm:w-16 sm:h-16 border-2 border-ink flex items-center justify-center mb-4 sm:mb-6 group-hover:border-white transition-colors">
+                <div className="w-12 h-12 sm:w-16 sm:h-16 border-2 border-ink flex items-center justify-center mb-4 sm:mb-6 group-hover:border-white transition-colors text-ink group-hover:text-white">
                   <Target className="w-6 h-6 sm:w-8 sm:h-8" />
                 </div>
-                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 font-display">{feature.title}</h3>
-                <p className="text-xs sm:text-sm opacity-70 leading-relaxed">{feature.description}</p>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 font-display text-ink group-hover:text-white transition-colors">{feature.title}</h3>
+                <p className="text-xs sm:text-sm text-ink/70 group-hover:text-white/90 leading-relaxed transition-colors">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -258,14 +258,14 @@ export default function AboutPage() {
             ].map((stat, index) => (
               <div
                 key={index}
-                className="text-center p-8 border-2 border-ink bg-white hover:bg-ink hover:text-white transition-all duration-300 group animate-fade-in-up"
+                className="text-center p-8 border-2 border-ink bg-white hover:bg-ink transition-all duration-300 group animate-fade-in-up"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="text-5xl md:text-6xl font-bold font-display mb-4">
+                <div className="text-5xl md:text-6xl font-bold font-display mb-4 text-ink group-hover:text-white transition-colors">
                   {stat.stat}
                 </div>
-                <h3 className="text-xl font-bold mb-2 font-display">{stat.label}</h3>
-                <p className="text-sm opacity-70">{stat.description}</p>
+                <h3 className="text-xl font-bold mb-2 font-display text-ink group-hover:text-white transition-colors">{stat.label}</h3>
+                <p className="text-sm text-ink/70 group-hover:text-white/90 transition-colors">{stat.description}</p>
               </div>
             ))}
           </div>
