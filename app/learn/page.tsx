@@ -203,12 +203,12 @@ export default function LearnIndexPage() {
                 For founders who value quality, we also offer select branding and design services—
                 <br className="hidden sm:block" />
                 from logo design to complete brand identity.{' '}
-                <a 
-                  href="mailto:founder@incubazar.com" 
+                <Link
+                  href="/services/branding" 
                   className="text-ink hover:underline underline-offset-4 font-medium transition-colors"
                 >
-                  Reach out to learn more
-                </a>
+                  Explore our services
+                </Link>
               </p>
             </div>
           </div>
