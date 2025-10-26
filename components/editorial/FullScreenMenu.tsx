@@ -15,10 +15,11 @@ interface FullScreenMenuProps {
 const menuItems = [
   { number: "01", label: "PLATFORM", href: "/", description: "Connecting ideas with capital" },
   { number: "02", label: "ABOUT", href: "/about", description: "Our story and mission" },
-  { number: "03", label: "CALCULATOR", href: "/calculator", description: "Venture metrics & valuation tools" },
-  { number: "04", label: "LEARNING HUB", href: "/learn", description: "Master the startup journey" },
-  { number: "05", label: "FOR FOUNDERS", href: "/founder", description: "Raise funding & scale" },
-  { number: "06", label: "FOR INVESTORS", href: "/investor", description: "Discover opportunities" },
+  { number: "03", label: "SERVICES", href: "/services/branding", description: "Brand & design solutions" },
+  { number: "04", label: "CALCULATOR", href: "/calculator", description: "Venture metrics & valuation tools" },
+  { number: "05", label: "LEARNING HUB", href: "/learn", description: "Master the startup journey" },
+  { number: "06", label: "FOR FOUNDERS", href: "/founder", description: "Raise funding & scale" },
+  { number: "07", label: "FOR INVESTORS", href: "/investor", description: "Discover opportunities" },
 ];
 
 export function FullScreenMenu({ isOpen, onClose }: FullScreenMenuProps) {

@@ -29,15 +29,21 @@ export function Logo({
   }
 
   const logoElement = (
-    <div className={`flex items-center gap-2 ${className}`}>
-      {/* Monochrome logo icon */}
-      <div className={`${sizeClasses[size]} bg-ink flex items-center justify-center flex-shrink-0`}>
-        <span className="text-paper font-bold text-sm">I</span>
+    <div className={`flex items-center gap-3 ${className}`}>
+      {/* Actual logo image */}
+      <div className={`relative ${sizeClasses[size]} flex-shrink-0`}>
+        <Image 
+          src="/logo.svg" 
+          alt="Incubazar" 
+          width={size === 'sm' ? 24 : size === 'md' ? 32 : 40}
+          height={size === 'sm' ? 24 : size === 'md' ? 32 : 40}
+          className="object-contain"
+        />
       </div>
       
       {/* Text */}
       {showText && variant === 'default' && (
-        <span className={`${textSizeClasses[size]} font-bold text-ink font-serif`}>
+        <span className={`${textSizeClasses[size]} font-bold text-ink font-serif tracking-tight`}>
           Incubazar
         </span>
       )}

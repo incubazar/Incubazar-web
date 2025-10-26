@@ -87,9 +87,9 @@ export default function EditorialFooter() {
                 <li><a href="https://linkedin.com/company/incubazar" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">LinkedIn</a></li>
                 <li><a href="https://instagram.com/incubazar" target="_blank" rel="noopener noreferrer" className="hover:text-foreground transition-colors">Instagram</a></li>
                 <li>
-                  <a href="mailto:founder@incubazar.com" className="hover:text-foreground transition-colors text-xs opacity-60">
+                  <Link href="/services/branding" className="hover:text-foreground transition-colors">
                     Brand Services
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
