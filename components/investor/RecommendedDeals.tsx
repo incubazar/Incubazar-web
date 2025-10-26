@@ -49,13 +49,13 @@ export function RecommendedDeals({ matches }: RecommendedDealsProps) {
 
   const getMatchQuality = (score: number) => {
     if (score >= 80) {
-      return { label: 'Excellent Match', color: 'text-green-600', bgColor: 'bg-green-50', borderColor: 'border-green-200' }
+      return { label: 'Excellent Match', color: 'text-ink', bgColor: 'bg-graphite-50', borderColor: 'border-graphite-900' }
     } else if (score >= 60) {
-      return { label: 'Good Match', color: 'text-blue-600', bgColor: 'bg-blue-50', borderColor: 'border-blue-200' }
+      return { label: 'Good Match', color: 'text-graphite-800', bgColor: 'bg-graphite-50', borderColor: 'border-graphite-700' }
     } else if (score >= 40) {
-      return { label: 'Fair Match', color: 'text-yellow-600', bgColor: 'bg-yellow-50', borderColor: 'border-yellow-200' }
+      return { label: 'Fair Match', color: 'text-graphite-700', bgColor: 'bg-graphite-100', borderColor: 'border-graphite-500' }
     } else {
-      return { label: 'Low Match', color: 'text-gray-600', bgColor: 'bg-gray-50', borderColor: 'border-gray-200' }
+      return { label: 'Low Match', color: 'text-graphite-600', bgColor: 'bg-graphite-100', borderColor: 'border-graphite-400' }
     }
   }
 
@@ -148,7 +148,7 @@ export function RecommendedDeals({ matches }: RecommendedDealsProps) {
                           <div className="space-y-1">
                             {match.match_reasons.slice(0, 3).map((reason, idx) => (
                               <div key={idx} className="flex items-start gap-2 text-xs">
-                                <CheckCircle className="h-3 w-3 text-green-500 flex-shrink-0 mt-0.5" />
+                                <CheckCircle className="h-3 w-3 text-ink flex-shrink-0 mt-0.5" />
                                 <span className="text-gray-700">{reason}</span>
                               </div>
                             ))}
@@ -161,8 +161,8 @@ export function RecommendedDeals({ matches }: RecommendedDealsProps) {
                         <div className="text-center">
                           <div className="text-xs text-gray-600 mb-1">Sector</div>
                           <div className={`text-sm font-bold ${
-                            match.breakdown.sector_score >= 80 ? 'text-green-600' :
-                            match.breakdown.sector_score >= 50 ? 'text-blue-600' :
+                            match.breakdown.sector_score >= 80 ? 'text-ink' :
+                            match.breakdown.sector_score >= 50 ? 'text-graphite-800' :
                             'text-gray-600'
                           }`}>
                             {match.breakdown.sector_score}%
@@ -171,8 +171,8 @@ export function RecommendedDeals({ matches }: RecommendedDealsProps) {
                         <div className="text-center">
                           <div className="text-xs text-gray-600 mb-1">Stage</div>
                           <div className={`text-sm font-bold ${
-                            match.breakdown.stage_score >= 80 ? 'text-green-600' :
-                            match.breakdown.stage_score >= 50 ? 'text-blue-600' :
+                            match.breakdown.stage_score >= 80 ? 'text-ink' :
+                            match.breakdown.stage_score >= 50 ? 'text-graphite-800' :
                             'text-gray-600'
                           }`}>
                             {match.breakdown.stage_score}%
@@ -181,8 +181,8 @@ export function RecommendedDeals({ matches }: RecommendedDealsProps) {
                         <div className="text-center">
                           <div className="text-xs text-gray-600 mb-1">Range</div>
                           <div className={`text-sm font-bold ${
-                            match.breakdown.investment_range_score >= 80 ? 'text-green-600' :
-                            match.breakdown.investment_range_score >= 50 ? 'text-blue-600' :
+                            match.breakdown.investment_range_score >= 80 ? 'text-ink' :
+                            match.breakdown.investment_range_score >= 50 ? 'text-graphite-800' :
                             'text-gray-600'
                           }`}>
                             {match.breakdown.investment_range_score}%
@@ -191,8 +191,8 @@ export function RecommendedDeals({ matches }: RecommendedDealsProps) {
                         <div className="text-center">
                           <div className="text-xs text-gray-600 mb-1">Risk</div>
                           <div className={`text-sm font-bold ${
-                            match.breakdown.risk_profile_score >= 80 ? 'text-green-600' :
-                            match.breakdown.risk_profile_score >= 50 ? 'text-blue-600' :
+                            match.breakdown.risk_profile_score >= 80 ? 'text-ink' :
+                            match.breakdown.risk_profile_score >= 50 ? 'text-graphite-800' :
                             'text-gray-600'
                           }`}>
                             {match.breakdown.risk_profile_score}%
@@ -201,8 +201,8 @@ export function RecommendedDeals({ matches }: RecommendedDealsProps) {
                         <div className="text-center">
                           <div className="text-xs text-gray-600 mb-1">Location</div>
                           <div className={`text-sm font-bold ${
-                            match.breakdown.location_score >= 80 ? 'text-green-600' :
-                            match.breakdown.location_score >= 50 ? 'text-blue-600' :
+                            match.breakdown.location_score >= 80 ? 'text-ink' :
+                            match.breakdown.location_score >= 50 ? 'text-graphite-800' :
                             'text-gray-600'
                           }`}>
                             {match.breakdown.location_score}%

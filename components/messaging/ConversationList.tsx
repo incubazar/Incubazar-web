@@ -73,41 +73,41 @@ export function ConversationList({
           <Card
             key={conversation.id}
             className={cn(
-              "p-4 cursor-pointer hover:bg-gray-50 transition-colors",
-              activeConversationId === conversation.id && "bg-blue-50 border-blue-300"
+              "p-4 cursor-pointer hover:bg-graphite-50 transition-colors",
+              activeConversationId === conversation.id && "bg-graphite-100 border-ink"
             )}
             onClick={() => onSelectConversation(conversation.id)}
           >
             <div className="flex items-start space-x-3">
-              <Avatar className="h-12 w-12 bg-blue-100 flex items-center justify-center">
+              <Avatar className="h-12 w-12 bg-graphite-200 flex items-center justify-center">
                 {conversation.other_party.role === 'founder' ? (
-                  <Building2 className="h-6 w-6 text-blue-600" />
+                  <Building2 className="h-6 w-6 text-graphite-700" />
                 ) : (
-                  <User className="h-6 w-6 text-blue-600" />
+                  <User className="h-6 w-6 text-graphite-700" />
                 )}
               </Avatar>
 
               <div className="flex-1 min-w-0">
                 <div className="flex items-start justify-between mb-1">
                   <div className="flex-1">
-                    <h3 className="text-sm font-semibold text-gray-900 truncate">
+                    <h3 className="text-sm font-semibold text-ink truncate">
                       {conversation.other_party.role === 'founder' 
                         ? conversation.other_party.startup_name 
                         : conversation.other_party.name}
                     </h3>
                     {conversation.deal_title && (
-                      <p className="text-xs text-gray-500 truncate">
+                      <p className="text-xs text-graphite-600 truncate">
                         {conversation.deal_title}
                       </p>
                     )}
                   </div>
                   <div className="flex items-center space-x-2 ml-2">
                     {conversation.unread_count > 0 && (
-                      <Badge variant="default" className="bg-blue-600">
+                      <Badge variant="default" className="bg-ink text-paper">
                         {conversation.unread_count}
                       </Badge>
                     )}
-                    <span className="text-xs text-gray-500 whitespace-nowrap flex items-center">
+                    <span className="text-xs text-graphite-600 whitespace-nowrap flex items-center">
                       <Clock className="h-3 w-3 mr-1" />
                       {formatTime(conversation.last_message.created_at)}
                     </span>

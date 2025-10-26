@@ -226,11 +226,11 @@ export function MessageThread({
       {/* Header */}
       <CardHeader className="border-b">
         <div className="flex items-center space-x-3">
-          <Avatar className="h-10 w-10 bg-blue-100 flex items-center justify-center">
+          <Avatar className="h-10 w-10 bg-graphite-200 flex items-center justify-center">
             {otherParty.role === 'founder' ? (
-              <Building2 className="h-5 w-5 text-blue-600" />
+              <Building2 className="h-5 w-5 text-graphite-700" />
             ) : (
-              <User className="h-5 w-5 text-blue-600" />
+              <User className="h-5 w-5 text-graphite-700" />
             )}
           </Avatar>
           <div className="flex-1">
@@ -238,7 +238,7 @@ export function MessageThread({
               {otherParty.role === 'founder' ? otherParty.startup_name : otherParty.name}
             </CardTitle>
             {dealTitle && (
-              <p className="text-sm text-gray-500">{dealTitle}</p>
+              <p className="text-sm text-graphite-600">{dealTitle}</p>
             )}
           </div>
           <Badge variant="outline">
@@ -251,13 +251,13 @@ export function MessageThread({
       <CardContent className="flex-1 overflow-y-auto p-4 space-y-4 max-h-[500px]">
         {loading ? (
           <div className="flex items-center justify-center h-full">
-            <Loader2 className="h-8 w-8 animate-spin text-blue-600" />
+            <Loader2 className="h-8 w-8 animate-spin text-graphite-700" />
           </div>
         ) : Object.keys(groupedMessages).length === 0 ? (
           <div className="flex items-center justify-center h-full">
             <div className="text-center">
-              <p className="text-gray-500 mb-2">No messages yet</p>
-              <p className="text-sm text-gray-400">Start the conversation!</p>
+              <p className="text-graphite-600 mb-2">No messages yet</p>
+              <p className="text-sm text-graphite-500">Start the conversation!</p>
             </div>
           </div>
         ) : (
@@ -280,8 +280,8 @@ export function MessageThread({
                     className={cn(
                       "max-w-[70%] rounded-lg px-4 py-2",
                       message.is_sender
-                        ? "bg-blue-600 text-white"
-                        : "bg-gray-100 text-gray-900"
+                        ? "bg-ink text-paper"
+                        : "bg-graphite-100 text-ink"
                     )}
                   >
                     <p className="text-sm whitespace-pre-wrap break-words">
@@ -290,7 +290,7 @@ export function MessageThread({
                     <p
                       className={cn(
                         "text-xs mt-1",
-                        message.is_sender ? "text-blue-100" : "text-gray-500"
+                        message.is_sender ? "text-graphite-300" : "text-graphite-600"
                       )}
                     >
                       {formatTime(message.created_at)}

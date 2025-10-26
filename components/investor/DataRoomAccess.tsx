@@ -126,7 +126,7 @@ export function DataRoomAccess({ dealId, founderId, hasExpressedInterest }: Data
         )
       case 'granted':
         return (
-          <Badge variant="default" className="flex items-center space-x-1 bg-green-600">
+          <Badge variant="default" className="flex items-center space-x-1 bg-ink">
             <CheckCircle className="h-3 w-3" />
             <span>Access Granted</span>
           </Badge>
@@ -144,11 +144,11 @@ export function DataRoomAccess({ dealId, founderId, hasExpressedInterest }: Data
   }
 
   return (
-    <Card className="border-blue-200 bg-blue-50">
+    <Card className="border-graphite-200 bg-graphite-50">
       <CardHeader>
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <Folder className="h-5 w-5 text-blue-600" />
+            <Folder className="h-5 w-5 text-ink" />
             <CardTitle>Data Room</CardTitle>
           </div>
           {getStatusBadge()}
@@ -184,11 +184,11 @@ export function DataRoomAccess({ dealId, founderId, hasExpressedInterest }: Data
                     <li>Team information and resumes</li>
                     <li>Product documentation</li>
                   </ul>
-                  <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
-                    <p className="text-sm text-yellow-800 font-medium">
-                      ⚠️ Confidentiality Notice
+                  <div className="bg-graphite-100 border border-graphite-300 rounded-lg p-3">
+                    <p className="text-sm text-graphite-800 font-medium">
+                      Confidentiality Notice
                     </p>
-                    <p className="text-xs text-yellow-700 mt-1">
+                    <p className="text-xs text-graphite-700 mt-1">
                       All information in the data room is confidential and proprietary. 
                       By requesting access, you agree to maintain strict confidentiality 
                       and use the information solely for investment evaluation purposes.
@@ -223,7 +223,7 @@ export function DataRoomAccess({ dealId, founderId, hasExpressedInterest }: Data
         {accessStatus === 'pending' && (
           <div className="flex items-center justify-center py-4">
             <div className="text-center">
-              <Clock className="h-12 w-12 text-blue-600 mx-auto mb-2" />
+              <Clock className="h-12 w-12 text-graphite-700 mx-auto mb-2" />
               <p className="text-sm text-gray-600">
                 Your access request is pending founder approval
               </p>
@@ -241,7 +241,7 @@ export function DataRoomAccess({ dealId, founderId, hasExpressedInterest }: Data
         {accessStatus === 'denied' && (
           <div className="flex items-center justify-center py-4">
             <div className="text-center">
-              <AlertCircle className="h-12 w-12 text-red-600 mx-auto mb-2" />
+              <AlertCircle className="h-12 w-12 text-ink mx-auto mb-2" />
               <p className="text-sm text-gray-600">
                 Your access request was not approved
               </p>

@@ -128,13 +128,13 @@ export function ReadinessChecklist({
                 key={item.id}
                 className={`flex items-start gap-4 p-4 rounded-lg border transition-all ${
                   item.completed
-                    ? 'bg-green-50 border-green-200'
+                    ? 'bg-graphite-50 border-graphite-900'
                     : 'bg-white border-gray-200 hover:border-primary hover:shadow-sm'
                 }`}
               >
                 <div className="flex-shrink-0 mt-1">
                   {item.completed ? (
-                    <CheckCircle className="h-6 w-6 text-green-500" />
+                    <CheckCircle className="h-6 w-6 text-ink" />
                   ) : (
                     <Circle className="h-6 w-6 text-gray-300" />
                   )}
@@ -144,12 +144,12 @@ export function ReadinessChecklist({
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex-1">
                       <h4 className={`font-semibold ${
-                        item.completed ? 'text-green-900' : 'text-gray-900'
+                        item.completed ? 'text-ink' : 'text-gray-900'
                       }`}>
                         {index + 1}. {item.title}
                       </h4>
                       <p className={`text-sm mt-1 ${
-                        item.completed ? 'text-green-700' : 'text-gray-600'
+                        item.completed ? 'text-graphite-700' : 'text-gray-600'
                       }`}>
                         {item.description}
                       </p>
@@ -172,12 +172,12 @@ export function ReadinessChecklist({
 
         {/* Completion Message */}
         {completionPercentage === 100 ? (
-          <div className="p-4 bg-gradient-to-r from-green-50 to-blue-50 border border-green-200 rounded-lg">
+          <div className="p-4 bg-graphite-50 border border-ink rounded-lg">
             <div className="flex items-start gap-3">
-              <CheckCircle className="h-6 w-6 text-green-500 flex-shrink-0 mt-0.5" />
+              <CheckCircle className="h-6 w-6 text-ink flex-shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-semibold text-green-900">You're investor-ready! 🎉</h4>
-                <p className="text-sm text-green-700 mt-1">
+                <h4 className="font-semibold text-ink">You're investor-ready!</h4>
+                <p className="text-sm text-graphite-700 mt-1">
                   You've completed all the essential steps. Your profile will be reviewed by our team,
                   and once approved, your deals will be visible to investors.
                 </p>
@@ -185,14 +185,14 @@ export function ReadinessChecklist({
             </div>
           </div>
         ) : (
-          <div className="p-4 bg-blue-50 border border-blue-200 rounded-lg">
+          <div className="p-4 bg-graphite-50 border border-graphite-300 rounded-lg">
             <div className="flex items-start gap-3">
-              <Shield className="h-6 w-6 text-blue-500 flex-shrink-0 mt-0.5" />
+              <Shield className="h-6 w-6 text-graphite-700 flex-shrink-0 mt-0.5" />
               <div>
-                <h4 className="font-semibold text-blue-900">
+                <h4 className="font-semibold text-ink">
                   {totalCount - completedCount} step{totalCount - completedCount !== 1 ? 's' : ''} remaining
                 </h4>
-                <p className="text-sm text-blue-700 mt-1">
+                <p className="text-sm text-graphite-700 mt-1">
                   Complete the checklist to strengthen your fundraising profile and increase your
                   chances of connecting with the right investors.
                 </p>

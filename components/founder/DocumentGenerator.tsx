@@ -158,9 +158,9 @@ export function DocumentGenerator({ founderProfile, startupDetails }: DocumentGe
 
   return (
     <div className="space-y-6">
-      <Alert className="border-blue-200 bg-blue-50">
-        <Info className="h-4 w-4 text-blue-600" />
-        <AlertDescription className="text-blue-800">
+      <Alert className="border-graphite-200 bg-graphite-50">
+        <Info className="h-4 w-4 text-ink" />
+        <AlertDescription className="text-graphite-800">
           <strong>Document Templates:</strong> These are standardized templates with your company details pre-filled.
           You can download them, review with legal counsel, and use them for your fundraising.
         </AlertDescription>
@@ -179,7 +179,7 @@ export function DocumentGenerator({ founderProfile, startupDetails }: DocumentGe
                 <CardDescription>Simple Agreement for Future Equity</CardDescription>
               </div>
               {generatedDocs.safe && (
-                <CheckCircle className="h-6 w-6 text-green-500" />
+                <CheckCircle className="h-6 w-6 text-ink" />
               )}
             </div>
           </CardHeader>
@@ -242,9 +242,9 @@ export function DocumentGenerator({ founderProfile, startupDetails }: DocumentGe
             </Button>
 
             {generatedDocs.safe && (
-              <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
-                <p className="text-sm text-green-800">
-                  ✓ SAFE agreement generated successfully!
+              <div className="p-3 bg-graphite-100 border border-graphite-300 rounded-lg">
+                <p className="text-sm text-graphite-800">
+                  SAFE agreement generated successfully!
                 </p>
               </div>
             )}
@@ -263,7 +263,7 @@ export function DocumentGenerator({ founderProfile, startupDetails }: DocumentGe
                 <CardDescription>Private Placement Offer Letter</CardDescription>
               </div>
               {generatedDocs.pas4 && (
-                <CheckCircle className="h-6 w-6 text-green-500" />
+                <CheckCircle className="h-6 w-6 text-ink" />
               )}
             </div>
           </CardHeader>
@@ -353,9 +353,9 @@ export function DocumentGenerator({ founderProfile, startupDetails }: DocumentGe
                 </Button>
 
                 {generatedDocs.pas4 && (
-                  <div className="p-3 bg-green-50 border border-green-200 rounded-lg">
-                    <p className="text-sm text-green-800">
-                      ✓ PAS-4 form generated successfully!
+                  <div className="p-3 bg-graphite-100 border border-graphite-300 rounded-lg">
+                    <p className="text-sm text-graphite-800">
+                      PAS-4 form generated successfully!
                     </p>
                   </div>
                 )}
@@ -366,15 +366,15 @@ export function DocumentGenerator({ founderProfile, startupDetails }: DocumentGe
       </div>
 
       {/* Legal Disclaimer */}
-      <Card className="border-orange-200 bg-orange-50">
+      <Card className="border-graphite-300 bg-graphite-50">
         <CardContent className="pt-6">
           <div className="flex items-start space-x-3">
-            <AlertCircle className="h-5 w-5 text-orange-600 mt-0.5" />
+            <AlertCircle className="h-5 w-5 text-ink mt-0.5" />
             <div>
-              <h3 className="text-sm font-medium text-orange-800">
+              <h3 className="text-sm font-medium text-ink">
                 Legal Disclaimer
               </h3>
-              <p className="text-sm text-orange-700 mt-1">
+              <p className="text-sm text-graphite-700 mt-1">
                 These are template documents for your convenience. We strongly recommend having them
                 reviewed by a qualified legal professional before using them in any actual transaction.
                 Incubazar is not responsible for the legal validity of these documents.

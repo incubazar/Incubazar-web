@@ -137,7 +137,7 @@ export function ExpressInterestButton({
 
             <div className="space-y-3 p-4 bg-gray-50 rounded-lg border">
               <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="h-4 w-4 text-ink flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-700">
                   <strong>Platform Role:</strong> Incubazar is a technology platform that facilitates connections 
                   between founders and investors. We are NOT a broker, dealer, or investment advisor.
@@ -145,7 +145,7 @@ export function ExpressInterestButton({
               </div>
 
               <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="h-4 w-4 text-ink flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-700">
                   <strong>Your Responsibility:</strong> You are solely responsible for conducting your own 
                   due diligence, analysis, and investment decisions.
@@ -153,7 +153,7 @@ export function ExpressInterestButton({
               </div>
 
               <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="h-4 w-4 text-ink flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-700">
                   <strong>Risk Warning:</strong> Investments in early-stage startups carry substantial risk, 
                   including the potential loss of your entire investment.
@@ -161,7 +161,7 @@ export function ExpressInterestButton({
               </div>
 
               <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="h-4 w-4 text-ink flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-700">
                   <strong>No Guarantees:</strong> Information provided on this platform is for informational 
                   purposes only and does not constitute investment advice or a recommendation.
@@ -169,7 +169,7 @@ export function ExpressInterestButton({
               </div>
 
               <div className="flex items-start gap-2">
-                <CheckCircle className="h-4 w-4 text-green-500 flex-shrink-0 mt-0.5" />
+                <CheckCircle className="h-4 w-4 text-ink flex-shrink-0 mt-0.5" />
                 <p className="text-sm text-gray-700">
                   <strong>Professional Advice:</strong> We strongly recommend consulting with qualified 
                   legal, financial, and tax advisors before making any investment.

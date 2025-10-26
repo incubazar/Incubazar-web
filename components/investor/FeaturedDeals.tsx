@@ -49,12 +49,12 @@ export function FeaturedDeals({ deals }: FeaturedDealsProps) {
   }
 
   return (
-    <Card className="border-2 border-primary/20 bg-gradient-to-br from-primary/5 to-transparent">
+    <Card className="border-2 border-ink/20 bg-gradient-to-br from-graphite-50 to-transparent">
       <CardHeader>
         <div className="flex items-center justify-between">
           <div>
             <CardTitle className="text-2xl flex items-center gap-2">
-              <Star className="h-6 w-6 text-yellow-500 fill-yellow-500" />
+              <Star className="h-6 w-6 text-ink fill-ink" />
               Featured Deals
             </CardTitle>
             <CardDescription className="text-base">
@@ -84,7 +84,7 @@ export function FeaturedDeals({ deals }: FeaturedDealsProps) {
                         <h3 className="font-bold text-lg line-clamp-1">
                           {deal.founder_profile.startup_name}
                         </h3>
-                        <Star className="h-4 w-4 text-yellow-500 fill-yellow-500 flex-shrink-0" />
+                        <Star className="h-4 w-4 text-ink fill-ink flex-shrink-0" />
                       </div>
                       <p className="text-sm text-gray-600 line-clamp-1">{deal.deal_title}</p>
                     </div>
@@ -131,7 +131,7 @@ export function FeaturedDeals({ deals }: FeaturedDealsProps) {
                         {deal.investor_count}/{deal.investor_limit} investors
                       </span>
                       <span className={`font-medium ${
-                        slotsRemaining < 20 ? 'text-orange-600' : 'text-gray-600'
+                        slotsRemaining < 20 ? 'text-ink' : 'text-gray-600'
                       }`}>
                         {slotsRemaining} slots left
                       </span>
@@ -140,10 +140,10 @@ export function FeaturedDeals({ deals }: FeaturedDealsProps) {
                       <div
                         className={`h-2 rounded-full transition-all ${
                           percentageFilled >= 90
-                            ? 'bg-red-500'
+                            ? 'bg-graphite-900'
                             : percentageFilled >= 70
-                            ? 'bg-orange-500'
-                            : 'bg-green-500'
+                            ? 'bg-graphite-700'
+                            : 'bg-graphite-500'
                         }`}
                         style={{ width: `${Math.min(percentageFilled, 100)}%` }}
                       />

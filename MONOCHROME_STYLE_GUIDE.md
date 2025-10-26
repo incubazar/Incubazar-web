@@ -4,6 +4,14 @@
 
 Incubazar's monochrome design embodies **sophistication, clarity, and timelessness**. Inspired by premium editorial magazines, the interface uses only black, white, and grayscale tones to create a striking, immersive experience that commands attention without visual clutter.
 
+### 🎨 Functional Color Exception
+
+While we maintain **pure monochrome for all branding**, we allow **functional colors** for data visualization and status indicators where color significantly improves comprehension. See `FUNCTIONAL_COLOR_GUIDE.md` for details.
+
+**Zones:**
+- ✅ **Pure Monochrome:** Marketing, editorial, navigation, branding
+- 🎨 **Functional Colors:** Charts, calculators, compliance alerts, data dashboards
+
 ---
 
 ## Color Palette

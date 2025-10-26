@@ -87,14 +87,14 @@ export default function PremiumHero() {
               <span className="font-semibold text-foreground text-sm md:text-base">Regulatory Compliant</span>
             </div>
             <div className="flex items-center space-x-2 md:space-x-3 group cursor-default justify-center sm:justify-start">
-              <div className="p-2 md:p-2.5 rounded-xl bg-green-500/10 group-hover:bg-green-500/20 transition-all duration-300 group-hover:scale-110">
-                <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-green-500" />
+              <div className="p-2 md:p-2.5 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+                <CheckCircle2 className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               </div>
               <span className="font-semibold text-foreground text-sm md:text-base">Curated Startups</span>
             </div>
             <div className="flex items-center space-x-2 md:space-x-3 group cursor-default justify-center sm:justify-start">
-              <div className="p-2 md:p-2.5 rounded-xl bg-blue-500/10 group-hover:bg-blue-500/20 transition-all duration-300 group-hover:scale-110">
-                <Users className="w-4 h-4 md:w-5 md:h-5 text-blue-500" />
+              <div className="p-2 md:p-2.5 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-all duration-300 group-hover:scale-110">
+                <Users className="w-4 h-4 md:w-5 md:h-5 text-primary" />
               </div>
               <span className="font-semibold text-foreground text-sm md:text-base">Verified Investors</span>
             </div>
