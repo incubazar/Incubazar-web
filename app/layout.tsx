@@ -30,7 +30,24 @@ export const metadata: Metadata = {
     template: '%s | Incubazar'
   },
   description: 'India\'s premier platform connecting early-stage startups with angel investors. Raise capital through Section 42 compliant private placements. Access venture calculators, due diligence tools, and fundraising resources.',
-  keywords: ['startup funding India', 'angel investors', 'private placement', 'Section 42', 'fundraising platform', 'venture capital', 'seed funding', 'startup ecosystem', 'entrepreneur', 'founder platform', 'investor network', 'due diligence', 'venture calculator', 'startup resources'],
+  keywords: [
+    // Funding & Investment
+    'startup funding India', 'startup funding platform in India', 'angel investors', 'angel investor platform India', 'venture capital', 'seed funding', 'investor network', 'investment platform', 'startup investment', 'early stage investment', 'venture funding', 'seed investment', 'angel investment', 'startup investments', 'startup investing', 'funding opportunities', 'startup fundraising', 'startup capital',
+    // Compliance & Legal
+    'private placement', 'Section 42', 'startup legal compliance India', 'startup laws', 'due diligence', 'private equity for startups', 'startup compliance checklist India', 'what is private placement under Section 42?',
+    // Incubation & Growth
+    'incubator', 'incubation', 'startup incubator India', 'business incubator', 'startup accelerator', 'business accelerator', 'startup mentorship', 'business mentorship', 'startup support', 'business support', 'startup growth', 'business growth', 'startup advisory', 'business advisory', 'startup connect', 'business connect', 'startup ecosystem', 'entrepreneur', 'founder platform', 'startup network', 'business network',
+    // Resources & Tools
+    'venture calculator', 'startup resources', 'fundraising tips for founders', 'startup pitch', 'startup incubator platform',
+    // Long-tail & Question-based
+    'how to raise capital in India', 'how to get startup funding in India', 'startup investment opportunities', 'best fundraising platforms for startups', 'how to find angel investors in India',
+    // Location-specific
+    'startup incubator in Bangalore', 'startup investors in Delhi NCR', 'startup funding platforms Punjab',
+    // Branded
+    'Incubazar funding platform', 'Incubazar startup incubator', 'Incubazar India',
+    // Other relevant
+    'business investment', 'business funding', 'business investor', 'business investments', 'business angel', 'business investor network', 'business investments India'
+  ],
   authors: [{ name: 'Incubazar', url: 'https://incubazar.com' }],
   creator: 'Incubazar',
   publisher: 'Incubazar',

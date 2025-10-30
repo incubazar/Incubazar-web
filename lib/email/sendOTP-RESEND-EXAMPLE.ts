@@ -259,7 +259,7 @@ export async function sendAdminWaitlistNotification({ waitlistEntry }: any) {
   try {
     await resend.emails.send({
       from: 'Incubazar System <system@incubazar.com>',
-      to: [process.env.ADMIN_EMAIL || 'admin@incubazar.com'],
+        to: [process.env.ADMIN_EMAIL || 'founder@incubazar.com'],
       subject: '🆕 New Waitlist Application',
       html: `
         <h2>New Waitlist Application</h2>
